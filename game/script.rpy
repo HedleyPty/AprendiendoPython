@@ -482,8 +482,16 @@ label q13
             h "[error]"
         "¿Cuanto es el valor de 135\%2?"
         "0":
-            
-        "1"
-        "2"
-        "135"
+            $error="Eso no es correcto"
+            jump q13
+        "1":
+            h "¡Exacto! seguimos adelante!"
+        "2":
+            $error="Eso no es correcto"
+            jump q13
+        "135":
+            $error="Eso no es correcto"
+            jump q13
+label n11:
+    pass
     return
