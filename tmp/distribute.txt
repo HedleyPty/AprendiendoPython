@@ -2,6 +2,8 @@ tmp/ matches tmp/ (None).
 .git/ matches **/.** (None).
 traceback.txt matches traceback.txt (None).
 errors.txt matches errors.txt (None).
+Programar_con_Python-1.0-dists/ matches ** ([u'all']).
+Programar_con_Python-1.0-dists/Programar_con_Python-1.0-all.zip matches ** ([u'all']).
 README.html matches ** ([u'all']).
 log.txt matches log.txt (None).
 game/ matches ** ([u'all']).
@@ -29,6 +31,7 @@ game/tl/None/common.rpy matches ** ([u'all']).
 game/tl/None/screens.rpyc matches ** ([u'all']).
 game/tl/None/screens.rpy matches ** ([u'all']).
 game/options.rpyc matches ** ([u'all']).
+.android.json matches .android.json ([u'android']).
 update/ doesn't match anything.
 update/ matches None (None).
 doc/ doesn't match anything.
