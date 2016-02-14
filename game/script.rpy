@@ -470,5 +470,20 @@ label n10:
     h "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55.0/8\n6.87"
     h 'El residuo es lo "sobra" despues de dividir con enteros'
     h 'Es decir, 55 entre 8 es 6, pero como 6*8 es 48, el "residuo" sería 7 es decir 55-48 es 7'
-    h 
+    h "55\%8\n7"
+    h "23\%5\n3"
+    h "El residuo es importante para valorar los números pares de los impares"
+    h "Los números pares al dividirse entre 2 tienen un residuo de 0, pero los impares tienen un residuo de 1"
+    hide text
+    error=""
+label q13
+    menu:
+        if error:
+            h "[error]"
+        "¿Cuanto es el valor de 135\%2?"
+        "0":
+            
+        "1"
+        "2"
+        "135"
     return
