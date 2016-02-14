@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 423: expected statement.
-    h
-     ^
+File "game/script.rpy", line 481: expected menuitem
+    if error:
+    ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

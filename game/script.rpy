@@ -432,7 +432,7 @@ label n9:
     h "La suma o resta de dos o más variables de tipo entera producen un entero, y si hay por lo menos una variablo de tipo flotante, se produce un resultado flotante"
     h "{color=#ff0}#Es decir{/color}\n1+1\n2\1.2+1\n2.2\n2.3-1-3\n1.7"
     h "Tengo buena memoria y me acuerdo que creamos un par de variables peso_Varon y peso_Mujer"
-    error=""
+    $error=""
     hide text
 label q12:
     if error:
@@ -475,23 +475,23 @@ label n10:
     h "El residuo es importante para valorar los números pares de los impares"
     h "Los números pares al dividirse entre 2 tienen un residuo de 0, pero los impares tienen un residuo de 1"
     hide text
-    error=""
-label q13
-    menu:
+    $error=""
+label q13:
         if error:
             h "[error]"
-        "¿Cuanto es el valor de 135\%2?"
-        "0":
-            $error="Eso no es correcto"
-            jump q13
-        "1":
-            h "¡Exacto! seguimos adelante!"
-        "2":
-            $error="Eso no es correcto"
-            jump q13
-        "135":
-            $error="Eso no es correcto"
-            jump q13
+        menu:
+            "¿Cuanto es el valor de 135\%2?"
+            "0":
+                $error="Eso no es correcto"
+                jump q13
+            "1":
+                h "¡Exacto! seguimos adelante!"
+            "2":
+                $error="Eso no es correcto"
+                jump q13
+            "135":
+                $error="Eso no es correcto"
+                jump q13
 label n11:
     pass
     return
