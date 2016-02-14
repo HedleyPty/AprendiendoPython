@@ -1,0 +1,18 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+ValueError: unsupported format character '{' (0x7b) at index 216
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/hedley/script.rpyc", line 426, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 603, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1113, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character '{' (0x7b) at index 216
+
+Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
+Ren'Py 6.99.8.959
+Programar con Python 0.0
