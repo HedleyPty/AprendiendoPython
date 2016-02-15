@@ -493,10 +493,30 @@ label q13:
                 $error="Eso no es correcto"
                 jump q13
 label n11:
-    h "Bueno... la exponenciacion es parte de parte de la aritmética...."
+    h "Bueno... voy a discutir acerca de la exponenciación , la cual es parte de parte de la aritmética...."
     h "En la exponenciación hay dos elementos, la base y el exponente"
     #text ...
     h "En la exponenciación la base debe multiplicarse por si misma las veces indicadas por el exponente"
+    h "En Python, la exponenciación se realiza asi: base**exponente"
     h "5*5 es 25 y 9*9*9 es 729\n,tambien 5**2 es 25 y 9**3 es 729"
-    h 'En matemáticas, el exponente 2 se le llama "cuadrado" y al exponente 3 se llama "cubo"'
+    h 'En matemáticas (mas no en Python), el exponente 2 se le llama "cuadrado" y al exponente 3 se llama "cubo", los que siguen mediante números cardinales: 4 "elevado a la cuarta", 5 "elevado a la quinta", etc'
+    h "El exponente 0 siempre da como resultado 1, y el exponente 1 da como resultado la base"
+    h "#Es decir que el exponente 0 da como resultado 1\n454655**0n\1"
+    h "#Y el exponente 1 da como resultado la base\n454655**1n\454655"
+    h "Seguimos hablando de la exponenciación... "
+    h "Sabemos que la resta es lo opuesto a la suma y la división es lo opuesto a la multiplicación"
+    h "#En el caso de la suma:\n2+3\n5#Y su operación opuesta es la resta\n5-3\n2"
+    h "#En el caso de la multiplicación:\n5*6\n30#Y su operación opuesta es la división\n30/5\n6"
+    h "En la exponenciación tenemos 2 operaciones opuestas: la \"radicación\" y el \"logaritmo\""
+    #Figura de la radicación
+    h "En el caso de la radicación tenemos 2 componentes, que son el radical y el índice"
+    h "El objetivo de la radicación es obtener el número que al multiplicarse por si mismo las veces dadas por el índice da por resultado el radical"
+    h "Los índides siguen las mismos nombres (en matemáticas) de los exponentes de la exponenciación: raíz cuadrada (2), raíz cúbica (3), raíz cuarta (4), etc "
+    h "Por ejemplo, la raíz cuarta de 1296 es 6, porque 6*6*6*6 es 1296 o bien 6**4 es 1296"
+label q14:
+    
+    h "**Python no tiene ninguna función (de manera predefinida) para calcular raíces"
+    h "Sin embargo, es posible calcular cualquier raíz de cualquier índice usando uno de los 2 métodos"
+    h "Un método es primero importar un módulo llamado Math y luego usar un método llamado sqrt"
+    h "La radicación es muy utilizada por el uso de Teorema de Pitagóras, el cual exige el uso de raíces cuadras"
     return
