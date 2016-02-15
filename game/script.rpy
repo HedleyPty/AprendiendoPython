@@ -493,5 +493,10 @@ label q13:
                 $error="Eso no es correcto"
                 jump q13
 label n11:
-    pass
+    h "Bueno... la exponenciacion es parte de parte de la aritmética...."
+    h "En la exponenciación hay dos elementos, la base y el exponente"
+    #text ...
+    h "En la exponenciación la base debe multiplicarse por si misma las veces indicadas por el exponente"
+    h "5*5 es 25 y 9*9*9 es 729\n,tambien 5**2 es 25 y 9**3 es 729"
+    h 'En matemáticas, el exponente 2 se le llama "cuadrado" y al exponente 3 se llama "cubo"'
     return
