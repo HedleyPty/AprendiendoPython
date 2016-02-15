@@ -1,17 +1,17 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-ValueError: unsupported format character '{' (0x7b) at index 216
+ScriptError: could not find label 'n12'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 426, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 603, in execute
-    renpy.exports.say(who, what, interact=self.interact)
-  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1113, in say
-    what = what % tag_quoting_dict
-ValueError: unsupported format character '{' (0x7b) at index 216
+  File "/home/hedley/script.rpyc", line 560, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1519, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/home/hedley/Documents/renpy/renpy/script.py", line 843, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'n12'.
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959

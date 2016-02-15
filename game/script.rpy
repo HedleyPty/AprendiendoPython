@@ -427,10 +427,10 @@ label n9:
     h "La suma y la resta son bastante sencillas, veamos unos ejemplos"
     h "1+1\n2"
     h "3-2\n1"
-    h "24-45\n-11"
+    h "24-45\n-21"
     h "Claro está... debemos recordar que hay dos tipos de varibles numéricas, las de tipo entera ({color=#ff0}int{/color}) y las de tipo flotante que manejan decimales ({color=#ff0}float{/color})"
     h "La suma o resta de dos o más variables de tipo entera producen un entero, y si hay por lo menos una variablo de tipo flotante, se produce un resultado flotante"
-    h "{color=#ff0}#Es decir{/color}\n1+1\n2\1.2+1\n2.2\n2.3-1-3\n1.7"
+    h "{color=#ff0}#Es decir{/color}\n1+1\n2\n1.2+1\n2.2\n2.3-1-3\n1.7"
     h "Tengo buena memoria y me acuerdo que creamos un par de variables peso_Varon y peso_Mujer"
     $error=""
     hide text
@@ -465,9 +465,9 @@ label n10:
     h "{color=#f0f}Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
     h "{color=#f0f}Pero 50 entre 8 tambien es 6{/color}\n50/8\n6"
     h "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55/8\n6"
-    h "{color=#f0f}Claro está 56 entre 8 tambien es 7{/color}\n56/8\n7"
-    h "Las operaciones con flotantes, se toman en cuenta los decimiales por lo que.."
-    h "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55.0/8\n6.87"
+    h "{color=#f0f}Claro está 56 entre 8 es 7{/color}\n56/8\n7"
+    h "Las operaciones con flotantes, se toman en cuenta los decimales por lo que.."
+    h "{color=#f0f}Aun más 55 entre 8 es 6.87{/color}\n55.0/8\n6.87"
     h 'El residuo es lo "sobra" despues de dividir con enteros'
     h 'Es decir, 55 entre 8 es 6, pero como 6*8 es 48, el "residuo" sería 7 es decir 55-48 es 7'
     h "55\%8\n7"
@@ -493,20 +493,20 @@ label q13:
                 $error="Eso no es correcto"
                 jump q13
 label n11:
-    h "Bueno... voy a discutir acerca de la exponenciación , la cual es parte de parte de la aritmética...."
+    h "Bueno... voy a discutir acerca de la exponenciación, la cual es parte de parte de la aritmética...."
     h "En la exponenciación hay dos elementos, la base y el exponente"
     #text ...
-    h "En la exponenciación la base debe multiplicarse por si misma las veces indicadas por el exponente"
+    h "En la exponenciación, la base debe multiplicarse por si misma las veces indicadas por el exponente"
     h "En Python, la exponenciación se realiza asi: base**exponente"
     h "5*5 es 25 y 9*9*9 es 729\n,tambien 5**2 es 25 y 9**3 es 729"
     h 'En matemáticas (mas no en Python), el exponente 2 se le llama "cuadrado" y al exponente 3 se llama "cubo", los que siguen mediante números cardinales: 4 "elevado a la cuarta", 5 "elevado a la quinta", etc'
     h "El exponente 0 siempre da como resultado 1, y el exponente 1 da como resultado la base"
-    h "#Es decir que el exponente 0 da como resultado 1\n454655**0n\1"
-    h "#Y el exponente 1 da como resultado la base\n454655**1n\454655"
+    h "#Es decir que el exponente 0 da como resultado 1\n454655**0\n1"
+    h "#Y el exponente 1 da como resultado la base\n454655**1\n454655"
     h "Seguimos hablando de la exponenciación... "
     h "Sabemos que la resta es lo opuesto a la suma y la división es lo opuesto a la multiplicación"
-    h "#En el caso de la suma:\n2+3\n5#Y su operación opuesta es la resta\n5-3\n2"
-    h "#En el caso de la multiplicación:\n5*6\n30#Y su operación opuesta es la división\n30/5\n6"
+    h "#En el caso de la suma:\n2+3\n5\n#Y su operación opuesta es la resta\n5-3\n2"
+    h "#En el caso de la multiplicación:\n5*6\n30\n#Y su operación opuesta es la división\n30/5\n6"
     h "En la exponenciación tenemos 2 operaciones opuestas: la \"radicación\" y el \"logaritmo\""
     #Figura de la radicación
     h "En el caso de la radicación tenemos 2 componentes, que son el radical y el índice"
@@ -517,6 +517,158 @@ label q14:
     
     h "**Python no tiene ninguna función (de manera predefinida) para calcular raíces"
     h "Sin embargo, es posible calcular cualquier raíz de cualquier índice usando uno de los 2 métodos"
-    h "Un método es primero importar un módulo llamado Math y luego usar un método llamado sqrt"
-    h "La radicación es muy utilizada por el uso de Teorema de Pitagóras, el cual exige el uso de raíces cuadras"
+    h "Un método es primero importar un módulo llamado math y luego usar un método llamado sqrt"
+    h "Si usamos este método SOLAMENTE podemos calcular raíces con indices pares..."
+    h "Vamos a calcular la raíz cuadrada de 25 (que sabemos que es cinco)"
+    h "Lo primero es importar el módulo de mas matemáticas"
+    h "Lo hacemos con la palabra reservada {color=#ff0}import{/import}"
+    h "#Es decir\nimport math"
+    h "Y luego usamos el metodo sqrt de math asi"
+    h "#Raiz cuadrada de 25\nimport math\nmath.sqrt(25)\n5.0"
+    h "Podemos calcularlo de otra manera, teniendo en cuenta que la raíz cuadrada de un número es lo mismo que elevarlo a la 1/2\nla raíz cúbica es lo mismo que elevarlo a la 1/3, la cuarta a la 1/4, etc"
+    h "Sin necesidad de importar ningún módulo podemos calcular la raíz cuadrada de 25 así"
+    h "#Raiz cuadrada de 25\nhalf=1.0/2.0\n25**half\n5.0"
+    h "El objetivo del logaritmo es el cálculo del exponente si sabemos la base y la potencia"
+    h "Si sabemos de 4*4, o 4**2 es 16, entonces el logaritmo de 16 con base 4 es 2"
+    h "En Python, para calcular el logaritmo debemos importar el método log del módulo math para calcular el logaritmo"
+    h "#Para calcular el logaritmo de 16 con base 2\nimport math\nmath.log(16,2)\n4.0"
+    $error=""
+    $digestivo_counter=0
+    $respuesta=10
+label q15:
+    $ encabezado="Calcule usando Python:\n"
+    $ encabezados = ["Siete elevado a la quinta potencia", "La raíz cuadrada de 64 usando el módulo math", "La raíz cuadrada de 49 usando un flotante como exponente"]
+    $ Menus = [ ["7*5", "7**5", "7***5"],
+                ["import math\nmath(64,2)", "import math\nmath.exp(64,2)", "import math\nmath.sqrt(64)"],
+                ["49**0.5", "0.5**49", "float(49)**2"]]
+    $ claves =[1,2,0]
+    
+    if respuesta==10:
+        pass
+    elif respuesta == claves[digestivo_counter] and digestivo_counter < 3:
+        $digestivo_counter += 1
+    else:
+        $error="¡Eso no es correcto!"
+    if error:
+        h "[error]"
+        $error=""
+    if digestivo_counter <=3:
+        if digestivo_counter < 3:
+            h "CORRECTO"
+            h "Vamos por el siguiente reto"
+        else:
+            h "Exacto, has concluido este ejercicio"
+            jump n12
+    $encabezado += encabezados [digestivo_counter]
+    $Menu1=Menus[digestivo_counter][0]
+    $Menu2=Menus[digestivo_counter][1]
+    $Menu3=Menus[digestivo_counter][2]
+    menu:
+        "[encabezado]"
+        "[Menu1]":
+            $ respuesta = 0
+            jump q15
+        "[Menu2]":
+            $ respuesta = 1
+            jump q15
+        "[Menu3]":
+            $ respuesta = 2
+            jump q15
+label n12: 
+    h "Una utilidad práctica de la exponenciación es el cálculo de los lados de un triángulo rectángulo basado en el teorema de Pitágoras"
+    h "El teorema de Pitágoras se utiliza para calcular distancias entre 2 puntos en un plano"
+    h 'Si las distancias son menores a un valor determinado, tenemos una "colisión"'
+    h "El teorema de Pitágoras tiene que ver también como los conceptos de conversión materia y energía propuesto por la Teoría de la Relatividad de Einstein o la teoría de la formación de antimateria"
+    h "Para recordar, los triangulos tienen 3 lados y 3 ángulos"
+    h "La suma de los 3 ángulos de un triángulo (siempre que esté en un plano) da por resultado 180 grados"
+    h "Cuando uno de sus ángulos es recto, es decir que mide 90 grados, tenemos un triángulo rectángulo y podemos aplicar el teorema de Pitágoras"
+    h "Los triángulos rectángulos su lado más largo opuesto al ángulo recto y éste se denomina hipotenusa (la vamos a llamar c)"
+    h "Los otros dos lados más cortos del triángulo (que forman el triángulo rectángulo) se denominan catetos (los vamos a llamar a y b)"
+    h "El teorema de Pitágoras establece que la hipotenusa al cuadrado es la suma de las cuadrados de los catetos"
+    h "¡Qué enredo!"
+    h "#El Teorema de Pitagoras luce así en codigo Python\n c=(a**2+b**2)**.5"
+    h "¡Epa! ¿Y esos paréntesis?"
+    h "Tranquilo esos paréntesis son para explicar otro concepto llamado la prodecencia de los operadores aritméticos"
+    h "Las operaciones aritméticas se realizan en este órden: primero cualquier cosa que esté paréntesis, luego las potencias, luego las multiplicaciones y divisiones; y finalmente las sumas y las restas"
+    h "Al escribir {color=#ff0}c=(a**2+b**2)**.5{/color} estamos primero elevando al cuadrado a y b"
+    h "luego realizando la suma de esos cuadrados y finalmente sacando la raíz cuadrada a esa suma (es decir elevando por 0.5)"
+    $error=""
+label q16:
+    h "Vamos a ver un {color=#ff00}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
+    h "En la implementación Python 'Pygame' y en las páginas web, el lienzo (o canvas) representa un sistema de coordenadas con el origen en la esquina superior izquierda"
+    menu:
+        "Si tenemos una variable x que contiene la distancia de un objeto O en milimetros desde el borde izquierdo del lienzo\ny una variable y que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cual de estos códigos Python representa la variable d que contrine la distancia entre el objeto y la esquina superior izquierda?"
+        "d=(y**2+x**2)**.5":
+            h "¡Correcto!"
+        "d=(x**2+y**2)**5":
+            h "¡Eso no es correcto!"
+            jump q16
+        "d=(x**2+y**2)**.5+O":
+            h "¡Eso no es correcto!"
+            jump q16
+label n13:
+    h "Creo que me he emociado con los operadores... ¡pero aun no acabo!"
+    h "Vamos a imaginar que estamos jugando cualquier video juego... Mario Bros, cualquier shooter, Candy Crush, etc"
+    h "A medida que hacemos ciertas acciones, nuestro puntaje, vidas o el tiempo restante cambian"
+    h "En el caso de Mario Bros., al tocar una moneda nuestro contador de monedas sube un punto."
+    h "En ese mismo juego, al tocarnos un enemigo estando chiquitos perdemos una vida y el contador de vidas baja una unidad (Si teníamos 3 vidas ahora tenemos 2)"
+    h "En ese y muchos otros video juegos, hay una serie de variables que tienen ese comportamiento debido que son escudriñadas por operadores de incremento y decremento" 
+    h "Python hay 2 operadores de incremento y 2 de decremento"
+    h "Estos operadores (a diferencia del de asignación) requiere que dichas variables existan"
+    h "De lo contrario tenemos un error de sintaxis"
+    h "Una vez que creamos una variable la podemos modificar con estos operadores"
+    h "En el caso del operador aditivo de incremento {color=#ff0}+={/color}, el valor de la variable de la izquierda sube el número de unidades del número de la derecha del operador"
+    h "x=5\nx += 2\nx\n7\nx += 2\nx\n9"
+    h "En operador de decremento aditivo, {color=#ff0}-={/color}, es similar al de incremento, pero en lugar de subir el valor de la variable, lo baja"
+    h "vidas=3\nvidas -= 1\nvidas\n2\nvidas -= 1\nvidas\n1"
+    h "En operador de incremento multiplicativo, {color=#ff0}*={/color}, es similar al de incremento aditivo, pero en lugar de sumar el valor de la variable, lo sube multiplicando por el valor de la derecha"
+    h "vidas=5\nvidas *= 2\nvidas\n10\nvidas *= 4\nvidas\n40"
+    h "En operador de incremento multiplicativo, {color=#ff0}*={/color}, es similar al de incremento multiplicativo, pero en lugar de multiplicar el valor de la variable, lo disminuye dividiendo por el valor de la derecha"
+    h "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
+    h "Vamos a ver el siguiente ejercicio"
+    $error=""
+label q17:
+    if error:
+        h "[error]"
+        $error=""
+    menu:
+        "Calcule el valor de la raciones despues de ejecutar el codigo\nraciones=25\nraciones -= 7\nraciones"
+        "Error de compilacion":
+            $ error= "No veo ningun error en ese código"
+            jump q17
+        "3":
+            h "Correcto, al dividir entre 2 enteros, obtenemos otro entero, es decir 25/7=3"
+        "3.5714285714285716":
+            $error="¡Qué número más enredado!, esa no es la respuesta correcta"
+            jump q17
+label n14:
+    h "Antes de terminar con estos dichosos operadores aritméticos, voy a habar de la {color=ff0}coerción{/color} de variables"
+    h "Había dicho anteriormente que el resultado de uno o más operadores aritméticos es un número entero o flotante"
+    h "También había dicho que existen 2 tipos variable numéricas en Python (int y el float) y otros 2 tipos que son la cadena (string) y el boolean"
+    h "Si aplicamos cualquiera de estos operadores entre un número y una cadena (string) vamos a tener un error de compilación (así de simple)"
+    h "Si tenemos operaciones aritméticas entre un enteros y por lo menos un boolean, el boolean se convierte o {color=#ff0}coerciona{/color} a un entero de valor 1 si es True y 0 si es False"
+    h "Si tenemos operaciones aritméticas con por lo menos un número flotante y por lo menos un boolean, el boolean se {color=#ff0}coerciona{/color} a un flotante de valor 1.0 si es True y 0.0 si es False"
+    h "#Por ejemplo\n2+2+True+False\n5"
+    h "#Otro ejemplo\n2+2+True+False*3.+234**False\n6.0"
+    h "Vamos a ver otro ejercicio"
+label q18:
+    if error:
+        h "[error]"
+        $error=""
+    menu:
+        "Calcule el valor de la raciones despues de ejecutar el codigo\n14./False"
+        "Error de compilacion":
+            h "¡Excelente! esa expresión ocasiona una división entre cero, el cual es inaceptable"
+        "14":
+            $error= "Eso es incorrecto"
+            jump q18
+        "0":
+            $error="¡Qué número más enredado!, esa no es la respuesta correcta"
+            jump q18
+label n15:
+    h "Al fin acabamos con esos operadores aritméticos y de asignación"
+    h "Vamos a ver 2 operadores que solo sirven para cadenas (strings) que el operador de concatenación y de formato"
+    h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a hacer un string más largo"
+    h '"Hola "+ "mundo!"\n"Hola mundo"'
+    
     return
