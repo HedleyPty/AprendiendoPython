@@ -594,7 +594,7 @@ label n12:
     h "luego realizando la suma de esos cuadrados y finalmente sacando la raíz cuadrada a esa suma (es decir elevando por 0.5)"
     $error=""
 label q16:
-    h "Vamos a ver un {color=#ff00}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
+    h "Vamos a ver un {color=#ff0}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
     h "En la implementación Python 'Pygame' y en las páginas web, el lienzo (o canvas) representa un sistema de coordenadas con el origen en la esquina superior izquierda"
     menu:
         "Si tenemos una variable x que contiene la distancia de un objeto O en milimetros desde el borde izquierdo del lienzo\ny una variable y que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cual de estos códigos Python representa la variable d que contrine la distancia entre el objeto y la esquina superior izquierda?"
@@ -623,7 +623,7 @@ label n13:
     h "vidas=3\nvidas -= 1\nvidas\n2\nvidas -= 1\nvidas\n1"
     h "En operador de incremento multiplicativo, {color=#ff0}*={/color}, es similar al de incremento aditivo, pero en lugar de sumar el valor de la variable, lo sube multiplicando por el valor de la derecha"
     h "vidas=5\nvidas *= 2\nvidas\n10\nvidas *= 4\nvidas\n40"
-    h "En operador de incremento multiplicativo, {color=#ff0}*={/color}, es similar al de incremento multiplicativo, pero en lugar de multiplicar el valor de la variable, lo disminuye dividiendo por el valor de la derecha"
+    h "En operador de decremento multiplicativo, {color=#ff0}/={/color}, es similar al de incremento multiplicativo, pero en lugar de multiplicar el valor de la variable, lo disminuye dividiendo por el valor de la derecha"
     h "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
     h "Vamos a ver el siguiente ejercicio"
     $error=""
@@ -668,7 +668,19 @@ label q18:
 label n15:
     h "Al fin acabamos con esos operadores aritméticos y de asignación"
     h "Vamos a ver 2 operadores que solo sirven para cadenas (strings) que el operador de concatenación y de formato"
-    h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a hacer un string más largo"
+    h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a unir dos o más cadenas hacer una cadena más largo"
     h '"Hola "+ "mundo!"\n"Hola mundo"'
-    
+    h '"Hola, "+"¿cómo "+ "estás?"\n"Hola, ¿cómo estás?"'
+    h 'saludo="Hola, "\nnombre="Pepe"\nsaludo+nombre\n"Hola, Pepe"'
+    h 'El otro operador es la "interpolación" de variables'
+    h "Veamos este ejemplo"
+    h 'pregunta="¿Cuánto es 2+2?"\nrespuesta=4\npregunta+respuesta\nTraceback (most recent call last):\n  File "\<stdin\>", line 1, in \<module\>\nTypeError: cannot concatenate \'str\' and \'int\' objects'
+    h "Para evitar estos problemas, podemos hacer una {color=#ff0}interpolación{/color} de variables"
+    h 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
+label q19:
+    menu:
+        "[encabezado]"
+        "[Menu1]":
+            $m=1
+            
     return
