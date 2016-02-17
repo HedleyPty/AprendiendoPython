@@ -4,6 +4,7 @@ image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
 image white ="#ffffff"
 define h = Character('Hedley', color="#c8ffc8")
+define consola = Character('Consola de Python', color="#00cc00")
 $tipJar="https://www.paypal.me/HedleyQuintana"
 
 # The game starts here.
@@ -350,7 +351,7 @@ label q10:
         if varnam and asignacion and valor:
             $cont="Presione aquí para continuar"
     menu:
-        "[encabezado]"
+        consola "[encabezado]"
         "peso_Varon":
             $varnam="peso_Varon"
             jump q10
@@ -387,10 +388,10 @@ label n8:
     h "Después de esta pequeña interrupción continuamos hablando de los otros tipos de las variables"
     h "Para saber el tipo de una variable, solo debemos escribir {color=#ff0}type{/color} seguido por el nombre de la variable:\ntype(peso_Varon)\n\<type 'int'\>"
     h "Python deduce el tipo de variable como número flotante ({color=#ff0}float{/color}), si escribimos un número con el punto decimal\n"
-    h "{color=#f0f}#Por ejemplo{/color}\n{color=#ff0}peso_Mujer=70.0\ntype(peso_Mujer)\n\<type 'float'\>{/color}"
-    h "{color=#f0f}#O también, puedes omitir los ceros{/color}\n{color=#ff0}peso_Mujer=70. {color=#f0f}#Nota que no hay ceros{/color}\ntype(peso_Mujer)\n\<type 'float'\>{/color}"
+    consola "{color=#f0f}#Por ejemplo{/color}\n{color=#ff0}peso_Mujer=70.0\ntype(peso_Mujer)\n\<type 'float'\>{/color}"
+    consola "{color=#f0f}#O también, puedes omitir los ceros{/color}\n{color=#ff0}peso_Mujer=70. {color=#f0f}#Nota que no hay ceros{/color}\ntype(peso_Mujer)\n\<type 'float'\>{/color}"
     h "Python deduce el tipo de variable como cadena ({color=#ff0}str{/color}), si escribimos cualquier cosa entre un par de comillas dobles \"\" o simples ''"
-    h "{color=#f0f}#Por ejemplo{/color}\n{color=#ff0}peso_infante='20.0 kilogramos'\ntype(peso_infante)\n\<type 'str'\>{/color}"
+    consola "{color=#f0f}#Por ejemplo{/color}\n{color=#ff0}peso_infante='20.0 kilogramos'\ntype(peso_infante)\n\<type 'str'\>{/color}"
     h "Y finalmente las variables booleanas, son la que solo pueden tener 2 valores cierto o {color=#ff0}True{/color} y falso {color=#ff0}False{/color}"
     h "Vamos al siguiente ejercicio"
     hide text
@@ -410,9 +411,9 @@ label q11:
             jump n9
     else:
         h "¡Eso no es correcto!"
-    $encabezado="Determine el tipo Python de la variable cuyo valor es: " + valores[digestivo_counter]
+    $encabezado="#Determine el tipo Python de la variable cuyo valor es: " + valores[digestivo_counter]
     menu:
-        "[encabezado]"
+        consola "[encabezado]"
         "int":
             $check="int"
             jump q11
@@ -432,12 +433,12 @@ label n9:
     h "Los primeros operadores que vamos a ver son los {color=#ff0}operadores aritméticos{/color}, los cuales crean nuevos números a partir de otros números"
     h "Los operadores aritméticos que vamos a ver son el de la suma {color=#ff0}+{/color}, la resta {color=#ff0}-{/color}, la multiplicación {color=#ff0}*{/color}, la división {color=#ff0}/{/color}, el residuo {color=#ff0}\%{/color} y la exponenciación {color=#ff0}**{/color}"
     h "La suma y la resta son bastante sencillas, veamos unos ejemplos"
-    h "1+1\n2"
-    h "3-2\n1"
-    h "24-45\n-21"
+    consola "1+1\n2"
+    consola "3-2\n1"
+    consola "24-45\n-21"
     h "Claro está... debemos recordar que hay dos tipos de varibles numéricas, las de tipo entera ({color=#ff0}int{/color}) y las de tipo flotante que manejan decimales ({color=#ff0}float{/color})"
     h "La suma o resta de dos o más variables de tipo entera producen un entero, y si hay por lo menos una variablo de tipo flotante, se produce un resultado flotante"
-    h "{color=#ff0}#Es decir{/color}\n1+1\n2\n1.2+1\n2.2\n2.3-1-3\n1.7"
+    consola "{color=#ff0}#Es decir{/color}\n1+1\n2\n1.2+1\n2.2\n2.3-1-3\n1.7"
     h "Tengo buena memoria y me acuerdo que creamos un par de variables peso_Varon y peso_Mujer"
     $error=""
     hide text
@@ -464,21 +465,21 @@ label n10:
     h "La multiplicacion, la división y el residuo son un poquito especiales"
     h "Igual que lo que ocurre con la suma y la resta, estás operaciones entre enteros resultan en un entero y si hay por lo menos un flotante involucrado, tendremos un flotante"
     h "En el caso de la multiplicación, eso no es mucho problema"
-    h "{color=#f0f}Multiplicacion de enteros{/color}\n3*5\n15"
-    h "{color=#f0f}Multiplicacion con flotantes{/color}\n3.0*5.*8.0\n90.0"
-    h "{color=#f0f}Multiplicacion con por lo menos un enteros{/color}\n3.0*5*8\n90.0"
+    consola "{color=#f0f}Multiplicacion de enteros{/color}\n3*5\n15"
+    consola "{color=#f0f}Multiplicacion con flotantes{/color}\n3.0*5.*8.0\n90.0"
+    consola "{color=#f0f}Multiplicacion con por lo menos un enteros{/color}\n3.0*5*8\n90.0"
     h "En el caso de la división es un poco especial, debido que al dividir, no vamos a obtener necesariamente un número entero"
     h "Si dividimos dos enteros vamos a obtener la {color=#ff0}parte entera de la division{/color}"
-    h "{color=#f0f}Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
-    h "{color=#f0f}Pero 50 entre 8 tambien es 6{/color}\n50/8\n6"
-    h "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55/8\n6"
-    h "{color=#f0f}Claro está 56 entre 8 es 7{/color}\n56/8\n7"
+    consola "{color=#f0f}Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
+    consola "{color=#f0f}Pero 50 entre 8 tambien es 6{/color}\n50/8\n6"
+    consola "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55/8\n6"
+    consola "{color=#f0f}Claro está 56 entre 8 es 7{/color}\n56/8\n7"
     h "Las operaciones con flotantes, se toman en cuenta los decimales por lo que.."
-    h "{color=#f0f}Aun más 55 entre 8 es 6.87{/color}\n55.0/8\n6.87"
+    consola "{color=#f0f}Aun más 55 entre 8 es 6.87{/color}\n55.0/8\n6.87"
     h 'El residuo es lo "sobra" despues de dividir con enteros'
     h 'Es decir, 55 entre 8 es 6, pero como 6*8 es 48, el "residuo" sería 7 es decir 55-48 es 7'
-    h "55\%8\n7"
-    h "23\%5\n3"
+    consola "55\%8\n7"
+    consola "23\%5\n3"
     h "El residuo es importante para valorar los números pares de los impares"
     h "Los números pares al dividirse entre 2 tienen un residuo de 0, pero los impares tienen un residuo de 1"
     hide text
@@ -487,7 +488,7 @@ label q13:
         if error:
             h "[error]"
         menu:
-            "¿Cuanto es el valor de 135\%2?"
+            consola "#¿Cuanto es el valor de 135\%2?"
             "0":
                 $error="Eso no es correcto"
                 jump q13
@@ -512,8 +513,8 @@ label n11:
     h "#Y el exponente 1 da como resultado la base\n454655**1\n454655"
     h "Seguimos hablando de la exponenciación... "
     h "Sabemos que la resta es lo opuesto a la suma y la división es lo opuesto a la multiplicación"
-    h "#En el caso de la suma:\n2+3\n5\n#Y su operación opuesta es la resta\n5-3\n2"
-    h "#En el caso de la multiplicación:\n5*6\n30\n#Y su operación opuesta es la división\n30/5\n6"
+    consola "{color=#f0f}#En el caso de la suma:{/color}\n2+3\n5\n#Y su operación opuesta es la resta\n5-3\n2"
+    consola "{color=#f0f}#En el caso de la multiplicación:{/color}\n5*6\n30\n#Y su operación opuesta es la división\n30/5\n6"
     h "En la exponenciación tenemos 2 operaciones opuestas: la \"radicación\" y el \"logaritmo\""
     #Figura de la radicación
     h "En el caso de la radicación tenemos 2 componentes, que son el radical y el índice"
@@ -529,22 +530,22 @@ label q14:
     h "Vamos a calcular la raíz cuadrada de 25 (que sabemos que es cinco)"
     h "Lo primero es importar el módulo de mas matemáticas"
     h "Lo hacemos con la palabra reservada {color=#ff0}import{/import}"
-    h "#Es decir\nimport math"
+    consola "{color=#f0f}#Es decir{/color}}\nimport math"
     h "Y luego usamos el metodo sqrt de math asi"
-    h "#Raiz cuadrada de 25\nimport math\nmath.sqrt(25)\n5.0"
+    h "#Raiz cuadrada de 25{/color}\nimport math\nmath.sqrt(25)\n5.0"
     h "También podemos dar un alias más amigable al módulo usando la palabra reservada {color=#ff0}as{/color} que en inglés significa {color=#ff0}como{/color}"
-    h "#Raiz cuadrada de 25\nimport math as m\nm.sqrt(25)\n5.0"
+    consola "{color=#f0f}#Raiz cuadrada de 25{/color}\nimport math as m\nm.sqrt(25)\n5.0"
     h "También podemos dar importar la funcion sqrt del módulo math usando las palabras reservadas {color=#ff0}from{/color} que en inglés significa {color=#ff0}desde{/color}"
-    h "#Raiz cuadrada de 25\nfrom math import sqrt\nsqrt(25)\n5.0"
+    consola "{color=#f0f}#Raiz cuadrada de 25{/color}\nfrom math import sqrt\nsqrt(25)\n5.0"
     h "Tambien podemos usar ambas palabras reservadas"
-    h "#Raiz cuadrada de 25\nfrom math import sqrt as raizCuadrada\nraizCuadrada(25)\n5.0"
+    consola "{color=#f0f}#Raiz cuadrada de 25{/color}\nfrom math import sqrt as raizCuadrada\nraizCuadrada(25)\n5.0"
     h "Podemos calcularlo de otra manera, teniendo en cuenta que la raíz cuadrada de un número es lo mismo que elevarlo a la 1/2\nla raíz cúbica es lo mismo que elevarlo a la 1/3, la cuarta a la 1/4, etc"
     h "Sin necesidad de importar ningún módulo podemos calcular la raíz cuadrada de 25 así"
-    h "#Raiz cuadrada de 25\nhalf=1.0/2.0\n25**half\n5.0"
+    consola "{color=#f0f}#Raiz cuadrada de 25{/color}\nhalf=1.0/2.0\n25**half\n5.0"
     h "El objetivo del logaritmo es el cálculo del exponente si sabemos la base y la potencia"
     h "Si sabemos de 4*4, o 4**2 es 16, entonces el logaritmo de 16 con base 4 es 2"
     h "En Python, para calcular el logaritmo debemos importar el método log del módulo math para calcular el logaritmo"
-    h "#Para calcular el logaritmo de 16 con base 2\nimport math\nmath.log(16,2)\n4.0"
+    consola "{color=#f0f}#Para calcular el logaritmo de 16 con base 2{/color}\nimport math\nmath.log(16,2)\n4.0"
     $error=""
     $digestivo_counter=0
     $respuesta=10
@@ -577,7 +578,7 @@ label q15:
     $Menu2=Menus[digestivo_counter][1]
     $Menu3=Menus[digestivo_counter][2]
     menu:
-        "[encabezado]"
+        consola "[encabezado]"
         "[Menu1]":
             $ respuesta = 0
             jump q15
@@ -631,13 +632,13 @@ label n13:
     h "De lo contrario tenemos un error de sintaxis"
     h "Una vez que creamos una variable la podemos modificar con estos operadores"
     h "En el caso del operador aditivo de incremento {color=#ff0}+={/color}, el valor de la variable de la izquierda sube el número de unidades del número de la derecha del operador"
-    h "x=5\nx += 2\nx\n7\nx += 2\nx\n9"
+    consola "x=5\nx += 2\nx\n7\nx += 2\nx\n9"
     h "En operador de decremento aditivo, {color=#ff0}-={/color}, es similar al de incremento, pero en lugar de subir el valor de la variable, lo baja"
     h "vidas=3\nvidas -= 1\nvidas\n2\nvidas -= 1\nvidas\n1"
     h "En operador de incremento multiplicativo, {color=#ff0}*={/color}, es similar al de incremento aditivo, pero en lugar de sumar el valor de la variable, lo sube multiplicando por el valor de la derecha"
-    h "vidas=5\nvidas *= 2\nvidas\n10\nvidas *= 4\nvidas\n40"
+    consola "vidas=5\nvidas *= 2\nvidas\n10\nvidas *= 4\nvidas\n40"
     h "En operador de decremento multiplicativo, {color=#ff0}/={/color}, es similar al de incremento multiplicativo, pero en lugar de multiplicar el valor de la variable, lo disminuye dividiendo por el valor de la derecha"
-    h "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
+    consola "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
     h "Vamos a ver el siguiente ejercicio"
     $error=""
 label q17:
@@ -682,14 +683,14 @@ label n15:
     h "Al fin acabamos con esos operadores aritméticos y de asignación"
     h "Vamos a ver 2 operadores que solo sirven para cadenas (strings) que el operador de concatenación y de formato"
     h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a unir dos o más cadenas hacer una cadena más largo"
-    h '"Hola "+ "mundo!"\n"Hola mundo"'
-    h '"Hola, "+"¿cómo "+ "estás?"\n"Hola, ¿cómo estás?"'
-    h 'saludo="Hola, "\nnombre="Pepe"\nsaludo+nombre\n"Hola, Pepe"'
+    consola '"Hola "+ "mundo!"\n"Hola mundo"'
+    consola '"Hola, "+"¿cómo "+ "estás?"\n"Hola, ¿cómo estás?"'
+    consola 'saludo="Hola, "\nnombre="Pepe"\nsaludo+nombre\n"Hola, Pepe"'
     h 'El otro operador es la "interpolación" de variables'
     h "Veamos este ejemplo"
-    h 'pregunta="¿Cuánto es 2+2?"\nrespuesta=4\npregunta+respuesta\nTraceback (most recent call last):\n  File "\<stdin\>", line 1, in \<module\>\nTypeError: cannot concatenate \'str\' and \'int\' objects'
+    consola 'pregunta="¿Cuánto es 2+2?"\nrespuesta=4\npregunta+respuesta\nTraceback (most recent call last):\n  File "\<stdin\>", line 1, in \<module\>\nTypeError: cannot concatenate \'str\' and \'int\' objects'
     h "Para evitar estos problemas, podemos hacer una {color=#ff0}interpolación{/color} de variables"
-    h 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
+    consola 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
     $error=""
     $ digestivo_counter = 9
 label q19:
@@ -701,7 +702,11 @@ label q19:
             encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
             digestivo_counter=0
     elif digestivo_counter==4:
-            h "Has completado esta actividad" 
+            h "Has completado esta actividad"
+            $ del expresiones
+            $ del respuestas
+            $ del digestivo_counter
+            jump n16
     else:
         $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
         if check== respuestas[digestivo_counter]:
@@ -725,5 +730,37 @@ label q19:
         "1False":
             $check=4
             jump q19
-        
+label n16:
+    h "Vamos a hablar de las variables y operadores boolean o lógicas y del control de flujo"
+    h "Antes de proseguir voy a hablar del cambio de tipo de las variables"
+    h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
+    consola "{color=#f0f}#Esto no está permitido\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
+    consola "{color=#f0f}#Esto tampoco está permitido\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
+    consola "{color=#f0f}#Pero sí está permitido\nint(\"12\")\n12"
+    consola "{color=#f0f}#Y esto también está permitido\nfloat(\"12.8\")\n12.8"
+    h "Las variables numéricas pueden convertirse en cadenas sin ningún inconveniente"
+    consola "{color=#f0f}#Conversión de flotante a cadena\nstr(12.)\n\'12.0'"
+    consola "{color=#f0f}#Conversión de entero a cadena\nstr(567)\n\'567'"
+    h "No hay ningún tipo de restricción para convertir de cualquier tipo a boolean"
+    h "Cualesquiera que sea el valor de la variable, el boolean siempre será cierto, es decir ({color=#ff0}True{/color})"
+    h "Sin embargo, al coercionar a boolean, el resultado será falso es decir ({color=#ff0}False{/color}),si la variable es de tipo {color=#ff0}None{/color} (que es un tipo de variable de Python que no contiene nada), tiene un valor de 0 o sea un cadena vacía, es decir '' o \"\""
+    consola "{color=f0f}#Algunos ejemplos\nbool(2)\nTruen\bool(145.3)n\True\nbool(\"Como estás?\")n\True"
+    consola "{color=f0f}#Algunos ejemplos\nbool(None)\nFalsen\bool(5-5)n\False\nbool(\"\")n\False"
+    h "Ahora vamos a ver un par de ejercicios"
+    python:
+        menus=[['True', 'False', 'None'],
+                    ['0', '1', '45']
+        counter=9
+        check=None
+        expressiones=['bool(15)', 'int(bool(45))', 'bool(65*0)']
+label q20:
+    encabezado = ""
+    if counter==9:
+        counter=0
+    if counter==0 or counter==2Ö
+        menu1=menus[0][0]
+        menu2=menus[0][1]
+        menu3=menus[0][1]
+    if 
+    menu:
     return
