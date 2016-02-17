@@ -112,6 +112,10 @@ label q4:
             $error="Los juegos de video son sistemas muy complejos que interaccionan con el usuarios: tienen piezas más simples que manejan a enemigos, al puntaje, en fin todo un enredo"
             jump q4
         "Clavos":
+            h "Eso es correcto!!!"
+            python:
+                del error
+                del count
             jump n2
 label n2:
     show python_logo at truecenter
@@ -123,8 +127,8 @@ label n2:
         $peerless=False
         h "Has seleccionado [count] veces la opción incorrecta"
         h "Cometer errores, es muy importante para aprender cualquier lenguaje de programación..."
-    $count=0
-    $error=""
+    $del peerless
+    
     show python_logo at truecenter
     h "Veo que han notado que a diferencia de los otros objetos o sistemas, los {color=#ff0}clavos son bastante simples{/color}."
     h "Ellos no tienen otras partes dentro y pueden servir para crear objetos más grandes y complejos"
@@ -140,6 +144,8 @@ label n2:
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     h "La abstracción es tratar de sacar cada una de las piezas que forman un sistema"
     h "Veamos un ejemplo"
+    $count=0
+    $error=""
     hide text
     hide python_logo
     jump q5
@@ -152,6 +158,7 @@ label q5:
             $ error= "estás bromeando?"
             jump q5
         "La tráquea":
+            $del error
             jump n3
         "El hígado":
             $error = "El hígado pertenece al aparato digestivo, pero no es parte del \"tubo digestivo\".\nCreo que hay una mejor opción"
@@ -525,6 +532,12 @@ label q14:
     h "#Es decir\nimport math"
     h "Y luego usamos el metodo sqrt de math asi"
     h "#Raiz cuadrada de 25\nimport math\nmath.sqrt(25)\n5.0"
+    h "También podemos dar un alias más amigable al módulo usando la palabra reservada {color=#ff0}as{/color} que en inglés significa {color=#ff0}como{/color}"
+    h "#Raiz cuadrada de 25\nimport math as m\nm.sqrt(25)\n5.0"
+    h "También podemos dar importar la funcion sqrt del módulo math usando las palabras reservadas {color=#ff0}from{/color} que en inglés significa {color=#ff0}desde{/color}"
+    h "#Raiz cuadrada de 25\nfrom math import sqrt\nsqrt(25)\n5.0"
+    h "Tambien podemos usar ambas palabras reservadas"
+    h "#Raiz cuadrada de 25\nfrom math import sqrt as raizCuadrada\nraizCuadrada(25)\n5.0"
     h "Podemos calcularlo de otra manera, teniendo en cuenta que la raíz cuadrada de un número es lo mismo que elevarlo a la 1/2\nla raíz cúbica es lo mismo que elevarlo a la 1/3, la cuarta a la 1/4, etc"
     h "Sin necesidad de importar ningún módulo podemos calcular la raíz cuadrada de 25 así"
     h "#Raiz cuadrada de 25\nhalf=1.0/2.0\n25**half\n5.0"
@@ -539,7 +552,7 @@ label q15:
     $ encabezado="Calcule usando Python:\n"
     $ encabezados = ["Siete elevado a la quinta potencia", "La raíz cuadrada de 64 usando el módulo math", "La raíz cuadrada de 49 usando un flotante como exponente"]
     $ Menus = [ ["7*5", "7**5", "7***5"],
-                ["import math\nmath(64,2)", "import math\nmath.exp(64,2)", "import math\nmath.sqrt(64)"],
+                ["import math\nmath(64,2)", "import math\nsqrt(64)", "from math import sqrt as Rcuadrada\nRcuadrada(64)"],
                 ["49**0.5", "0.5**49", "float(49)**2"]]
     $ claves =[1,2,0]
     
@@ -677,10 +690,40 @@ label n15:
     h 'pregunta="¿Cuánto es 2+2?"\nrespuesta=4\npregunta+respuesta\nTraceback (most recent call last):\n  File "\<stdin\>", line 1, in \<module\>\nTypeError: cannot concatenate \'str\' and \'int\' objects'
     h "Para evitar estos problemas, podemos hacer una {color=#ff0}interpolación{/color} de variables"
     h 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
+    $error=""
+    $ digestivo_counter = 9
 label q19:
+    
+    $ expresiones = ['1+1', '"1"+1', '"1"+"False"', "True + 2"]
+    $ respuestas = [3,2,4,1]
+    if digestivo_counter==9:
+        python:
+            encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
+            digestivo_counter=0
+    elif digestivo_counter==4:
+            h "Has completado esta actividad" 
+    else:
+        $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+        if check== respuestas[digestivo_counter]:
+            h "Eso es correcto"
+            python:
+                digestivo_counter += 1
+                encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+        else:
+             h "[error]"
     menu:
         "[encabezado]"
-        "[Menu1]":
-            $m=1
-            
+        '3':
+            $check=1
+            jump q19
+        "Error de compilación":
+            $check=2
+            jump q19
+        "2":
+            $check=3
+            jump q19
+        "1False":
+            $check=4
+            jump q19
+        
     return

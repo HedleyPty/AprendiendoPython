@@ -1,17 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-ScriptError: could not find label 'n12'.
+  File "game/script.rpy", line 711, in <module>
+    encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+IndexError: list index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 560, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1519, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/home/hedley/Documents/renpy/renpy/script.py", line 843, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'n12'.
+  File "/home/hedley/script.rpyc", line 709, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 805, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1461, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 711, in <module>
+    encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+IndexError: list index out of range
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959
