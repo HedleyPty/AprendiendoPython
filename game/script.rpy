@@ -749,18 +749,38 @@ label n16:
     h "Ahora vamos a ver un par de ejercicios"
     python:
         menus=[['True', 'False', 'None'],
-                    ['0', '1', '45']
+                    ['0', '1', '45']]
         counter=9
         check=None
-        expressiones=['bool(15)', 'int(bool(45))', 'bool(65*0)']
+        expresiones=['bool(15)', 'int(bool(45))', 'bool(65*0)']
+        respuestas= ['True', '1', 'False']
 label q20:
-    encabezado = ""
     if counter==9:
         counter=0
-    if counter==0 or counter==2Ö
-        menu1=menus[0][0]
-        menu2=menus[0][1]
-        menu3=menus[0][1]
-    if 
+    if counter==0 or counter==2:
+        python:
+            menu1=menus[0][0]
+            menu2=menus[0][1]
+            menu3=menus[0][2]
+    else:
+        python:
+            menu1=menus[1][0]
+            menu2=menus[1][1]
+            menu3=menus[1][1]
+    if check== respuestas[counter]:
+        python:
+            counter += 1
+
+    $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones[counter]
     menu:
+    '[encabezado]'
+    '[menu1]':
+        $check=menu1
+        jump q20
+    '[menu2]':
+        $check=menu2
+        jump q20
+    '[menu3]':
+        $check=menu3
+        jump q20
     return
