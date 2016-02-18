@@ -428,7 +428,7 @@ label q11:
             jump q11
 label n9:
     h "Ya sabemos como crear variables... ahora vamos a hablar que hacer con ellas, vamos a aprender acerca de los operadores"
-    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos, de asignación y lógicos{/color}{/size}" at top
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Los operadores nos permiten crear nuevas variables o resultados a partir de 2 o más variables o valores"
     h "Los primeros operadores que vamos a ver son los {color=#ff0}operadores aritméticos{/color}, los cuales crean nuevos números a partir de otros números"
     h "Los operadores aritméticos que vamos a ver son el de la suma {color=#ff0}+{/color}, la resta {color=#ff0}-{/color}, la multiplicación {color=#ff0}*{/color}, la división {color=#ff0}/{/color}, el residuo {color=#ff0}\%{/color} y la exponenciación {color=#ff0}**{/color}"
@@ -461,7 +461,7 @@ label q12:
             $error="Eso no es correcto\nEsa es una variable tipo None, los operadores aritmeticos nunca resultan en ese tipo de variable"
             jump q12
 label n10:
-    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos, de asignación y lógicos{/color}{/size}" at top
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "La multiplicacion, la división y el residuo son un poquito especiales"
     h "Igual que lo que ocurre con la suma y la resta, estás operaciones entre enteros resultan en un entero y si hay por lo menos un flotante involucrado, tendremos un flotante"
     h "En el caso de la multiplicación, eso no es mucho problema"
@@ -501,6 +501,7 @@ label q13:
                 $error="Eso no es correcto"
                 jump q13
 label n11:
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Bueno... voy a discutir acerca de la exponenciación, la cual es parte de parte de la aritmética...."
     h "En la exponenciación hay dos elementos, la base y el exponente"
     #text ...
@@ -521,8 +522,9 @@ label n11:
     h "El objetivo de la radicación es obtener el número que al multiplicarse por si mismo las veces dadas por el índice da por resultado el radical"
     h "Los índides siguen las mismos nombres (en matemáticas) de los exponentes de la exponenciación: raíz cuadrada (2), raíz cúbica (3), raíz cuarta (4), etc "
     h "Por ejemplo, la raíz cuarta de 1296 es 6, porque 6*6*6*6 es 1296 o bien 6**4 es 1296"
+    hide text
 label q14:
-    
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "**Python no tiene ninguna función (de manera predefinida) para calcular raíces"
     h "Sin embargo, es posible calcular cualquier raíz de cualquier índice usando uno de los 2 métodos"
     h "Un método es primero importar un módulo llamado math y luego usar un método llamado sqrt"
@@ -546,6 +548,7 @@ label q14:
     h "Si sabemos de 4*4, o 4**2 es 16, entonces el logaritmo de 16 con base 4 es 2"
     h "En Python, para calcular el logaritmo debemos importar el método log del módulo math para calcular el logaritmo"
     consola "{color=#f0f}#Para calcular el logaritmo de 16 con base 2{/color}\nimport math\nmath.log(16,2)\n4.0"
+    hide text
     $error=""
     $digestivo_counter=0
     $respuesta=10
@@ -589,6 +592,7 @@ label q15:
             $ respuesta = 2
             jump q15
 label n12: 
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Una utilidad práctica de la exponenciación es el cálculo de los lados de un triángulo rectángulo basado en el teorema de Pitágoras"
     h "El teorema de Pitágoras se utiliza para calcular distancias entre 2 puntos en un plano"
     h 'Si las distancias son menores a un valor determinado, tenemos una "colisión"'
@@ -606,6 +610,7 @@ label n12:
     h "Las operaciones aritméticas se realizan en este órden: primero cualquier cosa que esté paréntesis, luego las potencias, luego las multiplicaciones y divisiones; y finalmente las sumas y las restas"
     h "Al escribir {color=#ff0}c=(a**2+b**2)**.5{/color} estamos primero elevando al cuadrado a y b"
     h "luego realizando la suma de esos cuadrados y finalmente sacando la raíz cuadrada a esa suma (es decir elevando por 0.5)"
+    hide text
     $error=""
 label q16:
     h "Vamos a ver un {color=#ff0}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
@@ -621,6 +626,7 @@ label q16:
             h "¡Eso no es correcto!"
             jump q16
 label n13:
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Creo que me he emociado con los operadores... ¡pero aun no acabo!"
     h "Vamos a imaginar que estamos jugando cualquier video juego... Mario Bros, cualquier shooter, Candy Crush, etc"
     h "A medida que hacemos ciertas acciones, nuestro puntaje, vidas o el tiempo restante cambian"
@@ -640,6 +646,7 @@ label n13:
     h "En operador de decremento multiplicativo, {color=#ff0}/={/color}, es similar al de incremento multiplicativo, pero en lugar de multiplicar el valor de la variable, lo disminuye dividiendo por el valor de la derecha"
     consola "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
     h "Vamos a ver el siguiente ejercicio"
+    hide text
     $error=""
 label q17:
     if error:
@@ -656,6 +663,7 @@ label q17:
             $error="¡Qué número más enredado!, esa no es la respuesta correcta"
             jump q17
 label n14:
+    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Antes de terminar con estos dichosos operadores aritméticos, voy a habar de la {color=ff0}coerción{/color} de variables"
     h "Había dicho anteriormente que el resultado de uno o más operadores aritméticos es un número entero o flotante"
     h "También había dicho que existen 2 tipos variable numéricas en Python (int y el float) y otros 2 tipos que son la cadena (string) y el boolean"
@@ -665,6 +673,8 @@ label n14:
     h "#Por ejemplo\n2+2+True+False\n5"
     h "#Otro ejemplo\n2+2+True+False*3.+234**False\n6.0"
     h "Vamos a ver otro ejercicio"
+    hide text
+    $error=""
 label q18:
     if error:
         h "[error]"
@@ -701,19 +711,18 @@ label q19:
         python:
             encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
             digestivo_counter=0
-    elif digestivo_counter==4:
-            h "Has completado esta actividad"
-            $ del expresiones
-            $ del respuestas
-            $ del digestivo_counter
-            jump n16
     else:
-        $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
-        if check== respuestas[digestivo_counter]:
+        #$encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+        if check == respuestas[digestivo_counter]:
             h "Eso es correcto"
-            python:
-                digestivo_counter += 1
-                encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+            $digestivo_counter += 1
+            if digestivo_counter==4:
+                h "Has completado esta actividad"
+                $ del expresiones
+                $ del respuestas
+                $ del digestivo_counter
+                jump n16
+            $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
         else:
              h "[error]"
     menu:
@@ -733,19 +742,19 @@ label q19:
 label n16:
     h "Vamos a hablar de las variables y operadores boolean o lógicas y del control de flujo"
     h "Antes de proseguir voy a hablar del cambio de tipo de las variables"
-    h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
-    consola "{color=#f0f}#Esto no está permitido\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
-    consola "{color=#f0f}#Esto tampoco está permitido\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
-    consola "{color=#f0f}#Pero sí está permitido\nint(\"12\")\n12"
-    consola "{color=#f0f}#Y esto también está permitido\nfloat(\"12.8\")\n12.8"
+    h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas, a menos que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
+    consola "{color=#f0f}#Esto no está permitido{/color}\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
+    consola "{color=#f0f}#Esto tampoco está permitido{/color}\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
+    consola "{color=#f0f}#Pero sí está permitido{/color}\nint(\"12\")\n12"
+    consola "{color=#f0f}#Y esto también está permitido{/color}\nfloat(\"12.8\")\n12.8"
     h "Las variables numéricas pueden convertirse en cadenas sin ningún inconveniente"
-    consola "{color=#f0f}#Conversión de flotante a cadena\nstr(12.)\n\'12.0'"
-    consola "{color=#f0f}#Conversión de entero a cadena\nstr(567)\n\'567'"
+    consola "{color=#f0f}#Conversión de flotante a cadena{/color}\nstr(12.)\n\'12.0'"
+    consola "{color=#f0f}#Conversión de entero a cadena{/color}\nstr(567)\n\'567'"
     h "No hay ningún tipo de restricción para convertir de cualquier tipo a boolean"
     h "Cualesquiera que sea el valor de la variable, el boolean siempre será cierto, es decir ({color=#ff0}True{/color})"
-    h "Sin embargo, al coercionar a boolean, el resultado será falso es decir ({color=#ff0}False{/color}),si la variable es de tipo {color=#ff0}None{/color} (que es un tipo de variable de Python que no contiene nada), tiene un valor de 0 o sea un cadena vacía, es decir '' o \"\""
-    consola "{color=f0f}#Algunos ejemplos\nbool(2)\nTruen\bool(145.3)n\True\nbool(\"Como estás?\")n\True"
-    consola "{color=f0f}#Algunos ejemplos\nbool(None)\nFalsen\bool(5-5)n\False\nbool(\"\")n\False"
+    h "Sin embargo, al coercionar a boolean, el resultado será falso es decir ({color=#ff0}False{/color}),si la variable es de tipo {color=#ff0}None{/color} (que es un tipo de variable de Python que no contiene nada),\nuna variable numérica con el {color=#ff0}0{/color} \no sea un cadena vacía, es decir {color=#ff0}''{/color} o {color=#ff0}\"\"{/color}"
+    consola "{color=f0f}#Algunos ejemplos{/color}\nbool(2)\nTrue\nbool(145.3)\nTrue\nbool(\"¿Cómo estás?\")\nTrue"
+    consola "{color=f0f}#Algunos ejemplos{/color}\nbool(None)\nFalse\nbool(5-5)\nFalse\nbool(\"\")\nFalse"
     h "Ahora vamos a ver un par de ejercicios"
     python:
         menus=[['True', 'False', 'None'],
@@ -756,7 +765,22 @@ label n16:
         respuestas= ['True', '1', 'False']
 label q20:
     if counter==9:
-        counter=0
+        $counter=0
+    if check:
+        if check == respuestas[counter]:
+            h "CORRECTO!"
+            $counter += 1
+            if check ==4:
+                python:
+                    del check
+                    del counter
+                    del expresiones
+                    del menus
+                    del respuestas
+                    del encabezado
+                jump n17
+        else:
+            h "Inténtalo de nuevo"
     if counter==0 or counter==2:
         python:
             menu1=menus[0][0]
@@ -766,21 +790,21 @@ label q20:
         python:
             menu1=menus[1][0]
             menu2=menus[1][1]
-            menu3=menus[1][1]
-    if check== respuestas[counter]:
-        python:
-            counter += 1
-
+            menu3=menus[1][2]
+    
+        jump n17
     $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones[counter]
     menu:
-    '[encabezado]'
-    '[menu1]':
-        $check=menu1
-        jump q20
-    '[menu2]':
-        $check=menu2
-        jump q20
-    '[menu3]':
-        $check=menu3
-        jump q20
+        "[encabezado]"
+        '[menu1]':
+            $check=menu1
+            jump q20
+        '[menu2]':
+            $check=menu2
+            jump q20
+        '[menu3]':
+            $check=menu3
+            jump q20
+label n17:
+    h ""
     return

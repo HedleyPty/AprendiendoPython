@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 704: expected statement.
-    encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
-               ^
+File "game/script.rpy", line 782: expected 'name' not found.
+    jump
+        ^
 
 Ren'Py Version: Ren'Py 6.99.8.959
