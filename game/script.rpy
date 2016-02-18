@@ -907,11 +907,114 @@ label n18:
     h 'Si el operador and aparece entre 2 valores o variables que no son boolean, va a retornar el valor a su derecha a menos que sea 0, None o ""'
     h "Esto es interesante saber, pero no muy útil"
     h "Ahora vamos a hablar del operador {color=#ff0}or"
-    h "El operador {color=#ff0}or{/color} compara, si se coloca entre 2 valores booleanos, devuelve True cuando uno de los dos es True (o ciertos)"
+    h "El operador {color=#ff0}or{/color}, si se coloca entre 2 valores booleanos, devuelve True cuando uno de los dos es True (o ciertos)"
     consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color}{/color}\nTrue or True\nTrue\nTrue or False\nTrue"
     h "Si colocamos el operador además compara si se coloca entre 1 valor booleano y otro de otro tipo, se devuelve True cuando el booleano es True o el otro valor puede ser coercionado a True"
-    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color} en otro ejemplo{/color}\nTrue or 3\nTrue\nTrue or \"\" {color=#ff0}#Recordemos que \"\" se coerciona a False{/color}\nTrue\nFalse or 2\nTrue"
-
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color} en otro ejemplo{/color}\nTrue or 3 {color=#f0f}#Recordemos que 3 se coerciona a True{/color}\nTrue\nTrue or \"\" {color=#f0f}#Recordemos que {color=#ff0}\"\"{/color} se coerciona a False{/color}\nTrue\nFalse or 2{color=#f0f}#Recordemos que 2 se coerciona a True{/color}\nTrue"
+    h "Vamos a trabajar con algunos ejemplos"
+    hide text
+    python:
+        menus=['True', 'False', 'None']            
+        counter=9
+        check=None
+        expresiones=['True and False or True', "False or not 3 >= 8", 'not str(24)!= "24.0" and not 6 == 18/3']
+        respuestas= ['True', 'True', 'False']
+        encabezado=""
+        error=""
+label q22:
+    if counter==9:
+        $counter=0
+    if check:
+        if check == respuestas[counter]:
+            h "CORRECTO!"
+            $counter += 1
+        else:
+            $error="Es INCORRECTO!"
+        
+        if counter == 3:
+            python:
+                del counter
+                del expresiones
+                del menus
+                del respuestas
+                del encabezado
+            h "Has completado esta actividad"
+            jump n19
+                
+        else:
+            
+            
+            python:
+                menu1=menus[0]
+                menu2=menus[1]
+                menu3=menus[2]
+    if error:
+        h "[error]"
+        $ error =""
+    $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
+    menu:
+        "[encabezado]"
+        '[menu1]':
+            $check=menu1
+            jump q22
+        '[menu2]':
+            $check=menu2
+            jump q22
+        '[menu3]':
+            $check=menu3
+            jump q22
+    hide text
+label n19:
+    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
+    h "Antes de entrar de lleno a hablar del control de flujo, les tengo que hablar del operador lógico {color=#ff0}in{/color}"
+    h 'El operador {color=#ff0}in{/color} es un operador lógico especial que nos permite hablar de las 4 "estructuras de datos" de Python: la lista, el tuplo, el diccionario y el conjunto'
+    h "Las estructuras de datos son variables que pueden tener uno o más valores dentro de ellas de cualquier tipo"
+    h "Para accesar un valor dentro, en el caso de la lista y del tuplo se requiere de un indice y en caso del diccionario una clave"
+    h "Hay 2 formas de crear una lista, podemos crear una lista vacía usando list(), o metiendo los elementos que querramos con un par de corchetes cuadradros \[\] separados por comas"
+    consola "{color=#f0f}#Vamos a crear dos listas vacía{/color}\nlistaVacía1=list()\nlistaVacía2=\[\]"
+    consola '{color=#f0f}#Vamos a crear una lista de profesores{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi", "Sir. Mark Thackeray"\]'
+    h "Podemos acceder a un elemento de la lista usando los índices. Los índices son números que indican la posición del elemento"
+    h "Los índices positivos indican la posición de izquierda a derecha empezando desde 0"
+    consola '{color=#f0f}#Veamos como trabajan los indices{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[1\]'
+    h "Los índices negativos indican la posición de derecha a izquierda a derecha empezando desde -1"
+    consola '{color=#f0f}#Veamos como trabajan los indices negativos{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[-3\]\nProfeDelGoku=Profesores\[-2\]'
+    h "Para crear un tuplo, simplemente ponemos todos los elementos uno tras otro separados por comas y encerrados en un par de paréntesis"
+    consola '{color=#f0f}#Vamos a crear una tuplo de profesores{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi", "Sir. Mark Thackeray")'
+    h "Los índices en los tuplos funcionan de la misma manera que en las listas"
+    consola '{color=#f0f}#Veamos como trabajan los indices en un tuplo{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Hedley Quintana")\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[-3\]'
+    h "Podemos seleccionar varios elementos de una lista o tuplo mediante el {color=#ff0}corte{/color} de los elementos"
+    h "El {color=#ff0}corte{/color} de los elementos se realiza mediante un rango de índices que van desde el primer elemento hasta el previo al último,\nveamos un ejemplo"
+    consola '{color=#f0f}#Veamos como trabajan los cortes{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Hedley Quintana")\nProfesComicos=Profesores\[0:2\] {color=#f0f}#Esta lista selecciona los índices de 0 al 1, el 2 NO está incluido{/color}\nProfesComicos\n("Profesor Jirafales", "Maestro Rochi")'
+    h "La diferencia entre el tuplo y la lista, es que el tuplo es {color=#ff0}inmutable{/color} y la lista no"
+    h "El tuplo una vez creado no se puede modificar, pero la lista sí. Aunque Python le permite a una variable tipo tuplo ser reemplazado por otro tuplo u otro tipo de variable"
+    h "A la lista le puede añadir, modificar o quitar elementos una vez creada"
+    h "Para modificar un elemento de una lista, basta y sobra con asignarle el valor al elemento usando el índice"
+    consola '{color=#f0f}#Veamos cambiar el valor de "Maestro Rochi" a "Mr Rochi"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores\[0\]="Mr. Rochi"\nProfesores\n\["Profesor Jirafales", "Mr. Rochi", "Sir. Mark Thackeray"\]'
+    h "Para añadir un elemento al final de la lista usamos la función append.\nPara usar esta función ponemos el nombre de variable con la lista, un punto, luego la palabra append y finalmente entre paréntesis lo que queremos añadir al final de la lista"
+    consola '{color=#f0f}#Veamos añadir al profesor "Saitama al final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores.append("Saitama)"\nProfesores\[-1\]\n"Saitama"'
+    h "La función pop sin argumentos (lo que está entre paréntesis está vacío) elimina el último elemento de la lista y devuelve dicho elemento"
+    h "Podemos eliminar de la lista "
+    consola '{color=#f0f}#Veamos eliminar al profesor "Saitama del final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nProfesores.pop()"\nProfesores\[-1\]\n"Sir. Mark Thackeray"'
+    consola '{color=#f0f}#Podemos con la función pop guardar el elemento eliminado en una variable"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nElMasPoderoso = Profesores.pop()"\nProfesores\[-1\]\n"Sir. Mark Thackeray"\nElMasPoderoso\n"Saitama"'
+    h "La función pop con un argumentos numérico elimina el elemento de la lista con ese índice y devuelve dicho elemento"
+    consola '{color=#f0f}#Podemos con la función pop con argumento"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nMeCaeMal = Profesores.pop(0)"\nProfesores\[0\]\n"Maestro Rochi"'
+    h "Podemos saber además cuantos elementos tiene una lista o un tuplo con la funcion len y entre paréntesis el nombre de la lista"
+    consola '{color=#f0f}#Vamos a usar la función len"{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama")\nlen(Profesores)\n4'
+    h "El diccionario no tiene ningún orden al ser invocado, pero en lugar de índices, usa {color=#ff0}claves{/color} de tipo cadena para seleccionar y al igual que la lista sus elementos pueden ser modificados"
+    h "En el diccionario, las claves son {color=#ff0}ÚNICAS{/color} y son la única manera de acceder a los elementos del mismo"
+    h "El diccionario se puede crear mediante la función dict(), o mediante una serie de claves y valores (la clave separadas del valor mediante dos puntos {color=#ff0}:{/color}) encerrados por corchetes cursivos"
+    consola '{color=#f0f}#Vamos a crear un diccionario{/color}\nnombreDeAsientosVacío=dict()\nnombreDeAsientos=\{"Ana": "A1", "Pepe":"C52", "Juan":"W15"\}\nnombreDeAsientos\["Ana"\]\n"A1"'
+    h "Y finalmente, el conjunto en inglés {color=#ff0}set{/color}, es una estructura de datos la cual contiene elementos con valores repetidos"
+    h "Son bastante dificiles de usar, pero los conjuntos NOS GARANTIZAN que ningun valor puede estar REPETIDO"
+    consola '{color=#f0f}#Vamos a crear un conjunto{/color}\nconjuntoDeIds=set(\["2A", 2, "3B", 2, 5, 8\])\nconjuntoDeIds\nset(\["2A", "3B", 2, 5, 8\])'
+    h "Ah! finalmente el operador {color=#ff0}in{/color} simplemente indica si un valor de un elemento está o no presente un estructura de datos (excepto en el diccionario) y de ser así devuelve True y sino es así devuelve False"
+    h "En los diccionarios, el operador in devuelve cierto o {color=#ff0}True{/color} siempre y cuando que la cadena sea parte de una clave del diccionario"
+    consola '{color=#f0f}#Vamos a ver el operador in en un diccionario{/color}\nnombreDeAsientos=\{"Ana": "A1", "Pepe":"C52", "Juan":"W15"\}\n"Ana" in nombreDeAsientos\nFalse {color=#ff0}#Ana es un clave del diccionario, es una clave{/color}\n"A1" in nombreDeAsientos\nFalse'
+    consola '{color=#f0f}#Vamos a ver el operador in{/color}\nconjuntoDeIds=set(\["2A", 2, "3B", 2, 5, 8\])\n"2a" in conjuntoDeIds\nFalse\n\n"2A" in conjuntoDeIds\nTrue'
+    h "Vamos a repasar un poco de lo aprendido"
     hide text
     
+    
+    h ""
+    h "Ahora si vamos a entrar con el control de flujo, para ello tenemos 4 operadores {color=#ff0}if{/color}, {color=#ff0}else{/color}, {color=#ff0}elif{/color} y {color=#ff0}while{/color}"
     return

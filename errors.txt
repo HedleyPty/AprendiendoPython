@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 797: else clause expects a non-empty block.
-    else:
-         ^
+File "game/script.rpy", line 988: expected statement.
+    h 
+      ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

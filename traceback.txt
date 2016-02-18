@@ -3,7 +3,7 @@
 While running game code:
   File "renpy/common/00start.rpy", line 85, in script
     return
-Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455798767, 6).
+Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455801837, 6).
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -14,7 +14,7 @@ Full traceback:
     next_node(renpy.game.context().lookup_return(pop=True))
   File "C:\Users\hequin\Documents\renpy\renpy\execution.py", line 503, in lookup_return
     raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455798767, 6).
+Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455801837, 6).
 
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.8.959
