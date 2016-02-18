@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 782: expected 'name' not found.
-    jump
-        ^
+File "game/script.rpy", line 797: else clause expects a non-empty block.
+    else:
+         ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

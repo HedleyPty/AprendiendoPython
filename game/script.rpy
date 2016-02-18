@@ -663,7 +663,8 @@ label q17:
             $error="¡Qué número más enredado!, esa no es la respuesta correcta"
             jump q17
 label n14:
-    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
+    
     h "Antes de terminar con estos dichosos operadores aritméticos, voy a habar de la {color=ff0}coerción{/color} de variables"
     h "Había dicho anteriormente que el resultado de uno o más operadores aritméticos es un número entero o flotante"
     h "También había dicho que existen 2 tipos variable numéricas en Python (int y el float) y otros 2 tipos que son la cadena (string) y el boolean"
@@ -690,6 +691,7 @@ label q18:
             $error="¡Qué número más enredado!, esa no es la respuesta correcta"
             jump q18
 label n15:
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Al fin acabamos con esos operadores aritméticos y de asignación"
     h "Vamos a ver 2 operadores que solo sirven para cadenas (strings) que el operador de concatenación y de formato"
     h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a unir dos o más cadenas hacer una cadena más largo"
@@ -709,8 +711,9 @@ label q19:
     $ respuestas = [3,2,4,1]
     if digestivo_counter==9:
         python:
-            encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
             digestivo_counter=0
+            encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
+            
     else:
         #$encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
         if check == respuestas[digestivo_counter]:
@@ -722,7 +725,8 @@ label q19:
                 $ del respuestas
                 $ del digestivo_counter
                 jump n16
-            $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+            else:
+                $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
         else:
              h "[error]"
     menu:
@@ -740,6 +744,7 @@ label q19:
             $check=4
             jump q19
 label n16:
+    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Vamos a hablar de las variables y operadores boolean o lógicas y del control de flujo"
     h "Antes de proseguir voy a hablar del cambio de tipo de las variables"
     h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas, a menos que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
@@ -756,6 +761,7 @@ label n16:
     consola "{color=f0f}#Algunos ejemplos{/color}\nbool(2)\nTrue\nbool(145.3)\nTrue\nbool(\"¿Cómo estás?\")\nTrue"
     consola "{color=f0f}#Algunos ejemplos{/color}\nbool(None)\nFalse\nbool(5-5)\nFalse\nbool(\"\")\nFalse"
     h "Ahora vamos a ver un par de ejercicios"
+    hide text
     python:
         menus=[['True', 'False', 'None'],
                     ['0', '1', '45']]
@@ -770,30 +776,29 @@ label q20:
         if check == respuestas[counter]:
             h "CORRECTO!"
             $counter += 1
-            if check ==4:
-                python:
-                    del check
-                    del counter
-                    del expresiones
-                    del menus
-                    del respuestas
-                    del encabezado
-                jump n17
+        
+        if counter == 3:
+            python:
+                del counter
+                del expresiones
+                del menus
+                del respuestas
+                del encabezado
+            h "Has completado esta actividad"
+            jump n17
+                
         else:
-            h "Inténtalo de nuevo"
-    if counter==0 or counter==2:
-        python:
-            menu1=menus[0][0]
-            menu2=menus[0][1]
-            menu3=menus[0][2]
-    else:
-        python:
-            menu1=menus[1][0]
-            menu2=menus[1][1]
-            menu3=menus[1][2]
-    
-        jump n17
-    $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones[counter]
+            $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
+            if counter != 1 :
+                python:
+                    menu1=menus[0][0]
+                    menu2=menus[0][1]
+                    menu3=menus[0][2]
+            else:
+                python:
+                    menu1=menus[1][0]
+                    menu2=menus[1][1]
+                    menu3=menus[1][2]
     menu:
         "[encabezado]"
         '[menu1]':
@@ -806,5 +811,107 @@ label q20:
             $check=menu3
             jump q20
 label n17:
-    h ""
+    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
+    h "Es importante el control de flujo, que tiene que ver con la toma de decisiones una vez que un evento cambia el valor de una variable"
+    h "Respuesta a preguntas como ¿qué ocurre cuando el medidor de aceite de un carro llega a cierto nivel? o ¿qué ocurre cuando se obtiene un objeto en un videojuego? son preguntas que tienen que ver con el {color=#ff0}control de flujo{/color}"
+    h "La idea del control de flujo es valorar diversas acciones a tomar basado en los cambios de una o varias variables"
+    h "Por eso es indispensable conocer a los uso de operadores lógicos en mayor detalle"
+    h 'Hay ciertos operadores que comparan el valor de 2 variables:\n"es igual a" {color=#ff0}=={/color}\n"no es igual a" {color=#ff0}!={/color} o también {color=#ff0}\<\>{/color}\n"es mayor que" {color=#ff0}>{/color}\n"es menor que" {color=#ff0}<{/color}\n"es mayor o igual a" {color=#ff0}>={/color}\n"es menor o igual a" {color=#ff0}<=\n{/color}'
+    h "En variables numéricas es creo que obvio"
+    consola "{color=#f0f}#Es bastante claro como funciona \"es igual a\" con números{/color}\n2{color=#ff0}=={/color}2\nTrue\n5{color=#ff0}=={/color}4\nFalse"
+    consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!=2{/color}\nFalse\n5{color=#ff0}!={/color}\4nTrue"
+    consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}>{/color}4\nTrue"
+    consola "{color=#f0f}#y acá vemos al \"menor que\" con números{/color}\n2{color=#ff0}<{/color}2\nFalse\n5{color=#ff0}<{/color}4\nFalse"
+    consola "{color=#f0f}#seguimos con el \"mayor o igual a\" con números{/color}\n2{color=#ff0}>={/color}2\nTrue\n5{color=#ff0}>={/color}4\nTrue"
+    consola "{color=#f0f}#y terminamos con el \"menor o igual a\" con números{/color}\n2{color=#ff0}<={/color}2\nTrue\n5{color=#ff0}<={/color}4\nFalse"
+    h 'En el caso de las variables o valores tipo cadena, es muy usado los operadores "igual a" {color=#ff0}=={/color} y "no es igual a" {color=#ff0}!={/color}'
+    h "Aunque es posible usar otros operadores lógicos de comparación en las cadenas, usualmente no es muy práctico"
+    consola "{color=#f0f}#Así funciona \"es igual a\" en variables tipo cadenas{/color}\n'hola'{color=#ff0}=={/color}\"hola\"\nTrue\n'hola'{color=#ff0}=={/color}'mundo'\nFalse"
+    consola "{color=#f0f}#Pero así funciona \"no es igual a\" en variables tipo cadenas{/color}\n'hola'{color=#ff0}!={/color}\"hola\"\nFalse\n'hola'{color=#ff0}!={/color}'mundo'\nTrue"
+    h "Lo importante de estos operadores es que {color=#ff0}siempre{/color} resultan en un valor lógico"
+    h "Vamos a ver un ejercicio"
+    hide text
+    python:
+        menus=['True', 'False', 'None']
+                    
+        counter=9
+        check=None
+        expresiones=['4>8', "int('12')==12.", 'str(24)!= "24.0"']
+        respuestas= ['False', 'True', 'False']
+        encabezado=""
+        error=""
+label q21:
+    if counter==9:
+        $counter=0
+    if check:
+        if check == respuestas[counter]:
+            h "CORRECTO!"
+            $counter += 1
+        else:
+            $error="Es INCORRECTO!"
+        
+        if counter == 3:
+            python:
+                del counter
+                del expresiones
+                del menus
+                del respuestas
+                del encabezado
+            h "Has completado esta actividad"
+            jump n18
+                
+        else:
+            
+            
+            python:
+                menu1=menus[0]
+                menu2=menus[1]
+                menu3=menus[2]
+    if error:
+        h "[error]"
+        $ error =""
+    $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
+    menu:
+        "[encabezado]"
+        '[menu1]':
+            $check=menu1
+            jump q21
+        '[menu2]':
+            $check=menu2
+            jump q21
+        '[menu3]':
+            $check=menu3
+            jump q21
+    
+label n18:
+    show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
+    h "Altes de proseguir debemos recordar los operadores aritmétcos: {color=#ff0}+{/color}, {color=#ff0}-{/color}, {color=#ff0}*{/color}, {color=#ff0}/{/color} y {color=#ff0}\%{/color}"
+    h "Cualquier operación con estos operadores, Python la va a resolver {color=#ff0}antes{/color} de comparar los resultados"
+    consola "{color=#f0f}Veamos este concepto{/color}\n3 + 5 > 2 - 1 {color=#f0f}#Es decir 8 > 1 que es cierto{/color} \nTrue"
+    consola "{color=#f0f}Veamos otro ejemplo{/color}\n12 * 2 >= 20 + 4 {color=#f0f}#Es decir 24 >= 24 que tambien es cierto{/color} \nTrue"
+    h "Vamos a ver 3 operadores lógicos más: {color=#ff0}not{/color}, {color=#ff0}and{/color} y {color=#ff0}or{/color}"
+    h "{color=#ff0}not{/color} es el único operador que solo toma un parámetro que es lo que está a derecha"
+    h "El operador {color=#ff0}not{/color} hace una coerción a boolean de lo que que tenga a su lado (si no es un boolean) y luego le cambia el valor de {color=#ff0}True{/color} a {color=#ff0}False{/color} o de {color=#ff0}False{/color} a {color=#ff0}True{/color}"
+    h "Veamos unos ejemplos"
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}not{/color}{/color}\nnot True\nFalse\nnot False\nTrue"
+    consola "{color=#f0f}#Veamos operador {color=#ff0}not{/color} haciendo coerción del valores numéricos{/color}\nbool(37.5)\nTrue\nnot 37.5\nFalse"
+    consola "{color=#f0f}#Veamos operador {color=#ff0}not{/color} haciendo coerción del valor None{/color}\nbool(None)\nFalse\nnot None\nTrue"
+    consola "{color=#f0f}#Veamos operador {color=#ff0}not{/color} haciendo coerción una variable tipo cadena{/color}\nhola=\"Hola mundo\"\nbool(hola)\nTrue\nnot hola\nFalse"
+    consola "{color=#f0f}#Veamos operador {color=#ff0}not{/color} haciendo coerción una variable tipo cadena vacía{/color}\nnada=\"\"\nbool(nada)\nFalse\nnot nada\nTrue"
+    h "El operador {color=#ff0}and{/color} compara si se coloca entre 2 valores booleanos, devuelve True cuando ambos son True (o ciertos)"
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}and{/color}{/color}\nTrue and True\nTrue\nTrue and False\nFalse"
+    h "El operador {color=#ff0}and{/color} además compara si se coloca entre 1 valor booleano y otro de otro tipo, devuelve True cuando el booleano es True y el otro valor puede ser coercionado a True"
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}and{/color} en otro ejemplo{/color}\nTrue and 3\nTrue\nTrue and \"\" {color=#ff0}#Recordemos que \"\" se coerciona a False{/color}\nFalse\nFalse and 2\nFalse"
+    h "Vamos a combinar los operadores {color=#ff0}not{/color} y {color=#ff0}and{/color}"
+    consola "{color=#f0f}#Otro ejemplo de los operadores {color=#ff0}and{/color} y {color=#ff0}not{/color}{/color} combinados\nnot True and True\nFalse\nTrue and not False\nTrue"
+    h 'Si el operador and aparece entre 2 valores o variables que no son boolean, va a retornar el valor a su derecha a menos que sea 0, None o ""'
+    h "Esto es interesante saber, pero no muy útil"
+    h "Ahora vamos a hablar del operador {color=#ff0}or"
+    h "El operador {color=#ff0}or{/color} compara, si se coloca entre 2 valores booleanos, devuelve True cuando uno de los dos es True (o ciertos)"
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color}{/color}\nTrue or True\nTrue\nTrue or False\nTrue"
+    h "Si colocamos el operador además compara si se coloca entre 1 valor booleano y otro de otro tipo, se devuelve True cuando el booleano es True o el otro valor puede ser coercionado a True"
+    consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color} en otro ejemplo{/color}\nTrue or 3\nTrue\nTrue or \"\" {color=#ff0}#Recordemos que \"\" se coerciona a False{/color}\nTrue\nFalse or 2\nTrue"
+
+    hide text
+    
     return
