@@ -1014,10 +1014,9 @@ label n19:
     h "Vamos a repasar un poco de lo aprendido"
     hide text
     
-    
+label n24:    
     h ""
     h "Ahora si vamos a entrar con el control de flujo, para ello tenemos 4 operadores {color=#ff0}if{/color}, {color=#ff0}else{/color}, {color=#ff0}elif{/color} y {color=#ff0}while{/color}"
-    label n24:
     h "Ahora vamos a ver como funciona el control de flujo"
     h "Primero imaginemos que manejamos un carro y nos encontramos un semáforo en rojo"
     h "De repente la luz cambia a verde, lo que indica que podemos avanzar"
@@ -1037,10 +1036,12 @@ label n19:
     h "El bloque es una serie de líneas que tienen {color=#ff0}sangría{/color} adicicional despues de la sentencia que inicia con if"
     h "El bloque termina en la última línea con {color=#ff0}sangría{/color}"
     h "En este tutorial he usado bloques {color=#ff0}if{/color} para valorar si sus respuestas son correctas o no"
-    #Buscar las líneas
     h "Pueden ver esto en la página github de este proyecto{a}https://github.com/HedleyPty/AprendiendoPython{/a} en las líneas ..."
-    consola '{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}if check == respuestas\[counter\]:\n    counter += 1\n    if counter ==3:\n    jump proxCapitulo'
-    
+    h "Al contestar una respuesta correcta se compara el valor de la variable con su respusesta con un elemento de una lista que contiene las respuestas correctas"
+    consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n    counter += 1\n    if counter ==3:\n    jump proxCapitulo {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}"
+    h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
+    h "Los bucles son operaciones que se repiten siempre y cuando una condición sea cierta"
+    h "En un bucle usalmente hay una variable que cambia de valor"
     
     h "Además del control de flujo con else que significa {color=#ff0}sino{/color}"
     

@@ -1,20 +1,85 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 85, in script
-    return
-Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455801837, 6).
+IndexError: string index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 85, in script
-    return
-  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 1367, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "C:\Users\hequin\Documents\renpy\renpy\execution.py", line 503, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u'C:\\Users\\hequin\\Documents\\GitHub\\AprendiendoPython/game/script.rpy', 1455801837, 6).
+  File "lib/windows-i686/script.rpyc", line 1026, in script
+  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 603, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "C:\Users\hequin\Documents\renpy\renpy\exports.py", line 1121, in say
+    who(what, interact=interact)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 828, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 690, in do_display
+    **display_args)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 493, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\hequin\Documents\renpy\renpy\ui.py", line 277, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2424, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2765, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 1849, in draw_screen
+    renpy.config.screen_height,
+  File "renpy/display/render.pyx", line 394, in renpy.display.render.render_screen (gen\renpy.display.render.c:6190)
+    rv = render(root, width, height, 0, 0)
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 650, in render
+    surf = render(child, width, height, cst, cat)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 650, in render
+    surf = render(child, width, height, cst, cat)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 650, in render
+    surf = render(child, width, height, cst, cat)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\screen.py", line 610, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 650, in render
+    surf = render(child, width, height, cst, cat)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 1024, in render
+    st, at)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 840, in render
+    surf = render(d, width - x, rh, cst, cat)
+  File "renpy/display/render.pyx", line 103, in renpy.display.render.render (gen\renpy.display.render.c:3104)
+    cpdef render(d, object widtho, object heighto, double st, double at):
+  File "renpy/display/render.pyx", line 185, in renpy.display.render.render (gen\renpy.display.render.c:2721)
+    rv = d.render(widtho, heighto, st, at)
+  File "C:\Users\hequin\Documents\renpy\renpy\text\text.py", line 1673, in render
+    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
+  File "C:\Users\hequin\Documents\renpy\renpy\text\text.py", line 543, in __init__
+    self.paragraphs = self.segment(text.tokens, style, renders, text)
+  File "C:\Users\hequin\Documents\renpy\renpy\text\text.py", line 988, in segment
+    push().color = renpy.easy.color(value)
+  File "C:\Users\hequin\Documents\renpy\renpy\color.py", line 127, in __new__
+    if c[0] == '#':
+IndexError: string index out of range
 
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.8.959
