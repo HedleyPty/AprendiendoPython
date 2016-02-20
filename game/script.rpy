@@ -942,8 +942,6 @@ label q22:
             jump n19
                 
         else:
-            
-            
             python:
                 menu1=menus[0]
                 menu2=menus[1]
@@ -963,7 +961,7 @@ label q22:
         '[menu3]':
             $check=menu3
             jump q22
-    hide text
+
 label n19:
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Antes de entrar de lleno a hablar del control de flujo, les tengo que hablar del operador lógico {color=#ff0}in{/color}"
@@ -1013,25 +1011,73 @@ label n19:
     consola '{color=#f0f}#Vamos a ver el operador in{/color}\nconjuntoDeIds=set(\["2A", 2, "3B", 2, 5, 8\])\n"2a" in conjuntoDeIds\nFalse\n\n"2A" in conjuntoDeIds\nTrue'
     h "Vamos a repasar un poco de lo aprendido"
     hide text
-    
+    python:
+        del menu1, menu2, menu3
+        menus=[['None', '0', '1'],
+               ['2', '4', '6'],
+               ['1','3','5']]
+        counter=9
+        check=None
+        expresiones=['a=[]\nlen(a)', "a=[[1,2,3],[4,5,6]]\na[1][0]", 'a=([1,2,3],[4,5,6])\na[0][2]']
+        respuestas= ['0', '4', '3']
+        encabezado=""
+        error=""
+label q22:
+    if counter==9:
+        $counter=0
+    if check:
+        if check == respuestas[counter]:
+            h "CORRECTO!"
+            $counter += 1
+        else:
+            $error="Es INCORRECTO!"
+        
+        if counter == 3:
+            python:
+                del counter
+                del expresiones
+                del menus
+                del respuestas
+                del encabezado
+            h "Has completado esta actividad"
+            jump n24
+                
+    python:
+        menu1=menus[counter][0]
+        menu2=menus[counter][1]
+        menu3=menus[counter][2]
+    if error:
+        h "[error]"
+        $ error =""
+    $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
+    menu:
+        "[encabezado]"
+        '[menu1]':
+            $check=menu1
+            jump q22
+        '[menu2]':
+            $check=menu2
+            jump q22
+        '[menu3]':
+            $check=menu3
+            jump q22
 label n24:    
-    h ""
     h "Ahora si vamos a entrar con el control de flujo, para ello tenemos 4 operadores {color=#ff0}if{/color}, {color=#ff0}else{/color}, {color=#ff0}elif{/color} y {color=#ff0}while{/color}"
     h "Ahora vamos a ver como funciona el control de flujo"
     h "Primero imaginemos que manejamos un carro y nos encontramos un semáforo en rojo"
     h "De repente la luz cambia a verde, lo que indica que podemos avanzar"
     h "Dentro de un programa una {color=#ff0}toma de decisión{/color} se ejecuta automáticamente cuando una o más variables cambian de estado"
     h "El control de flujo, implica una serie de acción que ocurren cuando una variable toma un determinado valor"
-    h "El control de flujo en Python se realiza mediante {color=#ff0}bloques{/color} cuando una {color=#ff0}condición{/color} es {color}cierta{/color}"
+    h "El control de flujo en Python se realiza mediante {color=#ff0}bloques{/color} cuando una {color=#ff0}condición{/color} es {color=#ff0}cierta{/color}"
     h "Las palabras reservadas que delimitan el {color=#ff0}control de flujo{/color} son {color=#ff0}if{/color}, {color=#ff0}else{/color}, {color=#ff0}elif{/color} y {color=#ff0}while{/color}"
     h "Comenzamos por la palabra reservada {color=#ff0}if{/color} que significa en español {color=#ff0}si{/color}"
     h "Hay dos formas de crear un control de flujo con {color=#ff0}if{/color}: con una línea o con un bloque"
     h "Para crear una línea, escribimos la palabra reservada {color=#ff0}if{/color} seguida por una condición (que debe ser cierta para que se ejecute la línea)\nluego dos puntos {color=#ff0}seguido de la acción a ejecutar{/color}"
     h "Si la condición no se cumple, el código despues de los dos puntos {color=#ff0}:{/color} no se ejecuta"
-    consola "{color=#f0f}#Versión Python 2, como a >20 es falso, el código no se ejecuta{/color}a=14\nb=2\nif a>20: print b"
-    consola "{color=#f0f}#Versión Python 2, como a >20 es cierto, el código se ejecuta{/color}a=24\nb=2\nif a>20: print b\n2"
-    consola "{color=#f0f}#Versión Python 3, como a >20 es falso, el código no se ejecuta{/color}a=14\nb=2\nif a>20: print (b)"
-    consola "{color=#f0f}#Versión Python 3, como a >20 es cierto, el código se ejecuta{/color}a=24\nb=2\nif a>20: print (b)\n2"
+    consola "{color=#f0f}#Versión Python 2 (note que el argumento de print NO está encerrado en paréntesis)\ncomo a >20 es falso, el código no se ejecuta{/color}\na=14\nb=2\nif a>20: print b"
+    consola "{color=#f0f}#Versión Python 2 (note que el argumento de print NO está encerrado en paréntesis), como a >20 es cierto, el código se ejecuta{/color}\na=24\nb=2\nif a>20: print b\n2"
+    consola "{color=#f0f}#Versión Python 3 (note que el argumento de print está encerrado en paréntesis), como a >20 es falso, el código no se ejecuta{/color}\na=14\nb=2\nif a>20: print (b)"
+    consola "{color=#f0f}#Versión Python 3 (note que el argumento de print está encerrado en paréntesis), como a >20 es cierto, el código se ejecuta{/color}\na=24\nb=2\nif a>20: print (b)\n2"
     h "Si queremos ejecutar más de una línea necesitamos un {color=#ff0}bloque{/color}"
     h "El bloque es una serie de líneas que tienen {color=#ff0}sangría{/color} adicicional despues de la sentencia que inicia con if"
     h "El bloque termina en la última línea con {color=#ff0}sangría{/color}"
@@ -1041,9 +1087,14 @@ label n24:
     consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n    counter += 1\n    if counter ==3:\n    jump proxCapitulo {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}"
     h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
     h "Los bucles son operaciones que se repiten siempre y cuando una condición sea cierta"
-    h "En un bucle usalmente hay una variable que cambia de valor"
+    h "En un bucle usalmente hay una variable que cambia de valor hasta que llega un momento que la condición es falsa y el bucle para"
+    h "Sino hay ninguna condicion que cambie, tenemos un {color=#ff0bucle infinito{/color}, es decir un bloque que se repetiras hasta que el programa se cierre forzosamente o se apague el computador"
+    h "Aunque en ocasiones se requiere un bucle infinito, pero debe evitarse"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}while{/color}{/color}\ni=0\nwhile i<4:\n    print(i)\n    i +=1\n1\n2\n3"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile True:\n    print(i)\n    i +=1\n1\n2\n3\n...#Se repite para siempre :("
+    h "Además del control de flujo con else que significa {color=#ff0}sino{/color} y debe estar precedido por una linea/bloque if o while"
+    h "La línea else se corre una vez cuando la condición en if o while es falsa"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n3\ny\5"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a > 2:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n2\ny\4"
     
-    h "Además del control de flujo con else que significa {color=#ff0}sino{/color}"
-    
-    #h "La sentencia y los bloque else se escribe de la misma manera que la sentenc"
     return

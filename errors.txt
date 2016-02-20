@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 988: expected statement.
-    h 
-      ^
+File "game/script.rpy", line 1050: invalid syntax
+        h "[error]"
+                   ^
+    
 
 Ren'Py Version: Ren'Py 6.99.8.959
