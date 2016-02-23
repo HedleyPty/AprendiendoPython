@@ -21,14 +21,14 @@ label start:
     jump chp1
 label chp1:
     show text "{size=40}{color=#000}Capítulo uno\n\n\n¿Qué es programar?{/color}{/size}" at top
-    h "Empezamos..."
     h "Para mi, aprender a programar me pareció bastante frustrante!"
-    h "Verán aprendí varios lenguajes de programación, pero no supe lo que era programar..."
+    h "Verán, aprendí varios lenguajes de programación, pero no supe lo que era programar..."
     h "Vamos a intentar aprender a programar antes de entrar de lleno a Python"
     h "Vamos a iniciar con el concepto del {color=#ff0}proyecto{/color}"
     h "Los {color=#ff0}proyectos{/color} están asociados a 2 conceptos:"
     h 'El primero es que el proyecto debe tener la finalidad de {color=#ff0}resolver un problema{/color}'
     h 'El {color=#ff0}problema{/color} es de caracter repetitivo y se resuelve mediante la {color=#ff0}interacción{/color} de partes de un {color=#ff0}sistema{/color}'
+    h "El {color=#ff0}sistema{/color} es el segundo concepto"
     h "Las partes del sistema están contenidas en una {color=ff0}carpeta{/color} o un {color=#ff0}directorio{/color} dentro de la {color=#ff0}computadora{/color} (llamado en España{color=#ff0}\"ordernador\"{/color}) o en la {color=#ff0}nube{/color}"
     $current="q1"
     $ error=""
@@ -48,22 +48,26 @@ label chp1:
             "Una carpeta con piezas de un sistema":
                 $error="Las carpetas usualmente se asocian a un proyecto: eso es correcto, busca la opción {color=#ff0}incorrecta{/color}"
                 $renpy.jump(current)
+            "Un sistema con partes que interaccionan entre ellas":
+                $error="Esto es correcto, un {color=#ff0}sistema{/color} tiene partes que interaccionan entre ellas"
+                $renpy.jump(current)
     label q2:
         show python_logo at truecenter
         h "La nube es la opción incorrecta! vamos adelante"
-        h "Vamos a ver un ejemplo tangibles"
-        h "veamos un reloj..."
+        h "Vamos a ver un ejemplo tangible"
+        h "Veamos un reloj..."
         hide python_logo
         show reloj at truecenter
-        h "el reloj analógico es un {color=#ff0}sistema complejo{/color} que permite saber la hora"
-        h "mediante el movimiento de sus 3 manecillas a diferentes velocidades"
+        h "El reloj analógico es un {color=#ff0}sistema complejo{/color} que permite saber la hora"
+        h "Mediante el movimiento de sus 3 manecillas a diferentes velocidades"
         hide reloj
         show reloj guts at truecenter
         h "para serles sinceros no se como trabajan los relojes, pero lo que sí se"
         h "es que los engranajes (o ruedas dentadas) trabajan de manera coordinada a {color=ff0}diferentes velocidades{/color} para posicionarse"
         h "y contestar a la pregunta {color=#ff0}\"¿Qué hora es?\"{/color}"
         h "Las manecillas se mueven de forma implacable con el pasar de tiempo..."
-        
+        h "Vamos a repasar lo aprendido acerca de los relojes en relación a la programación"
+        $ error=""
         hide reloj guts
         jump q3
     label q3:
@@ -115,35 +119,36 @@ label q4:
         "Clavos":
             h "Eso es correcto!!!"
             python:
-                del error
                 del count
             jump n2
 label n2:
     show python_logo at truecenter
     if error == "":
-        h "Veo que no cometido errores!"
-        h "Has acertado a la primera..."
-        $peerless=True
+        h "Veo que has acertado a la primera..."
+        h "Sin embargo, más adelante verás que cometer errores es muy importante para programar"
     else:
-        $peerless=False
         h "Has seleccionado [count] veces la opción incorrecta"
         h "Cometer errores, es muy importante para aprender cualquier lenguaje de programación..."
-    $del peerless
-    
     show python_logo at truecenter
-    h "Veo que han notado que a diferencia de los otros objetos o sistemas, los {color=#ff0}clavos son bastante simples{/color}."
+    h "Existen 2 grandes fases en la programación, la etapa de {color=#ff0}desarrollo{/color} y la etapa de {color=#ff0}producción{/color}"
+    h "En la etapa de desarrollo, se DEBEN cometer errores para evitar que éstos vayan a producción"
+    h "Además debemos saber que existen 2 tipos de errores: los errores de {color=#ff0}sintaxis{/color} y los errores de {color=#ff0}lógica{/color}"
+    h "Los errores de {color=#ff0}sintaxis{/color} impiden al programa traducirse desde el lenguaje de programación el programa NO CORRE"
+    h "Es decir que el programa no corre durante el {color=#ff0}tiempo de ejecución{/color} conocido en inglés como {color=#ff0}runtime{/color}"
+    h "Los errores de lógica permiten al programa correr, pero el resultado NO es el esperado"
+    h "Un ejemplo de un error de lógica seríaun programa que imite a un reloj analógo, el cual CORRE, pero todas las manecillas se mueven a la misma velocidad"
+    h "Los errores lógicos son definitivamente muy difíciles de detectar y pueden pasar a la etapa de {color=#ff0}producción{/color} si no somos cuidadosos"
+    h "Regresando a la pregunta anterior"
+    h "Veo que han notado que a diferencia de objetos o sistemas, los {color=#ff0}clavos{/color} son objectos bastante {color=#ff0}simples{/color}."
     h "Ellos no tienen otras partes dentro y pueden servir para crear objetos más grandes y complejos"
-    if peerless:
-        h "Vamos a recapitular, el carro tiene muchas piezas, las cuales hacen muchas funciones!"
-        h "El cuerpo humano tiene muchas órganos y células organizadas que permite que estemos vivos"
-        h "La página web muchos elementos: interaccionan con el usuarios, tienen una serie de piezas más simples otras páginas, manejan bases de datos"
-        h "Los juegos de video son sistemas muy complejos que interaccionan con el usuarios: tienen piezas más simples que manejan a enemigos, al puntaje, en fin todo un enredo"
+    
     h "El ejercicio de imaginarse como podemos \"desmembrar\" un sistema complejo en sus componentes fundamentales y sus relaciones es el primer paso para poder programar"
     h "A esto se le llama {color=#ff0}abstracción{/color}"
-    
-    h "En Python, tenemos algo equivalente a los clavos o unidades fundamentales"
+    h "En Python, tenemos algo equivalente a los clavos, pedazos de madera, tornillos o unidades fundamentales"
+    h "Los cuales nos van a ayudar a construir sistemas muy complejos"
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     h "La abstracción es tratar de sacar cada una de las piezas que forman un sistema"
+    h "Y elaborar un programa con sus partes y las interección entre esas piezas"
     h "Veamos un ejemplo"
     $count=0
     $error=""
@@ -170,40 +175,40 @@ label n3:
     h "Qué pregunta más tonta..."
     h "Es cierto que a la tráquea le llega comida de cuando en cuando..."
     h "Pero no en personas sanas..."
-    h "Ya que hablamos del sistema digestivo... vamos a hacer algo"
+    h "Ya que hablamos del sistema digestivo... vamos a hacer algo en relación al mismo"
     python:
         digestivo=["boca","faringe","esófago", "estómago", "intestino delgado", "intestino grueso", "ano"]
         check_organ=""
-        digestivo_counter=9
-        cont="No puede proseguir hasta que complete la tarea"
+        counter=9
+        
     hide text
     hide python_logo
     jump q6
 label q6:
-    if digestivo_counter == 9:
+    if counter == 9:
         python:
             cabecera= "Señale el órgano del tubo digestivo que se encuentra en la cabeza"
-            digestivo_counter = 0
+            counter = 0
     else:
-        if digestivo_counter < 6:
-            if check_organ == digestivo[digestivo_counter]:
+        if counter < 6:
+            if check_organ == digestivo[counter]:
                 python:
-                    digestivo_counter += 1
+                    counter += 1
                     organo = check_organ
-                if digestivo_counter < 2:
+                if counter < 3:
                     $cabecera = "Qué órgano sigue a la "+ organo
                 else:
                     $cabecera="Qué órgano sigue al " + organo
             else:
-                if digestivo_counter > 0:
+                if counter > 0 and counter < 5 :
                     h "{color=#f00}Ese órgano no es el que sigue!{/color}"
                 else:
                     h "{color=#f00}Ese órgano no está en la cabeza!{/color}"
             
     
-        elif digestivo_counter == 6:
-            h "Y así tenemos que el último órgano es el ano"
-            $cont="Haga click aquí para continuar"
+        elif counter == 6:
+            h "Y así tenemos que el último órgano del sistema digestivo es el ano"
+            jump n4
     menu:
         "[cabecera]"
         
@@ -228,11 +233,6 @@ label q6:
         "Intestino grueso":
             $check_organ=digestivo[5]
             jump q6
-        "[cont]":
-            if cont == "No puede proseguir hasta que complete la tarea":
-                jump q6
-            else:
-                jump n4
 label n4:
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     h "Wao, hemos visto como se conectan los órganos del tubo digestivo uno tras otro"
@@ -241,13 +241,16 @@ label n4:
     h "Podemos agarrar un pedazo papel y describir los elementos, su comportamiento, como se relacionan unos con los otros "
     h "Este {color=#ff0}diseño{/color} es fundamental para saber las acciones y definir nuestro programa"
     h "Creo que estamos listos para ver como representamos esos sistemas y elementos en nuestro programa"
-    h "Antes de hablar de como hacer esas {color=#ff0}abstracciones{/color} en Python tengo que mostrarles las {color=#ff0}variables{/color}, los {color=#ff0}operadores{/color} y las {color=#ff0}funciones{/color}"
+    h "Antes de hablar de como hacer esas {color=#ff0}abstracciones{/color} en Python tengo que mostrarles el equivalente a los clavos, engranes y otras piezas fundamentales para crear sistemas complejos"
+    h "En Python (como cualquier otro idioma de programación) estos son: las {color=#ff0}variables{/color}, los {color=#ff0}operadores{/color} y las {color=#ff0}funciones{/color}"
     hide text
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     h "Antes de examinar el concepto de las variables en Python, vamos a instalarlo"
     h "Python es un idioma multiplataforma"
-    h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo"
-    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma {a}www.python.org{/a}"
+    h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo despues de traducirse al {color=#ff0}un programa específico de ese sistema operativo{/color}"
+    h "Esta traducción se llama {color=ff0}compilación{/color}"
+    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma {a}www.python.org/downloads/{/a}"
+    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferible) o compilar los binarios de la página web oficial{a}www.python.org/downloads/source{/a}"
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
@@ -255,9 +258,9 @@ label n4:
     h "Las variables son un objecto que contiene cierta información que se va a reutilizar más tarde"
     h "En alguno de los ejercicios anteriores, he usado variables, por ejemplo... te acuerdas cuando conté el número de errores los ejercicios anteriores? esa información la guardé en una variable"
     h "Para crear una variable, debemos tener 3 elementos: el {color=#f00}nombre de la variable{/color}, el {color=#f00}operador de asignación{/color} y su {color=#f00}valor{/color}."
-    h "es decir por ejemplo a = 16.29"
+    h "Un ejemplo a = 16.29\na es el nombre de la variable\n= es el operador de asignación\n16.29 es el valor de la variable"
     h "Es importante destacar que hay ciertas reglas para nombrar una variable"
-    h "Las variables puedes nombrarla \"como quieras\" (lo pongo entre comillas por algo), pero su nombre solo puede contener signos de subrayado(_), letras y números."
+    h "Las variables puedes nombrarla \"como quieras\" (lo pongo entre comillas por algo), pero su nombre solo puede contener signos de subrayado(_), letras (sin carácteres especiales, tildes o la ñ) y números."
     h "Las variables tampoco pueden ser \"palabras reservadas\" del lenguaje Python, las cual aprenderemos más adelante, dichas palabras son de uso común en inglés, pero no en español"
     h "Y el nombre nunca puede iniciar con un número"
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
@@ -298,8 +301,8 @@ label q8:
     menu:
         'Que problema presenta la variable "_asTAS45", a diferencia de "Asteroide4" y la variable "_import"'
         ""
-        "¿Qué problemas tiene ese nombre?":
-            $error ="Ponga atención a las otras opciones"
+        "No veo ningun problema con ese nombre":
+            $error ='Ponga atención a las otras opciones\nCompárelo con las otros 2 variables y dígame que tiene de "raro" ese nombre'
             jump q8
         "No es posible saber que se trata fácilmente":
             $error=""
@@ -311,22 +314,23 @@ label q8:
 label n6:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     h 'En verdad... "_asTAS45" es un nombre que no significa nada, bueno de buenas a primeras'
-    h "Las variables Astoide4 y la variable _import tienen algun sentido..."
+    h "Las variables Astoide4 y la variable _import tienen algun sentido:\nAsteriode4 puede significar algun asteroide en un juego de video o algo relacionado con astronomía\n_import puede significar que se a importar algo..."
     h "La idea de Python es de servir como un lenguaje de \"alto nivel\", es decir ser \"entendible\" para los humanos"
     h "Aunque no tanto para el ordenador o computadora"
     h "Variables con un nombre como \"_asTAS45\" hacen que todo se enrede a menos que tenga una lógica interna"
     hide text
-    
 label q9:
     menu:
         "Python es un lenguaje de programación de alto nivel, ¿qué significa esto?"
-        "Que Python es mucho más comprensible para los desarrolladores que para las máquinas donde se corre":
+        "Que Python es mucho más comprensible para los humanos que leen el programa que para las máquinas donde se corre":
             h "CORRECTO"
             jump n7
-        "Que Python es mucho más comprensible para las máquinas donde se corre que para los desarrolladores de programas":
+        "Que Python es mucho más comprensible para las máquinas donde se corre que para los humanos que leen el mismo":
             h "¡Eso no es correcto!"
             jump q9
         "Que es un lenguaje de alto nivel de complejidad":
+            h "Ciertamente se pueden crear programas muy complejos con Python"
+            h "Pero eso no tiene nada que ver con el nivel de lenguaje"
             h "¡Eso no es correcto!"
             jump q9
 label n7:
@@ -395,7 +399,7 @@ label n8:
     h "Y finalmente las variables booleanas, son la que solo pueden tener 2 valores cierto o {color=#ff0}True{/color} y falso {color=#ff0}False{/color}"
     h "Vamos al siguiente ejercicio"
     hide text
-    $digestivo_counter=0
+    $counter=0
     $check=""
 label q11:
     $tipos=["str", "float", "int", "float","bool"]
@@ -403,15 +407,15 @@ label q11:
     
     if check=="":
         pass
-    elif check == tipos[digestivo_counter]:
+    elif check == tipos[counter]:
         h "CORRECTO"
-        $digestivo_counter += 1
-        if digestivo_counter == 5:
+        $counter += 1
+        if counter == 5:
             h "Has determinado los tipos de las variables, vamos a proseguir hablando de los operadores aritméticos y lógicos"
             jump n9
     else:
         h "¡Eso no es correcto!"
-    $encabezado="#Determine el tipo Python de la variable cuyo valor es: " + valores[digestivo_counter]
+    $encabezado="#Determine el tipo Python de la variable cuyo valor es: " + valores[counter]
     menu:
         consola "[encabezado]"
         "int":
@@ -550,7 +554,7 @@ label q14:
     consola "{color=#f0f}#Para calcular el logaritmo de 16 con base 2{/color}\nimport math\nmath.log(16,2)\n4.0"
     hide text
     $error=""
-    $digestivo_counter=0
+    $counter=0
     $respuesta=10
 label q15:
     $ encabezado="Calcule usando Python:\n"
@@ -562,24 +566,24 @@ label q15:
     
     if respuesta==10:
         pass
-    elif respuesta == claves[digestivo_counter] and digestivo_counter < 3:
-        $digestivo_counter += 1
+    elif respuesta == claves[counter] and counter < 3:
+        $counter += 1
     else:
         $error="¡Eso no es correcto!"
     if error:
         h "[error]"
         $error=""
-    if digestivo_counter <=3:
-        if digestivo_counter < 3:
+    if counter <=3:
+        if counter < 3:
             h "CORRECTO"
             h "Vamos por el siguiente reto"
         else:
             h "Exacto, has concluido este ejercicio"
             jump n12
-    $encabezado += encabezados [digestivo_counter]
-    $Menu1=Menus[digestivo_counter][0]
-    $Menu2=Menus[digestivo_counter][1]
-    $Menu3=Menus[digestivo_counter][2]
+    $encabezado += encabezados [counter]
+    $Menu1=Menus[counter][0]
+    $Menu2=Menus[counter][1]
+    $Menu3=Menus[counter][2]
     menu:
         consola "[encabezado]"
         "[Menu1]":
@@ -704,29 +708,29 @@ label n15:
     h "Para evitar estos problemas, podemos hacer una {color=#ff0}interpolación{/color} de variables"
     consola 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
     $error=""
-    $ digestivo_counter = 9
+    $ counter = 9
 label q19:
     
     $ expresiones = ['1+1', '"1"+1', '"1"+"False"', "True + 2"]
     $ respuestas = [3,2,4,1]
-    if digestivo_counter==9:
+    if counter==9:
         python:
-            digestivo_counter=0
+            counter=0
             encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[0]
             
     else:
-        #$encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
-        if check == respuestas[digestivo_counter]:
+        #$encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[counter]
+        if check == respuestas[counter]:
             h "Eso es correcto"
-            $digestivo_counter += 1
-            if digestivo_counter==4:
+            $counter += 1
+            if counter==4:
                 h "Has completado esta actividad"
                 $ del expresiones
                 $ del respuestas
-                $ del digestivo_counter
+                $ del counter
                 jump n16
             else:
-                $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[digestivo_counter]
+                $encabezado = "Muestre el resultado de la siguiente expresión\n"+expresiones[counter]
         else:
              h "[error]"
     menu:

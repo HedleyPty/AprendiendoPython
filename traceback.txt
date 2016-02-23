@@ -1,17 +1,23 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-ScriptError: could not find label 'q23'.
+  File "game/script.rpy", line 137, in <module>
+    h "Veo que han notado que a diferencia de los otros objetos o sistemas, los {color=#ff0}clavos son bastante simples{/color}."
+NameError: name 'peerless' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 1060, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1519, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/home/hedley/Documents/renpy/renpy/script.py", line 843, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'q23'.
+  File "/home/hedley/script.rpyc", line 137, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1647, in execute
+    if renpy.python.py_eval(condition):
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1490, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1485, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 137, in <module>
+    h "Veo que han notado que a diferencia de los otros objetos o sistemas, los {color=#ff0}clavos son bastante simples{/color}."
+NameError: name 'peerless' is not defined
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959
