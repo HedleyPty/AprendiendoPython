@@ -1,4 +1,3 @@
-
 image python_logo ="images/Python logo.png"
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
@@ -1088,17 +1087,66 @@ label n24:
     h "En este tutorial he usado bloques {color=#ff0}if{/color} para valorar si sus respuestas son correctas o no"
     h "Pueden ver esto en la página github de este proyecto{a}https://github.com/HedleyPty/AprendiendoPython{/a} en las líneas ..."
     h "Al contestar una respuesta correcta se compara el valor de la variable con su respusesta con un elemento de una lista que contiene las respuestas correctas"
-    consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n    counter += 1\n    if counter ==3:\n    jump proxCapitulo {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}"
+    consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n\ \ \ \ counter += 1\n\ \ \ \ if counter ==3:\n\ \ \ \ {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}\n\ \ \ \ jump proxCapitulo "
     h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
     h "Los bucles son operaciones que se repiten siempre y cuando una condición sea cierta"
     h "En un bucle usalmente hay una variable que cambia de valor hasta que llega un momento que la condición es falsa y el bucle para"
-    h "Sino hay ninguna condicion que cambie, tenemos un {color=#ff0bucle infinito{/color}, es decir un bloque que se repetiras hasta que el programa se cierre forzosamente o se apague el computador"
-    h "Aunque en ocasiones se requiere un bucle infinito, pero debe evitarse"
-    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}while{/color}{/color}\ni=0\nwhile i<4:\n    print(i)\n    i +=1\n1\n2\n3"
-    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile True:\n    print(i)\n    i +=1\n1\n2\n3\n...#Se repite para siempre :("
-    h "Además del control de flujo con else que significa {color=#ff0}sino{/color} y debe estar precedido por una linea/bloque if o while"
-    h "La línea else se corre una vez cuando la condición en if o while es falsa"
-    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n3\ny\5"
-    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a > 2:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n2\ny\4"
-    
-    return
+    h "Sino la condicion inicial no se torna {color=#f00}falsa{/color} cuando tenemos un bloque {color=#ff0}while{/color}, tenemos un {color=#ff0}bucle infinito{/color},\nes decir un bloque que se repetirá hasta que el programa se cierre forzosamente o se apague el computador"
+    h "Aunque en ocasiones se requiere un bucle infinito, en general debe evitarse"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}while{/color}{/color}\ni=0\nwhile i<4:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile True:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3\n...{color=#f0f}#Se repite para siempre :("
+    consola "{color=#f0f}#Veamos otro un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile i > -5:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3\n...{color=#f0f}#También se repite para siempre :("
+    h "Además del control de flujo con {color=#ff0}else{/color} que significa {color=#ff0}sino{/color} y debe estar precedido por una linea/bloque {color=#ff0}if{/color} o {color=#ff0}while{/color}"
+    h "La línea o bloque {color=#ff0}else{/color} se corre una vez cuando la condición evaluada en la sentencia {color=#ff0}if{/color} o {color=#ff0}while{/color} se torna falsa"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es cierto {/color}{/color}\na=2\nif a:\n\ \ \ \ x=3\nelse:\n\ \ \ \ x=2\nx\n3"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelse:\n\ \ \ \ x=2\nx\n2"
+    consola '{color=#f0f}#Veamos un ejemplo de un ejemplo con {color=#ff0}while{/color} en Python 2{/color}\na=3\nwhile a > 0:\n\ \ \ \ a -= 1\n\ \ \ \ print a\nelse:\n\ \ \ \ print "Boom!"\n2\n1\n0\n"Boom!"'
+    h "Finalmente tenemos la palabra reservada {color=#ff0}elif{/color} la cual {color=#f00}no existe en inglés{/color}, es una contracción de else e if"
+    h "Funciona igual que una sentencia {color=#ff0}if{/color} y puede estar precedida de otra sentencia {color=ff0}if{/color} con su respectiva línea o bloque"
+    h "Tambien puede estar precedida de una o más sentencias {color=#ff0}elif{/color} siempre y cuando el segundo bloque {color=#ff0}elif{/color} sea precedido por un bloque {color=#ff0}if{/color}"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es cierta{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n0"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es falsa{/color}\na=1\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n1"
+    #Calendario chino
+    h "Vamos a hacer algo divertido con lo aprendido hasta ahora"
+    h "Voy a crear una lista de objetos (todos tipo int) llama {color=#ff0}lista_Anos{/color} en Ren'py"
+    $ lista_Anos = [1978,1985,1966]
+    h "La acabo de crear"
+    h "El valor de la variable {color=#ff0}lista_Anos{/color} se ha cargado a Ren'py y su valor es [lista_Anos]"
+    $ bad_data=False
+label q23:
+    if bad_data:
+        h "Ingresa los datos correctamente"
+        h "¿Cómo yo se que los datos son inválidos?"
+        h 'Es algo que vamos a ver más adelante llamado "Expresiones regulares"'
+        h "Las expresiones regular me permiten analizar el texto que estás introduciendo al programa"
+        h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
+    python:
+        import re
+        nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
+        nac=nac.strip()
+        
+        if re.search("((19[5-9]|20[01])\d)",nac):
+            nac = int(nac)
+            if not nac in lista_Anos:
+                lista_Anos.append(nac)
+        else:
+            bad_data=True
+            renpy.jump('q23')
+    h "Has ingresado el año [nac]"
+    if len(lista_Anos) == 3:
+        h "Ese año está en la lista original, por lo que no lo voy a repetir"
+        h "¿Cómo sé eso?\nPorque antes de intentar añadirlo a la lista, usé el siguiente bloque:\nif not nac in lista_Anos:\n\ \ \ \ lista_Anos.append(nac)"
+        h "En este caso, {color=#ff0}nac in lista_Anos{/color} es cierto, pero como está precedido por el operador {color=#ff0}not{/color} se lo convierte en falso"
+        h "Por lo que no se agrega a la variable que contiene la lista {color=#ff0}lista_Anos{/color}"
+        h "Todos estos diálogos están dentro de un bloque {color=#ff0}if{/color} que se ejecuta si el número de elementos de la lista es 3 (es decir que no lo añadí a la variable)"
+    else:
+        h "Ese año no está en la lista original, por lo que lo voy a añadir a la lista"
+        h "¿Cómo sé eso?\nPorque antes de intentar añadirlo a la lista, usé el siguiente bloque:\nif not nac in lista_Anos:\n\ \ \ \ lista_Anos.append(nac)"
+        h "En este caso, {color=#ff0}nac in lista_Anos{/color} es falso, pero como está precedido por el operador {color=#ff0}not{/color} se convierte en cierto"
+        h "es decir que el bloque {color=#ff0}lista_Anos.append(nac){/color} se ejecuta"
+        h "por lo que he agregado el número [nac] a la variable que contiene la lista {color=#ff0}lista_Anos{/color} que ahora es [lista_Anos]"
+        h "Todos estos diálogos están dentro de un bloque {color=#ff0}else{/color}"
+        h "Este bloque else, es precedido por un bloque if que es cierto si el número de elementos dentro la lista es 3"
+        h "Como el añadimos una elemento a la variable, la condición se torna falsa y se ejecuta este bloque de diálogos else"
+    h "Seguimos"
+return
