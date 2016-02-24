@@ -6,7 +6,9 @@ Resolved location of library project to: /home/hedley/Documents/renpy/rapt/andro
 Updated and renamed default.properties to project.properties
 Updated local.properties
 Added file ./build.xml
-Added file ./proguard-project.txt
+Updated file ./proguard-project.txt
+It seems that there are sub-projects. If you want to update them
+please use the --subprojects parameter.
 
 
 
@@ -43,12 +45,8 @@ Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/res
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/rsObj
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/rsLibs
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/gen
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/classes
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/dexedLibs
      [echo] ----------
      [echo] Resolving Dependencies for AprendiendoPythonparahispanohablantes-1.0...
 [dependency] Library dependencies:
@@ -87,14 +85,8 @@ nodeps:
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/libs
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/res
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/rsObj
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/rsLibs
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/gen
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/dexedLibs
      [echo] ----------
      [echo] Resolving Dependencies for library...
 [dependency] Library dependencies:
@@ -103,27 +95,22 @@ nodeps:
 [dependency] ------------------
 
 -code-gen:
-[mergemanifest] Merging AndroidManifest files into one.
-[mergemanifest] Manifest merger disabled. Using project manifest only.
+[mergemanifest] No changes in the AndroidManifest files.
      [echo] Handling aidl files...
      [aidl] No AIDL files to compile.
      [echo] ----------
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] Generating resource IDs...
+     [aapt] No changed resources. R.java and Manifest.java untouched.
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] Generating BuildConfig class.
+[buildconfig] No need to generate new BuildConfig.
 
 -pre-compile:
 
 -compile:
-    [javac] Compiling 19 source files to /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes
-    [javac] Note: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/src/com/google/android/vending/licensing/LicenseChecker.java uses or overrides a deprecated API.
-    [javac] Note: Recompile with -Xlint:deprecation for details.
      [echo] Creating library output jar file...
-      [jar] Building jar: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
 
 -post-compile:
 
@@ -149,7 +136,7 @@ nodeps:
 
 -release-nosign:
      [echo] 
-[propertyfile] Creating new property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
@@ -187,14 +174,8 @@ nodeps:
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/libs
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/rsObj
     [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/rsLibs
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/gen
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/dexedLibs
      [echo] ----------
      [echo] Resolving Dependencies for downloader_library...
 [dependency] Library dependencies:
@@ -205,27 +186,24 @@ nodeps:
 [dependency] ------------------
 
 -code-gen:
-[mergemanifest] Merging AndroidManifest files into one.
-[mergemanifest] Manifest merger disabled. Using project manifest only.
+[mergemanifest] No changes in the AndroidManifest files.
      [echo] Handling aidl files...
      [aidl] No AIDL files to compile.
      [echo] ----------
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
+     [aapt] Found new input file
      [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] Generating BuildConfig class.
+[buildconfig] No need to generate new BuildConfig.
 
 -pre-compile:
 
 -compile:
-    [javac] Compiling 22 source files to /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes
-    [javac] Note: Some input files use or override a deprecated API.
-    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Compiling 1 source file to /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes
      [echo] Creating library output jar file...
-      [jar] Building jar: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
 
 -post-compile:
 
@@ -237,11 +215,7 @@ nodeps:
 -crunch:
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/res
    [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res
-   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/res/drawable-hdpi/notify_panel_notification_icon_bg.png => /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-hdpi/notify_panel_notification_icon_bg.png
-   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-hdpi/notify_panel_notification_icon_bg.png: 0% size of source)
-   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/res/drawable-mdpi/notify_panel_notification_icon_bg.png => /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-mdpi/notify_panel_notification_icon_bg.png
-   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-mdpi/notify_panel_notification_icon_bg.png: 0% size of source)
-   [crunch] Crunched 2 PNG files to update cache
+   [crunch] Crunched 0 PNG files to update cache
 
 -package-resources:
      [echo] Library project: do not package resources...
@@ -255,7 +229,7 @@ nodeps:
 
 -release-nosign:
      [echo] 
-[propertyfile] Creating new property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
@@ -267,6 +241,7 @@ nodeps:
 release:
 
 -code-gen:
+[mergemanifest] Found modified input file
 [mergemanifest] Merging AndroidManifest files into one.
 [mergemanifest] Manifest merger disabled. Using project manifest only.
      [echo] Handling aidl files...
@@ -276,15 +251,16 @@ release:
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
+     [aapt] Found new input file
      [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] Generating BuildConfig class.
+[buildconfig] No need to generate new BuildConfig.
 
 -pre-compile:
 
 -compile:
-    [javac] Compiling 28 source files to /home/hedley/Documents/renpy/rapt/bin/classes
+    [javac] Compiling 27 source files to /home/hedley/Documents/renpy/rapt/bin/classes
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
 
@@ -297,11 +273,12 @@ release:
       [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
       [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
       [dex] input: /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
-      [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar -> classes-5ef00356adf498a63f6fd1e833a3caa9.jar
-      [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar -> classes-eb85eb3bab27b2aaf7bd95be0f4b6ca2.jar
+      [dex] Using Pre-Dexed classes-5ef00356adf498a63f6fd1e833a3caa9.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
+      [dex] Using Pre-Dexed classes-eb85eb3bab27b2aaf7bd95be0f4b6ca2.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
       [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar -> amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar
+      [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex A (68 defs/88.4KiB) with dex B (47 defs/88.1KiB). Result is 115 defs/207.6KiB. Took 0.9s
+       [dx] Merged dex A (68 defs/88.4KiB) with dex B (47 defs/88.1KiB). Result is 115 defs/207.6KiB. Took 1.9s
        [dx] Merged dex A (115 defs/207.6KiB) with dex B (25 defs/35.5KiB). Result is 140 defs/296.8KiB. Took 0.3s
        [dx] Merged dex A (140 defs/296.8KiB) with dex B (90 defs/79.8KiB). Result is 230 defs/487.0KiB. Took 0.2s
 
@@ -315,10 +292,11 @@ release:
    [crunch] Crunched 2 PNG files to update cache
 
 -package-resources:
+     [aapt] Found modified input file
      [aapt] Creating full resource package...
 
 -package:
-[apkbuilder] Current build type is different than previous build: forced apkbuilder run.
+[apkbuilder] Found modified input file
 [apkbuilder] Creating AprendiendoPythonparahispanohablantes-1.0-release-unsigned.apk for release...
 
 -post-package:
@@ -331,7 +309,7 @@ release:
      [echo] Signing final apk...
  [zipalign] Running zip align on final apk...
      [echo] Release Package: /home/hedley/Documents/renpy/rapt/bin/AprendiendoPythonparahispanohablantes-1.0-release.apk
-[propertyfile] Creating new property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
 [propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
@@ -341,7 +319,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 1 minute 20 seconds
+Total time: 1 minute 0 seconds
 
 
 
