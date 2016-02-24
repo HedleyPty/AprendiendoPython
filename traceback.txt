@@ -1,107 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 209, in script
-    python:
-  File "renpy/common/00start.rpy", line 213, in <module>
-    renpy.call_in_new_context("_main_menu")
-  File "renpy/common/00console.rpy", line 376, in enter
-    renpy.call_in_new_context("_console")
-  File "game/script.rpy", line 1139, in script
-    h "En este caso, {color=#ff0}nac in lista_Anos{/color} es cierto, pero como está precedido por el operador {color=#ff0}not{/color} se lo convierte en falso"
-  File "renpy/common/00keymap.rpy", line 264, in _reload_game
-    renpy.call_in_new_context("_save_reload_game")
-  File "renpy/common/00keymap.rpy", line 364, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 378, in <module>
-    renpy.save("_reload-1", "reload save game")
-PicklingError: Can't pickle <type 'module'>: attribute lookup __builtin__.module failed
+  File "game/script.rpy", line 270, in <module>
+    h "Epa! El nombre [error] es perfectamente legal"
+NameError: name 'error' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 209, in script
-    python:
-  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 805, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\hequin\Documents\renpy\renpy\python.py", line 1461, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/00start.rpy", line 213, in <module>
-    renpy.call_in_new_context("_main_menu")
-  File "C:\Users\hequin\Documents\renpy\renpy\game.py", line 313, in call_in_new_context
-    return renpy.execution.run_context(False)
-  File "C:\Users\hequin\Documents\renpy\renpy\execution.py", line 714, in run_context
-    context.run()
-  File "renpy/common/_layout/screen_main_menu.rpym", line 29, in script
-    $ ui.interact()
-  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 805, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\hequin\Documents\renpy\renpy\python.py", line 1461, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/_layout/screen_main_menu.rpym", line 29, in <module>
-    $ ui.interact()
-  File "C:\Users\hequin\Documents\renpy\renpy\ui.py", line 277, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2424, in interact
-    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 3080, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 906, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 404, in event
-    rv = run(action)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 295, in run
-    return var(*args, **kwargs)
-  File "renpy/common/00console.rpy", line 376, in enter
-    renpy.call_in_new_context("_console")
-  File "C:\Users\hequin\Documents\renpy\renpy\game.py", line 313, in call_in_new_context
-    return renpy.execution.run_context(False)
-  File "C:\Users\hequin\Documents\renpy\renpy\execution.py", line 714, in run_context
-    context.run()
-  File "game/script.rpy", line 1139, in script
-    h "En este caso, {color=#ff0}nac in lista_Anos{/color} es cierto, pero como está precedido por el operador {color=#ff0}not{/color} se lo convierte en falso"
-  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 603, in execute
-    renpy.exports.say(who, what, interact=self.interact)
-  File "C:\Users\hequin\Documents\renpy\renpy\exports.py", line 1121, in say
-    who(what, interact=interact)
-  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 828, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, **display_args)
-  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 690, in do_display
-    **display_args)
-  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 493, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "C:\Users\hequin\Documents\renpy\renpy\ui.py", line 277, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2424, in interact
-    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 3080, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\layout.py", line 906, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 404, in event
-    rv = run(action)
-  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 295, in run
-    return var(*args, **kwargs)
-  File "renpy/common/00keymap.rpy", line 264, in _reload_game
-    renpy.call_in_new_context("_save_reload_game")
-  File "C:\Users\hequin\Documents\renpy\renpy\game.py", line 313, in call_in_new_context
-    return renpy.execution.run_context(False)
-  File "C:\Users\hequin\Documents\renpy\renpy\execution.py", line 714, in run_context
-    context.run()
-  File "renpy/common/00keymap.rpy", line 364, in script
-    python hide:
-  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 805, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\hequin\Documents\renpy\renpy\python.py", line 1461, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/00keymap.rpy", line 378, in <module>
-    renpy.save("_reload-1", "reload save game")
-  File "C:\Users\hequin\Documents\renpy\renpy\loadsave.py", line 275, in save
-    dump((roots, renpy.game.log), logf)
-  File "C:\Users\hequin\Documents\renpy\renpy\loadsave.py", line 43, in dump
-    cPickle.dump(o, f, cPickle.HIGHEST_PROTOCOL)
-PicklingError: Can't pickle <type 'module'>: attribute lookup __builtin__.module failed
+  File "/home/hedley/script.rpyc", line 270, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1647, in execute
+    if renpy.python.py_eval(condition):
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1490, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1485, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 270, in <module>
+    h "Epa! El nombre [error] es perfectamente legal"
+NameError: name 'error' is not defined
 
-Windows-7-6.1.7601-SP1
+Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959
 Programar con Python 0.0

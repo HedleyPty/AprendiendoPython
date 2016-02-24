@@ -135,7 +135,7 @@ label n2:
     h "Los errores de {color=#ff0}sintaxis{/color} impiden al programa traducirse desde el lenguaje de programación el programa NO CORRE"
     h "Es decir que el programa no corre durante el {color=#ff0}tiempo de ejecución{/color} conocido en inglés como {color=#ff0}runtime{/color}"
     h "Los errores de lógica permiten al programa correr, pero el resultado NO es el esperado"
-    h "Un ejemplo de un error de lógica seríaun programa que imite a un reloj analógo, el cual CORRE, pero todas las manecillas se mueven a la misma velocidad"
+    h "Un ejemplo de un error de lógica sería un programa que imite a un reloj analógo, el cual CORRE, pero todas las manecillas se mueven a la misma velocidad"
     h "Los errores lógicos son definitivamente muy difíciles de detectar y pueden pasar a la etapa de {color=#ff0}producción{/color} si no somos cuidadosos"
     h "Regresando a la pregunta anterior"
     h "Veo que han notado que a diferencia de objetos o sistemas, los {color=#ff0}clavos{/color} son objectos bastante {color=#ff0}simples{/color}."
@@ -147,7 +147,7 @@ label n2:
     h "Los cuales nos van a ayudar a construir sistemas muy complejos"
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     h "La abstracción es tratar de sacar cada una de las piezas que forman un sistema"
-    h "Y elaborar un programa con sus partes y las interección entre esas piezas"
+    h "Y elaborar un programa con sus partes y las interacción entre esas piezas"
     h "Veamos un ejemplo"
     $count=0
     $error=""
@@ -249,7 +249,7 @@ label n4:
     h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo despues de traducirse al {color=#ff0}un programa específico de ese sistema operativo{/color}"
     h "Esta traducción se llama {color=ff0}compilación{/color}"
     h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma {a}www.python.org/downloads/{/a}"
-    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferible) o compilar los binarios de la página web oficial{a}www.python.org/downloads/source{/a}"
+    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferiblemente) o compilar los binarios de la página web oficial: {a}www.python.org/downloads/source{/a}"
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
@@ -264,6 +264,7 @@ label n4:
     h "Y el nombre nunca puede iniciar con un número"
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
     h "Ok, vamos a repasar lo aprendido"
+    $ error=""
     hide text
 label q7:
     if error!="":
@@ -273,7 +274,7 @@ label q7:
         h "Más adelante verás por qué..."
         h "Sin embargo, tanto _import como import_ son nombres permitidos"
     menu:
-        "Cual de los siguientes nombres no es ilegal en Python"
+        "Cual de los siguientes nombres {color=#ff0}no{/color} es permitido en Python"
         "_asTAS45":
             $ error= "_asTAS45"
             jump q7
