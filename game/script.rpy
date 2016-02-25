@@ -1149,5 +1149,11 @@ label q23:
         h "Todos estos diálogos están dentro de un bloque {color=#ff0}else{/color}"
         h "Este bloque else, es precedido por un bloque if que es cierto si el número de elementos dentro la lista es 3"
         h "Como el añadimos una elemento a la variable, la condición se torna falsa y se ejecuta este bloque de diálogos else"
-    h "Seguimos"
+    h "Ahora voy a hablar de los signos zodicales chinos y a cual signo corresponde [nac]"
+    h "Existen varias formas de saber que signo zodiacal chino es [nac]"
+    h "El calendario chino asigna un animal a cada año y son 12 animales"
+    h "Puedes ver la lista de animales aquí{a}https://es.wikipedia.org/wiki/Astrolog%C3%ADa_china#Los_doce_animales{/a}"
+    
+    $ signos_Chinos= ["La rata", "El buey", "El tigre", "El conejo", "El dragón", "La serpiente", "El caballo", "La cabra", "El mono", "El gallo", "El perro", "El cerdo"]
+    
 return
