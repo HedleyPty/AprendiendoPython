@@ -1,86 +1,110 @@
-Wed Feb 24 14:34:47 2016
-Windows-7-6.1.7601-SP1
+Wed Feb 24 21:19:45 2016
+Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959
  
 
-Bootstrap to the start of init.init took 0.11s
-Early init took 0.03s
-Loader init took 0.05s
-Loading error handling took 0.03s
-Loading script took 0.62s
-Loading persistent took 0.03s
+Bootstrap to the start of init.init took 0.26s
+Early init took 0.04s
+Loader init took 0.02s
+Loading error handling took 0.07s
+Loading script took 1.38s
+Loading persistent took 0.11s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.14s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
+Running init code took 0.23s
+Loading analysis data took 0.09s
+Analyze and compile ATL took 0.01s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\hequin\\AppData\\Roaming/RenPy/backups\\AprendiendoPython':
-Dump and make backups. took 0.08s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.17s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 DPI scale factor: 1.000000
-Creating interface object took 0.02s
+Creating interface object took 0.45s
 Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.02s
-Load screen analysis took 0.00s
-Analyze screens took 0.00s
-Save screen analysis took 0.06s
-Prepare screens took 0.06s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.02s
+Save screen analysis took 0.10s
+Prepare screens took 0.11s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
+Save bytecode. took 0.05s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.01s
+Interface start took 0.02s
 
-primary display bounds: (0, 0, 1680, 1050)
+primary display bounds: (0, 0, 1280, 800)
 Windowed mode.
 Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
-Vendor: 'Intel'
-Renderer: 'Intel(R) Q45/Q43 Express Chipset'
-Version: '2.1.0 - Build 8.15.10.2413'
-Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680L, 65280L, 255L, 0L), 'current_h': 1050, 'current_w': 1680, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
-Fixed-function is blacklisted.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
 Extensions:
     
-    GL_3DFX_texture_compression_FXT1
+    GL_ARB_ES2_compatibility
     GL_ARB_color_buffer_float
-    GL_ARB_depth_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
     GL_ARB_depth_texture
     GL_ARB_draw_buffers
-    GL_ARB_draw_instanced
+    GL_ARB_explicit_attrib_location
     GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
     GL_ARB_fragment_shader
-    GL_ARB_framebuffer_sRGB
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
     GL_ARB_half_float_pixel
     GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
     GL_ARB_multitexture
     GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
     GL_ARB_pixel_buffer_object
     GL_ARB_point_parameters
     GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
     GL_ARB_shader_objects
     GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
     GL_ARB_shadow
+    GL_ARB_sync
     GL_ARB_texture_border_clamp
     GL_ARB_texture_compression
-    GL_ARB_texture_compression_rgtc
     GL_ARB_texture_cube_map
     GL_ARB_texture_env_add
     GL_ARB_texture_env_combine
     GL_ARB_texture_env_crossbar
     GL_ARB_texture_env_dot3
     GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
     GL_ARB_texture_non_power_of_two
     GL_ARB_texture_rectangle
     GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
     GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
     GL_ARB_vertex_array_object
     GL_ARB_vertex_buffer_object
     GL_ARB_vertex_program
     GL_ARB_vertex_shader
     GL_ARB_window_pos
-    GL_ATI_separate_stencil
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
     GL_EXT_abgr
     GL_EXT_bgra
     GL_EXT_blend_color
@@ -88,44 +112,127 @@ Extensions:
     GL_EXT_blend_func_separate
     GL_EXT_blend_minmax
     GL_EXT_blend_subtract
-    GL_EXT_clip_volume_hint
     GL_EXT_compiled_vertex_array
-    GL_EXT_draw_buffers2
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
     GL_EXT_draw_range_elements
     GL_EXT_fog_coord
     GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
     GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
     GL_EXT_multi_draw_arrays
     GL_EXT_packed_depth_stencil
-    GL_EXT_packed_float
     GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
     GL_EXT_rescale_normal
     GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
     GL_EXT_separate_specular_color
     GL_EXT_shadow_funcs
     GL_EXT_stencil_two_side
     GL_EXT_stencil_wrap
     GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
     GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
     GL_EXT_texture_edge_clamp
     GL_EXT_texture_env_add
     GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
     GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
     GL_EXT_texture_lod_bias
-    GL_EXT_texture_rectangle
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
     GL_EXT_texture_sRGB
-    GL_EXT_texture_shared_exponent
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
     GL_EXT_texture_swizzle
-    GL_EXT_transform_feedback
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
     GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
     GL_NV_blend_square
-    GL_NV_conditional_render
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
     GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
     GL_SGIS_generate_mipmap
-    GL_SGIS_texture_edge_clamp
     GL_SGIS_texture_lod
-    GL_WIN_swap_hint
-Number of texture units: 8
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
 Using shader environment.
 Using copy RTT.
 Using gl renderer.
@@ -137,11 +244,2039 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 1.86000013351s
+Total time until interface ready: 3.80585289001s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.014469 seconds.
+- Frame drawn at 0.047053 seconds.
+- Frame drawn at 0.076371 seconds.
+- Frame drawn at 0.107039 seconds.
+- 0.107039 seconds to render 5 frames.
+The window was minimized.
+The window was restored.
+The window was minimized.
+The window was restored.
+Bootstrap to the start of init.init took 502.87s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.04s
+Loading script took 1.04s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.10s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.14s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.10s
+Prepare screens took 0.13s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 504.998670816s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.020514 seconds.
+- Frame drawn at 0.044793 seconds.
+- Frame drawn at 0.068009 seconds.
+- Frame drawn at 0.090798 seconds.
+- 0.090798 seconds to render 5 frames.
+Bootstrap to the start of init.init took 574.27s
+Early init took 0.01s
+Loader init took 0.01s
+Loading error handling took 0.06s
+Loading script took 1.32s
+Loading persistent took 0.05s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.13s
+Loading analysis data took 0.17s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.12s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.10s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 576.935617924s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.024994 seconds.
+- Frame drawn at 0.080117 seconds.
+- Frame drawn at 0.125126 seconds.
+- Frame drawn at 0.168802 seconds.
+- 0.168802 seconds to render 5 frames.
+Bootstrap to the start of init.init took 756.72s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.05s
+Loading script took 1.01s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.16s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.13s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.09s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 758.798013926s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.013476 seconds.
+- Frame drawn at 0.043954 seconds.
+- Frame drawn at 0.059031 seconds.
+- Frame drawn at 0.090239 seconds.
+- 0.090239 seconds to render 5 frames.
+Bootstrap to the start of init.init took 770.76s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.05s
+Loading script took 1.10s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.10s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.12s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.09s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 772.894061804s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.014084 seconds.
+- Frame drawn at 0.044089 seconds.
+- Frame drawn at 0.058857 seconds.
+- Frame drawn at 0.075019 seconds.
+- 0.075019 seconds to render 5 frames.
+Bootstrap to the start of init.init took 786.40s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.04s
+Loading script took 1.03s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.11s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.17s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.11s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.06s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 788.578243017s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.040446 seconds.
+- Frame drawn at 0.055503 seconds.
+- Frame drawn at 0.071970 seconds.
+- Frame drawn at 0.088014 seconds.
+- 0.088014 seconds to render 5 frames.
+Traceback (most recent call last):
+  File "/home/hedley/Documents/renpy/renpy/execution.py", line 388, in run
+    node.execute()
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1647, in execute
+    if renpy.python.py_eval(condition):
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1490, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1485, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 269, in <module>
+    if error!="":
+NameError: name 'error' is not defined
+Bootstrap to the start of init.init took 962.96s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.05s
+Loading script took 1.10s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.11s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.17s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.19s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 965.241402864s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.028020 seconds.
+- Frame drawn at 0.044775 seconds.
+- Frame drawn at 0.085132 seconds.
+- Frame drawn at 0.106093 seconds.
+- 0.106093 seconds to render 5 frames.
+Traceback (most recent call last):
+  File "/home/hedley/Documents/renpy/renpy/execution.py", line 388, in run
+    node.execute()
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1647, in execute
+    if renpy.python.py_eval(condition):
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1490, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1485, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 270, in <module>
+    if error!="":
+NameError: name 'error' is not defined
+Bootstrap to the start of init.init took 1011.73s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.05s
+Loading script took 1.20s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.10s
+Loading analysis data took 0.06s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.13s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.11s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 1014.01053882s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.028525 seconds.
+- Frame drawn at 0.043704 seconds.
+- Frame drawn at 0.075329 seconds.
+- Frame drawn at 0.107567 seconds.
+- 0.107567 seconds to render 5 frames.
+Bootstrap to the start of init.init took 1066.37s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.05s
+Loading script took 1.12s
+Loading persistent took 0.04s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.11s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
+Dump and make backups. took 0.12s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.01s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.10s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.02s
+
+primary display bounds: (0, 0, 1280, 800)
+Windowed mode.
+Screen sizes: virtual=(800, 600) physical=(800, 600) drawable=(800, 600)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'GeForce 7150M / nForce 630M/integrated/SSE2'
+Version: '2.1.2 NVIDIA 304.131'
+Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 8), 'hw': False, 'masks': (16711680, 65280, 255, 0), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 0), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
+Extensions:
+    
+    GL_ARB_ES2_compatibility
+    GL_ARB_color_buffer_float
+    GL_ARB_compressed_texture_pixel_storage
+    GL_ARB_conservative_depth
+    GL_ARB_copy_buffer
+    GL_ARB_depth_clamp
+    GL_ARB_depth_texture
+    GL_ARB_draw_buffers
+    GL_ARB_explicit_attrib_location
+    GL_ARB_fragment_program
+    GL_ARB_fragment_program_shadow
+    GL_ARB_fragment_shader
+    GL_ARB_framebuffer_object
+    GL_ARB_get_program_binary
+    GL_ARB_half_float_pixel
+    GL_ARB_half_float_vertex
+    GL_ARB_imaging
+    GL_ARB_internalformat_query
+    GL_ARB_map_buffer_alignment
+    GL_ARB_map_buffer_range
+    GL_ARB_multisample
+    GL_ARB_multitexture
+    GL_ARB_occlusion_query
+    GL_ARB_occlusion_query2
+    GL_ARB_pixel_buffer_object
+    GL_ARB_point_parameters
+    GL_ARB_point_sprite
+    GL_ARB_provoking_vertex
+    GL_ARB_robustness
+    GL_ARB_sampler_objects
+    GL_ARB_separate_shader_objects
+    GL_ARB_shader_objects
+    GL_ARB_shading_language_100
+    GL_ARB_shading_language_420pack
+    GL_ARB_shading_language_include
+    GL_ARB_shadow
+    GL_ARB_sync
+    GL_ARB_texture_border_clamp
+    GL_ARB_texture_compression
+    GL_ARB_texture_cube_map
+    GL_ARB_texture_env_add
+    GL_ARB_texture_env_combine
+    GL_ARB_texture_env_crossbar
+    GL_ARB_texture_env_dot3
+    GL_ARB_texture_float
+    GL_ARB_texture_mirrored_repeat
+    GL_ARB_texture_non_power_of_two
+    GL_ARB_texture_rectangle
+    GL_ARB_texture_rg
+    GL_ARB_texture_storage
+    GL_ARB_texture_swizzle
+    GL_ARB_timer_query
+    GL_ARB_transpose_matrix
+    GL_ARB_vertex_array_bgra
+    GL_ARB_vertex_array_object
+    GL_ARB_vertex_buffer_object
+    GL_ARB_vertex_program
+    GL_ARB_vertex_shader
+    GL_ARB_window_pos
+    GL_ATI_draw_buffers
+    GL_ATI_texture_float
+    GL_ATI_texture_mirror_once
+    GL_EXT_Cg_shader
+    GL_EXT_abgr
+    GL_EXT_bgra
+    GL_EXT_blend_color
+    GL_EXT_blend_equation_separate
+    GL_EXT_blend_func_separate
+    GL_EXT_blend_minmax
+    GL_EXT_blend_subtract
+    GL_EXT_compiled_vertex_array
+    GL_EXT_depth_bounds_test
+    GL_EXT_direct_state_access
+    GL_EXT_draw_range_elements
+    GL_EXT_fog_coord
+    GL_EXT_framebuffer_blit
+    GL_EXT_framebuffer_multisample
+    GL_EXT_framebuffer_object
+    GL_EXT_gpu_program_parameters
+    GL_EXT_import_sync_object
+    GL_EXT_multi_draw_arrays
+    GL_EXT_packed_depth_stencil
+    GL_EXT_packed_pixels
+    GL_EXT_pixel_buffer_object
+    GL_EXT_point_parameters
+    GL_EXT_provoking_vertex
+    GL_EXT_rescale_normal
+    GL_EXT_secondary_color
+    GL_EXT_separate_shader_objects
+    GL_EXT_separate_specular_color
+    GL_EXT_shadow_funcs
+    GL_EXT_stencil_two_side
+    GL_EXT_stencil_wrap
+    GL_EXT_texture3D
+    GL_EXT_texture_compression_dxt1
+    GL_EXT_texture_compression_s3tc
+    GL_EXT_texture_cube_map
+    GL_EXT_texture_edge_clamp
+    GL_EXT_texture_env_add
+    GL_EXT_texture_env_combine
+    GL_EXT_texture_env_dot3
+    GL_EXT_texture_filter_anisotropic
+    GL_EXT_texture_format_BGRA8888
+    GL_EXT_texture_lod
+    GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
+    GL_EXT_texture_object
+    GL_EXT_texture_sRGB
+    GL_EXT_texture_sRGB_decode
+    GL_EXT_texture_storage
+    GL_EXT_texture_swizzle
+    GL_EXT_timer_query
+    GL_EXT_vertex_array
+    GL_EXT_vertex_array_bgra
+    GL_EXT_x11_sync_object
+    GL_IBM_rasterpos_clip
+    GL_IBM_texture_mirrored_repeat
+    GL_KTX_buffer_region
+    GL_NVX_conditional_render
+    GL_NV_ES1_1_compatibility
+    GL_NV_alpha_test
+    GL_NV_blend_minmax
+    GL_NV_blend_square
+    GL_NV_complex_primitives
+    GL_NV_copy_depth_to_color
+    GL_NV_depth_clamp
+    GL_NV_fbo_color_attachments
+    GL_NV_fence
+    GL_NV_float_buffer
+    GL_NV_fog_distance
+    GL_NV_fragdepth
+    GL_NV_fragment_program
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
+    GL_NV_framebuffer_multisample_coverage
+    GL_NV_half_float
+    GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_occlusion_query
+    GL_NV_packed_depth_stencil
+    GL_NV_pixel_data_range
+    GL_NV_point_sprite
+    GL_NV_primitive_restart
+    GL_NV_register_combiners
+    GL_NV_register_combiners2
+    GL_NV_texgen_reflection
+    GL_NV_texture_barrier
+    GL_NV_texture_compression_vtc
+    GL_NV_texture_env_combine4
+    GL_NV_texture_expand_normal
+    GL_NV_texture_lod_clamp
+    GL_NV_texture_rectangle
+    GL_NV_texture_shader
+    GL_NV_texture_shader2
+    GL_NV_texture_shader3
+    GL_NV_vertex_array_range
+    GL_NV_vertex_array_range2
+    GL_NV_vertex_program
+    GL_NV_vertex_program1_1
+    GL_NV_vertex_program2
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
+    GL_OES_compressed_paletted_texture
+    GL_OES_depth24
+    GL_OES_depth32
+    GL_OES_depth_texture
+    GL_OES_element_index_uint
+    GL_OES_fbo_render_mipmap
+    GL_OES_get_program_binary
+    GL_OES_mapbuffer
+    GL_OES_packed_depth_stencil
+    GL_OES_point_size_array
+    GL_OES_point_sprite
+    GL_OES_read_format
+    GL_OES_rgb8_rgba8
+    GL_OES_standard_derivatives
+    GL_OES_texture_3D
+    GL_OES_texture_float
+    GL_OES_texture_float_linear
+    GL_OES_texture_half_float
+    GL_OES_texture_half_float_linear
+    GL_OES_texture_npot
+    GL_OES_vertex_array_object
+    GL_OES_vertex_half_float
+    GL_S3_s3tc
+    GL_SGIS_generate_mipmap
+    GL_SGIS_texture_lod
+    GL_SGIX_depth_texture
+    GL_SGIX_shadow
+    GL_SUN_slice_accum
+Number of texture units: 4
+Using shader environment.
+Using copy RTT.
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 4096
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Total time until interface ready: 1068.51685596s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+<<<<<<< HEAD
 - Frame drawn at 0.010000 seconds.
 - Frame drawn at 0.020000 seconds.
 - Frame drawn at 0.020000 seconds.
 - Frame drawn at 0.020000 seconds.
 - 0.020000 seconds to render 5 frames.
+=======
+- Frame drawn at 0.013796 seconds.
+- Frame drawn at 0.044571 seconds.
+- Frame drawn at 0.059331 seconds.
+- Frame drawn at 0.074811 seconds.
+- 0.074811 seconds to render 5 frames.
+>>>>>>> refs/remotes/origin/master
