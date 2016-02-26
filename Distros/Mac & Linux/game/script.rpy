@@ -1,4 +1,3 @@
-
 image python_logo ="images/Python logo.png"
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
@@ -136,7 +135,7 @@ label n2:
     h "Los errores de {color=#ff0}sintaxis{/color} impiden al programa traducirse desde el lenguaje de programación el programa NO CORRE"
     h "Es decir que el programa no corre durante el {color=#ff0}tiempo de ejecución{/color} conocido en inglés como {color=#ff0}runtime{/color}"
     h "Los errores de lógica permiten al programa correr, pero el resultado NO es el esperado"
-    h "Un ejemplo de un error de lógica seríaun programa que imite a un reloj analógo, el cual CORRE, pero todas las manecillas se mueven a la misma velocidad"
+    h "Un ejemplo de un error de lógica sería un programa que imite a un reloj analógo, el cual CORRE, pero todas las manecillas se mueven a la misma velocidad"
     h "Los errores lógicos son definitivamente muy difíciles de detectar y pueden pasar a la etapa de {color=#ff0}producción{/color} si no somos cuidadosos"
     h "Regresando a la pregunta anterior"
     h "Veo que han notado que a diferencia de objetos o sistemas, los {color=#ff0}clavos{/color} son objectos bastante {color=#ff0}simples{/color}."
@@ -148,7 +147,7 @@ label n2:
     h "Los cuales nos van a ayudar a construir sistemas muy complejos"
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     h "La abstracción es tratar de sacar cada una de las piezas que forman un sistema"
-    h "Y elaborar un programa con sus partes y las interección entre esas piezas"
+    h "Y elaborar un programa con sus partes y las interacción entre esas piezas"
     h "Veamos un ejemplo"
     $count=0
     $error=""
@@ -249,8 +248,8 @@ label n4:
     h "Python es un idioma multiplataforma"
     h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo despues de traducirse al {color=#ff0}un programa específico de ese sistema operativo{/color}"
     h "Esta traducción se llama {color=ff0}compilación{/color}"
-    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma {a}www.python.org/downloads/{/a}"
-    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferible) o compilar los binarios de la página web oficial{a}www.python.org/downloads/source{/a}"
+    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma en la página de {a=https://www.python.org/downloads/}descargas de Python{/a}"
+    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferiblemente) o compilar los binarios de la página web oficial: {a=https://www.python.org/downloads/source}Compiladores de Python{/a}"
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
@@ -259,12 +258,14 @@ label n4:
     h "En alguno de los ejercicios anteriores, he usado variables, por ejemplo... te acuerdas cuando conté el número de errores los ejercicios anteriores? esa información la guardé en una variable"
     h "Para crear una variable, debemos tener 3 elementos: el {color=#f00}nombre de la variable{/color}, el {color=#f00}operador de asignación{/color} y su {color=#f00}valor{/color}."
     h "Un ejemplo a = 16.29\na es el nombre de la variable\n= es el operador de asignación\n16.29 es el valor de la variable"
-    h "Es importante destacar que hay ciertas reglas para nombrar una variable"
+    h "Es importante destacar que hay ciertas reglas para nombrUar una variable"
     h "Las variables puedes nombrarla \"como quieras\" (lo pongo entre comillas por algo), pero su nombre solo puede contener signos de subrayado(_), letras (sin carácteres especiales, tildes o la ñ) y números."
+    h "Por supuesto, no menciono signos de puntuación ni espacios, porque no están permitidos"
     h "Las variables tampoco pueden ser \"palabras reservadas\" del lenguaje Python, las cual aprenderemos más adelante, dichas palabras son de uso común en inglés, pero no en español"
     h "Y el nombre nunca puede iniciar con un número"
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
     h "Ok, vamos a repasar lo aprendido"
+    $ error=""
     hide text
 label q7:
     if error!="":
@@ -274,7 +275,7 @@ label q7:
         h "Más adelante verás por qué..."
         h "Sin embargo, tanto _import como import_ son nombres permitidos"
     menu:
-        "Cual de los siguientes nombres no es ilegal en Python"
+        "Cual de los siguientes nombres {color=#ff0}no{/color} es permitido en Python"
         "_asTAS45":
             $ error= "_asTAS45"
             jump q7
@@ -1086,19 +1087,77 @@ label n24:
     h "El bloque es una serie de líneas que tienen {color=#ff0}sangría{/color} adicicional despues de la sentencia que inicia con if"
     h "El bloque termina en la última línea con {color=#ff0}sangría{/color}"
     h "En este tutorial he usado bloques {color=#ff0}if{/color} para valorar si sus respuestas son correctas o no"
-    h "Pueden ver esto en la página github de este proyecto{a}https://github.com/HedleyPty/AprendiendoPython{/a} en las líneas ..."
+    h "Pueden ver esto en la página github de este proyecto{a=https://github.com/HedleyPty/AprendiendoPython} Repositorio GitHub{/a} en las líneas ..."
     h "Al contestar una respuesta correcta se compara el valor de la variable con su respusesta con un elemento de una lista que contiene las respuestas correctas"
-    consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n    counter += 1\n    if counter ==3:\n    jump proxCapitulo {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}"
+    consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n\ \ \ \ counter += 1\n\ \ \ \ if counter ==3:\n\ \ \ \ {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}\n\ \ \ \ jump proxCapitulo "
     h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
     h "Los bucles son operaciones que se repiten siempre y cuando una condición sea cierta"
     h "En un bucle usalmente hay una variable que cambia de valor hasta que llega un momento que la condición es falsa y el bucle para"
-    h "Sino hay ninguna condicion que cambie, tenemos un {color=#ff0bucle infinito{/color}, es decir un bloque que se repetiras hasta que el programa se cierre forzosamente o se apague el computador"
-    h "Aunque en ocasiones se requiere un bucle infinito, pero debe evitarse"
-    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}while{/color}{/color}\ni=0\nwhile i<4:\n    print(i)\n    i +=1\n1\n2\n3"
-    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile True:\n    print(i)\n    i +=1\n1\n2\n3\n...#Se repite para siempre :("
-    h "Además del control de flujo con else que significa {color=#ff0}sino{/color} y debe estar precedido por una linea/bloque if o while"
-    h "La línea else se corre una vez cuando la condición en if o while es falsa"
-    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n3\ny\5"
-    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo en una linea {color=#ff0}a=2\nif a > 2:\n   x=3\n   y=5\nelse:\n   x=2\n   y=4\nx\n2\ny\4"
+    h "Sino la condicion inicial no se torna {color=#f00}falsa{/color} cuando tenemos un bloque {color=#ff0}while{/color}, tenemos un {color=#ff0}bucle infinito{/color},\nes decir un bloque que se repetirá hasta que el programa se cierre forzosamente o se apague el computador"
+    h "Aunque en ocasiones se requiere un bucle infinito, en general debe evitarse"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}while{/color}{/color}\ni=0\nwhile i<4:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3"
+    consola "{color=#f0f}#Veamos un ejemplo de un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile True:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3\n...{color=#f0f}#Se repite para siempre :("
+    consola "{color=#f0f}#Veamos otro un bucle {color=#ff0}infinito while{/color}{/color}\ni=0\nwhile i > -5:\n\ \ \ \ print(i)\n\ \ \ \ i +=1\n1\n2\n3\n...{color=#f0f}#También se repite para siempre :("
+    h "Además del control de flujo con {color=#ff0}else{/color} que significa {color=#ff0}sino{/color} y debe estar precedido por una linea/bloque {color=#ff0}if{/color} o {color=#ff0}while{/color}"
+    h "La línea o bloque {color=#ff0}else{/color} se corre una vez cuando la condición evaluada en la sentencia {color=#ff0}if{/color} o {color=#ff0}while{/color} se torna falsa"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es cierto {/color}{/color}\na=2\nif a:\n\ \ \ \ x=3\nelse:\n\ \ \ \ x=2\nx\n3"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelse:\n\ \ \ \ x=2\nx\n2"
+    consola '{color=#f0f}#Veamos un ejemplo de un ejemplo con {color=#ff0}while{/color} en Python 2{/color}\na=3\nwhile a > 0:\n\ \ \ \ a -= 1\n\ \ \ \ print a\nelse:\n\ \ \ \ print "Boom!"\n2\n1\n0\n"Boom!"'
+    h "Finalmente tenemos la palabra reservada {color=#ff0}elif{/color} la cual {color=#f00}no existe en inglés{/color}, es una contracción de else e if"
+    h "Funciona igual que una sentencia {color=#ff0}if{/color} y puede estar precedida de otra sentencia {color=ff0}if{/color} con su respectiva línea o bloque"
+    h "Tambien puede estar precedida de una o más sentencias {color=#ff0}elif{/color} siempre y cuando el segundo bloque {color=#ff0}elif{/color} sea precedido por un bloque {color=#ff0}if{/color}"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es cierta{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n0"
+    consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es falsa{/color}\na=1\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n1"
+    #Calendario chino
+    h "Vamos a hacer algo divertido con lo aprendido hasta ahora"
+    h "Voy a crear una lista de objetos (todos tipo int) llama {color=#ff0}lista_Anos{/color} en Ren'py"
+    $ lista_Anos = [1978,1985,1966]
+    h "La acabo de crear"
+    h "El valor de la variable {color=#ff0}lista_Anos{/color} se ha cargado a Ren'py y su valor es [lista_Anos]"
+    $ bad_data=False
+label q23:
+    if bad_data:
+        h "Ingresa los datos correctamente"
+        h "¿Cómo yo se que los datos son inválidos?"
+        h 'Es algo que vamos a ver más adelante llamado "Expresiones regulares"'
+        h "Las expresiones regular me permiten analizar el texto que estás introduciendo al programa"
+        h "Ellas te permiten tomar acciones (mediante bloques {color=#ff0}if{/color}, {color=#ff0}else{/color} y {color=#ff0}elif{/color}) dependiendo del valor de una variable cadena"
+        h "Como es este caso particular"
+        h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular}wikipedia{/a}"
+        h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
+    python:
+        import re
+        nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
+        nac=nac.strip()
+        
+        if re.search("((19[5-9]|20[01])\d)",nac):
+            nac = int(nac)
+            if not nac in lista_Anos:
+                lista_Anos.append(nac)
+        else:
+            bad_data=True
+            renpy.jump('q23')
+    h "Has ingresado el año [nac]"
+    if len(lista_Anos) == 3:
+        h "Ese año está en la lista original, por lo que no lo voy a repetir"
+        h "¿Cómo sé eso?\nPorque antes de intentar añadirlo a la lista, usé el siguiente bloque:\nif not nac in lista_Anos:\n\ \ \ \ lista_Anos.append(nac)"
+        h "En este caso, {color=#ff0}nac in lista_Anos{/color} es cierto, pero como está precedido por el operador {color=#ff0}not{/color} se lo convierte en falso"
+        h "Por lo que no se agrega a la variable que contiene la lista {color=#ff0}lista_Anos{/color}"
+        h "Todos estos diálogos están dentro de un bloque {color=#ff0}if{/color} que se ejecuta si el número de elementos de la lista es 3 (es decir que no lo añadí a la variable)"
+    else:
+        h "Ese año no está en la lista original, por lo que lo voy a añadir a la lista"
+        h "¿Cómo sé eso?\nPorque antes de intentar añadirlo a la lista, usé el siguiente bloque:\nif not nac in lista_Anos:\n\ \ \ \ lista_Anos.append(nac)"
+        h "En este caso, {color=#ff0}nac in lista_Anos{/color} es falso, pero como está precedido por el operador {color=#ff0}not{/color} se convierte en cierto"
+        h "es decir que el bloque {color=#ff0}lista_Anos.append(nac){/color} se ejecuta"
+        h "por lo que he agregado el número [nac] a la variable que contiene la lista {color=#ff0}lista_Anos{/color} que ahora es [lista_Anos]"
+        h "Todos estos diálogos están dentro de un bloque {color=#ff0}else{/color}"
+        h "Este bloque else, es precedido por un bloque if que es cierto si el número de elementos dentro la lista es 3"
+        h "Como el añadimos una elemento a la variable, la condición se torna falsa y se ejecuta este bloque de diálogos else"
+    h "Ahora voy a hablar de los signos zodicales chinos y a cual signo corresponde [nac]"
+    h "Existen varias formas de saber que signo zodiacal chino es [nac]"
+    h "El calendario chino asigna un animal a cada año y son 12 animales"
+    h "Puedes ver la lista de animales aquí{a=https://es.wikipedia.org/wiki/Astrolog%C3%ADa_china#Los_doce_animales} Animales del zodiaco-Wikipedia{/a}"
     
-    return
+    $ signos_Chinos= ["La rata", "El buey", "El tigre", "El conejo", "El dragón", "La serpiente", "El caballo", "La cabra", "El mono", "El gallo", "El perro", "El cerdo"]
+    
+return

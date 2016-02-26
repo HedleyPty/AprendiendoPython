@@ -248,8 +248,8 @@ label n4:
     h "Python es un idioma multiplataforma"
     h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo despues de traducirse al {color=#ff0}un programa específico de ese sistema operativo{/color}"
     h "Esta traducción se llama {color=ff0}compilación{/color}"
-    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma {a}www.python.org/downloads/{/a}"
-    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferiblemente) o compilar los binarios de la página web oficial: {a}www.python.org/downloads/source{/a}"
+    h "Si estás corriendo este tutorial desde una computadora u ordernador que corre Mac OS o Windows, debes ir a la página web de Python donde puedes bajar el instalador para la plataforma en la página de {a=https://www.python.org/downloads/}descargas de Python{/a}"
+    h "Si lo corres en Linux, debes usar el instalador de paquetes de instalación correspondiente (preferiblemente) o compilar los binarios de la página web oficial: {a=https://www.python.org/downloads/source}Compiladores de Python{/a}"
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
@@ -260,6 +260,7 @@ label n4:
     h "Un ejemplo a = 16.29\na es el nombre de la variable\n= es el operador de asignación\n16.29 es el valor de la variable"
     h "Es importante destacar que hay ciertas reglas para nombrUar una variable"
     h "Las variables puedes nombrarla \"como quieras\" (lo pongo entre comillas por algo), pero su nombre solo puede contener signos de subrayado(_), letras (sin carácteres especiales, tildes o la ñ) y números."
+    h "Por supuesto, no menciono signos de puntuación ni espacios, porque no están permitidos"
     h "Las variables tampoco pueden ser \"palabras reservadas\" del lenguaje Python, las cual aprenderemos más adelante, dichas palabras son de uso común en inglés, pero no en español"
     h "Y el nombre nunca puede iniciar con un número"
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
@@ -1086,7 +1087,7 @@ label n24:
     h "El bloque es una serie de líneas que tienen {color=#ff0}sangría{/color} adicicional despues de la sentencia que inicia con if"
     h "El bloque termina en la última línea con {color=#ff0}sangría{/color}"
     h "En este tutorial he usado bloques {color=#ff0}if{/color} para valorar si sus respuestas son correctas o no"
-    h "Pueden ver esto en la página github de este proyecto{a}https://github.com/HedleyPty/AprendiendoPython{/a} en las líneas ..."
+    h "Pueden ver esto en la página github de este proyecto{a=https://github.com/HedleyPty/AprendiendoPython} Repositorio GitHub{/a} en las líneas ..."
     h "Al contestar una respuesta correcta se compara el valor de la variable con su respusesta con un elemento de una lista que contiene las respuestas correctas"
     consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n\ \ \ \ counter += 1\n\ \ \ \ if counter ==3:\n\ \ \ \ {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}\n\ \ \ \ jump proxCapitulo "
     h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
@@ -1120,6 +1121,9 @@ label q23:
         h "¿Cómo yo se que los datos son inválidos?"
         h 'Es algo que vamos a ver más adelante llamado "Expresiones regulares"'
         h "Las expresiones regular me permiten analizar el texto que estás introduciendo al programa"
+        h "Ellas te permiten tomar acciones (mediante bloques {color=#ff0}if{/color}, {color=#ff0}else{/color} y {color=#ff0}elif{/color}) dependiendo del valor de una variable cadena"
+        h "Como es este caso particular"
+        h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular}wikipedia{/a}"
         h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
     python:
         import re
@@ -1152,7 +1156,7 @@ label q23:
     h "Ahora voy a hablar de los signos zodicales chinos y a cual signo corresponde [nac]"
     h "Existen varias formas de saber que signo zodiacal chino es [nac]"
     h "El calendario chino asigna un animal a cada año y son 12 animales"
-    h "Puedes ver la lista de animales aquí{a}https://es.wikipedia.org/wiki/Astrolog%C3%ADa_china#Los_doce_animales{/a}"
+    h "Puedes ver la lista de animales aquí{a=https://es.wikipedia.org/wiki/Astrolog%C3%ADa_china#Los_doce_animales} Animales del zodiaco-Wikipedia{/a}"
     
     $ signos_Chinos= ["La rata", "El buey", "El tigre", "El conejo", "El dragón", "La serpiente", "El caballo", "La cabra", "El mono", "El gallo", "El perro", "El cerdo"]
     

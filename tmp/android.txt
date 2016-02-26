@@ -45,8 +45,6 @@ Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/rsObj
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/bin/rsLibs
      [echo] ----------
      [echo] Resolving Dependencies for AprendiendoPythonparahispanohablantes-1.0...
 [dependency] Library dependencies:
@@ -85,8 +83,6 @@ nodeps:
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/rsObj
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/rsLibs
      [echo] ----------
      [echo] Resolving Dependencies for library...
 [dependency] Library dependencies:
@@ -174,8 +170,6 @@ nodeps:
 [gettarget] API level:        19
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/rsObj
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/rsLibs
      [echo] ----------
      [echo] Resolving Dependencies for downloader_library...
 [dependency] Library dependencies:
@@ -193,8 +187,7 @@ nodeps:
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] Found new input file
-     [aapt] Generating resource IDs...
+     [aapt] No changed resources. R.java and Manifest.java untouched.
      [echo] ----------
      [echo] Handling BuildConfig class...
 [buildconfig] No need to generate new BuildConfig.
@@ -202,7 +195,6 @@ nodeps:
 -pre-compile:
 
 -compile:
-    [javac] Compiling 1 source file to /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes
      [echo] Creating library output jar file...
 
 -post-compile:
@@ -246,12 +238,12 @@ release:
 [mergemanifest] Manifest merger disabled. Using project manifest only.
      [echo] Handling aidl files...
      [aidl] Found 1 AIDL files.
-     [aidl] Compiling 1 AIDL files.
+     [aidl] No AIDL files to compile.
      [echo] ----------
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] Found new input file
+     [aapt] Found modified input file
      [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
@@ -260,9 +252,7 @@ release:
 -pre-compile:
 
 -compile:
-    [javac] Compiling 27 source files to /home/hedley/Documents/renpy/rapt/bin/classes
-    [javac] Note: Some input files use or override a deprecated API.
-    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Compiling 4 source files to /home/hedley/Documents/renpy/rapt/bin/classes
 
 -post-compile:
 
@@ -275,21 +265,19 @@ release:
       [dex] input: /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
       [dex] Using Pre-Dexed classes-5ef00356adf498a63f6fd1e833a3caa9.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
       [dex] Using Pre-Dexed classes-eb85eb3bab27b2aaf7bd95be0f4b6ca2.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
-      [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar -> amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar
+      [dex] Using Pre-Dexed amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar <- /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
       [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex A (68 defs/88.4KiB) with dex B (47 defs/88.1KiB). Result is 115 defs/207.6KiB. Took 1.9s
-       [dx] Merged dex A (115 defs/207.6KiB) with dex B (25 defs/35.5KiB). Result is 140 defs/296.8KiB. Took 0.3s
+       [dx] Merged dex A (68 defs/88.4KiB) with dex B (47 defs/88.1KiB). Result is 115 defs/207.6KiB. Took 0.8s
+       [dx] Merged dex A (115 defs/207.6KiB) with dex B (25 defs/35.5KiB). Result is 140 defs/296.8KiB. Took 0.2s
        [dx] Merged dex A (140 defs/296.8KiB) with dex B (90 defs/79.8KiB). Result is 230 defs/487.0KiB. Took 0.2s
 
 -crunch:
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
    [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/bin/res
-   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/res/drawable-hdpi/ic_launcher.png => /home/hedley/Documents/renpy/rapt/bin/res/drawable-hdpi/ic_launcher.png
-   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/bin/res/drawable-hdpi/ic_launcher.png: 0% size of source)
    [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/res/drawable/icon.png => /home/hedley/Documents/renpy/rapt/bin/res/drawable/icon.png
    [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/bin/res/drawable/icon.png: 96% size of source)
-   [crunch] Crunched 2 PNG files to update cache
+   [crunch] Crunched 1 PNG files to update cache
 
 -package-resources:
      [aapt] Found modified input file
@@ -319,7 +307,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 1 minute 0 seconds
+Total time: 31 seconds
 
 
 
