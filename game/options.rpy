@@ -8,16 +8,16 @@
 ## utilizar esa característica.
 
 init -1 python hide:
-
+    #persistent.console=True
     ## Esta variable habilita las herramientas de desarrollo. Debe ser
     ## ajustada a False antes del lanzamiento del juego, así el usuario
     ## no puede hacer trampas usando las herramientas de desarrollo.
 
-    config.developer = True
+    config.developer = persistent.console
 
     ## Control de la anchura y altura de la pantalla.
 
-    config.screen_width = 800
+    config.screen_width = 1000
     config.screen_height = 600
 
     ## Título de la ventana, cuando Ren'Py se ejecuta en

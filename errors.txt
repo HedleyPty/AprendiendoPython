@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1114: invalid syntax
-    lista_Anos =
-    
+File "game/script.rpy", line 1: python block expects a non-empty block.
+    init python:
+                ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

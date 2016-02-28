@@ -1,3 +1,6 @@
+#init python:
+    #persistent.console=False
+    
 image python_logo ="images/Python logo.png"
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
@@ -8,15 +11,20 @@ $tipJar="https://www.paypal.me/HedleyQuintana"
 
 # The game starts here.
 # - El juego comienza aquí.
+
 label start:
+    #$persistent.console=False
+    
     scene white with dissolve
     show python_logo at truecenter
+    
     h "Saludos a todos, me llamo Hedley!"
     h "Les voy a enseñar a programar en Python"
     h "Y para sonar más interesante, les digo..."
-    h "que este tutorial, está desarrollado en Ren'py"
-    h "el cual es una implentación de Python"
+    h "que este tutorial, está desarrollado en Ren'py el cual es una implentación de Python"
+    h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
     h "vamos a empezar..."
+    hide text
     jump chp1
 label chp1:
     show text "{size=40}{color=#000}Capítulo uno\n\n\n¿Qué es programar?{/color}{/size}" at top

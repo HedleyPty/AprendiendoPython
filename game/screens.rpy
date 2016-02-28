@@ -175,7 +175,7 @@ screen nvl(dialogue, items=None):
 # http://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-
+    $renpy.music.play( "images/Poofy Reel.mp3")
     # Esta linea asegura que las otras pantallas de menú son reemplazadas.
     tag menu
 
