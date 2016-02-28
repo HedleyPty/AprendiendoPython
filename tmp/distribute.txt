@@ -13,6 +13,7 @@ game/cache/bytecode.rpyb matches ** ([u'all']).
 game/script.rpy matches ** ([u'all']).
 game/images/ matches ** ([u'all']).
 game/images/Python logo.png matches ** ([u'all']).
+game/images/Poofy Reel.mp3 matches ** ([u'all']).
 game/images/background.png matches ** ([u'all']).
 game/images/reloj.png matches ** ([u'all']).
 game/images/reloj engranajes.jpg matches ** ([u'all']).
