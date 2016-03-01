@@ -1,25 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 46, in <module>
-    show python_logo at halfsize, right
-NameError: name 'halfsize' is not defined
+KeyError: u'count'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 46, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1064, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1025, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1490, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1485, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 46, in <module>
-    show python_logo at halfsize, right
-NameError: name 'halfsize' is not defined
+  File "/home/hedley/script.rpyc", line 168, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 603, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1121, in say
+    who(what, interact=interact)
+  File "/home/hedley/Documents/renpy/renpy/character.py", line 819, in __call__
+    what = what_pattern.replace("[what]", sub(what, translate=translate))
+  File "/home/hedley/Documents/renpy/renpy/character.py", line 801, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "/home/hedley/Documents/renpy/renpy/substitutions.py", line 229, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
+KeyError: u'count'
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959

@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 44: end of line expected.
-    textbutton "Music" action Show("_music") 
-                       ^
+File "game/script.rpy", line 1: expected statement.
+    Finit python:
+                ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

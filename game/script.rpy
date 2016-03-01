@@ -1,4 +1,4 @@
-Finit python:
+init python:
     persistent.console=False
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
@@ -156,8 +156,6 @@ label q4:
             jump q4
         "Clavos":
             h "Eso es correcto!!!"
-            python:
-                del count
             jump n2
 label n2:
     show python_logo at truecenter
