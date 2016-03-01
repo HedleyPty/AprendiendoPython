@@ -1,11 +1,11 @@
-#Programar con Python
+#Programar con Python usando **Ren'py**
 ##Objetivos
 
-1. Relacionarse con la lógica del pensamiento computacional
+###Relacionarse con la lógica del pensamiento computacional
 
 ### Aprender los elementos básicos del lenguaje Python
 1. Crear variables
-
+ * Uso de la consola de Ren'py
 2. Conocer los tipos de variables
 
 3. Conocer los operadores
