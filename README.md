@@ -1,4 +1,4 @@
-#Programar con Python usando **Ren'py**
+#Aprendiendo a programar con Python usando **Ren'py**
 ##Objetivos
 
 ###Relacionarse con la lógica del pensamiento computacional
