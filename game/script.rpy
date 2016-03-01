@@ -1,7 +1,8 @@
-#init python:
-    #persistent.console=False
+Finit python:
+    persistent.console=False
     
-image python_logo ="images/Python logo.png"
+image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
+image renpy_logo =Image("images/renpy logo.png", yalign=0.5)
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
 image white ="#ffffff"
@@ -13,17 +14,47 @@ $tipJar="https://www.paypal.me/HedleyQuintana"
 # - El juego comienza aquí.
 
 label start:
-    #$persistent.console=False
-    
+    $ musica = ""
+    $ current="inicio"
+label music_:
     scene white with dissolve
-    show python_logo at truecenter
-    
+    if musica:
+        play music musica
+        menu:
+            "¿La dejas tocando?"
+            "Sí":
+                $renpy.jump(current)
+            "No, quiero cambiarla":
+                stop music
+            "No, prefiero estar en silencio":
+                stop music
+                jump inicio
+    menu:
+        "Seleccione la melodía de fondo, "
+        "Poofy Reel":
+            $musica = "Poofy Reel.mp3"
+            $renpy.music.set_volume(0.3, delay=0, channel='music')
+            jump music_
+        "The Show Must Be Go":
+            $musica ="The Show Must Be Go.mp3"
+            $renpy.music.set_volume(0.3, delay=0, channel='music')
+            jump music_
+        "Ninguno":
+            pass
+label inicio:
+    #textbutton "Music" action Show("_music") 
+    show python_logo 
     h "Saludos a todos, me llamo Hedley!"
-    h "Les voy a enseñar a programar en Python"
+    h "Soy un médico gradudado de la Universidad de Panamá, tengo una maestría en Biología molecular y estoy estudiando un doctorado en epidemiología en el Instituto Karolinska"
+    h "No se si sea el más adecuado, pero les voy a enseñar lo poco que sé de Python"
     h "Y para sonar más interesante, les digo..."
+    show renpy_logo at right
     h "que este tutorial, está desarrollado en Ren'py el cual es una implentación de Python"
+    h "Ren'py es un gestor de {color=#ff0}novelas gráficas interactivas{/color}, las cuales son una serie de {color=#ff0}diálogos{/color} (así como una telenovela, pero leída).\nAparecen dibujos de personajes que aparecen con su cuadro de diálogos"
+    h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
-    h "vamos a empezar..."
+    hide renpy_logo 
+    h "Vamos a empezar..."
     hide text
     jump chp1
 label chp1:
@@ -261,6 +292,9 @@ label n4:
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
+    
+    $persistent.console=True
+    
     h "Una vez que hayas hecho eso, podemos seguir..."
     h "Las variables son un objecto que contiene cierta información que se va a reutilizar más tarde"
     h "En alguno de los ejercicios anteriores, he usado variables, por ejemplo... te acuerdas cuando conté el número de errores los ejercicios anteriores? esa información la guardé en una variable"
