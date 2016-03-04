@@ -205,6 +205,7 @@ label q5:
         "El hígado":
             $error = "El hígado pertenece al aparato digestivo, pero no es parte del \"tubo digestivo\".\nCreo que hay una mejor opción"
             jump q5
+
 label n3:
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     show python_logo at truecenter
@@ -280,7 +281,14 @@ label n4:
     h "Antes de hablar de como hacer esas {color=#ff0}abstracciones{/color} en Python tengo que mostrarles el equivalente a los clavos, engranes y otras piezas fundamentales para crear sistemas complejos"
     h "En Python (como cualquier otro idioma de programación) estos son: las {color=#ff0}variables{/color}, los {color=#ff0}operadores{/color} y las {color=#ff0}funciones{/color}"
     hide text
-    show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
+label python_:
+    show text "{size=40}{color=#000}Capítulo tres\n\n\nPython, la línea de comandos y los scripts (libretos){/color}{/size}" at top
+    h "Pero antes de proseguir, debo interrumpar para hablar acerca de como Python trabaja"
+    h "El primer lugar donde vamos a trabajar es en la {color=#ff0}línea de comandos{/color} o {color=#ff0}consola Python{/color}"
+    h "La consola ejecuta una {color=#ff0}sentencia{/color} en inglés llamada {color=#ff0}statement{/color}"
+    h "En la consola se corre una línea a la vez y el resultado se observa al presionar {color=#ff0}enter{/color} llamado en español castizo {color=#ff0}salto de carro{/color}"
+   
+    show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLas variables{/color}{/size}" at top
     h "Antes de examinar el concepto de las variables en Python, vamos a instalarlo"
     h "Python es un idioma multiplataforma"
     h "Es decir como casi todos los lenguajes de programación, este crea programas el cual va a correr independientemente del sistema operativo despues de traducirse al {color=#ff0}un programa específico de ese sistema operativo{/color}"

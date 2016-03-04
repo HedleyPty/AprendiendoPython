@@ -1,28 +1,74 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-KeyError: u'count'
+  File "game/screens.rpy", line 67, in execute
+    screen choice(items):
+  File "game/screens.rpy", line 67, in execute
+    screen choice(items):
+  File "game/screens.rpy", line 69, in execute
+    window:
+  File "game/screens.rpy", line 74, in execute
+    vbox:
+  File "game/screens.rpy", line 78, in execute
+    for caption, action, chosen in items:
+  File "game/screens.rpy", line 80, in execute
+    if action:
+  File "game/screens.rpy", line 82, in execute
+    button:
+  File "game/screens.rpy", line 86, in execute
+    text caption style "menu_choice"
+KeyError: u'menu1'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 168, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 603, in execute
-    renpy.exports.say(who, what, interact=self.interact)
-  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1121, in say
-    who(what, interact=interact)
-  File "/home/hedley/Documents/renpy/renpy/character.py", line 819, in __call__
-    what = what_pattern.replace("[what]", sub(what, translate=translate))
-  File "/home/hedley/Documents/renpy/renpy/character.py", line 801, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "/home/hedley/Documents/renpy/renpy/substitutions.py", line 229, in substitute
+  File "lib/windows-i686/script.rpyc", line 847, in script
+  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 1450, in execute
+    choice = renpy.exports.menu(choices, self.set)
+  File "C:\Users\hequin\Documents\renpy\renpy\exports.py", line 833, in menu
+    rv = renpy.store.menu(items)
+  File "C:\Users\hequin\Documents\renpy\renpy\exports.py", line 981, in display_menu
+    show_screen(screen, items=item_actions, _widget_properties=props, _transient=True, _layer=renpy.config.choice_layer, **scope)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\screen.py", line 996, in show_screen
+    sls.add(_layer, d, _tag, zorder=d.zorder, transient=_transient, keep_st=True, name=name)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 916, in add
+    self.hide_or_replace(layer, remove_index, "replaced")
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 938, in hide_or_replace
+    d = oldsle.displayable._hide(now - st, now - at, prefix)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\screen.py", line 430, in _hide
+    self.update()
+  File "C:\Users\hequin\Documents\renpy\renpy\display\screen.py", line 565, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 67, in execute
+    screen choice(items):
+  File "game/screens.rpy", line 67, in execute
+    screen choice(items):
+  File "game/screens.rpy", line 69, in execute
+    window:
+  File "game/screens.rpy", line 74, in execute
+    vbox:
+  File "game/screens.rpy", line 78, in execute
+    for caption, action, chosen in items:
+  File "game/screens.rpy", line 80, in execute
+    if action:
+  File "game/screens.rpy", line 82, in execute
+    button:
+  File "game/screens.rpy", line 86, in execute
+    text caption style "menu_choice"
+  File "C:\Users\hequin\Documents\renpy\renpy\text\text.py", line 1315, in __init__
+    self.set_text(text, scope, substitute)
+  File "C:\Users\hequin\Documents\renpy\renpy\text\text.py", line 1382, in set_text
+    i, did_sub = renpy.substitutions.substitute(i, scope, substitute)
+  File "C:\Users\hequin\Documents\renpy\renpy\substitutions.py", line 229, in substitute
     s = formatter.vformat(s, (), kwargs)
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
   File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'count'
+  File "C:\Users\hequin\Documents\renpy\renpy\substitutions.py", line 192, in __getitem__
+    raise KeyError(key)
+KeyError: u'menu1'
 
-Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
+Windows-7-6.1.7601-SP1
 Ren'Py 6.99.8.959
 Programar con Python 0.0
