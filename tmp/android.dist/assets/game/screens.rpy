@@ -225,13 +225,13 @@ screen navigation():
 
         has vbox
 
-        textbutton _("Return") action Return()
-        textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Save Game") action ShowMenu("save")
-        textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Main Menu") action MainMenu()
-        textbutton _("Help") action Help()
-        textbutton _("Quit") action Quit()
+        textbutton _("Regresar") action Return()
+        textbutton _("Preferencias") action ShowMenu("preferences")
+        textbutton _("Salvar") action ShowMenu("save")
+        textbutton _("Guardar") action ShowMenu("load")
+        textbutton _("Menu Principal") action MainMenu()
+        textbutton _("Ayuda") action Help()
+        textbutton _("Salir") action Quit()
 
 init -2:
 
@@ -558,4 +558,9 @@ init -2:
         selected_idle_color "#cc08"
         selected_hover_color "#cc0"
         insensitive_color "#4448"
+screen _music():
+    vbox:
+        xalign 0.5
+        yalign 0.5
+        textbutton _("Regresar") action Return()
 

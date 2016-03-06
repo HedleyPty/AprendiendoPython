@@ -1,8 +1,8 @@
 tmp/ matches tmp/ (None).
 .git/ matches **/.** (None).
+README.md matches ** ([u'all']).
 traceback.txt matches traceback.txt (None).
 errors.txt matches errors.txt (None).
-Distros/ matches ** ([u'all']).
 README.html matches ** ([u'all']).
 log.txt matches log.txt (None).
 game/ matches ** ([u'all']).
@@ -12,11 +12,13 @@ game/cache/pyanalysis.rpyb matches ** ([u'all']).
 game/cache/bytecode.rpyb matches ** ([u'all']).
 game/script.rpy matches ** ([u'all']).
 game/images/ matches ** ([u'all']).
+game/images/The Show Must Be Go.mp3 matches ** ([u'all']).
 game/images/Python logo.png matches ** ([u'all']).
 game/images/Poofy Reel.mp3 matches ** ([u'all']).
 game/images/background.png matches ** ([u'all']).
 game/images/reloj.png matches ** ([u'all']).
 game/images/reloj engranajes.jpg matches ** ([u'all']).
+game/images/renpy logo.png matches ** ([u'all']).
 game/screens.rpy.bak matches **.bak (None).
 game/options.rpy.bak matches **.bak (None).
 game/script.rpyc matches ** ([u'all']).
@@ -41,6 +43,8 @@ traceback.txt matches None (None).
 renpy.py matches renpy.py ([u'renpy']).
 templates/ doesn't match anything.
 templates/ matches None (None).
+MedicalDectectiveVer2Eng-1.0-dists/ doesn't match anything.
+MedicalDectectiveVer2Eng-1.0-dists/ matches None (None).
 launcher/ doesn't match anything.
 launcher/ matches None (None).
 module/ doesn't match anything.
