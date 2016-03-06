@@ -1164,6 +1164,8 @@ label n24:
     h "El valor de la variable {color=#ff0}lista_Anos{/color} se ha cargado a Ren'py y su valor es [lista_Anos]"
     $ bad_data=False
 label q23:
+    $ lista_Anos = [1978,1985,1966]
+    $ bad_data=False
     if bad_data:
         h "Ingresa los datos correctamente"
         h "¿Cómo yo se que los datos son inválidos?"
@@ -1171,7 +1173,7 @@ label q23:
         h "Las expresiones regular me permiten analizar el texto que estás introduciendo al programa"
         h "Ellas te permiten tomar acciones (mediante bloques {color=#ff0}if{/color}, {color=#ff0}else{/color} y {color=#ff0}elif{/color}) dependiendo del valor de una variable cadena"
         h "Como es este caso particular"
-        h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular}wikipedia{/a}"
+        h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi\%C3\%B3n_regular}wikipedia{/a}"
         h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
     python:
         import re
@@ -1204,8 +1206,38 @@ label q23:
     h "Ahora voy a hablar de los signos zodicales chinos y a cual signo corresponde [nac]"
     h "Existen varias formas de saber que signo zodiacal chino es [nac]"
     h "El calendario chino asigna un animal a cada año y son 12 animales"
-    h "Puedes ver la lista de animales aquí{a=https://es.wikipedia.org/wiki/Astrolog%C3%ADa_china#Los_doce_animales} Animales del zodiaco-Wikipedia{/a}"
     
-    $ signos_Chinos= ["La rata", "El buey", "El tigre", "El conejo", "El dragón", "La serpiente", "El caballo", "La cabra", "El mono", "El gallo", "El perro", "El cerdo"]
-    
+    $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
+    h "Si el año es divisible entre doce es el año del mono, pero si al año le restamos 1 y luego se vuelve divible entre 12 tenemos el año del [signos_Chinos[1]]"
+    h "Si el año le restamos 2 y se vuelve divisible entre 12 es el año del [signos_Chinos[2]]"
+    $ error=""
+label qChino1:
+    if error:
+        h "[error]"
+    menu:
+        '¿Qué operador aritmético en Python nos permite calcular lo que "sobra" después de una división?'
+        "+":
+            jump qChino1
+            $ error="Eso no es correcto, el operador de la suma no permite calcular eso"
+        "-":
+            jump qChino1
+            $ error="Eso no es correcto, el operador de la resta permite calcular eso, pero es muy complicado"
+        "*":
+            jump qChino1
+            $ error="Eso no es correcto, el operador de la multiplicación no permite calcular eso"
+        "\%":
+            $ error=False
+            jump q24
+        "**":
+            jump qChino1
+            $ error="Eso no es correcto, el operador de la exponenciación no tiene vela en este entierro"
+        "/":
+            jump qChino1
+            $ error="Eso no es correcto, el operador de la división permite calcular eso, pero es muy complicado"
+label q24:
+    $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
+    h "En efecto, podemos simplemente calcular el residuo mediante el operador del mismo es decir {color=#ff0}\%{/color}"
+    h "Una división entre 12 que no deja residuo de 0, habla de un número divisible entre 12. Lo que corresponde al año del mono. Si el residuo es de 1, es del gallo, etc"
+    show text "0-[signos_Chinos[0]]   1-[signos_Chinos[1]]    2-[signos_Chinos[2]]\n3-[signos_Chinos[3]]    4-[signos_Chinos[4]]    5-[signos_Chinos[5]]\n6-[signos_Chinos[6]]   7-[signos_Chinos[7]]   8-[signos_Chinos[8]]\n9-[signos_Chinos[9]]   10-[signos_Chinos[10]]   11-[signos_Chinos[11]]\n"  at truecenter 
+    h "Aqui vemos una lista de los residuos de cada año y el signo chino al cual corresponde"
 return
