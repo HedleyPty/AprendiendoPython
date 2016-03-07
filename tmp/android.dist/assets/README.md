@@ -40,3 +40,19 @@
  * *Contructores*
 
  * *Destructores*
+
+#Capturas de pantalla
+
+##Intro
+![Intro](http://s8.postimg.org/l3ebnypjp/Python_Intro.png)
+
+##Reloj
+![Reloj](http://s10.postimg.org/4j13vnngp/Reloj.png)
+
+##Tubo digestivo
+![Tubo digestivo](http://s28.postimg.org/ppdfqnz0d/Digestion.png)
+
+##Toma de pantalla donde explico los scripts
+![Scripts](http://s8.postimg.org/449ymg3px/scripts.png)
+
+

@@ -1,16 +1,16 @@
-Sun Mar  6 18:24:04 2016
+Mon Mar  7 20:47:22 2016
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.8.959
  
 
-Bootstrap to the start of init.init took 0.24s
-Early init took 0.02s
+Bootstrap to the start of init.init took 0.29s
+Early init took 0.03s
 Loader init took 0.01s
-Loading error handling took 0.30s
-Loading script took 5.46s
-Loading persistent took 0.04s
+Loading error handling took 0.34s
+Loading script took 5.33s
+Loading persistent took 0.05s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.51s
+Running init code took 0.54s
 Loading analysis data took 0.00s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
@@ -24,8 +24,8 @@ Cleaning stores took 0.00s
 Init translation took 0.01s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.06s
-Save screen analysis took 0.11s
-Prepare screens took 0.23s
-Save pyanalysis. took 0.11s
+Analyze screens took 0.05s
+Save screen analysis took 0.10s
+Prepare screens took 0.22s
+Save pyanalysis. took 0.10s
 Save bytecode. took 0.05s

@@ -587,7 +587,7 @@ label q14:
     h "Lo hacemos con la palabra reservada {color=#ff0}import{/import}"
     consola "{color=#f0f}#Es decir{/color}}\nimport math"
     h "Y luego usamos el metodo sqrt de math asi"
-    h "#Raiz cuadrada de 25{/color}\nimport math\nmath.sqrt(25)\n5.0"
+    h "{color=#f0f}#Raiz cuadrada de 25{/color}\nimport math\nmath.sqrt(25)\n5.0"
     h "También podemos dar un alias más amigable al módulo usando la palabra reservada {color=#ff0}as{/color} que en inglés significa {color=#ff0}como{/color}"
     consola "{color=#f0f}#Raiz cuadrada de 25{/color}\nimport math as m\nm.sqrt(25)\n5.0"
     h "También podemos dar importar la funcion sqrt del módulo math usando las palabras reservadas {color=#ff0}from{/color} que en inglés significa {color=#ff0}desde{/color}"
@@ -602,9 +602,9 @@ label q14:
     h "En Python, para calcular el logaritmo debemos importar el método log del módulo math para calcular el logaritmo"
     consola "{color=#f0f}#Para calcular el logaritmo de 16 con base 2{/color}\nimport math\nmath.log(16,2)\n4.0"
     hide text
-    $error=""
-    $counter=0
-    $respuesta=10
+    $ error=""
+    $ counter=0
+    $ respuesta=10
 label q15:
     $ encabezado="Calcule usando Python:\n"
     $ encabezados = ["Siete elevado a la quinta potencia", "La raíz cuadrada de 64 usando el módulo math", "La raíz cuadrada de 49 usando un flotante como exponente"]
@@ -622,8 +622,8 @@ label q15:
     if error:
         h "[error]"
         $error=""
-    if counter <=3:
-        if counter < 3:
+    if counter <=3 and not error:
+        if counter < 3 :
             h "CORRECTO"
             h "Vamos por el siguiente reto"
         else:
@@ -669,7 +669,7 @@ label q16:
     h "Vamos a ver un {color=#ff0}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
     h "En la implementación Python 'Pygame' y en las páginas web, el lienzo (o canvas) representa un sistema de coordenadas con el origen en la esquina superior izquierda"
     menu:
-        "Si tenemos una variable x que contiene la distancia de un objeto O en milimetros desde el borde izquierdo del lienzo\ny una variable y que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cual de estos códigos Python representa la variable d que contrine la distancia entre el objeto y la esquina superior izquierda?"
+        "Si tenemos una variable x que contiene la distancia de un objeto O en milimetros desde el borde izquierdo del lienzo\ny una variable y que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cual de estos códigos Python representa la variable d que contiene la distancia entre el objeto y la esquina superior izquierda?"
         "d=(y**2+x**2)**.5":
             h "¡Correcto!"
         "d=(x**2+y**2)**5":
@@ -706,7 +706,7 @@ label q17:
         h "[error]"
         $error=""
     menu:
-        "Calcule el valor de la raciones despues de ejecutar el codigo\nraciones=25\nraciones -= 7\nraciones"
+        "Calcule el valor de la raciones despues de ejecutar el codigo\nraciones=25\nraciones /= 7\nraciones"
         "Error de compilacion":
             $ error= "No veo ningun error en ese código"
             jump q17
@@ -830,28 +830,28 @@ label q20:
             h "CORRECTO!"
             $counter += 1
         
-        if counter == 3:
+    if counter == 3:
+        python:
+            del counter
+            del expresiones
+            del menus
+            del respuestas
+            del encabezado
+        h "Has completado esta actividad"
+        jump n17
+            
+    else:
+        $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
+        if counter != 1 :
             python:
-                del counter
-                del expresiones
-                del menus
-                del respuestas
-                del encabezado
-            h "Has completado esta actividad"
-            jump n17
-                
+                menu1 = menus[0][0]
+                menu2 = menus[0][1]
+                menu3 = menus[0][2]
         else:
-            $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
-            if counter != 1 :
-                python:
-                    menu1=menus[0][0]
-                    menu2=menus[0][1]
-                    menu3=menus[0][2]
-            else:
-                python:
-                    menu1=menus[1][0]
-                    menu2=menus[1][1]
-                    menu3=menus[1][2]
+            python:
+                menu1 = menus[1][0]
+                menu2 = menus[1][1]
+                menu3 = menus[1][2]
     menu:
         "[encabezado]"
         '[menu1]':
@@ -872,7 +872,7 @@ label n17:
     h 'Hay ciertos operadores que comparan el valor de 2 variables:\n"es igual a" {color=#ff0}=={/color}\n"no es igual a" {color=#ff0}!={/color} o también {color=#ff0}\<\>{/color}\n"es mayor que" {color=#ff0}>{/color}\n"es menor que" {color=#ff0}<{/color}\n"es mayor o igual a" {color=#ff0}>={/color}\n"es menor o igual a" {color=#ff0}<=\n{/color}'
     h "En variables numéricas es creo que obvio"
     consola "{color=#f0f}#Es bastante claro como funciona \"es igual a\" con números{/color}\n2{color=#ff0}=={/color}2\nTrue\n5{color=#ff0}=={/color}4\nFalse"
-    consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!=2{/color}\nFalse\n5{color=#ff0}!={/color}\4nTrue"
+    consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!=2{/color}\nFalse\n5{color=#ff0}!={/color}4\nTrue"
     consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}>{/color}4\nTrue"
     consola "{color=#f0f}#y acá vemos al \"menor que\" con números{/color}\n2{color=#ff0}<{/color}2\nFalse\n5{color=#ff0}<{/color}4\nFalse"
     consola "{color=#f0f}#seguimos con el \"mayor o igual a\" con números{/color}\n2{color=#ff0}>={/color}2\nTrue\n5{color=#ff0}>={/color}4\nTrue"
@@ -938,7 +938,7 @@ label q21:
     
 label n18:
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
-    h "Altes de proseguir debemos recordar los operadores aritmétcos: {color=#ff0}+{/color}, {color=#ff0}-{/color}, {color=#ff0}*{/color}, {color=#ff0}/{/color} y {color=#ff0}\%{/color}"
+    h "Antes de proseguir debemos recordar los operadores aritmétcos: {color=#ff0}+{/color}, {color=#ff0}-{/color}, {color=#ff0}*{/color}, {color=#ff0}/{/color} y {color=#ff0}\%{/color}"
     h "Cualquier operación con estos operadores, Python la va a resolver {color=#ff0}antes{/color} de comparar los resultados"
     consola "{color=#f0f}Veamos este concepto{/color}\n3 + 5 > 2 - 1 {color=#f0f}#Es decir 8 > 1 que es cierto{/color} \nTrue"
     consola "{color=#f0f}Veamos otro ejemplo{/color}\n12 * 2 >= 20 + 4 {color=#f0f}#Es decir 24 >= 24 que tambien es cierto{/color} \nTrue"
@@ -967,14 +967,14 @@ label n18:
     h "Vamos a trabajar con algunos ejemplos"
     hide text
     python:
-        menus=['True', 'False', 'None']            
+                    
         counter=9
         check=None
         expresiones=['True and False or True', "False or not 3 >= 8", 'not str(24)!= "24.0" and not 6 == 18/3']
         respuestas= ['True', 'True', 'False']
         encabezado=""
         error=""
-label q22:
+label q22a:
     if counter==9:
         $counter=0
     if check:
@@ -988,32 +988,27 @@ label q22:
             python:
                 del counter
                 del expresiones
-                del menus
+               # del menus
                 del respuestas
                 del encabezado
             h "Has completado esta actividad"
             jump n19
                 
-        else:
-            python:
-                menu1=menus[0]
-                menu2=menus[1]
-                menu3=menus[2]
     if error:
         h "[error]"
         $ error =""
     $encabezado = "¿Cuál es el valor de las siguientes expresiones?\n" +  expresiones [counter]
     menu:
         "[encabezado]"
-        '[menu1]':
-            $check=menu1
-            jump q22
-        '[menu2]':
-            $check=menu2
-            jump q22
-        '[menu3]':
-            $check=menu3
-            jump q22
+        'True':
+            $check="True"
+            jump q22a
+        'False':
+            $check="False"
+            jump q22a
+        'None':
+            $check='None'
+            jump q22a
 
 label n19:
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
@@ -1026,13 +1021,13 @@ label n19:
     consola '{color=#f0f}#Vamos a crear una lista de profesores{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi", "Sir. Mark Thackeray"\]'
     h "Podemos acceder a un elemento de la lista usando los índices. Los índices son números que indican la posición del elemento"
     h "Los índices positivos indican la posición de izquierda a derecha empezando desde 0"
-    consola '{color=#f0f}#Veamos como trabajan los indices{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[1\]'
+    consola '{color=#f0f}#Veamos como trabajan los indices{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[1\]\nProfeDelChavo\n"Profesor Jirafales"\nProfeDelGoku\n"Maestro Rochi"'
     h "Los índices negativos indican la posición de derecha a izquierda a derecha empezando desde -1"
-    consola '{color=#f0f}#Veamos como trabajan los indices negativos{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[-3\]\nProfeDelGoku=Profesores\[-2\]'
+    consola '{color=#f0f}#Veamos como trabajan los indices negativos{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfeDelChavo=Profesores\[-3\]\nProfeDelGoku=Profesores\[-2\]\nProfeDelChavo\n"Profesor Jirafales"\nProfeDelGoku\n"Maestro Rochi"'
     h "Para crear un tuplo, simplemente ponemos todos los elementos uno tras otro separados por comas y encerrados en un par de paréntesis"
     consola '{color=#f0f}#Vamos a crear una tuplo de profesores{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi", "Sir. Mark Thackeray")'
     h "Los índices en los tuplos funcionan de la misma manera que en las listas"
-    consola '{color=#f0f}#Veamos como trabajan los indices en un tuplo{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Hedley Quintana")\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[-3\]'
+    consola '{color=#f0f}#Veamos como trabajan los indices en un tuplo{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Hedley Quintana")\nProfeDelChavo=Profesores\[0\]\nProfeDelGoku=Profesores\[-3\]\nProfeDelChavo\n"Profesor Jirafales"\nProfeDelGoku\n"Maestro Rochi"'
     h "Podemos seleccionar varios elementos de una lista o tuplo mediante el {color=#ff0}corte{/color} de los elementos"
     h "El {color=#ff0}corte{/color} de los elementos se realiza mediante un rango de índices que van desde el primer elemento hasta el previo al último,\nveamos un ejemplo"
     consola '{color=#f0f}#Veamos como trabajan los cortes{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Hedley Quintana")\nProfesComicos=Profesores\[0:2\] {color=#f0f}#Esta lista selecciona los índices de 0 al 1, el 2 NO está incluido{/color}\nProfesComicos\n("Profesor Jirafales", "Maestro Rochi")'
@@ -1040,7 +1035,7 @@ label n19:
     h "El tuplo una vez creado no se puede modificar, pero la lista sí. Aunque Python le permite a una variable tipo tuplo ser reemplazado por otro tuplo u otro tipo de variable"
     h "A la lista le puede añadir, modificar o quitar elementos una vez creada"
     h "Para modificar un elemento de una lista, basta y sobra con asignarle el valor al elemento usando el índice"
-    consola '{color=#f0f}#Veamos cambiar el valor de "Maestro Rochi" a "Mr Rochi"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores\[0\]="Mr. Rochi"\nProfesores\n\["Profesor Jirafales", "Mr. Rochi", "Sir. Mark Thackeray"\]'
+    consola '{color=#f0f}#Veamos cambiar el valor de "Maestro Rochi" a "Mr Rochi"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores\[1\]="Mr. Rochi"\nProfesores\n\["Profesor Jirafales", "Mr. Rochi", "Sir. Mark Thackeray"\]'
     h "Para añadir un elemento al final de la lista usamos la función append.\nPara usar esta función ponemos el nombre de variable con la lista, un punto, luego la palabra append y finalmente entre paréntesis lo que queremos añadir al final de la lista"
     consola '{color=#f0f}#Veamos añadir al profesor "Saitama al final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores.append("Saitama)"\nProfesores\[-1\]\n"Saitama"'
     h "La función pop sin argumentos (lo que está entre paréntesis está vacío) elimina el último elemento de la lista y devuelve dicho elemento"
@@ -1235,9 +1230,55 @@ label qChino1:
             jump qChino1
             $ error="Eso no es correcto, el operador de la división permite calcular eso, pero es muy complicado"
 label q24:
-    $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
+    #$ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
+    hide text
     h "En efecto, podemos simplemente calcular el residuo mediante el operador del mismo es decir {color=#ff0}\%{/color}"
     h "Una división entre 12 que no deja residuo de 0, habla de un número divisible entre 12. Lo que corresponde al año del mono. Si el residuo es de 1, es del gallo, etc"
-    show text "0-[signos_Chinos[0]]   1-[signos_Chinos[1]]    2-[signos_Chinos[2]]\n3-[signos_Chinos[3]]    4-[signos_Chinos[4]]    5-[signos_Chinos[5]]\n6-[signos_Chinos[6]]   7-[signos_Chinos[7]]   8-[signos_Chinos[8]]\n9-[signos_Chinos[9]]   10-[signos_Chinos[10]]   11-[signos_Chinos[11]]\n"  at truecenter 
-    h "Aqui vemos una lista de los residuos de cada año y el signo chino al cual corresponde"
+    show text "{size=40}{color=#000}0-[signos_Chinos[0]]   1-[signos_Chinos[1]]    2-[signos_Chinos[2]]\n3-[signos_Chinos[3]]    4-[signos_Chinos[4]]    5-[signos_Chinos[5]]\n6-[signos_Chinos[6]]   7-[signos_Chinos[7]]   8-[signos_Chinos[8]]\n9-[signos_Chinos[9]]   10-[signos_Chinos[10]]   11-[signos_Chinos[11]]{/color}{/size}"  at truecenter 
+    h 'Arriba vemos una lista de los residuos de cada año y abajo la lista creada:\n{color=#ff0}signos_Chinos = [["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]]{/color}'
+    $ mod= int(nac % 12)
+    h "El residuo de dividir [nac] entre 12 es [mod]"
+    $ yr= signos_Chinos[mod]
+    python:
+        if mod in  [4,9,11]:
+            articulo= "de la"
+        else:
+            articulo= "del"
+    h "El residuo de dividir [nac] entre 12 es [mod] \nEs decir que el año [nac] corresponde año [articulo] [yr]"
+    h "La otra alternativa es usar el control de flujo"
+    $ del signos_Chinos
+    hide text
+    h "acabo de eliminar la lista de signos_Chinos"
+    h "Podemos usar una serie de if, else y elif y crear una variable llamada tipo cadena signo que var"
+    python:
+        if not mod:
+            signo="mono"
+        elif mod == 1:
+            signo="gallo"
+        elif mod == 2:
+            signo="perro"
+        elif mod == 3:
+            signo="cerdo"
+        elif mod == 4:
+            signo="rata"
+        elif mod == 5:
+            signo="buey"
+        elif mod == 6:
+            signo="tigre"
+        elif mod == 7:
+            signo="conejo"
+        elif mod == 8:
+            signo="dragón"
+        elif mod == 9:
+            signo="serpiente"
+        elif mod == 10:
+            signo="caballo"
+        else:
+            signo="cabra"
+    consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n\ \ \ \nsigno="perro"\nelif mod == 3:\n\ \ \ \nsigno="cerdo"\nelif mod == 4:\n\ \ \ \nsigno="rata"\nelif mod == 5:\n\ \ \ \nsigno="buey"\nelif mod == 6:\n\ \ \ \nsigno="tigre"\nelif mod == 7:\n\ \ \ \nigno="conejo"\nelif mod == 8:\n\ \ \ \nsigno="dragón"\nelif mod == 9:\n\ \ \ \nsigno="serpiente"\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
+    h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
+label funciones:
+    h "Ahora vamos a hablar de las funciones"
+    h "Hemos visto funciones como len, pop, sqrt y log"
+    return
 return
