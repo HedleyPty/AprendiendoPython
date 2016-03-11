@@ -1279,6 +1279,17 @@ label q24:
     h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
 label funciones:
     h "Ahora vamos a hablar de las funciones"
-    h "Hemos visto funciones como len, pop, sqrt y log"
+    h "Las funciones no son más que bloques de códigos que se pueden ejecutar en una sentencia"
+    h "Las funciones pueden ser {color=#ff0}predeterminadas{/color}, {color=#ff0}asociadas a un módulo{/color}, ser un {color=#ff0}método{/color} o ser {color=#ff0}definidas por el desarrollador{/color}"
+    h "Hemos visto funciones como int(), bool(), str(), print(), len() entre otras son funciones {color=#ff0}predeterminadas{/color}, simplemente ponemos sus {color=#ff0}argumentos{/color}"
+    h "Las funciones asociados a un módulo requieren que {color=#ff0}importe{/color} el módulo, y luego se debe escribir el nombre del módulo seguido por un punto {color}(.){/color},\nluego el nombre de la función seguida por paréntesis con los argumentos adentro"
+    consola "{color=#f0f}#Por ejemplo, para sacar la raíz cuadrada de un número usando el módulo math{/color}\nimport math\nmath.sqrt(144)\n12"
+    consola "{color=#f0f}#tambien podemos seleccionar una función del módulo usando from e import: sin necesidad de usar la notación con punto{/color}\nfrom math import sqrt\nsqrt(196)\n14"
+    h "Voy a hablar de los {color=#ff0}métodos{/color} debo hablar de las funciones definidas por el desarrollador"
+    h "Como había dicho anteriormente, las funciones definen un bloque de código python mediante una sola sentencia"
+    h "Vamos a crear una función que multiplique 2 números"
+    h "Hay dos palabras reservadas: lambda y def"
+    consola "{color=#f0f}#{/color}\nimport math\nmath.sqrt(144)\n12"
+    
     return
 return
