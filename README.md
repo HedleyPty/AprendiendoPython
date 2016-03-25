@@ -57,4 +57,4 @@
 
 ##Mi página web en PythonAnywhere: [Mi sitio en PythonAnywhere](http://http://hedley.pythonanywhere.com/)
 
-##[PAY PAL BUTTON](http://paypal.me/HedleyQuintana)
+##[Botón de PayPal para donaciones](http://paypal.me/HedleyQuintana)
