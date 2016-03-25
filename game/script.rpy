@@ -1,8 +1,10 @@
 init python:
     persistent.console=False
+    subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
+                   yanchor='top')
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
-image renpy_logo =Image("images/renpy logo.png", yalign=0.5)
+image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
 image white ="#ffffff"
@@ -43,19 +45,25 @@ label music_:
             pass
 label inicio:
     #textbutton "Music" action Show("_music") 
-    show python_logo 
+    show python_logo at truecenter
+    show text "{color=#000000}Logo de Python{/color}" at subtitle
+        
     h "Saludos a todos, me llamo Hedley!"
     h "Soy un médico gradudado de la Universidad de Panamá, tengo una maestría en Biología molecular y estoy estudiando un doctorado en epidemiología en el Instituto Karolinska"
     h "No se si sea el más adecuado, pero les voy a enseñar lo poco que sé de Python"
     h "Y para sonar más interesante, les digo..."
-    show renpy_logo at right
+    show renpy_logo:
+        xpos 0.8
+        ypos 0.2
+    show text "{color=#000000}Logo de Ren'py{/color}" at Position(xpos=0.80, xanchor='center', ypos=0.65, yanchor='top')
     h "que este tutorial, está desarrollado en Ren'py el cual es una implentación de Python"
     h "Ren'py es un gestor de {color=#ff0}novelas gráficas interactivas{/color}, las cuales son una serie de {color=#ff0}diálogos{/color} (así como una telenovela, pero leída).\nAparecen dibujos de personajes que aparecen con su cuadro de diálogos"
     h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
     hide renpy_logo 
-    h "Vamos a empezar..."
     hide text
+    h "Vamos a empezar..."
+    #hide text
     jump chp1
 label chp1:
     show text "{size=40}{color=#000}Capítulo uno\n\n\n¿Qué es programar?{/color}{/size}" at top
@@ -518,15 +526,15 @@ label n10:
     h "La multiplicacion, la división y el residuo son un poquito especiales"
     h "Igual que lo que ocurre con la suma y la resta, estás operaciones entre enteros resultan en un entero y si hay por lo menos un flotante involucrado, tendremos un flotante"
     h "En el caso de la multiplicación, eso no es mucho problema"
-    consola "{color=#f0f}Multiplicacion de enteros{/color}\n3*5\n15"
-    consola "{color=#f0f}Multiplicacion con flotantes{/color}\n3.0*5.*8.0\n90.0"
-    consola "{color=#f0f}Multiplicacion con por lo menos un enteros{/color}\n3.0*5*8\n90.0"
+    consola "{color=#f0f}#Multiplicacion de enteros{/color}\n3*5\n15"
+    consola "{color=#f0f}#Multiplicacion con flotantes{/color}\n3.0*5.*8.0\n90.0"
+    consola "{color=#f0f}#Multiplicacion con por lo menos un enteros{/color}\n3.0*5*8\n90.0"
     h "En el caso de la división es un poco especial, debido que al dividir, no vamos a obtener necesariamente un número entero"
     h "Si dividimos dos enteros vamos a obtener la {color=#ff0}parte entera de la division{/color}"
-    consola "{color=#f0f}Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
-    consola "{color=#f0f}Pero 50 entre 8 tambien es 6{/color}\n50/8\n6"
-    consola "{color=#f0f}Aun más 55 entre 8 tambien es 6{/color}\n55/8\n6"
-    consola "{color=#f0f}Claro está 56 entre 8 es 7{/color}\n56/8\n7"
+    consola "{color=#f0f}#Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
+    consola "{color=#f0f}#Pero 50 entre 8 tambien es 6{/color}\n50/8\n6"
+    consola "{color=#f0f}#Aun más 55 entre 8 tambien es 6{/color}\n55/8\n6"
+    consola "{color=#f0f}#Claro está 56 entre 8 es 7{/color}\n56/8\n7"
     h "Las operaciones con flotantes, se toman en cuenta los decimales por lo que.."
     consola "{color=#f0f}Aun más 55 entre 8 es 6.87{/color}\n55.0/8\n6.87"
     h 'El residuo es lo "sobra" despues de dividir con enteros'
@@ -585,7 +593,7 @@ label q14:
     h "Vamos a calcular la raíz cuadrada de 25 (que sabemos que es cinco)"
     h "Lo primero es importar el módulo de mas matemáticas"
     h "Lo hacemos con la palabra reservada {color=#ff0}import{/import}"
-    consola "{color=#f0f}#Es decir{/color}}\nimport math"
+    consola "{color=#f0f}#Es decir{/color}\nimport math"
     h "Y luego usamos el metodo sqrt de math asi"
     h "{color=#f0f}#Raiz cuadrada de 25{/color}\nimport math\nmath.sqrt(25)\n5.0"
     h "También podemos dar un alias más amigable al módulo usando la palabra reservada {color=#ff0}as{/color} que en inglés significa {color=#ff0}como{/color}"
@@ -1130,7 +1138,7 @@ label n24:
     h "El bloque es una serie de líneas que tienen {color=#ff0}sangría{/color} adicicional despues de la sentencia que inicia con if"
     h "El bloque termina en la última línea con {color=#ff0}sangría{/color}"
     h "En este tutorial he usado bloques {color=#ff0}if{/color} para valorar si sus respuestas son correctas o no"
-    h "Pueden ver esto en la página github de este proyecto{a=https://github.com/HedleyPty/AprendiendoPython} Repositorio GitHub{/a} en las líneas ..."
+    h "Pueden ver esto en la página github de este proyecto{a=https://github.com/HedleyPty/AprendiendoPython} Repositorio GitHub{/a} en las líneas 142 a 180\ntambién puedes ver los bloques menu de Ren'py donde verifico las respuestas"
     h "Al contestar una respuesta correcta se compara el valor de la variable con su respusesta con un elemento de una lista que contiene las respuestas correctas"
     consola "{color=#f0f}#Esto ocurre cada vez que responden en los ejercicios{/color}\nif check == respuestas\[counter\]:\n\ \ \ \ counter += 1\n\ \ \ \ if counter ==3:\n\ \ \ \ {color=#f0f}#La función {color=#ff0}jump{/color} permite pasar al siguiente capítulo en Ren\'py{/color}\n\ \ \ \ jump proxCapitulo "
     h "El operador {color=#ff0}while{/color} no es en verdad un control de flujo sino un {color=#ff0}bucle{/color}, en inglés {color=#ff0}loop{/color}"
@@ -1160,7 +1168,6 @@ label n24:
     $ bad_data=False
 label q23:
     $ lista_Anos = [1978,1985,1966]
-    $ bad_data=False
     if bad_data:
         h "Ingresa los datos correctamente"
         h "¿Cómo yo se que los datos son inválidos?"
@@ -1230,12 +1237,13 @@ label qChino1:
             jump qChino1
             $ error="Eso no es correcto, el operador de la división permite calcular eso, pero es muy complicado"
 label q24:
-    #$ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
+    $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
     hide text
+    $ nac=1923
     h "En efecto, podemos simplemente calcular el residuo mediante el operador del mismo es decir {color=#ff0}\%{/color}"
     h "Una división entre 12 que no deja residuo de 0, habla de un número divisible entre 12. Lo que corresponde al año del mono. Si el residuo es de 1, es del gallo, etc"
     show text "{size=40}{color=#000}0-[signos_Chinos[0]]   1-[signos_Chinos[1]]    2-[signos_Chinos[2]]\n3-[signos_Chinos[3]]    4-[signos_Chinos[4]]    5-[signos_Chinos[5]]\n6-[signos_Chinos[6]]   7-[signos_Chinos[7]]   8-[signos_Chinos[8]]\n9-[signos_Chinos[9]]   10-[signos_Chinos[10]]   11-[signos_Chinos[11]]{/color}{/size}"  at truecenter 
-    h 'Arriba vemos una lista de los residuos de cada año y abajo la lista creada:\n{color=#ff0}signos_Chinos = [["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]]{/color}'
+    h 'Arriba vemos una lista de los residuos de cada año y abajo la lista creada:\n{color=#ff0}signos_Chinos = [["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]{/color}'
     $ mod= int(nac % 12)
     h "El residuo de dividir [nac] entre 12 es [mod]"
     $ yr= signos_Chinos[mod]
@@ -1275,21 +1283,30 @@ label q24:
             signo="caballo"
         else:
             signo="cabra"
-    consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n\ \ \ \nsigno="perro"\nelif mod == 3:\n\ \ \ \nsigno="cerdo"\nelif mod == 4:\n\ \ \ \nsigno="rata"\nelif mod == 5:\n\ \ \ \nsigno="buey"\nelif mod == 6:\n\ \ \ \nsigno="tigre"\nelif mod == 7:\n\ \ \ \nigno="conejo"\nelif mod == 8:\n\ \ \ \nsigno="dragón"\nelif mod == 9:\n\ \ \ \nsigno="serpiente"\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
+    consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n...\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
     h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
 label funciones:
     h "Ahora vamos a hablar de las funciones"
     h "Las funciones no son más que bloques de códigos que se pueden ejecutar en una sentencia"
     h "Las funciones pueden ser {color=#ff0}predeterminadas{/color}, {color=#ff0}asociadas a un módulo{/color}, ser un {color=#ff0}método{/color} o ser {color=#ff0}definidas por el desarrollador{/color}"
     h "Hemos visto funciones como int(), bool(), str(), print(), len() entre otras son funciones {color=#ff0}predeterminadas{/color}, simplemente ponemos sus {color=#ff0}argumentos{/color}"
-    h "Las funciones asociados a un módulo requieren que {color=#ff0}importe{/color} el módulo, y luego se debe escribir el nombre del módulo seguido por un punto {color}(.){/color},\nluego el nombre de la función seguida por paréntesis con los argumentos adentro"
+    h "Las funciones asociados a un módulo requieren que {color=#ff0}importe{/color} 
+       el módulo, y luego se debe escribir el nombre del módulo seguido por un punto {color=#ff0}(.){/color}, luego el nombre de la función seguida por paréntesis con los argumentos adentro"
     consola "{color=#f0f}#Por ejemplo, para sacar la raíz cuadrada de un número usando el módulo math{/color}\nimport math\nmath.sqrt(144)\n12"
     consola "{color=#f0f}#tambien podemos seleccionar una función del módulo usando from e import: sin necesidad de usar la notación con punto{/color}\nfrom math import sqrt\nsqrt(196)\n14"
     h "Voy a hablar de los {color=#ff0}métodos{/color} debo hablar de las funciones definidas por el desarrollador"
     h "Como había dicho anteriormente, las funciones definen un bloque de código python mediante una sola sentencia"
     h "Vamos a crear una función que multiplique 2 números"
     h "Hay dos palabras reservadas: lambda y def"
-    consola "{color=#f0f}#{/color}\nimport math\nmath.sqrt(144)\n12"
-    
+    consola "{color=#f0f}#Eso ya lo habíamos visto{/color}\nimport math\nmath.sqrt(144)\n12"
+    h "Vamos a usar la palabra {color=#ff0}def{/color} para crear un archivo tipo {color=#ff0000}script{/color} llamado {color=#ff0}semaforo.py{/color}"
+    h "Vamos a crear un archivo de texto plano llamado semaforo.py, con el editor de texto..."
+    h "En Windows notepad, en Mac no se, en Android es el File Editor, o podemos usar cualquier otro.\nAl instalar Python in Windows, éste trae su propio editor, pero eso es irrelevante!, lo importante es escribir..."
+    h "escribimos las siguientes líneas, los comentarios pueden escribirse o ser ignorados"
+    h "#Esta linea importa la funcion randint del modulo random\nfrom random import randint\n#Luego creamos una funcion llamada semaforo\ndef semaforo():\n\ \ \ \ x=randint(0,1)\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
+    h "En Mac y en Linux podemos abrir la línea de comandos y escribir python semaforo.py y veremos el resultado..."
+    h "En Windows es un más complicado..."
+    h "..."
+    h ""
     return
 return
