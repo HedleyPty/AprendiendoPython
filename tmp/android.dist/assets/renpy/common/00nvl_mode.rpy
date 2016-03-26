@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -88,11 +88,15 @@ init -1500 python:
     # The layer the nvl screens are shown on.
     config.nvl_layer = "screens"
 
+    # The maximum number of entries in nvl_list.
+    config.nvl_list_length = None
+
     # A list of arguments that have been passed to nvl_record_show.
     nvl_list = None
 
     # If set, then all of the nvl-specific style get indexed with this.
     nvl_variant = None
+
 
     # Returns the appropriate variant style.
     def __s(s):
@@ -258,6 +262,9 @@ init -1500 python:
             kwargs["window_args"] = dict(self.window_args)
 
             store.nvl_list.append((who, what, kwargs))
+
+            while config.nvl_list_length and (len(nvl_list) > config.nvl_list_length):
+                nvl_list.pop(0)
 
         def do_display(self, who, what, **display_args):
 

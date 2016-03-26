@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -48,10 +48,6 @@ def extra_imports():
     import math; math
     import glob; glob
     import pickle; pickle
-    import pysdlsound; pysdlsound #@UnresolvedImport
-    import pysdlsound.sound; pysdlsound.sound #@UnresolvedImport
-    import pysdlsound.winmixer; pysdlsound.winmixer #@UnresolvedImport
-    import pysdlsound.linmixer; pysdlsound.linmixer #@UnresolvedImport
     import difflib; difflib
     import shutil; shutil
     import tarfile; tarfile
@@ -208,11 +204,6 @@ def bootstrap(renpy_base):
 
     sys.path.insert(0, basedir)
 
-    # If we're not given a command, show the presplash.
-    if args.command == "run" and not renpy.mobile:
-        import renpy.display.presplash #@Reimport
-        renpy.display.presplash.start(basedir, gamedir)
-
     # If we're on a mac, install our own os.start.
     if renpy.macintosh:
         os.startfile = mac_start
@@ -236,6 +227,11 @@ You may be using a system install of python. Please run {0}.sh,
 """.format(name)
 
         raise
+
+    # If we're not given a command, show the presplash.
+    if args.command == "run" and not renpy.mobile:
+        import renpy.display.presplash #@Reimport
+        renpy.display.presplash.start(basedir, gamedir)
 
     # Ditto for the Ren'Py module.
     try:

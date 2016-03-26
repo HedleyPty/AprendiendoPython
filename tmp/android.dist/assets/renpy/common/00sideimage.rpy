@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -45,6 +45,10 @@ init -1650 python:
 
     # The null to use.
     config.side_image_null = Null()
+
+    _side_image_old = config.side_image_null
+    _side_image_raw = config.side_image_null
+    _side_image = config.side_image_null
 
     def _side_per_interact():
         """

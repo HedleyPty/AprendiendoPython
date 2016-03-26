@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -26,7 +26,9 @@ import sys
 import time
 
 import renpy.display
+import renpy.test
 
+pyast = __import__("ast", { })
 
 # The number of statements that have been run since the last infinite loop
 # check.
@@ -344,6 +346,18 @@ class Context(renpy.object.Object):
 
         return rv
 
+    def report_coverage(self, node):
+        """
+        Execs a python pass statement on the line of code corresponding to
+        `node`. This indicates to python coverage tools that this line has
+        been executed.
+        """
+
+        ps = pyast.Pass(lineno=node.linenumber, col_offset=0)
+        module = pyast.Module(lineno=node.linenumber, col_offset=0, body=[ ps ])
+        code = compile(module, node.filename, 'exec')
+        exec code
+
     def run(self, node=None):
         """
         Executes as many nodes as possible in the current context. If the
@@ -359,6 +373,7 @@ class Context(renpy.object.Object):
             node = renpy.game.script.lookup(self.current)
 
         developer = renpy.config.developer
+        tracing = sys.gettrace() is not None
 
         while node:
 
@@ -378,9 +393,14 @@ class Context(renpy.object.Object):
 
             self.seen = False
 
+            renpy.test.testexecution.take_name(self.current)
+
             try:
                 try:
                     check_infinite_loop()
+
+                    if tracing:
+                        self.report_coverage(node)
 
                     renpy.game.exception_info = "While running game code:"
 

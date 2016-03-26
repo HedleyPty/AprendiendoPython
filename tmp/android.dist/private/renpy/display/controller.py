@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -61,12 +61,20 @@ def init():
     if not renpy.game.preferences.pad_enabled:
         return
 
-    pygame_sdl2.controller.init()
-    load_mappings()
+    try:
+        pygame_sdl2.controller.init()
+        load_mappings()
+    except:
+        renpy.display.log.exception()
 
     for i in range(pygame_sdl2.controller.get_count()):
-        c = Controller(i)
-        renpy.exports.write_log("controller: %r %r %r" % (c.get_guid_string(), c.get_name(), c.is_controller()))
+
+        try:
+            c = Controller(i)
+            renpy.exports.write_log("controller: %r %r %r" % (c.get_guid_string(), c.get_name(), c.is_controller()))
+        except:
+            renpy.display.log.exception()
+
 
 # A map from controller index to controller object.
 controllers = { }
@@ -104,8 +112,17 @@ def make_event(name):
         { "eventnames" : names, "controller" : name, "up" : False })
 
 
-def quit(index): # @ReservedAssignment
+def exists():
+    """
+    Returns true if a controller exists, and False otherwise.
+    """
 
+    if controllers:
+        return True
+    else:
+        return False
+
+def quit(index): # @ReservedAssignment
     """
     Quits the controller at index.
     """
@@ -113,6 +130,9 @@ def quit(index): # @ReservedAssignment
     if index in controllers:
         controllers[index].quit()
         del controllers[index]
+
+        renpy.exports.restart_interaction()
+
 
 def start(index):
     """
@@ -122,6 +142,8 @@ def start(index):
     quit(index)
     controllers[index] = c = Controller(index)
     c.init()
+
+    renpy.exports.restart_interaction()
 
 def event(ev):
     """

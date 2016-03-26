@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -22,13 +22,15 @@
 import renpy.display
 import renpy.style
 import renpy.sl2
+import renpy.test
+
 import renpy.game as game
+
 import os
 import sys
 import time
 import zipfile
 import __main__
-
 
 last_clock = time.time()
 
@@ -232,6 +234,7 @@ def choose_variants():
         renpy.config.variants.insert(0, 'large')
 
 
+
 def main():
 
     log_clock("Bootstrap to the start of init.init")
@@ -330,7 +333,7 @@ def main():
     # labels as in other scripts (usually happens on script rename).
     if (renpy.game.args.command == 'compile') and not (renpy.game.args.keep_orphan_rpyc): # @UndefinedVariable
 
-        for (fn, dir) in renpy.game.script.script_files:
+        for (fn, _dir) in renpy.game.script.script_files:
 
             if dir is None:
                 continue
@@ -351,7 +354,7 @@ def main():
     renpy.game.script.load_script() # sets renpy.game.script.
     log_clock("Loading script")
 
-    if renpy.game.args.command == 'load-test':
+    if renpy.game.args.command == 'load-test': # @UndefinedVariable
         start = time.time()
 
         for i in range(5):
@@ -391,6 +394,7 @@ def main():
         # Initialize persistent variables.
         renpy.store.persistent = game.persistent
         renpy.store._preferences = game.preferences
+        renpy.store._test = renpy.test.testast._test
 
         if renpy.parser.report_parse_errors():
             raise renpy.game.ParseErrorException()
@@ -412,7 +416,7 @@ def main():
         if renpy.config.clear_lines:
             renpy.scriptedit.lines.clear()
 
-        for i in renpy.game.persistent._seen_translates:
+        for i in renpy.game.persistent._seen_translates: # @UndefinedVariable
             if i in renpy.game.script.translator.default_translates:
                 renpy.game.seen_translates_count += 1
 

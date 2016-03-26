@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -1193,7 +1193,7 @@ def show_overlay_screens(suppress_overlay):
 
     if renpy.store._overlay_screens is None:
         show = show
-    if renpy.store._overlay_screens is True:
+    elif renpy.store._overlay_screens is True:
         show = True
     else:
         show = False

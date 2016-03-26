@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -27,6 +27,7 @@
 # updating.
 
 import renpy.display
+import renpy.test
 
 import re
 import time
@@ -331,7 +332,7 @@ class Node(object):
         logical line on which this Node node starts.
         """
 
-        self.filename, self.linenumber  = loc
+        self.filename, self.linenumber = loc
         self.name = None
         self.next = None
 
@@ -2184,3 +2185,26 @@ class Style(Node):
                 properties[name] = renpy.python.py_eval(expr)
 
             s.add_properties(properties)
+
+
+class Testcase(Node):
+
+    __slots__ = [
+        'label',
+        'test',
+        ]
+
+    def __init__(self, loc, label, test):
+        super(Testcase, self).__init__(loc)
+
+        self.label = label
+        self.test = test
+
+    def diff_info(self):
+        return (Testcase, self.label)
+
+    def execute(self):
+        next_node(self.next)
+        statement_name("testcase")
+
+        renpy.test.testexecution.testcases[self.label] = self.test

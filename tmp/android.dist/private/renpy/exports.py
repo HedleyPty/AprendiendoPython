@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -27,6 +27,8 @@
 # Remember the real file.
 _file = file
 
+import re
+
 import renpy.display
 import renpy.audio
 
@@ -50,7 +52,7 @@ from renpy.text.extras import ParameterizedText
 from renpy.text.font import register_sfont, register_mudgefont, register_bmfont
 from renpy.text.text import language_tailor
 from renpy.display.behavior import Keymap
-from renpy.display.behavior import run as run_action, run_unhovered, run_periodic
+from renpy.display.behavior import run, run as run_action, run_unhovered, run_periodic
 from renpy.display.behavior import map_event, queue_event, clear_keymap_cache
 
 from renpy.display.minigame import Minigame
@@ -67,7 +69,6 @@ from renpy.display.image import get_available_image_tags, get_available_image_at
 from renpy.display.im import load_surface, load_image
 
 from renpy.curry import curry, partial
-from renpy.audio.sound import play
 from renpy.display.video import movie_start_fullscreen, movie_start_displayable, movie_stop
 
 from renpy.loadsave import load, save, list_saved_games, can_load, rename_save, copy_save, unlink_save, scan_saved_game
@@ -123,7 +124,7 @@ def public_api():
     ParameterizedText
     register_sfont, register_mudgefont, register_bmfont
     Keymap
-    run_action, run_unhovered, run_periodic, map_event
+    run, run_action, run_unhovered, run_periodic, map_event
     Minigame
     curry, partial
     play
@@ -1501,6 +1502,11 @@ def reload_script():
     save.
     """
 
+    s = get_screen("menu")
+
+    if s is not None:
+        session["_reload_screen"] = s.screen_name[0]
+
     renpy.game.call_in_new_context("_save_reload_game")
 
 
@@ -1576,7 +1582,7 @@ def screenshot(filename):
 @renpy_pure
 def version(tuple=False): #@ReservedAssignment
     """
-    :doc: other
+    :doc: renpy_version
 
     If `tuple` is false, returns a string containing "Ren'Py ", followed by
     the current version of Ren'Py.
@@ -1590,6 +1596,11 @@ def version(tuple=False): #@ReservedAssignment
 
     return renpy.version
 
+version_string = renpy.version
+version_only = renpy.version_only
+version_name = renpy.version_name
+version_tuple = renpy.version_tuple
+license = "" # @ReservedAssignment
 
 def transition(trans, layer=None, always=False, force=False):
     """
@@ -1889,6 +1900,9 @@ def seen_audio(filename):
     Returns True if the given filename has been played at least once on the current
     user's system.
     """
+
+    filename = re.sub(r'^<.*?>', '', filename)
+
     return filename in renpy.game.persistent._seen_audio  # @UndefinedVariable
 
 
@@ -3116,17 +3130,22 @@ def add_layer(layer, above=None, below=None, menu_clear=True):
     if menu_clear:
         renpy.config.menu_clear_layers.append(layer) # @UndefinedVariable
 
+
 def maximum_framerate(t):
     """
     :doc: other
 
     Forces Ren'Py to draw the screen at the maximum framerate for `t` seconds.
+    If `t` is None, cancels the maximum framerate request.
     """
 
     if renpy.display.interface is not None:
         renpy.display.interface.maximum_framerate(t)
     else:
-        renpy.display.core.initial_maximum_framerate = max(renpy.display.core.initial_maximum_framerate, t)
+        if t is None:
+            renpy.display.core.initial_maximum_framerate = 0
+        else:
+            renpy.display.core.initial_maximum_framerate = max(renpy.display.core.initial_maximum_framerate, t)
 
 
 def is_start_interact():
@@ -3140,3 +3159,41 @@ def is_start_interact():
 
     return renpy.display.interface.start_interact
 
+
+def play(filename, channel=None, **kwargs):
+    """
+    :doc: audio
+
+    Plays a sound effect. If `channel` is None, it defaults to
+    :var:`config.play_channel`. This is used to play sounds defined in
+    styles, :propref:`hover_sound` and :propref:`activate_sound`.
+    """
+
+    if filename is None:
+        return
+
+    if channel is None:
+        channel = renpy.config.play_channel
+
+    renpy.audio.music.play(filename, channel=channel, **kwargs)
+
+def get_editable_input_value():
+    """
+    :undocumented:
+
+    Returns the current input value, and a flag that is true if it is editable.
+    and false otherwise.
+    """
+
+    return renpy.display.behavior.current_input_value, renpy.display.behavior.input_value_active
+
+def set_editable_input_value(input_value, editable):
+    """
+    :undocumented:
+
+    Sets the currently active input value, and if it should be marked as
+    editable.
+    """
+
+    renpy.display.behavior.current_input_value = input_value
+    renpy.display.behavior.input_value_active = editable

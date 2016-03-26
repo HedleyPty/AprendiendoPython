@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -29,6 +29,9 @@ init -1400 python:
 
     # Should autosave be called when the game is about to quit?
     config.autosave_on_quit = True
+
+    # Should the confirm screen be used?
+    config.confirm_screen = True
 
     class Layout():
         def __call__(self, func):
@@ -123,6 +126,9 @@ init -1400 python hide:
 
         if renpy.has_screen("load") and renpy.has_screen("save"):
             defaults["load_save"] = layout.screen_load_save
+
+        if config.confirm_screen and renpy.has_screen("confirm"):
+            defaults["yesno_prompt"] = layout.screen_yesno_prompt
 
         if renpy.has_screen("yesno_prompt"):
             defaults["yesno_prompt"] = layout.screen_yesno_prompt
@@ -447,6 +453,7 @@ init -1400 python hide:
     layout.LOADING = _("Loading will lose unsaved progress.\nAre you sure you want to do this?")
     layout.QUIT = _("Are you sure you want to quit?")
     layout.MAIN_MENU = _("Are you sure you want to return to the main menu?\nThis will lose unsaved progress.")
+    layout.END_REPLAY = _("Are you sure you want to end the replay?")
     layout.SLOW_SKIP = _("Are you sure you want to begin skipping?")
     layout.FAST_SKIP_UNSEEN = _("Are you sure you want to skip to the next choice?")
     layout.FAST_SKIP_SEEN = _("Are you sure you want to skip to unseen dialogue or the next choice?")
@@ -487,11 +494,17 @@ init -1400 python hide:
          `no`
              An action that is run when the user chooses no.
          """
+        if config.confirm_screen and renpy.has_screen('confirm'):
+            screen = "confirm"
+        elif renpy.has_screen("yesno_prompt"):
+            screen = "yesno_prompt"
+        else:
+            screen = None
 
-        if renpy.has_screen("yesno_prompt"):
+        if screen is not None:
 
-            yes_action = [ Hide("yesno_prompt", config.exit_yesno_transition) ]
-            no_action = [ Hide("yesno_prompt", config.exit_yesno_transition) ]
+            yes_action = [ Hide(screen, config.exit_yesno_transition) ]
+            no_action = [ Hide(screen, config.exit_yesno_transition) ]
 
             if yes is not None:
                 yes_action.append(yes)
@@ -502,7 +515,7 @@ init -1400 python hide:
                 renpy.transition(config.enter_yesno_transition)
 
             renpy.show_screen(
-                "yesno_prompt",
+                screen,
                 message=message,
                 yes_action=yes_action,
                 no_action=no_action)

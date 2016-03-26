@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -130,7 +130,7 @@ force_archives = False
 mouse = None
 
 # The default sound playback sample rate.
-sound_sample_rate = 44100
+sound_sample_rate = 48000
 
 # The amount of time music is faded out between tracks.
 fade_music = 0.0
@@ -242,7 +242,7 @@ editor_transient = None # os.environ.get('RENPY_EDITOR_TRANSIENT', editor)
 editor_file_separator = None # os.environ.get('RENPY_EDITOR_FILE_SEPARATOR', '" "')
 
 # Enable developer mode?
-developer = False
+developer = False # Changed to True or False in the init code.
 
 # A logfile that logging messages are sent to.
 log = None
@@ -655,14 +655,33 @@ rollback_side_size = .2
 # If dpi_scale is less than this, make it 1.0.
 de_minimus_dpi_scale = 1.0
 
-# How big must dpi_scale be to deal with it on windows?
-if renpy.windows and renpy.windows <= (6, 3):
-    windows_dpi_scale_head = 1.3
-else:
-    windows_dpi_scale_head = 1.0
+# Not used.
+windows_dpi_scale_head = 1.0
 
 # Should rollback_side be enabled?
-enable_rollback_side = False
+enable_rollback_side = True
+
+# The default contents of the replay scope.
+replay_scope = { "_game_menu_screen" : "preferences" }
+
+# The mixer to use for auto-defined movie channels.
+movie_mixer = "music"
+
+# Auto audio channels. A map from base name to:
+# * mixer
+# * file prefix
+# * file suffix
+auto_channels = { "audio" : ( "sfx", "", ""  ) }
+
+# The channel used by renpy.play.
+play_channel = "audio"
+
+# An image attribute that is added when the character is speaking, and
+# removed when the character is not.
+speaking_attribute = None
+
+# How many elements need to be in a list before we compress it for rollback.
+list_compression_length = None # 25
 
 del renpy
 del os

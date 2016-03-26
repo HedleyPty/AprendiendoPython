@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -743,7 +743,7 @@ characters per block. """.format(
         print
 
     print
-    if renpy.config.developer:
+    if renpy.config.developer and (renpy.config.developer != "auto"):
         print "Remember to set config.developer to False before releasing."
         print
 

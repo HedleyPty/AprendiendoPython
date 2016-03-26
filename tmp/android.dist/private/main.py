@@ -1,10 +1,9 @@
-#!/usr/bin/env python
 #@PydevCodeAnalysisIgnore
 
 # This file is part of Ren'Py. The license below applies to Ren'Py only.
 # Games and other projects that use Ren'Py may use a different license.
 
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -140,10 +139,6 @@ def path_to_renpy_base():
     return renpy_base
 
 ##############################################################################
-
-# The version of the Mac Launcher and py4renpy that we require.
-macos_version = (6, 14, 0)
-linux_version = (6, 14, 0)
 
 # Doing the version check this way also doubles as an import of ast,
 # which helps py2exe et al.

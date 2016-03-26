@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -368,11 +368,24 @@ init -1500 python:
         """
         :doc: replay
 
-        An action that ends the current memory.
+        Ends the current replay.
+
+        `confirm`
+            If true, prompts the user for confirmation before ending the
+            replay.
         """
+        def __init__(self, confirm=True):
+            self.confirm = confirm
 
         def __call__(self):
-            renpy.end_replay()
+
+            if not self.get_sensitive():
+                return
+
+            if self.confirm:
+                layout.yesno_screen(layout.END_REPLAY, EndReplay(False))
+            else:
+                renpy.end_replay()
 
         def get_sensitive(self):
             return _in_replay

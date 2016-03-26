@@ -1,6 +1,12 @@
-#General instructions
-###Uncompress the contents of *Programar_con_Python-1.0-all.zip* in your computer
+#Instrucciones
+###Baje y descomprima el archivo *Programar_con_Python-1.0-all.zip* en algun sitio de su computadora
 #Windows
-###Execute the file *Programar_con_Python.exe* placed inside the folder *Programar_con_Python-1.0-all*
+###Ejecute el archivo *Programar_con_Python.exe* dentro de la carpeta *Programar_con_Python-1.0-all*
 #MacOS and Linux
-###Execute the file *Programar_con_Python.sh* placed inside the folder *Programar_con_Python-1.0-all*
+###Ejecute el archivo *Programar_con_Python.sh* dentro de la carpeta *Programar_con_Python-1.0-all*
+#Android
+###Baje el archivo *AprendiendoPythonparahispanohablantes-1.0-release.apk* e instale el programa mediante **sideload**
+
+#Advertencia
+
+Este programa está incompleto, vea el README.md donde indico el avance del proyecto

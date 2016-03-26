@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -488,3 +488,14 @@ class Color(tuple):
         h, _, s = self.hls
         l = lightness
         return Color(hls=(h, l, s), alpha=self.alpha)
+
+    def replace_opacity(self, opacity):
+        """
+        :doc: color method
+
+        Replaces this color's alpha channel with `opacity`, and
+        returns the result as a new Color.
+        """
+
+        alpha = min(max(opacity, 0.0), 1.0)
+        return Color((self[0], self[1], self[2]), alpha=alpha)

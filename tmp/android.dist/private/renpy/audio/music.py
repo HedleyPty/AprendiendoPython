@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -68,6 +68,8 @@ def play(filenames, channel="music", loop=None, fadeout=None, synchro_start=Fals
         then it will not be stopped/faded out and faded back in again, but
         instead will be kept playing. (This will always queue up an additional
         loop of the music.)
+
+    This clears the pause flag for `channel`.
     """
 
     if renpy.game.context().init_phase:
@@ -109,6 +111,8 @@ def play(filenames, channel="music", loop=None, fadeout=None, synchro_start=Fals
             ctx.last_filenames = [ ]
             ctx.last_tight = False
 
+        ctx.pause = False
+
     except:
         if renpy.config.debug_sound:
             raise
@@ -142,6 +146,8 @@ def queue(filenames, channel="music", loop=None, clear_queue=True, fadein=0, tig
 
     `tight`
         If this is True, then fadeouts will span into the next-queued sound.
+
+    This clears the pause flag for `channel`.
     """
 
     if renpy.game.context().init_phase:
@@ -178,6 +184,8 @@ def queue(filenames, channel="music", loop=None, clear_queue=True, fadein=0, tig
             ctx.last_filenames = [ ]
             ctx.last_tight = False
 
+        ctx.pause = False
+
     except:
         if renpy.config.debug_sound:
             raise
@@ -185,10 +193,13 @@ def queue(filenames, channel="music", loop=None, clear_queue=True, fadein=0, tig
 def playable(filename, channel="music"):
     """
     Return true if the given filename is playable on the channel. This
-    takes into account the prefix and suffix.
+    takes into account the prefix and suffix, and ignores a preceding
+    specifier.
     """
 
     c = get_channel(channel)
+
+    filename, _, _ = c.split_filename(filename, False)
 
     return renpy.loader.loadable(c.file_prefix + filename + c.file_suffix)
 
@@ -283,6 +294,53 @@ def get_delay(time, channel="music"):
             raise
 
         return None
+
+
+def get_pos(channel="music"):
+    """
+    :doc: audio
+
+    Returns the current position of the audio or video file on `channel`, in
+    seconds. Returns None if no audio is playing on `channel`.
+
+    As this may return None before a channel starts playing, or if the audio
+    channel involved has been muted, code that calls this function should
+    always handle a None value.
+    """
+
+    try:
+        c = renpy.audio.audio.get_channel(channel)
+        t = c.get_pos()
+
+        if not t or t < 0:
+            return None
+
+        return t / 1000.0
+
+    except:
+        if renpy.config.debug_sound:
+            raise
+
+        return None
+
+def get_duration(channel="music"):
+    """
+    :doc: audio
+
+    Returns the duration of the audio or video file on `channel`. Returns
+    0.0 if no file is playing on `channel`.
+    """
+
+    try:
+        c = renpy.audio.audio.get_channel(channel)
+        return c.get_duration()
+
+    except:
+        if renpy.config.debug_sound:
+            raise
+
+        return None
+
 
 def get_playing(channel="music"):
     """
@@ -384,6 +442,34 @@ def set_queue_empty_callback(callback, channel="music"):
     except:
         if renpy.config.debug_sound:
             raise
+
+def set_pause(value, channel="music"):
+    """
+    :doc: audio
+
+    Sets the pause flag for `channel` to `value`. If True, the channel
+    will pause, otherwise it will play normally.
+    """
+    try:
+        c = renpy.audio.audio.get_channel(channel)
+        c.context.pause = value
+    except:
+        if renpy.config.debug_sound:
+            raise
+
+def get_pause(channel="music"):
+    """
+    :doc: audio
+
+    Returns the pause flag for `channel`.
+    """
+    try:
+        c = renpy.audio.audio.get_channel(channel)
+        return c.context.pause
+    except:
+
+        return False
+
 
 def set_mixer(channel, mixer, default=False):
     """

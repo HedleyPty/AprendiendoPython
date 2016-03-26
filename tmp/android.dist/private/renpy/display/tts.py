@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -79,6 +79,10 @@ def default_tts_function(s):
 
         return
 
+    if renpy.game.preferences.self_voicing == "debug":
+        renpy.exports.restart_interaction()
+        return
+
     if renpy.linux:
         process = subprocess.Popen([ "espeak", s.encode("utf-8") ])
     elif renpy.macintosh:
@@ -137,9 +141,9 @@ def displayable(d):
     if not self_voicing:
         if old_self_voicing:
             old_self_voicing = self_voicing
-            speak("Self-voicing disabled.", force=True)
+            speak(renpy.translation.translate_string("Self-voicing disabled."), force=True)
 
-        last = None
+        last = ""
 
         return
 

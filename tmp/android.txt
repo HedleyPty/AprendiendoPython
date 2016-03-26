@@ -2,7 +2,7 @@
 Updating source code.
 
 Updating build files.
-Resolved location of library project to: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library
+Resolved location of library project to: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library
 Updated and renamed default.properties to project.properties
 Updated local.properties
 Added file ./build.xml
@@ -19,7 +19,6 @@ Packaging internal data.
 
 I'm using Ant to build the package.
 Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
-  [taskdef] Could not load definitions from resource emma_ant.properties. It could not be found.
 
 -set-mode-check:
 
@@ -31,18 +30,18 @@ Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
 -pre-build:
 
 -check-env:
- [checkenv] Android SDK Tools Revision 23.0.0
- [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r23
+ [checkenv] Android SDK Tools Revision 24.4.1
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
 
 -setup:
      [echo] Project Name: AprendiendoPythonparahispanohablantes-1.0
   [gettype] Project Type: Application
 
 -build-setup:
-[getbuildtools] Using latest Build Tools: 20.0.0
+[getbuildtools] Using latest Build Tools: 23.0.1
      [echo] Resolving Build Target for AprendiendoPythonparahispanohablantes-1.0...
-[gettarget] Project Target:   Android 4.4.2
-[gettarget] API level:        19
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
      [echo] ----------
      [echo] Creating output directories if needed...
      [echo] ----------
@@ -55,7 +54,6 @@ Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
 [dependency] ------------------
      [echo] ----------
      [echo] Building Libraries with 'release'...
-  [taskdef] Could not load definitions from resource emma_ant.properties. It could not be found.
 
 nodeps:
 
@@ -69,20 +67,28 @@ nodeps:
 -pre-build:
 
 -check-env:
- [checkenv] Android SDK Tools Revision 23.0.0
- [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r23
+ [checkenv] Android SDK Tools Revision 24.4.1
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
 
 -setup:
      [echo] Project Name: library
   [gettype] Project Type: Android Library
 
 -build-setup:
-[getbuildtools] Using latest Build Tools: 20.0.0
+[getbuildtools] Using latest Build Tools: 23.0.1
      [echo] Resolving Build Target for library...
-[gettarget] Project Target:   Android 4.4.2
-[gettarget] API level:        19
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
      [echo] ----------
      [echo] Creating output directories if needed...
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/libs
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/res
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/rsObj
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/rsLibs
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/gen
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/dexedLibs
      [echo] ----------
      [echo] Resolving Dependencies for library...
 [dependency] Library dependencies:
@@ -91,22 +97,27 @@ nodeps:
 [dependency] ------------------
 
 -code-gen:
-[mergemanifest] No changes in the AndroidManifest files.
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
      [echo] Handling aidl files...
      [aidl] No AIDL files to compile.
      [echo] ----------
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] No changed resources. R.java and Manifest.java untouched.
+     [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] No need to generate new BuildConfig.
+[buildconfig] Generating BuildConfig class.
 
 -pre-compile:
 
 -compile:
+    [javac] Compiling 19 source files to /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
      [echo] Creating library output jar file...
+      [jar] Building jar: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes.jar
 
 -post-compile:
 
@@ -116,8 +127,8 @@ nodeps:
      [echo] Library project: do not convert bytecode...
 
 -crunch:
-   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/res
-   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/res
+   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/res
+   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/res
    [crunch] Crunched 0 PNG files to update cache
 
 -package-resources:
@@ -132,17 +143,16 @@ nodeps:
 
 -release-nosign:
      [echo] 
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Creating new property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
 
 -release-sign:
 
 -post-build:
 
 release:
-  [taskdef] Could not load definitions from resource emma_ant.properties. It could not be found.
 
 nodeps:
 
@@ -156,20 +166,28 @@ nodeps:
 -pre-build:
 
 -check-env:
- [checkenv] Android SDK Tools Revision 23.0.0
- [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r23
+ [checkenv] Android SDK Tools Revision 24.4.1
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
 
 -setup:
      [echo] Project Name: downloader_library
   [gettype] Project Type: Android Library
 
 -build-setup:
-[getbuildtools] Using latest Build Tools: 20.0.0
+[getbuildtools] Using latest Build Tools: 23.0.1
      [echo] Resolving Build Target for downloader_library...
-[gettarget] Project Target:   Android 4.4.2
-[gettarget] API level:        19
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
      [echo] ----------
      [echo] Creating output directories if needed...
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/libs
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/rsObj
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/rsLibs
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/gen
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes
+    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/dexedLibs
      [echo] ----------
      [echo] Resolving Dependencies for downloader_library...
 [dependency] Library dependencies:
@@ -180,22 +198,27 @@ nodeps:
 [dependency] ------------------
 
 -code-gen:
-[mergemanifest] No changes in the AndroidManifest files.
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
      [echo] Handling aidl files...
      [aidl] No AIDL files to compile.
      [echo] ----------
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] No changed resources. R.java and Manifest.java untouched.
+     [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] No need to generate new BuildConfig.
+[buildconfig] Generating BuildConfig class.
 
 -pre-compile:
 
 -compile:
+    [javac] Compiling 22 source files to /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
      [echo] Creating library output jar file...
+      [jar] Building jar: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
 
 -post-compile:
 
@@ -205,9 +228,13 @@ nodeps:
      [echo] Library project: do not convert bytecode...
 
 -crunch:
-   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/res
-   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/res
-   [crunch] Crunched 0 PNG files to update cache
+   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/res
+   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res
+   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/res/drawable-hdpi/notify_panel_notification_icon_bg.png => /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-hdpi/notify_panel_notification_icon_bg.png
+   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-hdpi/notify_panel_notification_icon_bg.png: 0% size of source)
+   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/res/drawable-mdpi/notify_panel_notification_icon_bg.png => /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-mdpi/notify_panel_notification_icon_bg.png
+   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res/drawable-mdpi/notify_panel_notification_icon_bg.png: 0% size of source)
+   [crunch] Crunched 2 PNG files to update cache
 
 -package-resources:
      [echo] Library project: do not package resources...
@@ -221,10 +248,10 @@ nodeps:
 
 -release-nosign:
      [echo] 
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
-[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Creating new property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
 
 -release-sign:
 
@@ -262,19 +289,20 @@ release:
 
 -dex:
       [dex] input: /home/hedley/Documents/renpy/rapt/bin/classes
-      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
-      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
+      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
+      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes.jar
       [dex] input: /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
-      [dex] Using Pre-Dexed classes-5ef00356adf498a63f6fd1e833a3caa9.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
-      [dex] Using Pre-Dexed classes-eb85eb3bab27b2aaf7bd95be0f4b6ca2.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r23/extras/google/play_licensing/library/bin/classes.jar
+      [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes.jar -> classes-91e17425bd537c4fe8c05f95bb7d463e.jar
+      [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes.jar -> classes-0e133226f2805fffb891897319ad5bc1.jar
       [dex] Pre-Dexing /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar -> amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar
       [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/88.1KiB). Result is 123 defs/209.7KiB. Took 3.2s
-       [dx] Merged dex A (123 defs/209.7KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/299.1KiB. Took 0.5s
-       [dx] Merged dex A (148 defs/299.1KiB) with dex B (90 defs/79.8KiB). Result is 238 defs/489.9KiB. Took 0.4s
+       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/87.9KiB). Result is 123 defs/209.3KiB. Took 2.3s
+       [dx] Merged dex A (123 defs/209.3KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/298.7KiB. Took 0.3s
+       [dx] Merged dex A (148 defs/298.7KiB) with dex B (90 defs/79.8KiB). Result is 238 defs/489.4KiB. Took 0.4s
 
 -crunch:
+   [crunch] /home/hedley/Documents/renpy/rapt/res/drawable-hdpi/ic_launcher.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
    [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/bin/res
    [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/res/drawable-hdpi/ic_launcher.png => /home/hedley/Documents/renpy/rapt/bin/res/drawable-hdpi/ic_launcher.png
@@ -311,7 +339,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 50 seconds
+Total time: 1 minute 43 seconds
 
 
 

@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -40,11 +40,12 @@ init -1600 python:
         iconify = [ ],
         help = [ 'K_F1', 'meta_shift_/' ],
         choose_renderer = [ 'G' ],
-        progress_screen = [ 'alt_P' ],
+        progress_screen = [ 'alt_P', 'meta_P' ],
 
         # Accessibility.
         self_voicing = [ 'v', 'V' ],
         clipboard_voicing = [ 'C' ],
+        debug_voicing = [ 'alt_V', 'meta_V' ],
 
         # Say.
         rollforward = [ 'mousedown_5', 'K_PAGEDOWN', 'repeat_K_PAGEDOWN' ],
@@ -179,7 +180,13 @@ init -1600 python:
 
     config.help = None
 
+    config.help_screen = "help"
+
     def _help(help=None):
+
+        if config.help_screen and renpy.has_screen(config.help_screen):
+            renpy.run(ShowMenu(config.help_screen))
+            return
 
         if help is None:
             help = config.help
@@ -253,7 +260,7 @@ init -1600 python:
             return
 
         if not config.autoreload:
-            renpy.call_in_new_context("_save_reload_game")
+            renpy.exports.reload_script()
             return
 
         if renpy.get_autoreload():
@@ -261,7 +268,7 @@ init -1600 python:
             renpy.restart_interaction()
         else:
             renpy.set_autoreload(True)
-            renpy.call_in_new_context("_save_reload_game")
+            renpy.exports.reload_script()
 
     def _launch_editor():
         if not config.developer:
@@ -335,6 +342,7 @@ init -1100 python:
         memory_profile = _memory_profile,
         self_voicing = Preference("self voicing", "toggle"),
         clipboard_voicing = Preference("clipboard voicing", "toggle"),
+        debug_voicing = Preference("debug voicing", "toggle"),
         progress_screen = _progress_screen,
         )
 
@@ -373,7 +381,8 @@ label _save_reload_game:
         ui.text("Saving game...",
                 size=32, xalign=0.5, yalign=0.5, color="#fff", style="_text")
 
-        renpy.pause(0)
+        ui.pausebehavior(0)
+        ui.interact(suppress_overlay=True, suppress_underlay=True)
 
         renpy.save("_reload-1", "reload save game")
 
@@ -381,7 +390,8 @@ label _save_reload_game:
         ui.text("Reloading script...",
                 size=32, xalign=0.5, yalign=0.5, color="#fff", style="_text")
 
-        renpy.pause(0)
+        ui.pausebehavior(0)
+        ui.interact(suppress_overlay=True, suppress_underlay=True)
 
         renpy.utter_restart()
 

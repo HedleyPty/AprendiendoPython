@@ -3,7 +3,7 @@
 
 #cython: profile=False
 #@PydevCodeAnalysisIgnore
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -160,7 +160,7 @@ cdef class GLDraw:
     def set_mode(self, virtual_size, physical_size, fullscreen):
         """
         This changes the video mode. It also initializes OpenGL, if it
-        can. It returns True if it was succesful, or False if OpenGL isn't
+        can. It returns True if it was successful, or False if OpenGL isn't
         working for some reason.
         """
 
@@ -232,14 +232,6 @@ cdef class GLDraw:
             head_w = bounds[2] - 102
             head_h = bounds[3] - 102
 
-            if renpy.windows and self.dpi_scale > renpy.config.windows_dpi_scale_head:
-                visible_w *= self.dpi_scale
-                visible_h *= self.dpi_scale
-
-                head_full_w *= self.dpi_scale
-                head_w *= self.dpi_scale
-                head_h *= self.dpi_scale
-
             pwidth = min(visible_w, pwidth)
             pheight = min(visible_h, pheight)
 
@@ -255,15 +247,6 @@ cdef class GLDraw:
 
         pwidth = max(pwidth, 256)
         pheight = max(pheight, 256)
-
-        # If we don't set the place manually when dpi_scale is not 1.0,
-        # SDL2 can place the window titlebar off the screen.
-        if renpy.windows and (self.dpi_scale != 1.0):
-
-            window_args["pos"] = (
-                max((head_full_w - pwidth) // 2, 0),
-                max((head_h - pheight) // 2, 0) + 32 * self.dpi_scale,
-                )
 
         # Handle swap control.
         vsync = int(os.environ.get("RENPY_GL_VSYNC", "1"))
@@ -776,8 +759,8 @@ cdef class GLDraw:
         self.default_clip = (0, 0, xsize, ysize)
         clip = self.default_clip
 
-        if renpy.audio.music.get_playing("movie") and renpy.display.video.fullscreen:
-            surf = renpy.display.video.render_movie(self.virtual_size[0], self.virtual_size[1])
+        if renpy.display.video.fullscreen:
+            surf = renpy.display.video.render_movie("movie", self.virtual_size[0], self.virtual_size[1])
             if surf is not None:
                 self.draw_transformed(surf, clip, 0, 0, 1.0, 1.0, reverse, renpy.config.nearest_neighbor, False)
 
@@ -884,7 +867,7 @@ cdef class GLDraw:
 
             if isinstance(what, gltexture.TextureGrid):
 
-                if (not subpixel) and (reverse == IDENTITY):
+                if (not subpixel) and reverse.is_unit_aligned():
                     xo = round(xo)
                     yo = round(yo)
 
@@ -1303,12 +1286,13 @@ cdef class GLDraw:
         pitch = surf.pitch
         rpp = raw_pixels
 
-        for y from 0 <= y < surf.h:
-            for x from 0 <= x < (surf.w * 4):
-                pixels[x] = rpp[x]
+        with nogil:
+            for y from 0 <= y < surf.h:
+                for x from 0 <= x < (surf.w * 4):
+                    pixels[x] = rpp[x]
 
-            pixels += pitch
-            rpp += surf.w * 4
+                pixels += pitch
+                rpp += surf.w * 4
 
         free(raw_pixels)
 

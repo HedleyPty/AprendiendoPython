@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -25,6 +25,7 @@
 import renpy.display
 import renpy.audio
 import renpy.text
+import renpy.test
 
 import pygame_sdl2 as pygame
 
@@ -302,8 +303,7 @@ class Displayable(renpy.object.Object):
         self.set_style_prefix(self.role + "hover_", True)
 
         if not default:
-            if self.style.hover_sound:
-                renpy.audio.music.play(self.style.hover_sound, channel="sound")
+            renpy.exports.play(self.style.hover_sound)
 
     def unfocus(self, default=False):
         """
@@ -551,7 +551,7 @@ class Displayable(renpy.object.Object):
         """
         Returns the self-voicing text of this displayable and all of its
         children that cannot take focus. If the displayable can take focus,
-        retuns the empty string.
+        returns the empty string.
         """
 
         return self._tts_common()
@@ -1002,7 +1002,7 @@ class SceneLists(renpy.object.Object):
         if layer not in self.layers:
             raise Exception("Trying to remove something from non-existent layer '%s'." % layer)
 
-        _add_index, remove_index, zorder = self.find_index(layer, thing, 0, [ ])
+        _add_index, remove_index, _zorder = self.find_index(layer, thing, 0, [ ])
 
         if remove_index is not None:
             tag = self.layers[layer][remove_index].tag
@@ -1840,7 +1840,6 @@ class Interface(object):
         # True if we're doing a one-time profile.
         self.profile_once = False
 
-
     def draw_screen(self, root_widget, fullscreen_video, draw):
 
         surftree = renpy.display.render.render_screen(
@@ -1857,7 +1856,6 @@ class Interface(object):
 
         self.surftree = surftree
         self.fullscreen_video = fullscreen_video
-
 
     def take_screenshot(self, scale, background=False):
         """
@@ -2381,7 +2379,10 @@ class Interface(object):
         Forces Ren'Py to draw the screen at the maximum framerate for `t` seconds.
         """
 
-        self.maximum_framerate_time = max(self.maximum_framerate_time, get_time() + t)
+        if t is None:
+            self.maximum_framerate_time = 0
+        else:
+            self.maximum_framerate_time = max(self.maximum_framerate_time, get_time() + t)
 
     def interact(self, clear=True, suppress_window=False, **kwargs):
         """
@@ -2466,6 +2467,13 @@ class Interface(object):
         @param suppress_overlay: This suppresses the display of the overlay.
         @param suppress_underlay: This suppresses the display of the underlay.
         """
+
+        suppress_overlay = suppress_overlay or renpy.store.suppress_overlay
+
+        # Store the various parameters.
+        self.suppress_overlay = suppress_overlay
+        self.suppress_underlay = suppress_underlay
+        self.trans_pause = trans_pause
 
         # Show default screens.
         renpy.display.screen.show_overlay_screens(suppress_overlay)
@@ -2681,7 +2689,9 @@ class Interface(object):
         renpy.display.video.early_interact()
 
         # Call per-interaction code for all widgets.
+        renpy.display.behavior.input_pre_per_interact()
         root_widget.visit_all(lambda i : i.per_interact())
+        renpy.display.behavior.input_post_per_interact()
 
         # Now, update various things regarding scenes and transitions,
         # so we are ready for a new interaction or a restart.
@@ -2732,7 +2742,9 @@ class Interface(object):
                 renpy.execution.not_infinite_loop(10)
 
                 # Check for a change in fullscreen preference.
-                if self.fullscreen != renpy.game.preferences.fullscreen or self.display_reset:
+                if ((self.fullscreen != renpy.game.preferences.fullscreen) or
+                        self.display_reset or (renpy.display.draw is None)):
+
                     self.set_mode()
                     needs_redraw = True
 
@@ -2761,6 +2773,8 @@ class Interface(object):
 
                     if not self.interact_time:
                         self.interact_time = self.frame_time
+
+                    renpy.audio.audio.advance_time() # Sets the time of all video frames.
 
                     self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
 
@@ -2805,6 +2819,8 @@ class Interface(object):
                     old_redraw_time = None
 
                     self.update_text_rect()
+
+                    renpy.test.testexecution.execute()
 
                 # Move the mouse, if necessary.
                 if self.mouse_move is not None:
@@ -2908,6 +2924,10 @@ class Interface(object):
                     ev = self.event_wait()
 
                 if ev.type == pygame.NOEVENT:
+
+                    if not needs_redraw or self.mouse_move:
+                        pygame.time.wait(1)
+
                     continue
 
                 self.profile_time = get_time()
@@ -3049,6 +3069,7 @@ class Interface(object):
                 # This returns the event location. It also updates the
                 # mouse state as necessary.
                 x, y = renpy.display.draw.mouse_event(ev)
+                x, y = renpy.test.testmouse.get_mouse_pos(x, y)
 
                 ev, x, y = renpy.display.emulator.emulator(ev, x, y)
                 if ev is None:

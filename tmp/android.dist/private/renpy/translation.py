@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -515,6 +515,9 @@ def change_language(language):
 
     # Restart the interaction.
     renpy.exports.restart_interaction()
+
+    if language != old_language:
+        renpy.exports.block_rollback()
 
 def check_language():
     """

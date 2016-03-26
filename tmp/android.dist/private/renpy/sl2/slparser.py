@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -823,7 +823,8 @@ class UseParser(Parser):
         return slast.SLUse(loc, target, args, id_expr, block)
 
 UseParser("use")
-
+Keyword("style_prefix")
+Keyword("style_group")
 
 class TranscludeParser(Parser):
 
@@ -948,6 +949,7 @@ Keyword("zorder")
 Keyword("variant")
 Keyword("predict")
 Keyword("style_group")
+Keyword("style_prefix")
 
 def init():
     screen_parser.add(all_statements)

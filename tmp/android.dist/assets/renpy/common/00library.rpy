@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -121,6 +121,11 @@ init -1700 python:
     ##########################################################################
     # Self-voicing
 
+    # Strings used internally in Ren'Py.
+    _("Self-voicing disabled.")
+    _("Clipboard voicing enabled. ")
+    _("Self-voicing enabled. ")
+
     def sv(what, interact=True):
         """
         Uses the narrator to speak `what` iff self-voicing is enabled.
@@ -239,8 +244,14 @@ init -1700 python:
     # Use DejaVuSans-Bold when appropriate.
     config.font_replacement_map["DejaVuSans.ttf", True, False] = ("DejaVuSans-Bold.ttf", False, False)
 
+    # License text.
+    renpy.license = _("This program contains free software under a number of licenses, including the MIT License and GNU Lesser General Public License. A complete list of software, including links to full source code, can be found {a=https://www.renpy.org/l/license/}here{/a}.")
+
 
 init -1000 python:
+    # Set developer to the auto default.
+    config.developer = "auto"
+
     # Lock the library object.
     config.locked = True
 
@@ -249,6 +260,12 @@ init -1000 python:
 
 # After init, make some changes based on if config.developer is True.
 init 1700 python hide:
+
+    if config.developer == "auto":
+        if config.script_version:
+            config.developer = False
+        else:
+            config.developer = True
 
     if config.developer:
 

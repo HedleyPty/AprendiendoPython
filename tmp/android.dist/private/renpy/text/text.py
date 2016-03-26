@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -30,7 +30,7 @@ import renpy.text.font as font
 import renpy.text.extras as extras
 
 try:
-    from _renpybidi import log2vis, WRTL, RTL, ON
+    from _renpybidi import log2vis, WRTL, RTL, ON # @UnresolvedImport
 except:
     pass
 
@@ -403,7 +403,15 @@ class DisplayableSegment(object):
         glyph = glyphs[0]
 
         if di.displayable_blits is not None:
-            di.displayable_blits.append((self.d, glyph.x, glyph.y, glyph.time))
+
+            xo, yo = renpy.display.core.place(
+                glyph.width,
+                glyph.ascent,
+                glyph.width,
+                glyph.line_spacing,
+                self.d.get_placement())
+
+            di.displayable_blits.append((self.d, glyph.x + xo, glyph.y + yo, glyph.time))
 
     def assign_times(self, gt, glyphs):
         if self.cps != 0:
@@ -582,7 +590,7 @@ class Layout(object):
             self.paragraph_glyphs.append(list(par_glyphs))
 
             if splits_from:
-                textsupport.copy_splits(splits_from.paragraph_glyphs[p_num], par_glyphs)
+                textsupport.copy_splits(splits_from.paragraph_glyphs[p_num], par_glyphs) # @UndefinedVariable
 
             else:
 
@@ -678,7 +686,7 @@ class Layout(object):
             target_x = self.scale_int(splits_from.size[0] - splits_from.xborder)
             target_y = self.scale_int(splits_from.size[1] - splits_from.yborder)
 
-            textsupport.tweak_glyph_spacing(all_glyphs, lines, target_x - maxx, target_y - y, maxx, y)
+            textsupport.tweak_glyph_spacing(all_glyphs, lines, target_x - maxx, target_y - y, maxx, y) # @UndefinedVariable
 
             maxx = target_x
             y = target_y
@@ -986,6 +994,17 @@ class Layout(object):
 
             elif tag == "color":
                 push().color = renpy.easy.color(value)
+
+            elif tag == "alpha":
+                ts = push()
+                if value[0] in "+-":
+                    value = ts.color.alpha + float(value)
+                elif value[0] == "*":
+                    value = ts.color.alpha * float(value[1:])
+                else:
+                    value = float(value)
+
+                ts.color = ts.color.replace_opacity(value)
 
             elif tag == "k":
                 push().kerning = self.scale(float(value))
@@ -1643,6 +1662,19 @@ class Text(renpy.display.core.Displayable):
         layout = Layout(self, width, height, renders, size_only=True)
 
         return layout.unscale_pair(*layout.size)
+
+    def get_time(self):
+        """
+        Returns the amount of time, in seconds, it will take to display this
+        text.
+        """
+
+        layout = self.get_layout()
+
+        if layout is None:
+            return 60.0
+
+        return layout.max_time
 
     def render(self, width, height, st, at):
 

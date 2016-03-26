@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -476,7 +476,7 @@ class ShownImageInfo(renpy.object.Object):
 
         return self.attributes.get((layer, tag), ())
 
-    def showing(self, layer, name):
+    def showing(self, layer, name, exact=False):
         """
         Returns true if name is the prefix of an image that is showing
         on layer, or false otherwise.
@@ -491,6 +491,9 @@ class ShownImageInfo(renpy.object.Object):
         shown = self.attributes[layer, tag]
 
         if len(shown) < len(rest):
+            return False
+
+        if exact and (len(shown) != len(rest)):
             return False
 
         for a, b in zip(shown, rest):
@@ -546,7 +549,7 @@ class ShownImageInfo(renpy.object.Object):
         self.shown.discard((layer, tag))
 
 
-    def apply_attributes(self, layer, tag, name):
+    def apply_attributes(self, layer, tag, name, wanted=[], remove=[]):
         """
         Given a layer, tag, and an image name (with attributes),
         returns the canonical name of an image, if one exists. Raises
@@ -555,7 +558,7 @@ class ShownImageInfo(renpy.object.Object):
         """
 
         # If the name matches one that exactly exists, return it.
-        if name in images:
+        if (name in images) and not (wanted or remove):
             return name
 
         nametag = name[0]
@@ -564,7 +567,7 @@ class ShownImageInfo(renpy.object.Object):
         required = set(name[1:])
 
         # The set of attributes a matching image may have.
-        optional = set(self.attributes.get((layer, tag), [ ]))
+        optional = set(wanted) | set(self.attributes.get((layer, tag), [ ]))
 
         # Deal with banned attributes..
         for i in name[1:]:
@@ -572,12 +575,16 @@ class ShownImageInfo(renpy.object.Object):
                 optional.discard(i[1:])
                 required.discard(i)
 
+        for i in remove:
+            optional.discard(i)
+
+
         return self.choose_image(nametag, required, optional, name)
 
     def choose_image(self, tag, required, optional, exception_name):
 
         # The longest length of an image that matches.
-        max_len = 0
+        max_len = -1
 
         # The list of matching images.
         matches = None

@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -20,6 +20,81 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 init -1500 python:
+    ##########################################################################
+    # File contstants.
+
+    _weekday_name_long = [
+        _("{#weekday}Monday"),
+        _("{#weekday}Tuesday"),
+        _("{#weekday}Wednesday"),
+        _("{#weekday}Thursday"),
+        _("{#weekday}Friday"),
+        _("{#weekday}Saturday"),
+        _("{#weekday}Sunday"),
+    ]
+
+
+    _weekday_name_short = [
+        _("{#weekday_short}Mon"),
+        _("{#weekday_short}Tue"),
+        _("{#weekday_short}Wed"),
+        _("{#weekday_short}Thu"),
+        _("{#weekday_short}Fri"),
+        _("{#weekday_short}Sat"),
+        _("{#weekday_short}Sun"),
+    ]
+
+    _month_name_long = [
+        _("{#month}January"),
+        _("{#month}February"),
+        _("{#month}March"),
+        _("{#month}April"),
+        _("{#month}May"),
+        _("{#month}June"),
+        _("{#month}July"),
+        _("{#month}August"),
+        _("{#month}September"),
+        _("{#month}October"),
+        _("{#month}November"),
+        _("{#month}December"),
+    ]
+
+
+    _month_name_short = [
+        _("{#month_short}Jan"),
+        _("{#month_short}Feb"),
+        _("{#month_short}Mar"),
+        _("{#month_short}Apr"),
+        _("{#month_short}May"),
+        _("{#month_short}Jun"),
+        _("{#month_short}Jul"),
+        _("{#month_short}Aug"),
+        _("{#month_short}Sep"),
+        _("{#month_short}Oct"),
+        _("{#month_short}Nov"),
+        _("{#month_short}Dec"),
+    ]
+
+    def _strftime(format, t):
+        """
+        A version of strftime that's meant to work with Ren'Py's translation
+        system.
+        """
+        rv = format
+
+        month = t[1] - 1
+        wday = t[6]
+
+        rv.replace("%a", __(_weekday_name_short[wday]))
+        rv.replace("%A", __(_weekday_name_long[wday]))
+        rv.replace("%b", __(_month_name_short[month]))
+        rv.replace("%B", __(_month_name_long[month]))
+
+        if "%" in rv:
+            import time
+            rv = time.strftime(rv.encode("utf-8"), t).decode("utf-8")
+
+        return rv
 
 
     ##########################################################################
@@ -36,6 +111,11 @@ init -1500 python:
 
     if persistent._file_folder is None:
         persistent._file_folder = 0
+
+    if persistent._file_page_name is None:
+        persistent._file_page_name = { }
+
+    config.file_page_names = [ ]
 
     def __slotname(name, page=None):
 
@@ -171,7 +251,7 @@ init -1500 python:
         import time
 
         format = renpy.translation.translate_string(format)
-        return time.strftime(format.encode("utf-8"), time.localtime(mtime)).decode("utf-8")
+        return _strftime(format, time.localtime(mtime))
 
     def FileJson(name, key=None, empty=None, missing=None, page=None):
         """
@@ -461,6 +541,76 @@ init -1500 python:
         else:
             return page
 
+    @renpy.pure
+    class FilePageNameInputValue(InputValue, DictEquality):
+        """
+        :doc: input_value
+        """
+
+        def __init__(self, pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"), page=None, default=False):
+
+            self.pattern = pattern
+            self.auto = auto
+            self.quick = quick
+
+            self._page = page
+
+            self.default = default
+
+        def get_page(self):
+            if self._page is not None:
+                return self._page
+            else:
+                return persistent._file_page
+
+        @property
+        def editable(self):
+            page = self.get_page()
+
+            if page == "auto":
+                return False
+            elif page == "quick":
+                return False
+
+            return True
+
+        def get_text(self):
+            page = self.get_page()
+
+            if page == "auto":
+                return self.auto
+            elif page == "quick":
+                return self.quick
+            else:
+
+                page = int(page)
+                default = self.pattern.format(page)
+                rv = persistent._file_page_name.get(page, default)
+
+                if not rv.strip():
+
+                    current, active = renpy.get_editable_input_value()
+
+                    if not ((current is self) and active):
+                        rv = default
+
+                return rv
+
+        def set_text(self, s):
+
+            page = self.get_page()
+
+            if page == "auto" or page =="quick":
+                return
+
+            page = int(page)
+            persistent._file_page_name[page] = s
+
+        def enter(self):
+            renpy.run(self.Disable())
+            raise renpy.IgnoreEvent()
+
+
     def FileSlotName(slot, slots_per_page, auto="a", quick="q", format="%s%d"):
         """
          :doc: file_action_function
@@ -669,9 +819,9 @@ init -1500 python:
     def QuickLoad(confirm=True):
         """
         :doc: file_action
-        
+
         Performs a quick load.
-        
+
         `confirm`
             If true and not at the main menu, prompt for confirmation before loading the file.
         """
@@ -682,10 +832,14 @@ init -1500 python:
 
 init 1050 python hide:
 
-    if not config.has_quicksave and persistent._file_page == "quick":
-        persistent._file_page = "1"
+    if config.has_quicksave:
+        config.file_page_names.append("quick")
+    if config.has_autosave:
+        config.file_page_names.append("auto")
 
-    if not config.has_autosave and persistent._file_page == "auto":
-        persistent._file_page = "1"
-
+    if persistent._file_page not in config.file_page_names:
+        try:
+            int(persistent._file_page)
+        except:
+            persistent._file_page = "1"
 

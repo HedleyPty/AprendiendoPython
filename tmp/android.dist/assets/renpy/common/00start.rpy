@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -47,6 +47,9 @@ init -1600 python hide:
     # choice of language, and defaults to the game's native language.
     config.language = None
 
+    # Should we attempt to return to the menu we were on after a reload?
+    config.reload_menu = True
+
 init -1600 python:
 
     def _init_language():
@@ -78,6 +81,12 @@ label _after_load:
 
         if config.after_load_transition:
             renpy.transition(config.after_load_transition, force=True)
+
+    python hide:
+        menu = renpy.session.pop("_reload_screen", None)
+
+        if config.reload_menu and (menu is not None):
+            renpy.run(ShowMenu(menu))
 
     if renpy.has_label("after_load"):
         jump expression "after_load"

@@ -1,4 +1,4 @@
-﻿# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+﻿# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -114,6 +114,16 @@ init -1900 python:
 
         if version <= (6, 99, 6):
             config.dynamic_images = False
+
+        if version <= (6, 99, 8):
+            if config.developer == "auto":
+                config.developer = False
+
+            config.play_channel = "sound"
+
+        if version <= (6, 99, 8):
+            config.help_screen = None
+            config.confirm_screen = False
 
     # The version of Ren'Py this script is intended for, or
     # None if it's intended for the current version.

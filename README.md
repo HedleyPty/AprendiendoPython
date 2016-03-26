@@ -25,7 +25,11 @@
 
  * Sentencia/bloque *elif*
 
-5. Funciones
+5. Funciones 
+
+ * El llamado de funciones (en este momento el proyecto está en este estado)
+ 
+ * La definición de las funciones
 
  * Concepto de *ámbito*
 

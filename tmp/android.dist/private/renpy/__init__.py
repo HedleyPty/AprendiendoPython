@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -40,10 +40,10 @@ except ImportError:
     vc_version = 0
 
 # The tuple giving the version number.
-version_tuple = (6, 99, 8, vc_version)
+version_tuple = (6, 99, 10, vc_version)
 
 # The name of this version.
-version_name = "Here's to the crazy ones."
+version_name = "NaNoRenO - The Other March Madness"
 
 # A string giving the version number only (7.0.1.123).
 version_only = ".".join(str(i) for i in version_tuple)
@@ -150,7 +150,15 @@ backup_blacklist = {
     "renpy.display.pgrender",
     "renpy.display.scale",
     "renpy.display.presplash",
+    "renpy.display.test",
     "renpy.text.ftfont",
+    "renpy.test",
+    "renpy.test.testast",
+    "renpy.test.testexecution",
+    "renpy.test.testkey",
+    "renpy.test.testmouse",
+    "renpy.test.testparser",
+    "renpycoverage",
     }
 
 type_blacklist = (
@@ -216,7 +224,10 @@ class Backup():
         Makes a backup of `mod`, which must be a Python module.
         """
 
-        name = mod.__name__
+        try:
+            name = mod.__name__
+        except:
+            return
 
         if not name.startswith("renpy"):
             return
@@ -382,6 +393,7 @@ def import_all():
     update_path(renpy.angle)
 
     import renpy.display.layout
+    import renpy.display.viewport
     import renpy.display.motion # layout @UnresolvedImport
     import renpy.display.behavior # layout @UnresolvedImport
     import renpy.display.transition # core, layout @UnresolvedImport
@@ -408,6 +420,10 @@ def import_all():
 
     # Note: For windows to work, renpy.audio.audio needs to be after
     # renpy.display.module.
+
+    import renpy.audio
+    update_path(renpy.audio)
+
     import renpy.audio.audio
     import renpy.audio.music
     import renpy.audio.sound
@@ -439,6 +455,14 @@ def import_all():
     import renpy.config # depends on lots. @UnresolvedImport
     import renpy.minstore # depends on lots. @UnresolvedImport
     import renpy.defaultstore  # depends on everything. @UnresolvedImport
+
+    import renpy.test
+    import renpy.test.testmouse
+    import renpy.test.testfocus
+    import renpy.test.testkey
+    import renpy.test.testast
+    import renpy.test.testparser
+    import renpy.test.testexecution
 
     import renpy.main
 

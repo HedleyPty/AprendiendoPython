@@ -1,4 +1,4 @@
-# Copyright 2004-2015 Tom Rothamel <pytom@bishoujo.us>
+# Copyright 2004-2016 Tom Rothamel <pytom@bishoujo.us>
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -90,6 +90,7 @@ text_property_names = [
         "xminimum",
         "yminimum",
         "hinting",
+        "adjust_spacing",
         ]
 
 text_properties = [ Style(i) for i in text_property_names ]
@@ -122,6 +123,7 @@ button_properties = [ Style(i) for i in [
         "focus_mask",
         "child",
         "keyboard_focus",
+        "key_events",
     ] ] + [
         Keyword("action"),
         Keyword("clicked"),
@@ -168,6 +170,8 @@ ui_properties = [
     Keyword("id"),
     Keyword("style"),
     Keyword("style_group"),
+    Keyword("style_prefix"),
+    Keyword("style_suffix"),
     Keyword("focus"),
     Keyword("default"),
     ]

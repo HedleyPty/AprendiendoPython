@@ -307,7 +307,7 @@ label python_:
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
     
-    $persistent.console=True
+    $ persistent.console=True
     
     h "Una vez que hayas hecho eso, podemos seguir..."
     h "Las variables son un objecto que contiene cierta información que se va a reutilizar más tarde"
