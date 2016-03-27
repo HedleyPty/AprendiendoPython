@@ -81,8 +81,6 @@ nodeps:
 [gettarget] API level:        22
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/rsObj
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/rsLibs
      [echo] ----------
      [echo] Resolving Dependencies for library...
 [dependency] Library dependencies:
@@ -169,8 +167,6 @@ nodeps:
 [gettarget] API level:        22
      [echo] ----------
      [echo] Creating output directories if needed...
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/rsObj
-    [mkdir] Created dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/rsLibs
      [echo] ----------
      [echo] Resolving Dependencies for downloader_library...
 [dependency] Library dependencies:
@@ -188,8 +184,7 @@ nodeps:
      [echo] Handling RenderScript files...
      [echo] ----------
      [echo] Handling Resources...
-     [aapt] Found new input file
-     [aapt] Generating resource IDs...
+     [aapt] No changed resources. R.java and Manifest.java untouched.
      [echo] ----------
      [echo] Handling BuildConfig class...
 [buildconfig] No need to generate new BuildConfig.
@@ -197,7 +192,6 @@ nodeps:
 -pre-compile:
 
 -compile:
-    [javac] Compiling 1 source file to /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes
      [echo] Creating library output jar file...
 
 -post-compile:
@@ -271,8 +265,8 @@ release:
       [dex] Using Pre-Dexed amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar <- /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
       [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/87.9KiB). Result is 123 defs/209.3KiB. Took 3.6s
-       [dx] Merged dex A (123 defs/209.3KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/298.7KiB. Took 0.7s
+       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/87.9KiB). Result is 123 defs/209.3KiB. Took 2.1s
+       [dx] Merged dex A (123 defs/209.3KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/298.7KiB. Took 0.4s
        [dx] Merged dex A (148 defs/298.7KiB) with dex B (90 defs/79.8KiB). Result is 238 defs/489.4KiB. Took 0.3s
 
 -crunch:
@@ -310,7 +304,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 59 seconds
+Total time: 45 seconds
 
 
 

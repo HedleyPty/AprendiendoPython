@@ -3,8 +3,6 @@ tmp/ matches tmp/ (None).
 README.md matches ** ([u'all']).
 traceback.txt matches traceback.txt (None).
 errors.txt matches errors.txt (None).
-Distros/ matches ** ([u'all']).
-Distros/README.MD matches ** ([u'all']).
 log.txt matches log.txt (None).
 game/ matches ** ([u'all']).
 game/cache/ matches ** ([u'all']).

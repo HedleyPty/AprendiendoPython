@@ -1286,6 +1286,7 @@ label q24:
     consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n...\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
     h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
 label funciones:
+    show text "{size=40}{color=#000}Capítulo seis\n\n\nLas funciones{/color}{/size}" at top
     h "Ahora vamos a hablar de las funciones"
     h "Las funciones no son más que bloques de códigos que se pueden ejecutar en una sentencia"
     h "Las funciones pueden ser {color=#ff0}predeterminadas{/color}, {color=#ff0}asociadas a un módulo{/color}, ser un {color=#ff0}método{/color} o ser {color=#ff0}definidas por el desarrollador{/color}"
@@ -1303,10 +1304,24 @@ label funciones:
     h "Vamos a crear un archivo de texto plano llamado semaforo.py, con el editor de texto..."
     h "En Windows notepad, en Mac no se, en Android es el File Editor, o podemos usar cualquier otro.\nAl instalar Python in Windows, éste trae su propio editor, pero eso es irrelevante!, lo importante es escribir..."
     h "escribimos las siguientes líneas, los comentarios pueden escribirse o ser ignorados"
-    h "#Esta linea importa la funcion randint del modulo random\nfrom random import randint\n#Luego creamos una funcion llamada semaforo\ndef semaforo():\n\ \ \ \ x=randint(0,1)\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
-    h "En Mac y en Linux podemos abrir la línea de comandos y escribir python semaforo.py y veremos el resultado..."
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\ndef semaforo():\n\ \ \ \ x=randint(0,1)\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
+    h "En Mac y en Linux podemos abrir la línea de comandos y escribir\npython semaforo.py\ny veremos el resultado..."
     h "En Windows es un más complicado..."
-    h "..."
-    h ""
+    h "En Windows, después de bajar Python e instalarlo, tendrán accesso al IDLE"
+    h 'Necesitan abrir el IDLE y buscar en el menú "archivo", y buscar el archivo semaforo.py'
+    h "Se les mostrará el código fuente y con presionar F5, se ejecutará"
+    h "Vamos a modificar un poquito para mostrarle como usar los argumentos"
+    h "Vamos a llamar este nuevo archivo semaforo2.py"
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\nx=randint(0,1)\ndef semaforo(x):\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
+    h 'Si corremos semaforo2.py tendremos un error, debido a problemas con el {color=#ff0}ámbito{/color} llamado en inglés "{color=#ff0}scope{/color}".'
+    h "Dentro de una función, los argumentos y cada una de las variables tienen un {color=#ff0}ámbito local{/color}\nestas variables solamente existen DENTRO de la función"
+    h "Fuera de este ámbito local, ¡ninguno de estos elementos existen!"
+    h "Del mismo modo, el los elementos de un bloque if NO existen si la condición no se lleva a cabo"
+    h "Vamos a ver si comprendiste estos conceptos"
+    hide text
+    
+label funq1:
+    pass
+    
     return
 return
