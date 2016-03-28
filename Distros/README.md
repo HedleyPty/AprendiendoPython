@@ -9,4 +9,5 @@
  
 #Advertencia
 
-Este programa está incompleto, vea el README.md donde indico el avance del proyecto
+Este programa está incompleto, vea el README.md en el directorio raíz donde indico el avance del proyecto
+
