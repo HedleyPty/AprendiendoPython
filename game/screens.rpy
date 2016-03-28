@@ -563,7 +563,7 @@ screen _music():
         xalign 0.05
         yalign 0.05
         if renpy.music.is_playing():
-            text '{color=#000}El nombre de la pieza que escuchas es\n[now_playing]{/color}'
+            text '{color=#000}Estas escuchando:\n[now_playing]{/color}'
             textbutton _("Detener musica") action Stop('music')
             textbutton _("Cambiar la musica") action Function(cambiarMusica, musica)
         else:

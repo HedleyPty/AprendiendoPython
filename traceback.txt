@@ -1,23 +1,57 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 55, in <module>
-    $ now_playing=re.sub(re.compile(r'\.mp3$*'), '', musica)
-error: nothing to repeat
+  File "renpy/common/00action_file.rpy", line 357, in __call__
+    renpy.save(fn, extra_info=save_name)
+PicklingError: Can't pickle <type 'module'>: attribute lookup __builtin__.module failed
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 55, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 806, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1577, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 55, in <module>
-    $ now_playing=re.sub(re.compile(r'\.mp3$*'), '', musica)
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/re.py", line 194, in compile
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/re.py", line 251, in _compile
-error: nothing to repeat
+  File "/home/hedley/script.rpyc", line 589, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 604, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1122, in say
+    who(what, interact=interact)
+  File "/home/hedley/Documents/renpy/renpy/character.py", line 841, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/home/hedley/Documents/renpy/renpy/character.py", line 690, in do_display
+    **display_args)
+  File "/home/hedley/Documents/renpy/renpy/character.py", line 493, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/hedley/Documents/renpy/renpy/ui.py", line 277, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/hedley/Documents/renpy/renpy/display/core.py", line 2425, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "/home/hedley/Documents/renpy/renpy/display/core.py", line 3101, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/hedley/Documents/renpy/renpy/display/layout.py", line 905, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/hedley/Documents/renpy/renpy/display/layout.py", line 905, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/hedley/Documents/renpy/renpy/display/layout.py", line 905, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/hedley/Documents/renpy/renpy/display/screen.py", line 638, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/home/hedley/Documents/renpy/renpy/display/layout.py", line 905, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/hedley/Documents/renpy/renpy/display/layout.py", line 905, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/hedley/Documents/renpy/renpy/display/behavior.py", line 825, in event
+    return handle_click(self.clicked)
+  File "/home/hedley/Documents/renpy/renpy/display/behavior.py", line 768, in handle_click
+    rv = run(action)
+  File "/home/hedley/Documents/renpy/renpy/display/behavior.py", line 295, in run
+    new_rv = run(i, *args, **kwargs)
+  File "/home/hedley/Documents/renpy/renpy/display/behavior.py", line 302, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_file.rpy", line 357, in __call__
+    renpy.save(fn, extra_info=save_name)
+  File "/home/hedley/Documents/renpy/renpy/loadsave.py", line 281, in save
+    dump((roots, renpy.game.log), logf)
+  File "/home/hedley/Documents/renpy/renpy/loadsave.py", line 43, in dump
+    cPickle.dump(o, f, cPickle.HIGHEST_PROTOCOL)
+PicklingError: Can't pickle <type 'module'>: attribute lookup __builtin__.module failed
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.10.1227

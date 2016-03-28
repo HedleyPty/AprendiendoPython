@@ -5,6 +5,8 @@ init python:
     def cambiarMusica(m):
         global musica, now_playing
         lm=['The Show Must Be Go.mp3','Poofy Reel.mp3']
+        if not m:
+            m=lm[1]
         lm.remove(m)
         musica = lm[0]
         now_playing=musica[:-4]
@@ -323,10 +325,10 @@ label python_:
     h "En alguno de los ejercicios anteriores, he usado variables, por ejemplo... te acuerdas cuando conté el número de errores los ejercicios anteriores? esa información la guardé en una variable"
     h "Para crear una variable, debemos tener 3 elementos: el {color=#f00}nombre de la variable{/color}, el {color=#f00}operador de asignación{/color} y su {color=#f00}valor{/color}."
     h "Un ejemplo a = 16.29\na es el nombre de la variable\n= es el operador de asignación\n16.29 es el valor de la variable"
-    h "Es importante destacar que hay ciertas reglas para nombrUar una variable"
+    h "Es importante destacar que hay ciertas reglas para nombrar una variable"
     h "Las variables puedes nombrarla \"como quieras\" (lo pongo entre comillas por algo), pero su nombre solo puede contener signos de subrayado(_), letras (sin carácteres especiales, tildes o la ñ) y números."
     h "Por supuesto, no menciono signos de puntuación ni espacios, porque no están permitidos"
-    h "Las variables tampoco pueden ser \"palabras reservadas\" del lenguaje Python, las cual aprenderemos más adelante, dichas palabras son de uso común en inglés, pero no en español"
+    h "Las variables tampoco pueden ser \"palabras reservadas\" del lenguaje Python, las cual aprenderemos más adelante, dichas palabras son de uso común en inglés, pero no en español (excepto {color=#ff0}global{/color} y {color=#ff0}local{/color})"
     h "Y el nombre nunca puede iniciar con un número"
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
     h "Ok, vamos a repasar lo aprendido"
@@ -403,45 +405,20 @@ label n7:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     h "El mensaje es que las variables deben comunica la \"finalidad\" dentro del proyecto"
     h "Vamos a crear otra variable..."
-    python:
-        varnam=""
-        asignacion=""
-        valor=""
-        error=""
+    $ respuesta=""
     hide text
 label q10:
     $cont="Cree la variable segun las instrucciones"
-    if error:
-        h "Opa! Python nos muestra un error"
-        h "{color=#ff0}[error]{/color}"
-        $error=""
-    $encabezado="Vamos a crear una variable peso_varon la cual representa el peso de un varón de 70 kg, señale las partes de la variable"
-    if varnam or asignacion or valor:
-        $encabezado += "\n>>>" + varnam +" " + asignacion + " " + valor
-        if varnam and asignacion and valor:
-            $cont="Presione aquí para continuar"
-    menu:
-        consola "[encabezado]"
-        "peso_Varon":
-            $varnam="peso_Varon"
-            jump q10
-        "peso Varon":
-            $error='  File "<stdin>", line 1\n    peso Varon\n             ^\nSyntaxError: invalid syntax'
-            jump q10
-        "=":
-            $asignacion="="
-            jump q10
-        "70 kg":
-            $error='  File "<stdin>", line 1\n    ...70 kg\n         ...^\nSyntaxError: invalid syntax'
-            jump q10
-        "70":
-            $valor="70"
-            jump q10
-        "[cont]":
-            if varnam and asignacion and valor:
-                jump n8
-            else:
-                jump q10
+    if respuesta:
+        if respuesta == "peso_Varon = 70":
+            h "CORRECTO!"
+            jump n8
+        h "Opa! eso no es correcto"
+    python:
+        import re
+        respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\nDeje un espacio a cada lado del signo de asignación")
+    jump q10
+    
 label n8:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     h "Como vemos las variables pueden ser creadas escribiendo su nombre su nombre, luego el operador de asignación (=) y finalmente el valor"
@@ -584,8 +561,8 @@ label n11:
     h "#Y el exponente 1 da como resultado la base\n454655**1\n454655"
     h "Seguimos hablando de la exponenciación... "
     h "Sabemos que la resta es lo opuesto a la suma y la división es lo opuesto a la multiplicación"
-    consola "{color=#f0f}#En el caso de la suma:{/color}\n2+3\n5\n#Y su operación opuesta es la resta\n5-3\n2"
-    consola "{color=#f0f}#En el caso de la multiplicación:{/color}\n5*6\n30\n#Y su operación opuesta es la división\n30/5\n6"
+    consola "{color=#f0f}#En el caso de la suma:{/color}\n2+3\n5\n{color=#f0f}#Y su operación opuesta es la resta{/color}\n5-3\n2"
+    consola "{color=#f0f}#En el caso de la multiplicación:{/color}\n5*6\n30\n{color=#f0f}#Y su operación opuesta es la división{/color}\n30/5\n6"
     h "En la exponenciación tenemos 2 operaciones opuestas: la \"radicación\" y el \"logaritmo\""
     #Figura de la radicación
     h "En el caso de la radicación tenemos 2 componentes, que son el radical y el índice"
@@ -639,7 +616,7 @@ label q15:
     if error:
         h "[error]"
         $error=""
-    if counter <=3 and not error:
+    if counter <=3 and not error and counter < 9:
         if counter < 3 :
             h "CORRECTO"
             h "Vamos por el siguiente reto"
@@ -1369,6 +1346,12 @@ label funciones2:
     h "... Function(cambiarMusica, musica)\nEl método (el cual es una función) Function tiene por lo menos, un parámetro que es una función (que en este caso es{color=#ff0}cambiarMusica{/color}) y los parámetros subsiguientes son argumentos de esa función"
     h '... Function(cambiarMusica, musica)\nEl segundo parámetro es una variable tipo cadena llamada {color=#ff0}musica{/color} cuyo valor es "[musica]"'
     h "Al inicio de este tutorial you he creado una función llamamda cambiarMusica(m)"
-    h "Si tienen una computadora Windows, Linux o Mac, pueden si lo desean pueden verla"
+    h "Si tienen una computadora Windows, Linux o Mac, pueden si lo desean pueden verla en las opciones del desarrollador de Ren'py (Control+o-Windows y Linux- o Commad+o -Mac Os-)"
     consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
+    h "Vamos a ver con calma ciertas sentencias del bloque de la función cambiarMusica"
+    h "En la sentencia donde se define la función: {color=#ff0}def cambiarMusica(m):{/color} vemos que hay un argumento que llamé m, que veremos que hace más adelante"
+    h "Luego aparece la en la siguiente sentencia palabra reservada {color=#ff0}global{/color}, la cual permite a la función acceder a las variables {color=#ff0}musica{/color} y {color=#ff0}now_playing{/color}del ámbito global\nes decir que esta palabra reservada, permite acceder a variables fuera del ambito local de la función, al igual que modificarlas"
+    h "En la siguiente línea: lm=\['The Show Must Be Go.mp3','Poofy Reel.mp3']\n, creo una lista como variable interna lm que contiene las melodías mp3 que se pueden tocar" 
+    h "En la siguiente línea: nlm.remove(m)\n, mediante el método remove (que es una función de los objetos lista) elimino cualquier objeto de la lista que sea igual a la variable local y argumento m"
+    h "En la siguiente línea del bloque: musica = lm\[0]"
 return
