@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1: expected statement.
-    Finit python:
-                ^
+File "game/script.rpy", line 12: unexpected indent
+            now_playing=re.sub(r'(.*)\.mp3$*', r'\1', musica)
+            ^
+    
 
-Ren'Py Version: Ren'Py 6.99.8.959
+Ren'Py Version: Ren'Py 6.99.10.1227

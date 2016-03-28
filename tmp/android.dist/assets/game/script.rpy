@@ -2,6 +2,14 @@ init python:
     persistent.console=False
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
+    def cambiarMusica(m):
+        global musica, now_playing
+        lm=['The Show Must Be Go.mp3','Poofy Reel.mp3']
+        lm.remove(m)
+        musica = lm[0]
+        now_playing=musica[:-4]
+        renpy.play(musica, 'music')
+    
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
 image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
@@ -31,23 +39,24 @@ label music_:
             "No, prefiero estar en silencio":
                 stop music
                 jump inicio
-    menu:
+    menu mus:
         "Seleccione la melodía de fondo, "
         "Poofy Reel":
-            $musica = "Poofy Reel.mp3"
+            $ musica = "Poofy Reel.mp3"
             $renpy.music.set_volume(0.3, delay=0, channel='music')
             jump music_
         "The Show Must Be Go":
-            $musica ="The Show Must Be Go.mp3"
-            $renpy.music.set_volume(0.3, delay=0, channel='music')
+            $ musica ="The Show Must Be Go.mp3"
+            $ renpy.music.set_volume(0.3, delay=0, channel='music')
             jump music_
         "Ninguno":
             pass
 label inicio:
+    $ now_playing=musica[:-4]
     #textbutton "Music" action Show("_music") 
     show python_logo at truecenter
     show text "{color=#000000}Logo de Python{/color}" at subtitle
-        
+    show screen _music
     h "Saludos a todos, me llamo Hedley!"
     h "Soy un médico gradudado de la Universidad de Panamá, tengo una maestría en Biología molecular y estoy estudiando un doctorado en epidemiología en el Instituto Karolinska"
     h "No se si sea el más adecuado, pero les voy a enseñar lo poco que sé de Python"
