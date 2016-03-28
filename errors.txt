@@ -2,9 +2,16 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 12: unexpected indent
-            now_playing=re.sub(r'(.*)\.mp3$*', r'\1', musica)
-            ^
-    
+File "game/script.rpy", line 1341: expected statement.
+    current_ans += 1
+                 ^
+
+File "game/script.rpy", line 1347: expected statement.
+    resp="local"
+        ^
+
+File "game/script.rpy", line 1350: expected statement.
+    resp="global"
+        ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

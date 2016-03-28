@@ -1294,7 +1294,7 @@ label q24:
             signo="cabra"
     consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n...\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
     h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
-label funciones:
+label funciones1:
     show text "{size=40}{color=#000}Capítulo seis\n\n\nLas funciones{/color}{/size}" at top
     h "Ahora vamos a hablar de las funciones"
     h "Las funciones no son más que bloques de códigos que se pueden ejecutar en una sentencia"
@@ -1321,16 +1321,54 @@ label funciones:
     h "Se les mostrará el código fuente y con presionar F5, se ejecutará"
     h "Vamos a modificar un poquito para mostrarle como usar los argumentos"
     h "Vamos a llamar este nuevo archivo semaforo2.py"
-    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\nx=randint(0,1)\ndef semaforo(x):\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\nx=randint(0,1)\ndef semaforo(x):\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo(x)"
     h 'Si corremos semaforo2.py tendremos un error, debido a problemas con el {color=#ff0}ámbito{/color} llamado en inglés "{color=#ff0}scope{/color}".'
     h "Dentro de una función, los argumentos y cada una de las variables tienen un {color=#ff0}ámbito local{/color}\nestas variables solamente existen DENTRO de la función"
-    h "Fuera de este ámbito local, ¡ninguno de estos elementos existen!"
-    h "Del mismo modo, el los elementos de un bloque if NO existen si la condición no se lleva a cabo"
-    h "Vamos a ver si comprendiste estos conceptos"
+    h "Fuera de este {color=#ff0}ámbito local{/color}, ¡ninguno de estos elementos existen!"
+    h "Del mismo modo una vez que se ejecuta la función, todos los elementos fuera del bloque de la función,\nes decir el {color=#ff0}ámbito global{/color} tampoco existen dentro del bloque que define la función"
+    python:
+        preguntas=["x", "y", "z" ]
+        current_ans=0
+        ans=["global", "local", "local"]
     hide text
     
 label funq1:
-    pass
-    
-    return
+    if resp == ans[current_ans]:
+        if current_ans == 2:
+            h "Bien, ¡has terminado!"
+            jump funciones2
+        else:
+            $ current_ans += 1
+    else:
+        h "Eso no es correcto"
+    "#Dado el siguiente código:\nx=[2,3,4]\ndef funcion():\n\ \ \ \ y=2\n\ \ \ \ z={\"primerElemento\":1, \"segundoElemento\":2}\n¿Cuál es el ambito de la variable [preguntas[0]]?"
+    menu:
+        "local":
+            $ resp="local"
+            jump funq1
+        "global":
+            $ resp="global"
+            jump funq1
+label funciones2:
+    h "Aunque las variables y las funciones del ámbito global no se pueden usar dentro de una función,\nal definir una función con argumentos, a éstos se le pueden asignar valores desde el ámbito global"
+    consola '{color=#f0f}#Por ejemplo{/color}\nhello="hola"\nwold="mundo"\ntype(hello)'
+    h "Habíamos visto que la función type devuelve el tipo del objeto que tiene en su argumento"
+    h "La función type del código anterior no sabe cuáles son los objetos hello ni world\npero al asignar hello como parámetro de type, este se asigna a la variable local \"object\", la cual se ejecuta dentro del código"
+    h "En la versión de escritorio de este tutorial pueden experimientar oprimiendo Control+O o Command+O para ver la consola y Esc para salir"
+    h 'La función type {color=#ff0}devuelve{/color} un objecto de tipo type'
+    h "Voy a modificar el script semaforo.py para crear el script semaforo3.py"
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\ndef semaforo():\n\ \ \ \ x=randint(0,1)\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ return \"el carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ return \"el carro se detiene\"\nsemaforo(x)"
+    h "Si ejecutamos el script semaforo3.py no va ocurrir nada"
+    h "Vamos a hacer un pequeño cambio para que imprima algo"
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\ndef semaforo():\n\ \ \ \ x=randint(0,1)\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ return \"el carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ return \"el carro se detiene\"\ns=semaforo(x)\nprint \"En la esquina, al llegar al semáforo, \"+s"
+    h "Inténtalo en tu editor de texto a ver que te sale"
+    h "Ahora mira este fragmento del código de este tutorial"
+    h "textbutton _(\"Cambiar la musica\") action Function(cambiarMusica, musica)"
+    h "textbutton _(\"Cambiar la musica\") action Function(cambiarMusica, musica)\nEsto es código el objeto \"textbutton\" o (botón de texto) tiene la etiqueta \"Cambiar la musica\"\nseguido del método {color=#ff0}action{/color} (los métodos son funciones especiales)"
+    h "... action Function(cambiarMusica, musica)\nA su vez el método action a su vez tiene un método llamado Function (la cual es una función de las pantallas Ren'py)"
+    h "... Function(cambiarMusica, musica)\nEl método (el cual es una función) Function tiene por lo menos, un parámetro que es una función (que en este caso es{color=#ff0}cambiarMusica{/color}) y los parámetros subsiguientes son argumentos de esa función"
+    h '... Function(cambiarMusica, musica)\nEl segundo parámetro es una variable tipo cadena llamada {color=#ff0}musica{/color} cuyo valor es "[musica]"'
+    h "Al inicio de este tutorial you he creado una función llamamda cambiarMusica(m)"
+    h "Si tienen una computadora Windows, Linux o Mac, pueden si lo desean pueden verla"
+    consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
 return
