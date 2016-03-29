@@ -808,7 +808,7 @@ label n16:
     h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas, a menos que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
     consola "{color=#f0f}#Esto no está permitido{/color}\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
     consola "{color=#f0f}#Esto tampoco está permitido{/color}\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
-    consola "{color=#f0f}#Pero sí está permitido{/color}\nint(\"12\")\n12"
+    consola "{color=#f0f//}#Pero sí está permitido{/color}\nint(\"12\")\n12"
     consola "{color=#f0f}#Y esto también está permitido{/color}\nfloat(\"12.8\")\n12.8"
     h "Las variables numéricas pueden convertirse en cadenas sin ningún inconveniente"
     consola "{color=#f0f}#Conversión de flotante a cadena{/color}\nstr(12.)\n\'12.0'"
@@ -1358,11 +1358,22 @@ label funciones2:
     h '... Function(cambiarMusica, musica)\nEl segundo parámetro es una variable tipo cadena llamada {color=#ff0}musica{/color} cuyo valor es "[musica]"'
     h "Al inicio de este tutorial you he creado una función llamamda cambiarMusica(m)"
     h "Si tienen una computadora Windows, Linux o Mac, pueden si lo desean pueden verla en las opciones del desarrollador de Ren'py (Control+o-Windows y Linux- o Commad+o -Mac Os-)"
-    consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
+    consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica\[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
     h "Vamos a ver con calma ciertas sentencias del bloque de la función cambiarMusica"
     h "En la sentencia donde se define la función: {color=#ff0}def cambiarMusica(m):{/color} vemos que hay un argumento que llamé m, que veremos que hace más adelante"
     h "Luego aparece la en la siguiente sentencia palabra reservada {color=#ff0}global{/color}, la cual permite a la función acceder a las variables {color=#ff0}musica{/color} y {color=#ff0}now_playing{/color}del ámbito global\nes decir que esta palabra reservada, permite acceder a variables fuera del ambito local de la función, al igual que modificarlas"
     h "En la siguiente línea: lm=\['The Show Must Be Go.mp3','Poofy Reel.mp3']\n, creo una lista como variable interna lm que contiene las melodías mp3 que se pueden tocar" 
     h "En la siguiente línea: nlm.remove(m)\n, mediante el método remove (que es una función de los objetos lista) elimino cualquier objeto de la lista que sea igual a la variable local y argumento m"
-    h "En la siguiente línea del bloque: musica = lm\[0]"
+    h "En la siguiente línea del bloque: musica = lm\[0] asigna el valor del primer y único elemento de la lista lm a la variable global musica"
+    h "En la siguiente línea del bloque: now_playing=musica\[:-4], asigna el valor de de música excepto las 4 últimos caracteres de la variable musica a la variable global now_playing"
+    h 'En la última línea del bloque renpy.play(musica, 'music') es un método play de renpy que toca la pieza musical musica en el canal "music", el cual asegura que una vez acabada la pieza, inicie ésta de nuevo'
+label funq2:
+    h "Además del ámbito, las funciones tienen la recursión"
+    h "Vamos a ver la definición del factorial de un entero positivo n\nel factorial de n, n factorial o n! se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n"
+    h "Es decir que 4! = 4*3*2*1 y 13! = 13*12*11*10*9*8*7*6*5*4*3*2*1"
+    h "Para crear una función que devuelve el factorial de un número, se requiere hacer {color=#ff0}recursión{/color}, es decir que una función se retorna a sí misma"
+    h "Veamos crear una función que calcule el factorial de un entero"
+    consola "def factorial(n):\n\ \ \ \ \if n==0:\n\ \ \ \ \ \ \ \ \return 1\nelse:\n\ \ \ \ \return n * factorial(n-1)"
+    h "Al invocar factorial(5) occure lo siguiente:\nen primera instancia la función retorna 5*factorial(4)\nluego retornará 5*4*factorial(3)\nluego retornará 5*4*3*factorial(2)\nluego retornará 5*4*3*2*factorial(1)\ny finalmente retornará 5*4*3*2*1*1 que es 120"
+    
 return
