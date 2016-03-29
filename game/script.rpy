@@ -1,4 +1,6 @@
 init python:
+    import re
+
     persistent.console=False
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
@@ -17,6 +19,8 @@ image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
 image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
 image reloj=im.FactorScale("images/reloj.png", 0.25)
 image reloj guts=im.FactorScale("images/reloj engranajes.jpg", 0.25)
+image pitagoras=Image('images/pitagoras.png')
+image canvas=Image('images/Canvas.png')
 image white ="#ffffff"
 define h = Character('Hedley', color="#c8ffc8")
 define consola = Character('Consola de Python', color="#00cc00")
@@ -414,9 +418,8 @@ label q10:
             h "CORRECTO!"
             jump n8
         h "Opa! eso no es correcto"
-    python:
-        import re
-        respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\nDeje un espacio a cada lado del signo de asignación")
+        
+    $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\nDeje un espacio a cada lado del signo de asignación")
     jump q10
     
 label n8:
@@ -514,7 +517,7 @@ label n10:
     h "En el caso de la multiplicación, eso no es mucho problema"
     consola "{color=#f0f}#Multiplicacion de enteros{/color}\n3*5\n15"
     consola "{color=#f0f}#Multiplicacion con flotantes{/color}\n3.0*5.*8.0\n90.0"
-    consola "{color=#f0f}#Multiplicacion con por lo menos un enteros{/color}\n3.0*5*8\n90.0"
+    consola "{color=#f0f}#Multiplicacion con por lo menos un flotante{/color}\n3.0*5*8\n90.0"
     h "En el caso de la división es un poco especial, debido que al dividir, no vamos a obtener necesariamente un número entero"
     h "Si dividimos dos enteros vamos a obtener la {color=#ff0}parte entera de la division{/color}"
     consola "{color=#f0f}#Sabemos que 48 entre 8 es 6{/color}\n48/8\n6"
@@ -607,22 +610,22 @@ label q15:
                 ["49**0.5", "0.5**49", "float(49)**2"]]
     $ claves =[1,2,0]
     
-    if respuesta==10:
+    if respuesta==10 and counter == 0:
         pass
     elif respuesta == claves[counter] and counter < 3:
         $counter += 1
-    else:
-        $error="¡Eso no es correcto!"
-    if error:
-        h "[error]"
-        $error=""
-    if counter <=3 and not error and counter < 9:
-        if counter < 3 :
+        if counter < 3:
             h "CORRECTO"
             h "Vamos por el siguiente reto"
         else:
             h "Exacto, has concluido este ejercicio"
             jump n12
+    else:
+        $error="¡Eso no es correcto!"
+    if error:
+        h "[error]"
+        $error=""
+         
     $encabezado += encabezados [counter]
     $Menu1=Menus[counter][0]
     $Menu2=Menus[counter][1]
@@ -644,6 +647,8 @@ label n12:
     h "El teorema de Pitágoras se utiliza para calcular distancias entre 2 puntos en un plano"
     h 'Si las distancias son menores a un valor determinado, tenemos una "colisión"'
     h "El teorema de Pitágoras tiene que ver también como los conceptos de conversión materia y energía propuesto por la Teoría de la Relatividad de Einstein o la teoría de la formación de antimateria"
+    hide text
+    show pitagoras
     h "Para recordar, los triangulos tienen 3 lados y 3 ángulos"
     h "La suma de los 3 ángulos de un triángulo (siempre que esté en un plano) da por resultado 180 grados"
     h "Cuando uno de sus ángulos es recto, es decir que mide 90 grados, tenemos un triángulo rectángulo y podemos aplicar el teorema de Pitágoras"
@@ -660,10 +665,12 @@ label n12:
     hide text
     $error=""
 label q16:
+    hide pitagoras
+    show canvas at truecenter
     h "Vamos a ver un {color=#ff0}lienzo{/color}, en inglés llamado {color=#ff0}canvas{/color}"
     h "En la implementación Python 'Pygame' y en las páginas web, el lienzo (o canvas) representa un sistema de coordenadas con el origen en la esquina superior izquierda"
     menu:
-        "Si tenemos una variable x que contiene la distancia de un objeto O en milimetros desde el borde izquierdo del lienzo\ny una variable y que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cual de estos códigos Python representa la variable d que contiene la distancia entre el objeto y la esquina superior izquierda?"
+        "Si tenemos una variable {color=#ff0}x{/color} que contiene la distancia de un objeto {color=#ff0}O{/color} en milimetros desde el borde izquierdo del lienzo\ny una variable {color=#ff0}y{/color} que contiene la distancia en milimetros desde el borde superior del lienzo\n¿Cuaál de estos códigos Python representa la variable {color=#ff0}d{/color} que contiene la distancia entre el objeto y la esquina superior izquierda?"
         "d=(y**2+x**2)**.5":
             h "¡Correcto!"
         "d=(x**2+y**2)**5":
@@ -674,6 +681,9 @@ label q16:
             jump q16
 label n13:
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
+    hide canvas
+    show white
+    show python_logo
     h "Creo que me he emociado con los operadores... ¡pero aun no acabo!"
     h "Vamos a imaginar que estamos jugando cualquier video juego... Mario Bros, cualquier shooter, Candy Crush, etc"
     h "A medida que hacemos ciertas acciones, nuestro puntaje, vidas o el tiempo restante cambian"
@@ -694,6 +704,7 @@ label n13:
     consola "municiones=42\nmuniciones /= 5\nmuniciones\n8\nmuniciones /= 2\nmuniciones\n4"
     h "Vamos a ver el siguiente ejercicio"
     hide text
+    hide python_logo
     $error=""
 label q17:
     if error:
@@ -711,8 +722,8 @@ label q17:
             jump q17
 label n14:
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
-    
-    h "Antes de terminar con estos dichosos operadores aritméticos, voy a habar de la {color=ff0}coerción{/color} de variables"
+    show python_logo
+    h "Antes de terminar con estos dichosos operadores aritméticos, voy a hablar de la {color=ff0}coerción{/color} de variables"
     h "Había dicho anteriormente que el resultado de uno o más operadores aritméticos es un número entero o flotante"
     h "También había dicho que existen 2 tipos variable numéricas en Python (int y el float) y otros 2 tipos que son la cadena (string) y el boolean"
     h "Si aplicamos cualquiera de estos operadores entre un número y una cadena (string) vamos a tener un error de compilación (así de simple)"
@@ -1164,7 +1175,6 @@ label q23:
         h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi\%C3\%B3n_regular}wikipedia{/a}"
         h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
     python:
-        import re
         nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
         nac=nac.strip()
         
@@ -1272,6 +1282,7 @@ label q24:
     consola 'if not mod:\n\ \ \ \nsigno="mono"\nelif mod == 1:\n\ \ \ \nsigno="gallo"\nelif mod == 2:\n...\nelif mod == 10:\n\ \ \ \nsigno="caballo"\nelse:\n\ \ \ \nsigno="cabra"'
     h "Al ejecutar el control de flujo tenemos que signo tiene el valor de [signo]"
 label funciones1:
+    $ musica ="The Show Must Be Go.mp3"
     show text "{size=40}{color=#000}Capítulo seis\n\n\nLas funciones{/color}{/size}" at top
     h "Ahora vamos a hablar de las funciones"
     h "Las funciones no son más que bloques de códigos que se pueden ejecutar en una sentencia"

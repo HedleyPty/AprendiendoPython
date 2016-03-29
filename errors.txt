@@ -2,16 +2,6 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1341: expected statement.
-    current_ans += 1
-                 ^
-
-File "game/script.rpy", line 1347: expected statement.
-    resp="local"
-        ^
-
-File "game/script.rpy", line 1350: expected statement.
-    resp="global"
-        ^
+File "game/script.rpy", line 620: indentation mismatch.
 
 Ren'Py Version: Ren'Py 6.99.10.1227

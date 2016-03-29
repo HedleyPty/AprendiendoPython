@@ -4,6 +4,7 @@ README.md matches ** ([u'all']).
 traceback.txt matches traceback.txt (None).
 errors.txt matches errors.txt (None).
 Distros/ matches ** ([u'all']).
+Distros/README.md matches ** ([u'all']).
 log.txt matches log.txt (None).
 game/ matches ** ([u'all']).
 game/cache/ matches ** ([u'all']).
@@ -13,10 +14,12 @@ game/cache/bytecode.rpyb matches ** ([u'all']).
 game/script.rpy matches ** ([u'all']).
 game/images/ matches ** ([u'all']).
 game/images/The Show Must Be Go.mp3 matches ** ([u'all']).
+game/images/Canvas.png matches ** ([u'all']).
 game/images/Python logo.png matches ** ([u'all']).
 game/images/Poofy Reel.mp3 matches ** ([u'all']).
 game/images/background.png matches ** ([u'all']).
 game/images/reloj.png matches ** ([u'all']).
+game/images/pitagoras.png matches ** ([u'all']).
 game/images/reloj engranajes.jpg matches ** ([u'all']).
 game/images/renpy logo.png matches ** ([u'all']).
 game/screens.rpy.bak matches **.bak (None).
