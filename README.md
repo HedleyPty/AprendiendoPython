@@ -44,6 +44,8 @@
  * *Contructores*
 
  * *Destructores*
+#Instalación 
+Abrir la carpeta Distro y leer las instrucciones del README
 
 #Capturas de pantalla
 
