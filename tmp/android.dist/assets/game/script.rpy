@@ -13,7 +13,11 @@ init python:
         musica = lm[0]
         now_playing=musica[:-4]
         renpy.play(musica, 'music')
-    
+    def factorial(n):
+        if n==0:
+            return 1
+        else:
+            return n*factorial(n-1)
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
 image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
@@ -808,7 +812,7 @@ label n16:
     h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas, a menos que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
     consola "{color=#f0f}#Esto no está permitido{/color}\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
     consola "{color=#f0f}#Esto tampoco está permitido{/color}\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
-    consola "{color=#f0f}#Pero sí está permitido{/color}\nint(\"12\")\n12"
+    consola "{color=#f0f//}#Pero sí está permitido{/color}\nint(\"12\")\n12"
     consola "{color=#f0f}#Y esto también está permitido{/color}\nfloat(\"12.8\")\n12.8"
     h "Las variables numéricas pueden convertirse en cadenas sin ningún inconveniente"
     consola "{color=#f0f}#Conversión de flotante a cadena{/color}\nstr(12.)\n\'12.0'"
@@ -1338,6 +1342,7 @@ label funq1:
             $ resp="global"
             jump funq1
 label funciones2:
+    show text "{size=40}{color=#000}Capítulo seis\n\n\nLas funciones{/color}{/size}" at top
     h "Aunque las variables y las funciones del ámbito global no se pueden usar dentro de una función,\nal definir una función con argumentos, a éstos se le pueden asignar valores desde el ámbito global"
     consola '{color=#f0f}#Por ejemplo{/color}\nhello="hola"\nwold="mundo"\ntype(hello)'
     h "Habíamos visto que la función type devuelve el tipo del objeto que tiene en su argumento"
@@ -1358,11 +1363,49 @@ label funciones2:
     h '... Function(cambiarMusica, musica)\nEl segundo parámetro es una variable tipo cadena llamada {color=#ff0}musica{/color} cuyo valor es "[musica]"'
     h "Al inicio de este tutorial you he creado una función llamamda cambiarMusica(m)"
     h "Si tienen una computadora Windows, Linux o Mac, pueden si lo desean pueden verla en las opciones del desarrollador de Ren'py (Control+o-Windows y Linux- o Commad+o -Mac Os-)"
-    consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
+    consola "def cambiarMusica(m):\n\ \ \ \ \nglobal musica, now_playing\ \ \ \ \nlm=['The Show Must Be Go.mp3','Poofy Reel.mp3']\ \ \ \ \nlm.remove(m)\ \ \ \ \nmusica = lm[0]\ \ \ \ \nnow_playing=musica\[:-4]\ \ \ \ \nrenpy.play(musica, 'music')"
     h "Vamos a ver con calma ciertas sentencias del bloque de la función cambiarMusica"
     h "En la sentencia donde se define la función: {color=#ff0}def cambiarMusica(m):{/color} vemos que hay un argumento que llamé m, que veremos que hace más adelante"
     h "Luego aparece la en la siguiente sentencia palabra reservada {color=#ff0}global{/color}, la cual permite a la función acceder a las variables {color=#ff0}musica{/color} y {color=#ff0}now_playing{/color}del ámbito global\nes decir que esta palabra reservada, permite acceder a variables fuera del ambito local de la función, al igual que modificarlas"
     h "En la siguiente línea: lm=\['The Show Must Be Go.mp3','Poofy Reel.mp3']\n, creo una lista como variable interna lm que contiene las melodías mp3 que se pueden tocar" 
     h "En la siguiente línea: nlm.remove(m)\n, mediante el método remove (que es una función de los objetos lista) elimino cualquier objeto de la lista que sea igual a la variable local y argumento m"
-    h "En la siguiente línea del bloque: musica = lm\[0]"
+    h "En la siguiente línea del bloque: musica = lm\[0] asigna el valor del primer y único elemento de la lista lm a la variable global musica"
+    h "En la siguiente línea del bloque: now_playing=musica\[:-4], asigna el valor de de música excepto las 4 últimos caracteres de la variable musica a la variable global now_playing"
+    h 'En la última línea del bloque renpy.play(musica, \'music\') es un método play de renpy que toca la pieza musical musica en el canal "music", el cual asegura que una vez acabada la pieza, inicie ésta de nuevo'
+    h "Además del ámbito, las funciones tienen la recursión"
+    h "Vamos a ver la definición del factorial de un entero positivo n\nel factorial de n, n factorial o n! se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n"
+    h "Es decir que 4! = 4*3*2*1 y 13! = 13*12*11*10*9*8*7*6*5*4*3*2*1"
+    h "Para crear una función que devuelve el factorial de un número, se requiere hacer {color=#ff0}recursión{/color}, es decir que una función se retorna a sí misma"
+    h "Veamos crear una función que calcule el factorial de un entero"
+    consola "def factorial(n):\n\ \ \ \ \if n==0:\n\ \ \ \ \ \ \ \ \return 1\nelse:\n\ \ \ \ \return n * factorial(n-1)"
+    h "Al invocar factorial(5) occure lo siguiente:\nen primera instancia la función retorna 5*factorial(4)\nluego retornará 5*4*factorial(3)\nluego retornará 5*4*3*factorial(2)\nluego retornará 5*4*3*2*factorial(1)\ny finalmente retornará 5*4*3*2*1*1 que es 120"
+    hide text
+    $ bad_data=False
+label funq2:
+    if bad_data:
+        h "[error]"
+    $ nac = renpy.input("Dame un numero y te calcularé el factorial de ese número\nNo escribas un número mayor de 100")
+    $ nac=nac.strip()
+        
+    if re.search("\d*",nac):
+        $ nac = long(nac)
+        if nac < 100:
+            $ nac_f=factorial(nac)
+            h "El factorial de [nac] es [nac_f] "
+        else:
+            python:
+                bad_data=True
+                renpy.jump('funq2')
+                error= "ese número es muy grande"
+            
+    else:
+        python:
+            bad_data=True
+            renpy.jump('funq2')
+            error = "No has introducido ningún número válido"
+label clases1:
+    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métods{/color}{/size}" at top
+    h "Vamos a finalizar hablando de las clases en Python"
+    h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
+    h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
 return

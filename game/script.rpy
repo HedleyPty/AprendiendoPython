@@ -13,7 +13,11 @@ init python:
         musica = lm[0]
         now_playing=musica[:-4]
         renpy.play(musica, 'music')
-    
+    def factorial(n):
+        if n==0:
+            return 1
+        else:
+            return n*factorial(n-1)
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
 image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
@@ -1338,6 +1342,7 @@ label funq1:
             $ resp="global"
             jump funq1
 label funciones2:
+    show text "{size=40}{color=#000}Capítulo seis\n\n\nLas funciones{/color}{/size}" at top
     h "Aunque las variables y las funciones del ámbito global no se pueden usar dentro de una función,\nal definir una función con argumentos, a éstos se le pueden asignar valores desde el ámbito global"
     consola '{color=#f0f}#Por ejemplo{/color}\nhello="hola"\nwold="mundo"\ntype(hello)'
     h "Habíamos visto que la función type devuelve el tipo del objeto que tiene en su argumento"
@@ -1366,8 +1371,7 @@ label funciones2:
     h "En la siguiente línea: nlm.remove(m)\n, mediante el método remove (que es una función de los objetos lista) elimino cualquier objeto de la lista que sea igual a la variable local y argumento m"
     h "En la siguiente línea del bloque: musica = lm\[0] asigna el valor del primer y único elemento de la lista lm a la variable global musica"
     h "En la siguiente línea del bloque: now_playing=musica\[:-4], asigna el valor de de música excepto las 4 últimos caracteres de la variable musica a la variable global now_playing"
-    h 'En la última línea del bloque renpy.play(musica, 'music') es un método play de renpy que toca la pieza musical musica en el canal "music", el cual asegura que una vez acabada la pieza, inicie ésta de nuevo'
-label funq2:
+    h 'En la última línea del bloque renpy.play(musica, \'music\') es un método play de renpy que toca la pieza musical musica en el canal "music", el cual asegura que una vez acabada la pieza, inicie ésta de nuevo'
     h "Además del ámbito, las funciones tienen la recursión"
     h "Vamos a ver la definición del factorial de un entero positivo n\nel factorial de n, n factorial o n! se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n"
     h "Es decir que 4! = 4*3*2*1 y 13! = 13*12*11*10*9*8*7*6*5*4*3*2*1"
@@ -1375,5 +1379,33 @@ label funq2:
     h "Veamos crear una función que calcule el factorial de un entero"
     consola "def factorial(n):\n\ \ \ \ \if n==0:\n\ \ \ \ \ \ \ \ \return 1\nelse:\n\ \ \ \ \return n * factorial(n-1)"
     h "Al invocar factorial(5) occure lo siguiente:\nen primera instancia la función retorna 5*factorial(4)\nluego retornará 5*4*factorial(3)\nluego retornará 5*4*3*factorial(2)\nluego retornará 5*4*3*2*factorial(1)\ny finalmente retornará 5*4*3*2*1*1 que es 120"
-    
+    hide text
+    $ bad_data=False
+label funq2:
+    if bad_data:
+        h "[error]"
+    $ nac = renpy.input("Dame un numero y te calcularé el factorial de ese número\nNo escribas un número mayor de 100")
+    $ nac=nac.strip()
+        
+    if re.search("\d*",nac):
+        $ nac = long(nac)
+        if nac < 100:
+            $ nac_f=factorial(nac)
+            h "El factorial de [nac] es [nac_f] "
+        else:
+            python:
+                bad_data=True
+                renpy.jump('funq2')
+                error= "ese número es muy grande"
+            
+    else:
+        python:
+            bad_data=True
+            renpy.jump('funq2')
+            error = "No has introducido ningún número válido"
+label clases1:
+    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métods{/color}{/size}" at top
+    h "Vamos a finalizar hablando de las clases en Python"
+    h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
+    h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
 return
