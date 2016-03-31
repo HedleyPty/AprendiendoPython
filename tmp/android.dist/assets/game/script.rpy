@@ -1,7 +1,7 @@
 init python:
     import re
 
-    persistent.console=False
+    
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
     def cambiarMusica(m):
@@ -62,6 +62,7 @@ label music_:
         "Ninguno":
             pass
 label inicio:
+    $ persistent.console=False
     $ now_playing=musica[:-4]
     #textbutton "Music" action Show("_music") 
     show python_logo at truecenter
@@ -85,6 +86,7 @@ label inicio:
     #hide text
     jump chp1
 label chp1:
+    show python_logo
     show text "{size=40}{color=#000}Capítulo uno\n\n\n¿Qué es programar?{/color}{/size}" at top
     h "Para mi, aprender a programar me pareció bastante frustrante!"
     h "Verán, aprendí varios lenguajes de programación, pero no supe lo que era programar..."
@@ -95,6 +97,7 @@ label chp1:
     h 'El {color=#ff0}problema{/color} es de caracter repetitivo y se resuelve mediante la {color=#ff0}interacción{/color} de partes de un {color=#ff0}sistema{/color}'
     h "El {color=#ff0}sistema{/color} es el segundo concepto"
     h "Las partes del sistema están contenidas en una {color=ff0}carpeta{/color} o un {color=#ff0}directorio{/color} dentro de la {color=#ff0}computadora{/color} (llamado en España{color=#ff0}\"ordernador\"{/color}) o en la {color=#ff0}nube{/color}"
+    
     $current="q1"
     $ error=""
     label q1:
@@ -192,7 +195,7 @@ label n2:
     else:
         h "Has seleccionado [count] veces la opción incorrecta"
         h "Cometer errores, es muy importante para aprender cualquier lenguaje de programación..."
-    show python_logo at truecenter
+    
     h "Existen 2 grandes fases en la programación, la etapa de {color=#ff0}desarrollo{/color} y la etapa de {color=#ff0}producción{/color}"
     h "En la etapa de desarrollo, se DEBEN cometer errores para evitar que éstos vayan a producción"
     h "Además debemos saber que existen 2 tipos de errores: los errores de {color=#ff0}sintaxis{/color} y los errores de {color=#ff0}lógica{/color}"
@@ -299,6 +302,7 @@ label q6:
             jump q6
 label n4:
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
+    show python_logo at truecenter
     h "Wao, hemos visto como se conectan los órganos del tubo digestivo uno tras otro"
     h "En el caso del carro, del reloj, la página web y del video juego podemos hacer exactamente lo mismo..."
     h "Aún más NO necesitamos ningún programa para ver como estos elementos se relacionan entre sí"
@@ -341,6 +345,7 @@ label python_:
     h "Para reutilizar la variable debemos escribir respetando las mayúsculas y minúsculas: la variable A no es lo mismo que la variable a"
     h "Ok, vamos a repasar lo aprendido"
     $ error=""
+    hide python_logo
     hide text
 label q7:
     if error!="":
@@ -366,11 +371,12 @@ label q7:
             jump q7
 label n5:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
+    show python_logo at truecenter
     h "En verdad, es correcto, las variables no pueden iniciar su nombre con números"
     h "De todos los casos presentados anteriormente, quiero que presten atención a \"_asTAS45\""
     h "Como deben saber a estas alturas, \"_asTAS45\" es un nombre Python permitido, porque cumple con las reglas del lenguaje, pero..." 
     hide text
-
+    hide python_logo 
 label q8:
     if error != "" :
         h "{color=#f00}[error]{/color}"
@@ -389,12 +395,14 @@ label q8:
             jump q8
 label n6:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
+    show python_logo at truecenter
     h 'En verdad... "_asTAS45" es un nombre que no significa nada, bueno de buenas a primeras'
     h "Las variables Astoide4 y la variable _import tienen algun sentido:\nAsteriode4 puede significar algun asteroide en un juego de video o algo relacionado con astronomía\n_import puede significar que se a importar algo..."
     h "La idea de Python es de servir como un lenguaje de \"alto nivel\", es decir ser \"entendible\" para los humanos"
     h "Aunque no tanto para el ordenador o computadora"
     h "Variables con un nombre como \"_asTAS45\" hacen que todo se enrede a menos que tenga una lógica interna"
     hide text
+    hide python_logo
 label q9:
     menu:
         "Python es un lenguaje de programación de alto nivel, ¿qué significa esto?"
@@ -411,10 +419,12 @@ label q9:
             jump q9
 label n7:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
+    show python_logo at truecenter
     h "El mensaje es que las variables deben comunica la \"finalidad\" dentro del proyecto"
     h "Vamos a crear otra variable..."
     $ respuesta=""
     hide text
+    hide python_logo 
 label q10:
     $cont="Cree la variable segun las instrucciones"
     if respuesta:
@@ -428,6 +438,7 @@ label q10:
     
 label n8:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
+    show python_logo at truecenter
     h "Como vemos las variables pueden ser creadas escribiendo su nombre su nombre, luego el operador de asignación (=) y finalmente el valor"
     h "Además del signo =, hay otros signos de asignación que veremos más adelante"
     h "En el siguiente ejercicio te voy a mostrar ejemplo de otros operadores, pero para poder entenderlos, debo hablarte de los {color=#ff0}tipos{/color} de variables"
@@ -449,6 +460,7 @@ label n8:
     h "Y finalmente las variables booleanas, son la que solo pueden tener 2 valores cierto o {color=#ff0}True{/color} y falso {color=#ff0}False{/color}"
     h "Vamos al siguiente ejercicio"
     hide text
+    hide python_logo
     $counter=0
     $check=""
 label q11:
@@ -481,6 +493,7 @@ label q11:
             $check="bool"
             jump q11
 label n9:
+    show python_logo at truecenter
     h "Ya sabemos como crear variables... ahora vamos a hablar que hacer con ellas, vamos a aprender acerca de los operadores"
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Los operadores nos permiten crear nuevas variables o resultados a partir de 2 o más variables o valores"
@@ -492,10 +505,11 @@ label n9:
     consola "24-45\n-21"
     h "Claro está... debemos recordar que hay dos tipos de varibles numéricas, las de tipo entera ({color=#ff0}int{/color}) y las de tipo flotante que manejan decimales ({color=#ff0}float{/color})"
     h "La suma o resta de dos o más variables de tipo entera producen un entero, y si hay por lo menos una variablo de tipo flotante, se produce un resultado flotante"
-    consola "{color=#ff0}#Es decir{/color}\n1+1\n2\n1.2+1\n2.2\n2.3-1-3\n1.7"
+    consola "{color=#ff0}#Es decir{/color}\n1+1\n2\n1.2+1\n2.2\n2.3-1-3\n1.6"
     h "Tengo buena memoria y me acuerdo que creamos un par de variables peso_Varon y peso_Mujer"
     $error=""
     hide text
+    hide python_logo
 label q12:
     if error:
         h "[error]"
@@ -516,6 +530,7 @@ label q12:
             jump q12
 label n10:
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
+    show python_logo at truecenter
     h "La multiplicacion, la división y el residuo son un poquito especiales"
     h "Igual que lo que ocurre con la suma y la resta, estás operaciones entre enteros resultan en un entero y si hay por lo menos un flotante involucrado, tendremos un flotante"
     h "En el caso de la multiplicación, eso no es mucho problema"
@@ -537,6 +552,7 @@ label n10:
     h "El residuo es importante para valorar los números pares de los impares"
     h "Los números pares al dividirse entre 2 tienen un residuo de 0, pero los impares tienen un residuo de 1"
     hide text
+    hide python_logo
     $error=""
 label q13:
         if error:
@@ -555,10 +571,10 @@ label q13:
                 $error="Eso no es correcto"
                 jump q13
 label n11:
+    show python_logo at truecenter
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Bueno... voy a discutir acerca de la exponenciación, la cual es parte de parte de la aritmética...."
     h "En la exponenciación hay dos elementos, la base y el exponente"
-    #text ...
     h "En la exponenciación, la base debe multiplicarse por si misma las veces indicadas por el exponente"
     h "En Python, la exponenciación se realiza asi: base**exponente"
     h "5*5 es 25 y 9*9*9 es 729\n,tambien 5**2 es 25 y 9**3 es 729"
@@ -576,9 +592,11 @@ label n11:
     h "El objetivo de la radicación es obtener el número que al multiplicarse por si mismo las veces dadas por el índice da por resultado el radical"
     h "Los índides siguen las mismos nombres (en matemáticas) de los exponentes de la exponenciación: raíz cuadrada (2), raíz cúbica (3), raíz cuarta (4), etc "
     h "Por ejemplo, la raíz cuarta de 1296 es 6, porque 6*6*6*6 es 1296 o bien 6**4 es 1296"
+    hide python_logo
     hide text
 label q14:
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
+    show python_logo at truecenter
     h "**Python no tiene ninguna función (de manera predefinida) para calcular raíces"
     h "Sin embargo, es posible calcular cualquier raíz de cualquier índice usando uno de los 2 métodos"
     h "Un método es primero importar un módulo llamado math y luego usar un método llamado sqrt"
@@ -603,6 +621,7 @@ label q14:
     h "En Python, para calcular el logaritmo debemos importar el método log del módulo math para calcular el logaritmo"
     consola "{color=#f0f}#Para calcular el logaritmo de 16 con base 2{/color}\nimport math\nmath.log(16,2)\n4.0"
     hide text
+    hide python_logo 
     $ error=""
     $ counter=0
     $ respuesta=10
@@ -646,12 +665,14 @@ label q15:
             $ respuesta = 2
             jump q15
 label n12: 
+    show python_logo at truecenter
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
     h "Una utilidad práctica de la exponenciación es el cálculo de los lados de un triángulo rectángulo basado en el teorema de Pitágoras"
     h "El teorema de Pitágoras se utiliza para calcular distancias entre 2 puntos en un plano"
     h 'Si las distancias son menores a un valor determinado, tenemos una "colisión"'
     h "El teorema de Pitágoras tiene que ver también como los conceptos de conversión materia y energía propuesto por la Teoría de la Relatividad de Einstein o la teoría de la formación de antimateria"
     hide text
+    hide python_logo
     show pitagoras
     h "Para recordar, los triangulos tienen 3 lados y 3 ángulos"
     h "La suma de los 3 ángulos de un triángulo (siempre que esté en un plano) da por resultado 180 grados"
@@ -737,6 +758,7 @@ label n14:
     h "#Otro ejemplo\n2+2+True+False*3.+234**False\n6.0"
     h "Vamos a ver otro ejercicio"
     hide text
+    hide python_logo
     $error=""
 label q18:
     if error:
@@ -754,6 +776,7 @@ label q18:
             jump q18
 label n15:
     show text "{size=40}{color=#000}Capítulo cuatro\n\n\nLos operadores aritméticos y de asignación{/color}{/size}" at top
+    show python_logo at truecenter
     h "Al fin acabamos con esos operadores aritméticos y de asignación"
     h "Vamos a ver 2 operadores que solo sirven para cadenas (strings) que el operador de concatenación y de formato"
     h "El operador de concatenación es {color=#ff0}+{/color}, el cual es idéntico al de la suma, pero cuando está entre strings va a concatenarlos, es decir va a unir dos o más cadenas hacer una cadena más largo"
@@ -767,6 +790,7 @@ label n15:
     consola 'repuesta=4\n"2+2 es \%s" respuesta\n"2+2 es 4"'
     $error=""
     $ counter = 9
+    hide python_logo 
 label q19:
     
     $ expresiones = ['1+1', '"1"+1', '"1"+"False"', "True + 2"]
@@ -806,13 +830,14 @@ label q19:
             $check=4
             jump q19
 label n16:
+    show python_logo at truecenter
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Vamos a hablar de las variables y operadores boolean o lógicas y del control de flujo"
     h "Antes de proseguir voy a hablar del cambio de tipo de las variables"
     h "Las variables tipo cadena {color=#f00}NO{/color} se pueden convertir en tipo numéricas, a menos que la cadena contenga números sin espacios o que contenga uno o más numeros y un punto"
     consola "{color=#f0f}#Esto no está permitido{/color}\nint(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: invalid literal for int() with base 10: 'hola'"
     consola "{color=#f0f}#Esto tampoco está permitido{/color}\nfloat(\"hola\")\nTraceback (most recent call last):\n  File \"\<stdin\>\" in \<module\>\nValueError: could not convert string to float"
-    consola "{color=#f0f//}#Pero sí está permitido{/color}\nint(\"12\")\n12"
+    consola "{color=#f0f}#Pero sí está permitido{/color}\nint(\"12\")\n12"
     consola "{color=#f0f}#Y esto también está permitido{/color}\nfloat(\"12.8\")\n12.8"
     h "Las variables numéricas pueden convertirse en cadenas sin ningún inconveniente"
     consola "{color=#f0f}#Conversión de flotante a cadena{/color}\nstr(12.)\n\'12.0'"
@@ -824,6 +849,7 @@ label n16:
     consola "{color=f0f}#Algunos ejemplos{/color}\nbool(None)\nFalse\nbool(5-5)\nFalse\nbool(\"\")\nFalse"
     h "Ahora vamos a ver un par de ejercicios"
     hide text
+    hide python_logo
     python:
         menus=[['True', 'False', 'None'],
                     ['0', '1', '45']]
@@ -873,6 +899,7 @@ label q20:
             $check=menu3
             jump q20
 label n17:
+    show python_logo at truecenter
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Es importante el control de flujo, que tiene que ver con la toma de decisiones una vez que un evento cambia el valor de una variable"
     h "Respuesta a preguntas como ¿qué ocurre cuando el medidor de aceite de un carro llega a cierto nivel? o ¿qué ocurre cuando se obtiene un objeto en un videojuego? son preguntas que tienen que ver con el {color=#ff0}control de flujo{/color}"
@@ -881,8 +908,8 @@ label n17:
     h 'Hay ciertos operadores que comparan el valor de 2 variables:\n"es igual a" {color=#ff0}=={/color}\n"no es igual a" {color=#ff0}!={/color} o también {color=#ff0}\<\>{/color}\n"es mayor que" {color=#ff0}>{/color}\n"es menor que" {color=#ff0}<{/color}\n"es mayor o igual a" {color=#ff0}>={/color}\n"es menor o igual a" {color=#ff0}<=\n{/color}'
     h "En variables numéricas es creo que obvio"
     consola "{color=#f0f}#Es bastante claro como funciona \"es igual a\" con números{/color}\n2{color=#ff0}=={/color}2\nTrue\n5{color=#ff0}=={/color}4\nFalse"
-    consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!=2{/color}\nFalse\n5{color=#ff0}!={/color}4\nTrue"
-    consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}>{/color}4\nTrue"
+    consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!={/color}2\nFalse\n5{color=#ff0}!={/color}4\nTrue"
+    consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}{/color}4\nTrue"
     consola "{color=#f0f}#y acá vemos al \"menor que\" con números{/color}\n2{color=#ff0}<{/color}2\nFalse\n5{color=#ff0}<{/color}4\nFalse"
     consola "{color=#f0f}#seguimos con el \"mayor o igual a\" con números{/color}\n2{color=#ff0}>={/color}2\nTrue\n5{color=#ff0}>={/color}4\nTrue"
     consola "{color=#f0f}#y terminamos con el \"menor o igual a\" con números{/color}\n2{color=#ff0}<={/color}2\nTrue\n5{color=#ff0}<={/color}4\nFalse"
@@ -893,6 +920,7 @@ label n17:
     h "Lo importante de estos operadores es que {color=#ff0}siempre{/color} resultan en un valor lógico"
     h "Vamos a ver un ejercicio"
     hide text
+    hide python_logo 
     python:
         menus=['True', 'False', 'None']
                     
@@ -947,6 +975,7 @@ label q21:
     
 label n18:
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
+    show python_logo at truecenter
     h "Antes de proseguir debemos recordar los operadores aritmétcos: {color=#ff0}+{/color}, {color=#ff0}-{/color}, {color=#ff0}*{/color}, {color=#ff0}/{/color} y {color=#ff0}\%{/color}"
     h "Cualquier operación con estos operadores, Python la va a resolver {color=#ff0}antes{/color} de comparar los resultados"
     consola "{color=#f0f}Veamos este concepto{/color}\n3 + 5 > 2 - 1 {color=#f0f}#Es decir 8 > 1 que es cierto{/color} \nTrue"
@@ -975,6 +1004,8 @@ label n18:
     consola "{color=#f0f}#Veamos como funciona el operador {color=#ff0}or{/color} en otro ejemplo{/color}\nTrue or 3 {color=#f0f}#Recordemos que 3 se coerciona a True{/color}\nTrue\nTrue or \"\" {color=#f0f}#Recordemos que {color=#ff0}\"\"{/color} se coerciona a False{/color}\nTrue\nFalse or 2{color=#f0f}#Recordemos que 2 se coerciona a True{/color}\nTrue"
     h "Vamos a trabajar con algunos ejemplos"
     hide text
+    hide python_logo 
+
     python:
                     
         counter=9
@@ -1020,6 +1051,8 @@ label q22a:
             jump q22a
 
 label n19:
+    show python_logo at truecenter
+
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     h "Antes de entrar de lleno a hablar del control de flujo, les tengo que hablar del operador lógico {color=#ff0}in{/color}"
     h 'El operador {color=#ff0}in{/color} es un operador lógico especial que nos permite hablar de las 4 "estructuras de datos" de Python: la lista, el tuplo, el diccionario y el conjunto'
@@ -1064,7 +1097,7 @@ label n19:
     consola '{color=#f0f}#Vamos a crear un conjunto{/color}\nconjuntoDeIds=set(\["2A", 2, "3B", 2, 5, 8\])\nconjuntoDeIds\nset(\["2A", "3B", 2, 5, 8\])'
     h "Ah! finalmente el operador {color=#ff0}in{/color} simplemente indica si un valor de un elemento está o no presente un estructura de datos (excepto en el diccionario) y de ser así devuelve True y sino es así devuelve False"
     h "En los diccionarios, el operador in devuelve cierto o {color=#ff0}True{/color} siempre y cuando que la cadena sea parte de una clave del diccionario"
-    consola '{color=#f0f}#Vamos a ver el operador in en un diccionario{/color}\nnombreDeAsientos=\{"Ana": "A1", "Pepe":"C52", "Juan":"W15"\}\n"Ana" in nombreDeAsientos\nFalse {color=#ff0}#Ana es un clave del diccionario, es una clave{/color}\n"A1" in nombreDeAsientos\nFalse'
+    consola '{color=#f0f}#Vamos a ver el operador in en un diccionario{/color}\nnombreDeAsientos=\{"Ana": "A1", "Pepe":"C52", "Juan":"W15"\}\n"Ana" in nombreDeAsientos\nTrue {color=#ff0}#Ana es un clave del diccionario, es una clave{/color}\n"A1" in nombreDeAsientos\nFalse'
     consola '{color=#f0f}#Vamos a ver el operador in{/color}\nconjuntoDeIds=set(\["2A", 2, "3B", 2, 5, 8\])\n"2a" in conjuntoDeIds\nFalse\n\n"2A" in conjuntoDeIds\nTrue'
     h "Vamos a repasar un poco de lo aprendido"
     hide text
@@ -1239,7 +1272,7 @@ label qChino1:
 label q24:
     $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
     hide text
-    $ nac=1923
+    
     h "En efecto, podemos simplemente calcular el residuo mediante el operador del mismo es decir {color=#ff0}\%{/color}"
     h "Una división entre 12 que no deja residuo de 0, habla de un número divisible entre 12. Lo que corresponde al año del mono. Si el residuo es de 1, es del gallo, etc"
     show text "{size=40}{color=#000}0-[signos_Chinos[0]]   1-[signos_Chinos[1]]    2-[signos_Chinos[2]]\n3-[signos_Chinos[3]]    4-[signos_Chinos[4]]    5-[signos_Chinos[5]]\n6-[signos_Chinos[6]]   7-[signos_Chinos[7]]   8-[signos_Chinos[8]]\n9-[signos_Chinos[9]]   10-[signos_Chinos[10]]   11-[signos_Chinos[11]]{/color}{/size}"  at truecenter 

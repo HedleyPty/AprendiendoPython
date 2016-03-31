@@ -44,6 +44,8 @@
  * *Contructores*
 
  * *Destructores*
+#Instalación 
+Abrir la carpeta Distro y leer las instrucciones del README
 
 #Capturas de pantalla
 
@@ -59,6 +61,6 @@
 ##Toma de pantalla donde explico los scripts
 ![Scripts](http://s8.postimg.org/449ymg3px/scripts.png)
 
-##Mi página web en PythonAnywhere: [Mi sitio en PythonAnywhere](http://http://hedley.pythonanywhere.com/)
+##Mi página web en PythonAnywhere: [Mi sitio en PythonAnywhere](http://hedley.pythonanywhere.com/)
 
 ##[Botón de PayPal para donaciones](http://paypal.me/HedleyQuintana)
