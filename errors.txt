@@ -2,12 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1393: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
-    $ nac_f=factorial(nac)
-    ^
-
-File "game/script.rpy", line 1395: expected statement.
-    else:
-        ^
+File "game/script.rpy", line 1377: expected statement.
+    current_ans=0
+               ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227
