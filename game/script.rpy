@@ -1464,6 +1464,12 @@ label clases1:
     h "Vamos a finalizar hablando de las clases en Python"
     h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
     h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
-    h "Vamos a crear una clase abstracción de un animal genérico"
-    consola 'class animal():\n\ \ \ \ def __init__(tipo):\n\ \ \ \ \ \ \ \ self.tipo=tipo'
+    h "Vamos a crear una clase abstracción del jugador de otro proyecto"
+    menu:
+        consola '#¿Cuál de las siguientes afirmaciones es ciertas?\nclass Jugador():\n\ \ \ \ def __init__(nombre, vidas, capituloActual):\n\ \ \ \ \ \ \ \ self.vidas=7'
+        "El nombre del jugador predeterminado es Juan":
+        "El jugador tiene 7 vidas":
+        "La función tiene 3 argumentos":
+        
+    #h ""
 return
