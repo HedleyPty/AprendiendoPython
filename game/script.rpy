@@ -1,6 +1,6 @@
 init python:
     import re
-    import platform
+    import os
     
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
@@ -82,17 +82,17 @@ label inicio:
     h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
     label OS:
-       if re.match(r".*(cyanomod|android).*", platform.platform()):
-           h "Las opciones del desarrollador no estan disponibles para Android"
-           h "Debes installar este programa en una computadora de escritorio o una laptop"
-       else:
-           h "Estás a punto de abrir las opciones del desarrollador"
-           h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
-           h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
-           h "Después de este diálogo este programa se reiniciará"
-           python:
-            persistent.console = True
-            renpy.quit(relaunch=True)
+        if re.match(r".*(cyanomod|android).*", "".join(os.uname())):
+            h "Las opciones del desarrollador no estan disponibles para Android"
+            h "Debes installar este programa en una computadora de escritorio o una laptop"
+        else:
+            h "Estás a punto de abrir las opciones del desarrollador"
+            h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
+            h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
+            h "Después de este diálogo este programa se reiniciará"
+            python:
+                persistent.console = True
+                renpy.quit(relaunch=True)
     hide renpy_logo 
     hide text
     h "Vamos a empezar..."
