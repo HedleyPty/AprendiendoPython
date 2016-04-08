@@ -83,12 +83,12 @@ label inicio:
     label OS:
        if re.match(r".*(cyanomod|android).*", platform.platform()):
            h "Las opciones del desarrollador no estan disponibles para Android"
-           h "If you want to use it, please install this program in Laptop or desktop computer"
+           h "Debes installar este programa en una computadora de escritorio o una laptop"
        else:
-           h "You are about to open the developer console"
-           h 'I know, that it sounds cheese but with "with a lot of power there is a lot of responsibility"'
-           h "Please {color=#f00}NEVER CREATE A VARIABLE WITH THE SAME NAME THAT THE ONES THAT ARE CREATED{/color}"
-           h "In the next dialog the game will restart"
+           h "Estás a punto de abrir las opciones del desarrollador"
+           h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
+           h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
+           h "Después de este diálogo este programa se reiniciará"
            python:
             persistent.console = True
             renpy.quit(relaunch=True)
