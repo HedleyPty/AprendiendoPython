@@ -82,7 +82,7 @@ label inicio:
     h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
     label OS:
-        if re.match(r".*(cyanomod|android).*", "".join(os.uname())):
+        if re.match(r".*(cyanogenmod|android).*", os.uname()[2]):
             h "Las opciones del desarrollador no estan disponibles para Android"
             h "Debes installar este programa en una computadora de escritorio o una laptop"
         else:
