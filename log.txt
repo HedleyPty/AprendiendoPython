@@ -1,31 +1,31 @@
-Fri Apr  8 19:58:15 2016
+Fri Apr  8 20:10:41 2016
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.10.1227
  
 
-Bootstrap to the start of init.init took 0.35s
+Bootstrap to the start of init.init took 0.29s
 Early init took 0.02s
 Loader init took 0.01s
-Loading error handling took 0.47s
-Loading script took 6.37s
+Loading error handling took 0.37s
+Loading script took 5.69s
 Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.69s
+Running init code took 0.53s
 Loading analysis data took 0.00s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
 Backing up script files to '/home/hedley/.renpy/backups/Programar_con_Python':
-Dump and make backups. took 0.16s
+Dump and make backups. took 0.13s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 DPI scale factor: 1.000000
-Creating interface object took 0.14s
+Creating interface object took 0.12s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.05s
-Save screen analysis took 0.10s
-Prepare screens took 0.22s
-Save pyanalysis. took 0.09s
-Save bytecode. took 0.11s
+Analyze screens took 0.06s
+Save screen analysis took 0.11s
+Prepare screens took 0.24s
+Save pyanalysis. took 0.10s
+Save bytecode. took 0.06s

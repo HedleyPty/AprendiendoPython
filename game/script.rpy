@@ -1,5 +1,6 @@
 init python:
-    import re, platform
+    import re
+    import platform
     
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
