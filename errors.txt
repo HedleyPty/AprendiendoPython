@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 92: expected statement.
-    full_restart
-                ^
+File "game/script.rpy", line 302: Overly long logical line. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+            "Intestino grueso" if counter != 6":
 
 Ren'Py Version: Ren'Py 6.99.10.1227

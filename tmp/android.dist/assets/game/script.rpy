@@ -62,8 +62,17 @@ label music_:
         "Ninguno":
             pass
 label inicio:
-    if persistent.console is not None:
+    if persistent.console_:
+        menu:
+            "Deseas comenzar desde el principio o quieres que conversermos acerca de las variables"
+            "Desde el principio: Recuerda que la consola del desarrollador está activa":
+                jump inicio_
+            "Deseo conocer más acerca de las variables":
+                jump console_
+    elif persistent.console is not None:
         $ persistent.console=False
+        $ persistent.console_=False
+label inicio_:
     $ now_playing=musica[:-4]
     #textbutton "Music" action Show("_music") 
     show python_logo at truecenter
@@ -81,18 +90,6 @@ label inicio:
     h "Ren'py es un gestor de {color=#ff0}novelas gráficas interactivas{/color}, las cuales son una serie de {color=#ff0}diálogos{/color} (así como una telenovela, pero leída).\nAparecen dibujos de personajes que aparecen con su cuadro de diálogos"
     h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
-    label OS:
-        if re.match(r".*(cyanogenmod|android).*", os.uname()[2]):
-            h "Las opciones del desarrollador no estan disponibles para Android"
-            h "Debes installar este programa en una computadora de escritorio o una laptop"
-        else:
-            h "Estás a punto de abrir las opciones del desarrollador"
-            h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
-            h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
-            h "Después de este diálogo este programa se reiniciará"
-            python:
-                persistent.console = True
-                renpy.quit(relaunch=True)
     hide renpy_logo 
     hide text
     h "Vamos a empezar..."
@@ -270,7 +267,7 @@ label q6:
             cabecera= "Señale el órgano del tubo digestivo que se encuentra en la cabeza"
             counter = 0
     else:
-        if counter < 6:
+        if counter <= 6:
             if check_organ == digestivo[counter]:
                 python:
                     counter += 1
@@ -280,39 +277,39 @@ label q6:
                 else:
                     $cabecera="Qué órgano sigue al " + organo
             else:
-                if counter > 0 and counter < 5 :
+                if counter > 0 and counter < 6:
                     h "{color=#f00}Ese órgano no es el que sigue!{/color}"
                 else:
                     h "{color=#f00}Ese órgano no está en la cabeza!{/color}"
             
     
-        elif counter == 6:
-            h "Y así tenemos que el último órgano del sistema digestivo es el ano"
-            jump n4
+        
     menu:
         "[cabecera]"
         
-        "Ano":
+        "Ano" if counter < 7:
             $check_organ=digestivo[6]
             jump q6
-        "Faringe":
+        "Faringe"if counter < 2:
             $check_organ=digestivo[1]
             jump q6
-        "Esófago":
+        "Esófago"if counter < 3:
             $check_organ=digestivo[2]
             jump q6
-        "Boca":
+        "Boca"if counter < 1:
             $check_organ=digestivo[0]
             jump q6
-        "Intestino delgado":
+        "Intestino delgado" if counter < 5:
             $check_organ=digestivo[4]
             jump q6
-        "Estómago":
+        "Estómago" if counter < 4:
             $check_organ=digestivo[3]
             jump q6
-        "Intestino grueso":
+        "Intestino grueso" if counter < 6:
             $check_organ=digestivo[5]
             jump q6
+        "Cliq aquí para proseguir" if counter == 7:
+            jump n4
 label n4:
     show text "{size=40}{color=#000}Capítulo dos\n\n\nLa Abstracción{/color}{/size}" at top
     show python_logo at truecenter
@@ -344,9 +341,21 @@ label python_:
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
     h "En este momento vamos a acceder a las opcones del desarrollador, las cuales nos van a permitir acceder a la consola de Python en Windows, Mac y en Linux."
     h "Sin embargo, si usas Android eso no es posible"
-    
-    $ persistent.console=True
-    
+    label OS:
+        if re.match(r".*(cyanogenmod|android).*", os.uname()[2]):
+            h "Las opciones del desarrollador no estan disponibles para Android"
+            h "Debes installar este programa en una computadora de escritorio o una laptop"
+        elif not persistent.console:
+            h "Estás a punto de abrir las opciones del desarrollador"
+            h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
+            h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
+            h 'Al pulsar el botón "Comenzar" proseguiremos al siguiente capítulo (suena raro, pero así funciono...)'
+            h "Después de este diálogo este programa se reiniciará"
+            python:
+                persistent.console = True
+                persistent.console_ = True
+                renpy.quit(relaunch=True)
+label console_:
     h "Una vez que hayas hecho eso, podemos seguir..."
     h "Las variables son un objecto que contiene cierta información que se va a reutilizar más tarde"
     h "En alguno de los ejercicios anteriores, he usado variables, por ejemplo... te acuerdas cuando conté el número de errores los ejercicios anteriores? esa información la guardé en una variable"

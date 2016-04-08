@@ -1,21 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 94, in <module>
-    full_restart()
-NameError: name 'full_restart' is not defined
+  File "game/script.rpy", line 67, in <module>
+    $ persisten.console_=False
+NameError: name 'persisten' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 92, in script
+  File "/home/hedley/script.rpyc", line 67, in script
   File "/home/hedley/Documents/renpy/renpy/ast.py", line 806, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/home/hedley/Documents/renpy/renpy/python.py", line 1577, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/script.rpy", line 94, in <module>
-    full_restart()
-NameError: name 'full_restart' is not defined
+  File "game/script.rpy", line 67, in <module>
+    $ persisten.console_=False
+NameError: name 'persisten' is not defined
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.10.1227
