@@ -342,7 +342,7 @@ label python_:
     h "En este momento vamos a acceder a las opcones del desarrollador, las cuales nos van a permitir acceder a la consola de Python en Windows, Mac y en Linux."
     h "Sin embargo, si usas Android eso no es posible"
     label OS:
-        if re.match(r".*(cyanogenmod|android).*", os.uname()[2]):
+        if re.match(r".*(cyanogenmod|gbaedb).*", os.uname()[2]):
             h "Las opciones del desarrollador no estan disponibles para Android"
             h "Debes installar este programa en una computadora de escritorio o una laptop"
         elif not persistent.console:
