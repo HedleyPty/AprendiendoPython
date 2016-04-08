@@ -1,27 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-KeyError: u"'The Show Must Be Go"
+  File "game/script.rpy", line 94, in <module>
+    full_restart()
+NameError: name 'full_restart' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 1420, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 604, in execute
-    renpy.exports.say(who, what, interact=self.interact)
-  File "/home/hedley/Documents/renpy/renpy/exports.py", line 1122, in say
-    who(what, interact=interact)
-  File "/home/hedley/Documents/renpy/renpy/character.py", line 832, in __call__
-    what = what_pattern.replace("[what]", sub(what, translate=translate))
-  File "/home/hedley/Documents/renpy/renpy/character.py", line 814, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "/home/hedley/Documents/renpy/renpy/substitutions.py", line 229, in substitute
-    s = formatter.vformat(s, (), kwargs)
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
-KeyError: u"'The Show Must Be Go"
+  File "/home/hedley/script.rpyc", line 92, in script
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 806, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/hedley/Documents/renpy/renpy/python.py", line 1577, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 94, in <module>
+    full_restart()
+NameError: name 'full_restart' is not defined
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.10.1227

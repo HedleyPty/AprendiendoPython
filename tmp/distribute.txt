@@ -5,6 +5,7 @@ traceback.txt matches traceback.txt (None).
 errors.txt matches errors.txt (None).
 Distros/ matches ** ([u'all']).
 Distros/README.md matches ** ([u'all']).
+Distros/Programar_con_Python-1.0-all.zip matches ** ([u'all']).
 log.txt matches log.txt (None).
 game/ matches ** ([u'all']).
 game/cache/ matches ** ([u'all']).

@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1377: expected statement.
-    current_ans=0
-               ^
+File "game/script.rpy", line 92: expected statement.
+    full_restart
+                ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

@@ -1,6 +1,5 @@
 init python:
-    import re
-    import platform
+    import re, platform
     
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
@@ -62,7 +61,8 @@ label music_:
         "Ninguno":
             pass
 label inicio:
-    $ persistent.console=False
+    if persistent.console is not None:
+        $ persistent.console=False
     $ now_playing=musica[:-4]
     #textbutton "Music" action Show("_music") 
     show python_logo at truecenter
@@ -80,6 +80,18 @@ label inicio:
     h "Ren'py es un gestor de {color=#ff0}novelas gráficas interactivas{/color}, las cuales son una serie de {color=#ff0}diálogos{/color} (así como una telenovela, pero leída).\nAparecen dibujos de personajes que aparecen con su cuadro de diálogos"
     h "Además hay menúes que sirven para valorar el conocimiento de la trama o para tomar decisiones"
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
+    label OS:
+       if re.match(r".*(cyanomod|android).*", platform.platform()):
+           h "Las opciones del desarrollador no estan disponibles para Android"
+           h "Debes installar este programa en una computadora de escritorio o una laptop"
+       else:
+           h "Estás a punto de abrir las opciones del desarrollador"
+           h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
+           h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
+           h "Después de este diálogo este programa se reiniciará"
+           python:
+            persistent.console = True
+            renpy.quit(relaunch=True)
     hide renpy_logo 
     hide text
     h "Vamos a empezar..."
@@ -1465,11 +1477,11 @@ label clases1:
     h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
     h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
     h "Vamos a crear una clase abstracción del jugador de otro proyecto"
-    menu:
-        consola '#¿Cuál de las siguientes afirmaciones es ciertas?\nclass Jugador():\n\ \ \ \ def __init__(nombre, vidas, capituloActual):\n\ \ \ \ \ \ \ \ self.vidas=7'
-        "El nombre del jugador predeterminado es Juan":
-        "El jugador tiene 7 vidas":
-        "La función tiene 3 argumentos":
+    #menu:
+     #   consola '#¿Cuál de las siguientes afirmaciones es ciertas?\nclass Jugador():\n\ \ \ \ def __init__(nombre, vidas, capituloActual):\n\ \ \ \ \ \ \ \ self.vidas=7'
+      #  "El nombre del jugador predeterminado es Juan":
+       # "El jugador tiene 7 vidas":
+        #"La función tiene 3 argumentos":
         
     #h ""
 return
