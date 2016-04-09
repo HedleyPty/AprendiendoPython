@@ -22,8 +22,6 @@ game/images/reloj.png matches ** ([u'all']).
 game/images/pitagoras.png matches ** ([u'all']).
 game/images/reloj engranajes.jpg matches ** ([u'all']).
 game/images/renpy logo.png matches ** ([u'all']).
-game/screens.rpy.bak matches **.bak (None).
-game/options.rpy.bak matches **.bak (None).
 game/script.rpyc matches ** ([u'all']).
 game/saves/ matches game/saves/ (None).
 game/screens.rpyc matches ** ([u'all']).
