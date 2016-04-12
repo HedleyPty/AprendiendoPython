@@ -1489,6 +1489,13 @@ label clases1:
     h "Vamos a pensar en el concepto de \"animal\", y preguntarnos {color=#ff0}¿Qué es un animal?{/color}"
     h "Los animales son seres vivos, heterótrofos (que comen otros seres vivos), en general capaz de moverse donde quieran,\ncuentan con una serie de órganos."
     h "Es {color=#ff0}IMPOSIBLE{/color} saber lo que {color=#ff0}es{/color} un animal, pero más bien ponemos ciertos seres vivos (águila, anguila, perro, esponja, etc) dentro de esa categoría"
-    h ""
+    h "Aunque suene un poco extraño lo que digo, pero la idea es que la palabra {color=ff0}animal{/color} corresponde a un grupo de individuos que comparten una característica común."
+    h "Palabras como {color=#ff0}varón{/color}, {color=#ff0}vaso{/color}, {color=#ff0}flor{/color} o {color=#ff0}casa{/color} son exactamente lo mismo..."
+    h 'La idea de crear un objeto que representa un objeto real en un sistema simulado como lo es un programa se denomina "abstracción"'
+    h 'Las ideas que representas esos objetos se llaman {color=#ff0}clases{/color}'
+    h "La representación de un individuo en una simulación se le llama {color=#ff0}instancia{/color} o {color=#ff0}instancia de una clase{/color}."
+    h "Podemos pensar en una clase como los {color=#ff0}planos de una casa{/color} y la instacia como la {color=#ff0}casa ya construída{/color}."
+    h "Las clases tienen {color=#ff0}atributos{/color}, los cuales son características que describen a un objeto de una clase particular.\nUn perro tiene su largo, color de pelo, raza, nombre, etc. Ellos constituyen {color}atributos{/color} de la {color=#ff0}clase perro{/color}."
+    h ''
     return
 return
