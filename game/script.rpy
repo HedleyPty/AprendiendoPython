@@ -1481,17 +1481,14 @@ label funq2:
             renpy.jump('funq2')
             error = "No has introducido ningún número válido"
 label clases1:
-    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métods{/color}{/size}" at top
+    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métodos{/color}{/size}" at top
     show python_logo
     h "Vamos a finalizar hablando de las clases en Python"
     h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
-    h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
-    h "Vamos a crear una clase abstracción del jugador de otro proyecto"
-    #menu:
-     #   consola '#¿Cuál de las siguientes afirmaciones es ciertas?\nclass Jugador():\n\ \ \ \ def __init__(nombre, vidas, capituloActual):\n\ \ \ \ \ \ \ \ self.vidas=7'
-      #  "El nombre del jugador predeterminado es Juan":
-       # "El jugador tiene 7 vidas":
-        #"La función tiene 3 argumentos":
-        
-    #h ""
+    h 'Habíamos visto algo de las abstracciones en el capítulo 2, pero ahora que tenemos más herramientas podemos ahondar en el tema'
+    h "Vamos a pensar en el concepto de \"animal\", y preguntarnos {color=#ff0}¿Qué es un animal?{/color}"
+    h "Los animales son seres vivos, heterótrofos (que comen otros seres vivos), en general capaz de moverse donde quieran,\ncuentan con una serie de órganos."
+    h "Es {color=#ff0}IMPOSIBLE{/color} saber lo que {color=#ff0}es{/color} un animal, pero más bien ponemos ciertos seres vivos (águila, anguila, perro, esponja, etc) dentro de esa categoría"
+    h ""
+    return
 return
