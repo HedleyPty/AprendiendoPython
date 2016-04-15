@@ -1496,6 +1496,13 @@ label clases1:
     h "La representación de un individuo en una simulación se le llama {color=#ff0}instancia{/color} o {color=#ff0}instancia de una clase{/color}."
     h "Podemos pensar en una clase como los {color=#ff0}planos de una casa{/color} y la instacia como la {color=#ff0}casa ya construída{/color}."
     h "Las clases tienen {color=#ff0}atributos{/color}, los cuales son características que describen a un objeto de una clase particular.\nUn perro tiene su largo, color de pelo, raza, nombre, etc. Ellos constituyen {color}atributos{/color} de la {color=#ff0}clase perro{/color}."
-    h ''
+    h 'Algunas actividades solamente pueden ser por las instancias de una clase. Por ejemplo, los cirujanos pueden operar a los pacientes, los perros ladran, el conductor de un vehículo pero ningún otro tripulante puede hacer eso.'
+    h "Las actividades que {color=#ff0}SOLAMENTE PUEDEN SER REALIZADA POR UNA INSTANCIA DE UNA CLASE{/color} se llaman {color=#ff0}métodos{/color}"
+    h "Los métodos de una clase no son más que {color=#ff0}funciones{/color} que {color=#ff0}solamente pueden ser ejecutadas por una instancia de una clase{/color}"
+    h "En Python, los métodos se definen dentro de un bloque que define la clase"
+    consola '{color=#f0f}#Por ejemplo{/color}\nclass Perro:\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+    h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
+    h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(atributo1, atributo2, atributo 3, ... atributo n):{/color}"
+    consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
     return
 return
