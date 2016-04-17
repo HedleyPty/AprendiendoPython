@@ -1,21 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 67, in <module>
-    $ persisten.console_=False
-NameError: name 'persisten' is not defined
+  File "game/script.rpy", line 66, in script call
+    menu:
+  File "game/script.rpy", line 1524, in script
+    jump clases2
+ScriptError: could not find label 'clases2'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 67, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 806, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1577, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 67, in <module>
-    $ persisten.console_=False
-NameError: name 'persisten' is not defined
+  File "game/script.rpy", line 66, in script call
+    menu:
+  File "game/script.rpy", line 1524, in script
+    jump clases2
+  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1520, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/home/hedley/Documents/renpy/renpy/script.py", line 843, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'clases2'.
 
 Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
 Ren'Py 6.99.10.1227

@@ -1481,17 +1481,57 @@ label funq2:
             renpy.jump('funq2')
             error = "No has introducido ningún número válido"
 label clases1:
-    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métods{/color}{/size}" at top
+    show text "{size=40}{color=#000}Capítulo siete\n\n\nLas clases y los métodos{/color}{/size}" at top
     show python_logo
     h "Vamos a finalizar hablando de las clases en Python"
     h "Las clases son una implementación de la abstracción en cualquier lenguaje de programación, incluido Python"
-    h "Las clases se crean mediante la palabra reservada {color=#ff0}class{/color}"
-    h "Vamos a crear una clase abstracción del jugador de otro proyecto"
-    #menu:
-     #   consola '#¿Cuál de las siguientes afirmaciones es ciertas?\nclass Jugador():\n\ \ \ \ def __init__(nombre, vidas, capituloActual):\n\ \ \ \ \ \ \ \ self.vidas=7'
-      #  "El nombre del jugador predeterminado es Juan":
-       # "El jugador tiene 7 vidas":
-        #"La función tiene 3 argumentos":
-        
-    #h ""
+    h 'Habíamos visto algo de las abstracciones en el capítulo 2, pero ahora que tenemos más herramientas podemos ahondar en el tema'
+    h "Vamos a pensar en el concepto de \"animal\", y preguntarnos {color=#ff0}¿Qué es un animal?{/color}"
+    h "Los animales son seres vivos, heterótrofos (que comen otros seres vivos), en general capaz de moverse donde quieran,\ncuentan con una serie de órganos."
+    h "Es {color=#ff0}IMPOSIBLE{/color} saber lo que {color=#ff0}es{/color} un animal, pero más bien ponemos ciertos seres vivos (águila, anguila, perro, esponja, etc) dentro de esa categoría"
+    h "Aunque suene un poco extraño lo que digo, pero la idea es que la palabra {color=ff0}animal{/color} corresponde a un grupo de individuos que comparten una característica común."
+    h "Palabras como {color=#ff0}varón{/color}, {color=#ff0}vaso{/color}, {color=#ff0}flor{/color} o {color=#ff0}casa{/color} son exactamente lo mismo..."
+    h 'La idea de crear un objeto que representa un objeto real en un sistema simulado como lo es un programa se denomina "abstracción"'
+    h 'Las ideas que representas esos objetos se llaman {color=#ff0}clases{/color}'
+    h "La representación de un individuo en una simulación se le llama {color=#ff0}instancia{/color} o {color=#ff0}instancia de una clase{/color}."
+    h "Podemos pensar en una clase como los {color=#ff0}planos de una casa{/color} y la instacia como la {color=#ff0}casa ya construída{/color}."
+    h "Las clases tienen {color=#ff0}atributos{/color}, los cuales son características que describen a un objeto de una clase particular.\nUn perro tiene su largo, color de pelo, raza, nombre, etc. Ellos constituyen {color=#ff0}atributos{/color} de la {color=#ff0}clase perro{/color}."
+    h 'Algunas actividades solamente pueden ser por las instancias de una clase. Por ejemplo, los cirujanos pueden operar a los pacientes, los perros ladran, el conductor de un vehículo pero ningún otro tripulante puede hacer eso.'
+    h "Las actividades que {color=#ff0}SOLAMENTE PUEDEN SER REALIZADA POR UNA INSTANCIA DE UNA CLASE{/color} se llaman {color=#ff0}métodos{/color}"
+    h "Los métodos de una clase no son más que {color=#ff0}funciones{/color} que {color=#ff0}solamente pueden ser ejecutadas por una instancia de una clase{/color}"
+    h "En Python, los métodos se definen dentro de un bloque que define la clase"
+    consola '{color=#f0f}#Por ejemplo{/color}\nclass Perro:\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+    h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
+    h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(atributo1, atributo2, atributo 3, ... atributo n):{/color}"
+    consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+    h "Veamos como inicializamos la clase pájaro"
+    python:
+        error=""
+        respuestas=["Pajaro", "__init__","especie" ,"peso", "vuelo" ]
+        preguntas=["#Vamos a crear una clase Pajaro\nclass ___:", 
+        "#Vamos a crear el metodo inicializador\nclass Parajo:\n    def _______():",
+        "#Vamos a crear los atributos especie \nclass Parajo:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---",
+        "#Vamos a crear los atributos peso \nclass Parajo:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---",
+        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Parajo:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____"]
+        counter=100
+label class_q1:
+    if counter==100:
+        $ counter=0
+    else:
+        if respuesta ==  respuestas[counter]:
+            $ counter += 1
+            if counter == 5:
+                jump clases2
+        else:
+            h "Eso no es correcto"
+    python:
+        encabezado = preguntas[counter]
+        #"[encabezado]"
+        respuesta=renpy.input(encabezado )
+        renpy.jump('class_q1')
+label clases2:
+    h "Para crear una instancia de una clase, debemos "
+    consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"\nlassie=Perro("negro", "Collie")'
+    
+    return
 return
