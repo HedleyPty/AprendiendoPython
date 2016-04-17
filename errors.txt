@@ -2,12 +2,14 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1519: expected statement.
-    counter=0
-           ^
+File "game/script.rpy", line 22: invalid syntax
+        def __init__(especie, peso vuelo=True):
+                                        ^
+    
 
-File "game/script.rpy", line 1522: expected statement.
-    counter += 1
-             ^
+File "game/script.rpy", line 1594: invalid syntax
+    pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]SSS
+                                                                                                        ^
+    
 
 Ren'Py Version: Ren'Py 6.99.10.1227

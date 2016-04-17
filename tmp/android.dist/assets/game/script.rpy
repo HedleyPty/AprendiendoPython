@@ -18,6 +18,16 @@ init python:
             return 1
         else:
             return n*factorial(n-1)
+    class Pajaro:
+        def __init__(especie, peso, vuelo=True):
+            self.especie=especie
+            self.peso=peso
+            self.vuelo=vuelo
+        def volar():
+            if self.vuelo:
+                return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal"
+            else:
+                return "Aunque tenga alas, esta ave no puede volar"
     
 image python_logo =Image("images/Python logo.png",xalign=0.5, yalign=0.5)
 image renpy_logo =Image("images/renpy logo.png", xalign=0.5, yalign=0.2)
@@ -60,7 +70,7 @@ label music_:
             $ renpy.music.set_volume(0.3, delay=0, channel='music')
             jump music_
         "Ninguno":
-            pass
+            $ musica = "Poofy Reel.mp3"
 label inicio:
     if persistent.console_:
         menu:
@@ -1500,7 +1510,7 @@ label clases1:
     h "Las actividades que {color=#ff0}SOLAMENTE PUEDEN SER REALIZADA POR UNA INSTANCIA DE UNA CLASE{/color} se llaman {color=#ff0}métodos{/color}"
     h "Los métodos de una clase no son más que {color=#ff0}funciones{/color} que {color=#ff0}solamente pueden ser ejecutadas por una instancia de una clase{/color}"
     h "En Python, los métodos se definen dentro de un bloque que define la clase"
-    consola '{color=#f0f}#Por ejemplo{/color}\nclass Perro:\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+    consola '{color=#f0f}#Por ejemplo{/color}\nclass Perro:\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"'
     h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
     h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(atributo1, atributo2, atributo 3, ... atributo n):{/color}"
     consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
@@ -1509,10 +1519,10 @@ label clases1:
         error=""
         respuestas=["Pajaro", "__init__","especie" ,"peso", "vuelo" ]
         preguntas=["#Vamos a crear una clase Pajaro\nclass ___:", 
-        "#Vamos a crear el metodo inicializador\nclass Parajo:\n    def _______():",
-        "#Vamos a crear los atributos especie \nclass Parajo:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---",
-        "#Vamos a crear los atributos peso \nclass Parajo:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---",
-        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Parajo:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____"]
+        "#Vamos a crear el metodo inicializador\nclass Pajaro:\n    def _______():",
+        "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---",
+        "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---",
+        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____"]
         counter=100
 label class_q1:
     if counter==100:
@@ -1530,8 +1540,60 @@ label class_q1:
         respuesta=renpy.input(encabezado )
         renpy.jump('class_q1')
 label clases2:
-    h "Para crear una instancia de una clase, debemos "
-    consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"\nlassie=Perro("negro", "Collie")'
-    
+    h "Para crear una instancia de una clase, debemos crear el nombre de la instancia, seguido del nombre de la clase, luego un par de paréntesis con los argumentos del método inicializador."
+    consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
+    h "Para invocar o cambiar las propiedades de una instancia simplemente debemos usar el punto"
+    consola 'lassie.color\n"negro"\nlassie.color="chocolate"\nlassie.color\n"chocolate"'
+    h "Para invocar los métodos, lo hacemos de una manera similar"
+    consola 'lassie.ladrar()\n"guau! guau!"'
+    h "Vamos a ver como crear una clase"
+    python:
+        respuesta=""
+label class_q2:
+    if respuesta:
+        if re.match(r'peng *= *Pajaro *\( *(especie *= *)?\"pingüino\" *, *(peso *= *)?6 *, *(vuelo *= *)?False *\)', respuesta):
+            jump class3
+        else:
+            h "Eso no es correcto!"
+    python:
+        #"[encab
+        respuesta=renpy.input("#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo" )
+        renpy.jump('class_q2')
+label class3:
+    h "Ahora vamos a ver los métodos"
+    h "Vamos a ver la clase Pajaro del ejercicio anterior y vamos a crear el método volar"
+    python:
+        espec=""
+        pes=None
+        vuel=""
+        vuela=""
+        counter=0
+        pr = ["¿Qué especie es el ave?", "¿Cuánto pesa?", "¿Puede volar?"]
+label class_q3:
+    if counter == 3:
+        python:
+            pajaro=Pajaro(espec, pes, vuel)
+            vuela=pajaro.volar()
+        h "[vuela]"
+        jump class4
+    else:
+        if counter==0 and respuesta:
+            $ counter = 1
+        if counter == 1:
+            if re.match("\\d", respuesta):
+                $ counter+=1
+            else:
+                h "No puedes dar una respuesa que no sea un número"
+        if counter == 2:
+            if re.match("[Ss][ií]", respuesta):
+                $ counter=3
+            elif re.match("[Nn]o", respuesta):
+                $ counter=3
+            else:
+                h "Esa respuesta no es válida"
+    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]
+    $respuesta=renpy.input(pregunta)
+    jump class_q3
+label class4:
     return
 return
