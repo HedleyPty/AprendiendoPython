@@ -2,14 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 22: invalid syntax
-        def __init__(especie, peso vuelo=True):
-                                        ^
-    
-
-File "game/script.rpy", line 1594: invalid syntax
-    pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]SSS
-                                                                                                        ^
+File "game/script.rpy", line 1525: EOL while scanning string literal
+(Perhaps you left out a " at the end of the first line.)
+            "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---\n\n\n\n\",
+                                                                                                                                                                                     ^
     
 
 Ren'Py Version: Ren'Py 6.99.10.1227

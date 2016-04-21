@@ -284,8 +284,10 @@ label q6:
                     organo = check_organ
                 if counter < 3:
                     $cabecera = "Qué órgano sigue a la "+ organo
-                else:
+                elif counter <7:
                     $cabecera="Qué órgano sigue al " + organo
+                else:
+                    $cabecera=""
             else:
                 if counter > 0 and counter < 6:
                     h "{color=#f00}Ese órgano no es el que sigue!{/color}"
@@ -462,12 +464,12 @@ label n7:
 label q10:
     $cont="Cree la variable segun las instrucciones"
     if respuesta:
-        if respuesta == "peso_Varon = 70":
+        if re.match(r"peso_Varon *= *70",respuesta):
             h "CORRECTO!"
             jump n8
         h "Opa! eso no es correcto"
         
-    $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\nDeje un espacio a cada lado del signo de asignación")
+    $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\n\n\n\n\n")
     jump q10
     
 label n8:
@@ -1391,7 +1393,7 @@ label funciones1:
     h "Se les mostrará el código fuente y con presionar F5, se ejecutará"
     h "Vamos a modificar un poquito para mostrarle como usar los argumentos"
     h "Vamos a llamar este nuevo archivo semaforo2.py"
-    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\nx=randint(0,1)\ndef semaforo(x):\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo(x)"
+    consola "# -*- coding: utf-8 -*-\n#El comentario de arriba es necesario para usar tildes y la ñ\n#Esta línea importa la función randint del módulo random\nfrom random import randint\n#Luego creamos una función llamada semáforo\nx=randint(0,1)\ndef semaforo():\n\ \ \ \ if x:\n\ \ \ \ \ \ \ \ print \"El carro avanza\"\n\ \ \ \ else:\n\ \ \ \ \ \ \ \ print \"El carro se detiene\"\nsemaforo()"
     h 'Si corremos semaforo2.py tendremos un error, debido a problemas con el {color=#ff0}ámbito{/color} llamado en inglés "{color=#ff0}scope{/color}".'
     h "Dentro de una función, los argumentos y cada una de las variables tienen un {color=#ff0}ámbito local{/color}\nestas variables solamente existen DENTRO de la función"
     h "Fuera de este {color=#ff0}ámbito local{/color}, ¡ninguno de estos elementos existen!"
@@ -1519,10 +1521,10 @@ label clases1:
         error=""
         respuestas=["Pajaro", "__init__","especie" ,"peso", "vuelo" ]
         preguntas=["#Vamos a crear una clase Pajaro\nclass ___:", 
-        "#Vamos a crear el metodo inicializador\nclass Pajaro:\n    def _______():",
-        "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---",
-        "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---",
-        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____"]
+        "#Vamos a crear el metodo inicializador\nclass Pajaro:\n    def _______():\n\n\n\n",
+        "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---\n\n\n\n",
+        "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---\n\n\n\n",
+        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____\n\n\n\n"]
         counter=100
 label class_q1:
     if counter==100:
@@ -1591,7 +1593,7 @@ label class_q3:
                 $ counter=3
             else:
                 h "Esa respuesta no es válida"
-    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]
+    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
     $respuesta=renpy.input(pregunta)
     jump class_q3
 label class4:
