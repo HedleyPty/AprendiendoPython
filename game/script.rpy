@@ -72,6 +72,7 @@ label music_:
         "Ninguno":
             $ musica = "Poofy Reel.mp3"
 label inicio:
+    show screen _music
     if persistent.console_:
         menu:
             "Deseas comenzar desde el principio o quieres que conversermos acerca de las variables"
@@ -87,7 +88,7 @@ label inicio_:
     #textbutton "Music" action Show("_music") 
     show python_logo at truecenter
     show text "{color=#000000}Logo de Python{/color}" at subtitle
-    show screen _music
+    
     h "Saludos a todos, me llamo Hedley!"
     h "Soy un médico gradudado de la Universidad de Panamá, tengo una maestría en Biología molecular y estoy estudiando un doctorado en epidemiología en el Instituto Karolinska"
     h "No se si sea el más adecuado, pero les voy a enseñar lo poco que sé de Python"
@@ -945,7 +946,7 @@ label n17:
     h "En variables numéricas es creo que obvio"
     consola "{color=#f0f}#Es bastante claro como funciona \"es igual a\" con números{/color}\n2{color=#ff0}=={/color}2\nTrue\n5{color=#ff0}=={/color}4\nFalse"
     consola "{color=#f0f}#Es bastante claro como funciona \"no es igual a\" con números{/color}\n2{color=#ff0}!={/color}2\nFalse\n5{color=#ff0}!={/color}4\nTrue"
-    consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}{/color}4\nTrue"
+    consola "{color=#f0f}#Aquí vemos al \"mayor que\" con números{/color}\n2{color=#ff0}>{/color}2\nFalse\n5{color=#ff0}>{/color}4\nTrue"
     consola "{color=#f0f}#y acá vemos al \"menor que\" con números{/color}\n2{color=#ff0}<{/color}2\nFalse\n5{color=#ff0}<{/color}4\nFalse"
     consola "{color=#f0f}#seguimos con el \"mayor o igual a\" con números{/color}\n2{color=#ff0}>={/color}2\nTrue\n5{color=#ff0}>={/color}4\nTrue"
     consola "{color=#f0f}#y terminamos con el \"menor o igual a\" con números{/color}\n2{color=#ff0}<={/color}2\nTrue\n5{color=#ff0}<={/color}4\nFalse"
@@ -1114,13 +1115,13 @@ label n19:
     h "Para modificar un elemento de una lista, basta y sobra con asignarle el valor al elemento usando el índice"
     consola '{color=#f0f}#Veamos cambiar el valor de "Maestro Rochi" a "Mr Rochi"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores\[1\]="Mr. Rochi"\nProfesores\n\["Profesor Jirafales", "Mr. Rochi", "Sir. Mark Thackeray"\]'
     h "Para añadir un elemento al final de la lista usamos la función append.\nPara usar esta función ponemos el nombre de variable con la lista, un punto, luego la palabra append y finalmente entre paréntesis lo que queremos añadir al final de la lista"
-    consola '{color=#f0f}#Veamos añadir al profesor "Saitama al final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores.append("Saitama)"\nProfesores\[-1\]\n"Saitama"'
+    consola '{color=#f0f}#Veamos añadir al profesor "Saitama al final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray"\]\nProfesores.append("Saitama")\nProfesores\[-1\]\n"Saitama"'
     h "La función pop sin argumentos (lo que está entre paréntesis está vacío) elimina el último elemento de la lista y devuelve dicho elemento"
     h "Podemos eliminar de la lista "
-    consola '{color=#f0f}#Veamos eliminar al profesor "Saitama del final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nProfesores.pop()"\nProfesores\[-1\]\n"Sir. Mark Thackeray"'
-    consola '{color=#f0f}#Podemos con la función pop guardar el elemento eliminado en una variable"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nElMasPoderoso = Profesores.pop()"\nProfesores\[-1\]\n"Sir. Mark Thackeray"\nElMasPoderoso\n"Saitama"'
+    consola '{color=#f0f}#Veamos eliminar al profesor "Saitama del final de la lista"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nProfesores.pop()\nProfesores\[-1\]\n"Sir. Mark Thackeray"'
+    consola '{color=#f0f}#Podemos con la función pop guardar el elemento eliminado en una variable"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nElMasPoderoso = Profesores.pop()\nProfesores\[-1\]\n"Sir. Mark Thackeray"\nElMasPoderoso\n"Saitama"'
     h "La función pop con un argumentos numérico elimina el elemento de la lista con ese índice y devuelve dicho elemento"
-    consola '{color=#f0f}#Podemos con la función pop con argumento"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nMeCaeMal = Profesores.pop(0)"\nProfesores\[0\]\n"Maestro Rochi"'
+    consola '{color=#f0f}#Podemos con la función pop con argumento"{/color}\nProfesores=\["Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama"\]\nMeCaeMal = Profesores.pop(0)\nProfesores\[0\]\n"Maestro Rochi"'
     h "Podemos saber además cuantos elementos tiene una lista o un tuplo con la funcion len y entre paréntesis el nombre de la lista"
     consola '{color=#f0f}#Vamos a usar la función len"{/color}\nProfesores=("Profesor Jirafales", "Maestro Rochi",\n"Sir. Mark Thackeray", "Saitama")\nlen(Profesores)\n4'
     h "El diccionario no tiene ningún orden al ser invocado, pero en lugar de índices, usa {color=#ff0}claves{/color} de tipo cadena para seleccionar y al igual que la lista sus elementos pueden ser modificados"
@@ -1314,7 +1315,7 @@ label qChino1:
             jump qChino1
             $ error="Eso no es correcto, el operador de la división permite calcular eso, pero es muy complicado"
 label q24:
-    show python_logo at truecenter
+    #show python_logo at truecenter
     show text "{size=40}{color=#000}Capítulo cinco\n\n\nLos operadores lógicos y el control de flujo{/color}{/size}" at top
     $ signos_Chinos= ["mono", "gallo", "perro", "cerdo","rata", "buey", "tigre", "conejo", "dragón", "serpiente", "caballo", "cabra" ]
     
