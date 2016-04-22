@@ -19,7 +19,7 @@ init python:
         else:
             return n*factorial(n-1)
     class Pajaro:
-        def __init__(especie, peso, vuelo=True):
+        def __init__(self,especie, peso, vuelo=True):
             self.especie=especie
             self.peso=peso
             self.vuelo=vuelo
@@ -1566,6 +1566,7 @@ label class3:
     h "Ahora vamos a ver los métodos"
     h "Vamos a ver la clase Pajaro del ejercicio anterior y vamos a crear el método volar"
     python:
+        respuesta=''
         espec=""
         pes=None
         vuel=""
@@ -1580,13 +1581,18 @@ label class_q3:
         h "[vuela]"
         jump class4
     else:
-        if counter==0 and respuesta:
-            $ counter = 1
+        if counter==0 and respuesta!='':
+            if respuesta!='':
+                $ counter = 1
+             else:
+                h "Debes poner algo"
+                jump class_q3
         if counter == 1:
             if re.match("\\d", respuesta):
                 $ counter+=1
             else:
                 h "No puedes dar una respuesa que no sea un número"
+                jump class_q3
         if counter == 2:
             if re.match("[Ss][ií]", respuesta):
                 $ counter=3
@@ -1594,6 +1600,7 @@ label class_q3:
                 $ counter=3
             else:
                 h "Esa respuesta no es válida"
+                jump class_q3
     $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
     $respuesta=renpy.input(pregunta)
     jump class_q3

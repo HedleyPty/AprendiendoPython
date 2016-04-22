@@ -2,10 +2,6 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1525: EOL while scanning string literal
-(Perhaps you left out a " at the end of the first line.)
-            "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---\n\n\n\n\",
-                                                                                                                                                                                     ^
-    
+File "game/script.rpy", line 1587: indentation mismatch.
 
-Ren'Py Version: Ren'Py 6.99.10.1227
+Ren'Py Version: Ren'Py 6.99.9.1168

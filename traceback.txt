@@ -1,25 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1521, in <module>
-    if respuesta ==  respuestas[counter]:
+  File "game/script.rpy", line 1598, in <module>
+    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
 IndexError: list index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 66, in script call
-  File "/home/hedley/script.rpyc", line 1521, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 1648, in execute
-    if renpy.python.py_eval(condition):
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1606, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1601, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1521, in <module>
-    if respuesta ==  respuestas[counter]:
+  File "C:/Windows/system32/script.rpyc", line 1598, in script
+  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 806, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\hequin\Documents\renpy\renpy\python.py", line 1461, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 1598, in <module>
+    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
 IndexError: list index out of range
 
-Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
-Ren'Py 6.99.10.1227
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.9.1168
 Programar con Python 0.0
