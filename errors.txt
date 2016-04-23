@@ -2,6 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1587: indentation mismatch.
+File "game/script.rpy", line 1577: expected statement.
+    counter=0
+           ^
 
-Ren'Py Version: Ren'Py 6.99.9.1168
+File "game/script.rpy", line 1589: expected statement.
+    counter=2
+           ^
+
+Ren'Py Version: Ren'Py 6.99.10.1227

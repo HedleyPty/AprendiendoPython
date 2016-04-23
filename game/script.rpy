@@ -23,9 +23,9 @@ init python:
             self.especie=especie
             self.peso=peso
             self.vuelo=vuelo
-        def volar():
+        def volar(self):
             if self.vuelo:
-                return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal"
+                return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal a pesar de pesar "+self.peso
             else:
                 return "Aunque tenga alas, esta ave no puede volar"
     
@@ -1515,17 +1515,17 @@ label clases1:
     h "En Python, los métodos se definen dentro de un bloque que define la clase"
     consola '{color=#f0f}#Por ejemplo{/color}\nclass Perro:\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"'
     h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
-    h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(atributo1, atributo2, atributo 3, ... atributo n):{/color}"
-    consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+    h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(self, atributo1, atributo2, atributo 3, ... atributo n):{/color}"
+    consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(self, color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
     h "Veamos como inicializamos la clase pájaro"
     python:
         error=""
         respuestas=["Pajaro", "__init__","especie" ,"peso", "vuelo" ]
         preguntas=["#Vamos a crear una clase Pajaro\nclass ___:", 
         "#Vamos a crear el metodo inicializador\nclass Pajaro:\n    def _______():\n\n\n\n",
-        "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---\n\n\n\n",
-        "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---\n\n\n\n",
-        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____\n\n\n\n"]
+        "#Vamos a crear los atributos especie \nclass Pajaro:\n    def __init__(self, ____, ---, ---):\n        self.____=____\n        self.---=_---\n        self.---=_---\n\n\n\n",
+        "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(self,especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---\n\n\n\n",
+        "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(self,especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____\n\n\n\n"]
         counter=100
 label class_q1:
     if counter==100:
@@ -1544,7 +1544,7 @@ label class_q1:
         renpy.jump('class_q1')
 label clases2:
     h "Para crear una instancia de una clase, debemos crear el nombre de la instancia, seguido del nombre de la clase, luego un par de paréntesis con los argumentos del método inicializador."
-    consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
+    consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(self,color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
     h "Para invocar o cambiar las propiedades de una instancia simplemente debemos usar el punto"
     consola 'lassie.color\n"negro"\nlassie.color="chocolate"\nlassie.color\n"chocolate"'
     h "Para invocar los métodos, lo hacemos de una manera similar"
@@ -1569,41 +1569,61 @@ label class3:
         respuesta=''
         espec=""
         pes=None
-        vuel=""
         vuela=""
-        counter=0
-        pr = ["¿Qué especie es el ave?", "¿Cuánto pesa?", "¿Puede volar?"]
+        counter=1000
+        pr = ["¿Qué especie es el ave?", "¿Cuántos kilogramos pesa?", "¿Puede volar?"]
 label class_q3:
-    if counter == 3:
-        python:
-            pajaro=Pajaro(espec, pes, vuel)
-            vuela=pajaro.volar()
-        h "[vuela]"
-        jump class4
+    if counter==1000:
+        $ counter=0
     else:
-        if counter==0 and respuesta!='':
-            if respuesta!='':
-                $ counter = 1
-             else:
-                h "Debes poner algo"
-                jump class_q3
-        if counter == 1:
-            if re.match("\\d", respuesta):
-                $ counter+=1
+        if counter==0:
+            if respuesta == "":
+                h "Debes escribir algo"
             else:
-                h "No puedes dar una respuesa que no sea un número"
-                jump class_q3
-        if counter == 2:
-            if re.match("[Ss][ií]", respuesta):
-                $ counter=3
-            elif re.match("[Nn]o", respuesta):
-                $ counter=3
+                $ counter=1
+                $ espec=str(respuesta)
+        elif counter==1:
+            if re.match(u'\\d+', respuesta):
+                python:
+                    pes=int(respuesta)
+                    counter=2
             else:
-                h "Esa respuesta no es válida"
-                jump class_q3
+                h "Debes escribir un numero entero"
+        elif counter == 2:
+            if re.match(r'([Ss][ií]|[Nn]o)', respuesta):
+                python:
+                    if re.match(r'[Nn]o', respuesta):
+                        vuel=False
+                    p = Pajaro(espec,pes,vuel)
+                    ejempl = p.volar()
+                h "[ejempl]"
+                jump class4
+            else:
+                h "Ese valor no es válidos"
+                
     $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
-    $respuesta=renpy.input(pregunta)
+    $ respuesta=renpy.input(pregunta)
     jump class_q3
 label class4:
-    return
+    h "Ahora vamos a hablar un poco de la palabra reservada {color=#ff0}import{/color}"
+    h "Por ejemplo para saber el valor de pi"
+    consola "import math\nmath.pi\n3.141592653589793"
+    h "Vamos a tomar la palabra {color=#ff0}import{/color} desde otro ángulo"
+    h "Vamos a crear un archivo llamado ejemplo.py y dentro de éste vamos a crear la función hola"
+    h '#Es decir\ndef hola():\n \ \ \ \ print "Hola mundo"'
+    h "Al cerrar el archivo y ejecutarlo con el IDLE en Windows o usando el comando python ejemplo.py veremos que no hace nada"
+    h "Eso se debe a que a pesar que creamos una función, no la estamos invocando"
+    h "Dentro del mismo directorio vamos a crear otro archivo llamado ejemplo2.py"
+    h "En ese archivo vamos a invocar el {color=#ff0}hola(){/color} que creamos en el archivo {color=#ff0}ejemplo.py{/color}"
+    h '#Es decir\nimport ejemplo\nejemplo.hola()'
+    h "Al correr el archivo ejemplo2 desde el IDLE o en la línea de comandos python ejemplo2.py, vemos que el archivo muestra nuestro querido hola mundo"
+    h "La comunicación entre archivos es vital para crear proyectos complejos y {color=#ff0}encapsular{/color} los componentes de un script al otro"
+    h "Ahora vamos a crear un directorio dentro del directorio donde se encuentra ejemplo2.py"
+    h "Puedes llamarlo como quieras, pero yo lo voy a llamar {color=#ff0}dir{/color} y voy a mover ejemplo.py allí"
+    h "Dentro de ese directorio vamos a crear un archivo llamado {color=#ff0}__init_.py{/color} que NO DEBE CONTENER NADA"
+    h "#Luego solamente modificamos la línea del import del archivo ejemplo2.py asi\nfrom dir import ejemplo"
+    h "Y bualá tenemos el mismo resultado al ejecutar ejemplo2.py"
+    h "La idea de usar subdirectorios, sirve para organizar las partes dentro del proyecto"
+    
+    
 return
