@@ -265,9 +265,9 @@ release:
       [dex] Using Pre-Dexed amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar <- /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
       [dex] Found modified input file
       [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
-       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/87.9KiB). Result is 123 defs/209.3KiB. Took 4.2s
-       [dx] Merged dex A (123 defs/209.3KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/298.7KiB. Took 2.9s
-       [dx] Merged dex A (148 defs/298.7KiB) with dex B (90 defs/79.8KiB). Result is 238 defs/489.4KiB. Took 0.6s
+       [dx] Merged dex A (76 defs/90.2KiB) with dex B (47 defs/87.9KiB). Result is 123 defs/209.3KiB. Took 2.0s
+       [dx] Merged dex A (123 defs/209.3KiB) with dex B (25 defs/35.5KiB). Result is 148 defs/298.7KiB. Took 0.7s
+       [dx] Merged dex A (148 defs/298.7KiB) with dex B (90 defs/79.8KiB). Result is 238 defs/489.4KiB. Took 0.2s
 
 -crunch:
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
@@ -303,8 +303,28 @@ release:
 
 release:
 
+install:
+     [echo] Installing /home/hedley/Documents/renpy/rapt/bin/AprendiendoPythonparahispanohablantes-1.0-release.apk onto default emulator or device...
+     [exec] 342 KB/s (20165511 bytes in 57.563s)
+     [exec] * daemon not running. starting it now on port 5037 *
+     [exec] * daemon started successfully *
+     [exec] 	pkg: /data/local/tmp/AprendiendoPythonparahispanohablantes-1.0-release.apk
+     [exec] Success
+
 BUILD SUCCESSFUL
-Total time: 55 seconds
+Total time: 1 minute 50 seconds
+
+
+
+
+Launching app.
+Starting: Intent { act=android.intent.action.MAIN cmp=com.hedleypanama/org.renpy.android.PythonSDLActivity }
+Status: ok
+Activity: com.hedleypanama/org.renpy.android.PythonSDLActivity
+ThisTime: 317
+TotalTime: 317
+WaitTime: 546
+Complete
 
 
 

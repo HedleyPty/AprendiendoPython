@@ -25,7 +25,7 @@ init python:
             self.vuelo=vuelo
         def volar(self):
             if self.vuelo:
-                return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal a pesar de pesar "+self.peso
+                return "El ave de la especie " + self.especie+" surca los cielos como ningun otro animal a pesar de pesar "+str(self.peso) + "kilogramos."
             else:
                 return "Aunque tenga alas, esta ave no puede volar"
     
@@ -352,13 +352,14 @@ label python_:
     h "Si estás corriendo esto en Android hay 2 maneras de correr Python"
     h "la forma \"difícil\" que es instalando una aplicación de terminal e instalando Python desde allí (por cierto este método ocupa mucho espacio en el celular)"
     h "O bajando el app \"QPython\", el cual le va a dar los elementos necesarios para correr python en su teléfono inteligente o tableta"
-    h "En este momento vamos a acceder a las opcones del desarrollador, las cuales nos van a permitir acceder a la consola de Python en Windows, Mac y en Linux."
-    h "Sin embargo, si usas Android eso no es posible"
+    
     label OS:
         if renpy.android:
+            h "Las opciones del desarrollador de Ren'py nos permiten acceder a la consola de Python en Windows, Mac y en Linux."
             h "Las opciones del desarrollador no estan disponibles para Android"
             h "Debes installar este programa en una computadora de escritorio o una laptop"
         elif not persistent.console:
+            h "En este momento vamos a acceder a las opciones del desarrollador, las cuales nos van a permitir acceder a la consola de Python en Windows, Mac y en Linux."
             h "Estás a punto de abrir las opciones del desarrollador"
             h 'Aunque suene trillado: "Un gran poder trae una gran responsabilidad"'
             h "Por favor {color=#f00}JAMÁS CREE UNA VARIABLE CON EL MISMO NOMBRE DE UNA QUE YA EXISTE, A MENOS QUE LE ASI SE LO INDIQUE{/color}\nDe lo contrario, puede romper este programa"
@@ -469,8 +470,12 @@ label q10:
             h "CORRECTO!"
             jump n8
         h "Opa! eso no es correcto"
-        
-    $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\n\n\n\n\n")
+    if renpy.android:
+        show text "{color=#000}Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg{/color}" at truecenter
+        $ respuesta=renpy.input("")
+        hide text
+    else:
+        $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg")
     jump q10
     
 label n8:
@@ -1252,10 +1257,15 @@ label q23:
         h "Como es este caso particular"
         h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi\%C3\%B3n_regular}wikipedia{/a}"
         h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
+    if renpy.android:
+        show text "{color=#000}¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo" at truecenter
+        $ nac = renpy.input("")
+        hide text
+    else:
+        python:
+            nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
+    $nac=nac.strip()
     python:
-        nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
-        nac=nac.strip()
-        
         if re.search("((19[5-9]|20[01])\d)",nac):
             nac = int(nac)
             if not nac in lista_Anos:
@@ -1474,9 +1484,15 @@ label funciones2:
 label funq2:
     if bad_data:
         h "[error]"
-    $ nac = renpy.input("Dame un numero y te calcularé el factorial de ese número\nNo escribas un número mayor de 100")
-    $ nac=nac.strip()
+    if renpy.android:
+        show text "{color=#000}Dame un número y te calcularé el factorial de ese número\nNo escribas un número mayor de 100"
+        $ nac = renpy.input("")
+        hide text
+    else:
+        $ nac = renpy.input("Dame un número y te calcularé el factorial de ese número\nNo escribas un número mayor de 100")
         
+    $ nac=nac.strip()
+
     if re.search("\d*",nac):
         $ nac = long(nac)
         if nac < 100:
@@ -1537,11 +1553,14 @@ label class_q1:
                 jump clases2
         else:
             h "Eso no es correcto"
-    python:
-        encabezado = preguntas[counter]
-        #"[encabezado]"
-        respuesta=renpy.input(encabezado )
-        renpy.jump('class_q1')
+    $encabezado = preguntas[counter]
+    if renpy.android:
+        show text "{color=#000}[encabezado]" at top
+        $respuesta = renpy.input()
+        hide text
+    else:
+        $respuesta=renpy.input(encabezado )
+        jump class_q1
 label clases2:
     h "Para crear una instancia de una clase, debemos crear el nombre de la instancia, seguido del nombre de la clase, luego un par de paréntesis con los argumentos del método inicializador."
     consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(self,color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
@@ -1558,10 +1577,13 @@ label class_q2:
             jump class3
         else:
             h "Eso no es correcto!"
-    python:
-        #"[encab
-        respuesta=renpy.input("#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo" )
-        renpy.jump('class_q2')
+    if renpy.android:
+        show text "{color=#000}#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo" at top
+        $respuesta = renpy.input()
+        hide text
+    else:
+        $respuesta=renpy.input("#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo")
+    jump class_q2
 label class3:
     h "Ahora vamos a ver los métodos"
     h "Vamos a ver la clase Pajaro del ejercicio anterior y vamos a crear el método volar"
@@ -1594,6 +1616,8 @@ label class_q3:
                 python:
                     if re.match(r'[Nn]o', respuesta):
                         vuel=False
+                    else:
+                        vuel=True
                     p = Pajaro(espec,pes,vuel)
                     ejempl = p.volar()
                 h "[ejempl]"
@@ -1601,8 +1625,13 @@ label class_q3:
             else:
                 h "Ese valor no es válidos"
                 
-    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]+"\n\n\n\n"
-    $ respuesta=renpy.input(pregunta)
+    $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]
+    if renpy.android:
+        show text "{color=#000}[pregunta]" at truecenter
+        $ respuesta = renpy.input()
+        hide text
+    else:
+        $ respuesta=renpy.input(pregunta)
     jump class_q3
 label class4:
     h "Ahora vamos a hablar un poco de la palabra reservada {color=#ff0}import{/color}"
@@ -1614,7 +1643,7 @@ label class4:
     h "Al cerrar el archivo y ejecutarlo con el IDLE en Windows o usando el comando python ejemplo.py veremos que no hace nada"
     h "Eso se debe a que a pesar que creamos una función, no la estamos invocando"
     h "Dentro del mismo directorio vamos a crear otro archivo llamado ejemplo2.py"
-    h "En ese archivo vamos a invocar el {color=#ff0}hola(){/color} que creamos en el archivo {color=#ff0}ejemplo.py{/color}"
+    h "En ese archivo vamos a invocar la función {color=#ff0}hola(){/color} que creamos en el archivo {color=#ff0}ejemplo.py{/color}"
     h '#Es decir\nimport ejemplo\nejemplo.hola()'
     h "Al correr el archivo ejemplo2 desde el IDLE o en la línea de comandos python ejemplo2.py, vemos que el archivo muestra nuestro querido hola mundo"
     h "La comunicación entre archivos es vital para crear proyectos complejos y {color=#ff0}encapsular{/color} los componentes de un script al otro"
@@ -1624,6 +1653,7 @@ label class4:
     h "#Luego solamente modificamos la línea del import del archivo ejemplo2.py asi\nfrom dir import ejemplo"
     h "Y bualá tenemos el mismo resultado al ejecutar ejemplo2.py"
     h "La idea de usar subdirectorios, sirve para organizar las partes dentro del proyecto"
-    
+    h "¿Recuerdan que hable de las piezas de un sistema?"
+    return
     
 return
