@@ -540,86 +540,12 @@ def mutator(method):
         mutated = renpy.game.log.mutated #@UndefinedVariable
 
         if id(self) not in mutated:
-            mutated[id(self)] = ( weakref.ref(self), self._clean())
+            mutated[id(self)] = ( weakref.ref(self), self.get_rollback())
             mutate_flag = True
 
         return method(self, *args, **kwargs)
 
     return do_mutation
-
-
-class CompressedList(object):
-    """
-    Compresses the changes in a queue-like list. What this does is to try
-    to find a central sub-list for which has objects in both lists. It
-    stores the location of that in the new list, and then elements before
-    and after in the sub-list.
-
-    This only really works if the objects in the list are unique, but the
-    results are efficient even if this doesn't work.
-    """
-
-    def __init__(self, old, new):
-
-        # Pick out a pivot element near the center of the list.
-        new_center = (len(new) - 1) // 2
-        new_pivot = new[new_center]
-
-        # Find an element in the old list corresponding to the pivot.
-        old_half = (len(old) - 1) // 2
-
-        for i in range(0, old_half + 1):
-
-            if old[old_half - i] is new_pivot:
-                old_center = old_half - i
-                break
-
-            if old[old_half + i] is new_pivot:
-                old_center = old_half + i
-                break
-        else:
-            # If we couldn't, give up.
-            self.pre = old
-            self.start = 0
-            self.end = 0
-            self.post = [ ]
-
-            return
-
-        # Figure out the position of the overlap in the center of the two lists.
-        new_start = new_center
-        new_end = new_center + 1
-
-        old_start = old_center
-        old_end = old_center + 1
-
-        len_new = len(new)
-        len_old = len(old)
-
-        while new_start and old_start and (new[new_start - 1] is old[old_start - 1]):
-            new_start -= 1
-            old_start -= 1
-
-        while (new_end < len_new) and (old_end < len_old) and (new[new_end] is old[old_end]):
-            new_end += 1
-            old_end += 1
-
-        # Now that we have this, we can put together the object.
-        self.pre = old[0:old_start]
-        self.start = new_start
-        self.end = new_end
-        self.post = old[old_end:]
-
-    def decompress(self, new):
-        return self.pre + new[self.start:self.end] + self.post
-
-    def __repr__(self):
-        return "<CompressedList {} [{}:{}] {}>".format(
-            self.pre,
-            self.start,
-            self.end,
-            self.post)
-
 
 class RevertableList(list):
 
@@ -657,42 +583,11 @@ class RevertableList(list):
 
     del wrapper
 
-    def _clean(self):
-        """
-        Gets a clean copy of this object before any mutation occurs.
-        """
-
+    def get_rollback(self):
         return self[:]
 
-    def _compress(self, clean):
-        """
-        Takes a clean copy of this object, compresses it, and returns compressed
-        information that can be passed to rollback.
-        """
-
-        if not self or not clean:
-            return clean
-
-        if renpy.config.list_compression_length is None:
-            return clean
-
-        if len(self) < renpy.config.list_compression_length or len(clean) < renpy.config.list_compression_length:
-            return clean
-
-        return CompressedList(clean, self)
-
-    def _rollback(self, compressed):
-        """
-        Rolls this object back, using the information created by _compress.
-
-        Since compressed can come from a save file, this method also has to
-        recognize and deal with old data.
-        """
-
-        if isinstance(compressed, CompressedList):
-            self[:] = compressed.decompress(self)
-        else:
-            self[:] = compressed
+    def rollback(self, old):
+        self[:] = old
 
 def revertable_range(*args):
     return RevertableList(range(*args))
@@ -734,18 +629,14 @@ class RevertableDict(dict):
         rv.update(self)
         return rv
 
-    def _clean(self):
+    def get_rollback(self):
         return self.items()
 
-    def _compress(self, clean):
-        return clean
-
-    def _rollback(self, compressed):
+    def rollback(self, old):
         self.clear()
 
-        for k, v in compressed:
+        for k, v in old:
             self[k] = v
-
 
 class RevertableSet(sets.Set):
 
@@ -796,15 +687,12 @@ class RevertableSet(sets.Set):
 
     del wrapper
 
-    def _clean(self):
+    def get_rollback(self):
         return list(self)
 
-    def _compress(self, clean):
-        return clean
-
-    def _rollback(self, compressed):
+    def rollback(self, old):
         sets.Set.clear(self)
-        sets.Set.update(self, compressed)
+        sets.Set.update(self, old)
 
 
 class RevertableObject(object):
@@ -827,15 +715,12 @@ class RevertableObject(object):
     __setattr__ = mutator(__setattr__)
     __delattr__ = mutator(__delattr__)
 
-    def _clean(self):
+    def get_rollback(self):
         return self.__dict__.copy()
 
-    def _compress(self, clean):
-        return clean
-
-    def _rollback(self, compressed):
+    def rollback(self, old):
         self.__dict__.clear()
-        self.__dict__.update(compressed)
+        self.__dict__.update(old)
 
 
 ##### An object that handles deterministic randomness, or something.
@@ -1024,7 +909,7 @@ class Rollback(renpy.object.Object):
 
         for obj, roll in reversed(self.objects):
             if roll is not None:
-                obj._rollback(roll)
+                obj.rollback(roll)
 
         for name, changes in self.stores.iteritems():
             store = store_dicts.get(name, None)
@@ -1190,14 +1075,13 @@ class RollbackLog(renpy.object.Object):
                     if v is None:
                         continue
 
-                    (ref, clean) = v
+                    (ref, roll) = v
 
                     obj = ref()
                     if obj is None:
                         continue
 
-                    compressed = obj._compress(clean)
-                    self.current.objects.append((obj, compressed))
+                    self.current.objects.append((obj, roll))
 
                 break
 

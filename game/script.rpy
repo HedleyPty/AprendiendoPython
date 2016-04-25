@@ -1654,6 +1654,7 @@ label class4:
     h "Y bualá tenemos el mismo resultado al ejecutar ejemplo2.py"
     h "La idea de usar subdirectorios, sirve para organizar las partes dentro del proyecto"
     h "¿Recuerdan que hable de las piezas de un sistema?"
+    h "Podemos emular las relaciones entre las piezas del sistema mediante clases o separando las funciones en diversos scripts"
     return
     
 return

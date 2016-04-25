@@ -1582,7 +1582,7 @@ def screenshot(filename):
 @renpy_pure
 def version(tuple=False): #@ReservedAssignment
     """
-    :doc: renpy_version
+    :doc: other
 
     If `tuple` is false, returns a string containing "Ren'Py ", followed by
     the current version of Ren'Py.
@@ -1596,11 +1596,6 @@ def version(tuple=False): #@ReservedAssignment
 
     return renpy.version
 
-version_string = renpy.version
-version_only = renpy.version_only
-version_name = renpy.version_name
-version_tuple = renpy.version_tuple
-license = "" # @ReservedAssignment
 
 def transition(trans, layer=None, always=False, force=False):
     """
@@ -3130,7 +3125,6 @@ def add_layer(layer, above=None, below=None, menu_clear=True):
     if menu_clear:
         renpy.config.menu_clear_layers.append(layer) # @UndefinedVariable
 
-
 def maximum_framerate(t):
     """
     :doc: other
@@ -3146,6 +3140,7 @@ def maximum_framerate(t):
             renpy.display.core.initial_maximum_framerate = 0
         else:
             renpy.display.core.initial_maximum_framerate = max(renpy.display.core.initial_maximum_framerate, t)
+
 
 
 def is_start_interact():
@@ -3177,23 +3172,3 @@ def play(filename, channel=None, **kwargs):
 
     renpy.audio.music.play(filename, channel=channel, **kwargs)
 
-def get_editable_input_value():
-    """
-    :undocumented:
-
-    Returns the current input value, and a flag that is true if it is editable.
-    and false otherwise.
-    """
-
-    return renpy.display.behavior.current_input_value, renpy.display.behavior.input_value_active
-
-def set_editable_input_value(input_value, editable):
-    """
-    :undocumented:
-
-    Sets the currently active input value, and if it should be marked as
-    editable.
-    """
-
-    renpy.display.behavior.current_input_value = input_value
-    renpy.display.behavior.input_value_active = editable

@@ -162,7 +162,6 @@ Keyword("prefix")
 Keyword("suffix")
 Keyword("changed")
 Keyword("pixel_width")
-Keyword("value")
 add(text_properties)
 
 # Omit imagemap_compat for being too high level (and obsolete).
@@ -227,7 +226,7 @@ def sl2bar(context=None, **properties):
 
     if "style" not in properties:
         if isinstance(value, renpy.ui.BarValue):
-            style = renpy.ui.combine_style(context.style_prefix, value.get_style()[0])
+            style = context.style_prefix + value.get_style()[0]
             properties["style"] = style
 
     return renpy.display.behavior.Bar(range, value, width, height, vertical=False, **properties)
@@ -259,7 +258,7 @@ def sl2vbar(context=None, **properties):
 
     if "style" not in properties:
         if isinstance(value, renpy.ui.BarValue):
-            style = renpy.ui.combine_style(context.style_prefix, value.get_style()[1])
+            style = context.style_prefix + value.get_style()[1]
             properties["style"] = style
 
     return renpy.display.behavior.Bar(range, value, width, height, vertical=True, **properties)
@@ -294,23 +293,6 @@ def sl2viewport(**kwargs):
 
     return rv
 
-def sl2vpgrid(**kwargs):
-    """
-    This converts the output of renpy.ui.viewport into something that
-    sl.displayable can use.
-    """
-
-    d = renpy.ui.detached()
-    vp = renpy.ui.vpgrid(**kwargs)
-
-    renpy.ui.stack.pop()
-
-    rv = d.child
-    rv._main = vp
-    rv._composite_parts = list(rv.children)
-
-    return rv
-
 DisplayableParser("viewport", sl2viewport, "viewport", 1, replaces=True)
 Keyword("child_size")
 Keyword("mousewheel")
@@ -321,24 +303,6 @@ Keyword("yadjustment")
 Keyword("xinitial")
 Keyword("yinitial")
 Keyword("scrollbars")
-Style("xminimum")
-Style("yminimum")
-PrefixStyle("side_", "spacing")
-add(side_position_properties)
-
-DisplayableParser("vpgrid", sl2vpgrid, "vpgrid", many, replaces=True)
-Keyword("rows")
-Keyword("cols")
-Keyword("child_size")
-Keyword("mousewheel")
-Keyword("draggable")
-Keyword("edgescroll")
-Keyword("xadjustment")
-Keyword("yadjustment")
-Keyword("xinitial")
-Keyword("yinitial")
-Keyword("scrollbars")
-Style("spacing")
 Style("xminimum")
 Style("yminimum")
 PrefixStyle("side_", "spacing")

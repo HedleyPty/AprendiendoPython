@@ -81,6 +81,10 @@ def register_image(name, d):
         A tuple of strings.
     """
 
+    for i in name:
+        if i and i[0] == '-':
+            raise Exception("Image name components may not begin with a -.")
+
     tag = name[0]
     rest = name[1:]
 

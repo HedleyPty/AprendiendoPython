@@ -156,19 +156,24 @@ cpdef get_tuple_name(s):
 
 def get_text_style(style, default):
     """
-    If style exists, returns `style` + "_text". Otherwise, returns `default`.
+    If `style` + "_text", exists, returns it. Otherwise, returns the `default`
+    style.
+
     For indexed styles, the above is applied first, and then indexing is applied.
     """
 
-    if style is None:
-        style = default
-
     style = get_tuple_name(style)
+
+    if style is None:
+        return None
 
     start = style[0]
     rest = style[1:]
 
-    rv = get_full_style((start + "_text",))
+    rv = styles.get((start + "_text",), None)
+
+    if rv is None:
+        rv = get_full_style(get_tuple_name(default))
 
     for i in rest:
         rv = rv[i]

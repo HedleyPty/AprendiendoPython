@@ -123,7 +123,6 @@ button_properties = [ Style(i) for i in [
         "focus_mask",
         "child",
         "keyboard_focus",
-        "key_events",
     ] ] + [
         Keyword("action"),
         Keyword("clicked"),
@@ -170,8 +169,6 @@ ui_properties = [
     Keyword("id"),
     Keyword("style"),
     Keyword("style_group"),
-    Keyword("style_prefix"),
-    Keyword("style_suffix"),
     Keyword("focus"),
     Keyword("default"),
     ]

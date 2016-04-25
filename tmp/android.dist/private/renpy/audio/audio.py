@@ -700,13 +700,7 @@ def get_channel(name):
 
             while True:
                 c = get_channel("{} {}".format(name, i))
-
                 if not c.get_playing():
-                    return c
-
-                # Limit to one channel while skipping, to prevent sounds from
-                # piling up.
-                if renpy.config.skipping:
                     return c
 
                 i += 1

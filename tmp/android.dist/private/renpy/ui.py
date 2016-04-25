@@ -85,8 +85,8 @@ class BarValue(renpy.object.Object):
 # closed.
 
 class Addable(object):
-    # A style_prefix associates with this addable.
-    style_prefix = None
+    # A style_group associates with this addable.
+    style_group = None
 
     def get_layer(self):
         return Exception("Operation can only be performed on a layer.")
@@ -116,10 +116,10 @@ class Many(Addable):
     A widget that takes many children.
     """
 
-    def __init__(self, displayable, imagemap, style_prefix):
+    def __init__(self, displayable, imagemap, style_group):
         self.displayable = displayable
         self.imagemap = imagemap
-        self.style_prefix = style_prefix
+        self.style_group = style_group
 
     def add(self, d, key):
         self.displayable.add(d)
@@ -143,9 +143,9 @@ class One(Addable):
     A widget that expects exactly one child.
     """
 
-    def __init__(self, displayable, style_prefix):
+    def __init__(self, displayable, style_group):
         self.displayable = displayable
-        self.style_prefix = style_prefix
+        self.style_group = style_group
 
     def add(self, d, key):
         self.displayable.add(d)
@@ -162,8 +162,8 @@ class Detached(Addable):
     Used to indicate a widget is detached from the stack.
     """
 
-    def __init__(self, style_prefix):
-        self.style_prefix = style_prefix
+    def __init__(self, style_group):
+        self.style_group = style_group
 
     def add(self, d, key):
         self.child = d
@@ -179,9 +179,9 @@ class ChildOrFixed(Addable):
     the widgets are added to that.
     """
 
-    def __init__(self, style_prefix):
+    def __init__(self, style_group):
         self.queue = [ ]
-        self.style_prefix = style_prefix
+        self.style_group = style_group
 
     def add(self, d, key):
         self.queue.append(d)
@@ -295,7 +295,7 @@ def child_or_fixed():
     a fixed will be created, and the children will be added to that.
     """
 
-    stack.append(ChildOrFixed(stack[-1].style_prefix))
+    stack.append(ChildOrFixed(stack[-1].style_group))
 
 def remove(d):
     layer = stack[-1].get_layer()
@@ -328,7 +328,7 @@ def detached():
     you want to assign the result of a ui function to a variable.
     """
 
-    rv = Detached(stack[-1].style_prefix)
+    rv = Detached(stack[-1].style_group)
     stack.append(rv)
     return rv
 
@@ -373,28 +373,23 @@ def context_enter(w):
 def context_exit(w):
     close(w)
 
-NoStylePrefixGiven = renpy.object.Sentinel("NoStylePrefixGiven")
+NoStyleGroupGiven = renpy.object.Sentinel("NoStyleGroupGiven")
 
-def combine_style(style_prefix, style_suffix):
+def style_group_style(s, style_group):
     """
-    Combines a style prefix and style suffix to create a style name, then
-    returns the style object corresoinding to that name.
+    Given a style name s, combine it with the style_group to create a new
+    style. If the style doesn't exist, create a new lightweight style.
     """
 
-    if style_prefix is None:
-        new_style = style_suffix
+    if style_group is NoStyleGroupGiven:
+        style_group = stack[-1].style_group
+
+    if style_group is None:
+        new_style = s
     else:
-        new_style = style_prefix + "_" + style_suffix
+        new_style = style_group + "_" + s
 
     return renpy.style.get_style(new_style) # @UndefinedVariable
-
-def prefixed_style(style_suffix):
-    """
-    Combines the default style prefix with a style suffix.
-    """
-
-    return combine_style(stack[-1].style_prefix, style_suffix)
-
 
 # The screen we're using as we add widgets. None if there isn't a
 # screen.
@@ -435,7 +430,7 @@ class Wrapper(renpy.object.Object):
         if not stack:
             raise Exception("Can't add displayable during init phase.")
 
-        # Pull out the special kwargs, widget_id, at, and style_prefix.
+        # Pull out the special kwargs, widget_id, at, and style_group.
 
         widget_id = kwargs.pop("id", None) #@ReservedAssignment
 
@@ -443,13 +438,11 @@ class Wrapper(renpy.object.Object):
         if not isinstance(at_list, (list, tuple)):
             at_list = [ at_list ]
 
-        style_prefix = stack[-1].style_prefix
+        style_group = kwargs.pop("style_group", NoStyleGroupGiven)
 
-        if "style_group" in kwargs:
-            style_prefix = kwargs.pop("style_group")
-
-        if "style_prefix" in kwargs:
-            style_prefix = kwargs.pop("style_prefix")
+        # Figure out our style_group.
+        if style_group is NoStyleGroupGiven:
+            style_group = stack[-1].style_group
 
         # Figure out the keyword arguments, based on the parameters.
         if self.kwargs:
@@ -479,10 +472,8 @@ class Wrapper(renpy.object.Object):
         else:
             old_main = None
 
-        style_suffix = keyword.pop("style_suffix", None) or self.style
-
-        if style_suffix and ("style" not in keyword):
-            keyword["style"] = combine_style(style_prefix, style_suffix)
+        if self.style and "style" not in keyword:
+            keyword["style"] = style_group_style(self.style, style_group)
 
         try:
             w = self.function(*args, **keyword)
@@ -519,9 +510,9 @@ class Wrapper(renpy.object.Object):
 
         # Update the stack, as necessary.
         if self.one:
-            stack.append(One(w, style_prefix))
+            stack.append(One(w, style_group))
         elif self.many:
-            stack.append(Many(w, self.imagemap, style_prefix))
+            stack.append(Many(w, self.imagemap, style_group))
 
         # If we have an widget_id, record the displayable, the transform,
         # and maybe take the state from a previous transform.
@@ -936,10 +927,10 @@ def _textbutton(label, clicked=None, style=None, text_style=None, substitute=Tru
     text_kwargs.pop("y_fudge", None)
 
     if style is None:
-        style = prefixed_style("button")
+        style = style_group_style('button', NoStyleGroupGiven)
 
     if text_style is None:
-        text_style = renpy.style.get_text_style(style, prefixed_style('button_text')) # @UndefinedVariable
+        text_style = renpy.style.get_text_style(style, style_group_style('button_text', NoStyleGroupGiven)) # @UndefinedVariable
 
     rv = renpy.display.behavior.Button(style=style, clicked=clicked, **button_kwargs)
     text = renpy.text.text.Text(label, style=text_style, substitute=substitute, scope=scope, **text_kwargs)
@@ -955,10 +946,10 @@ def _label(label, style=None, text_style=None, substitute=True, scope=None, **kw
     text_kwargs, label_kwargs = renpy.easy.split_properties(kwargs, "text_", "")
 
     if style is None:
-        style = prefixed_style('label')
+        style = style_group_style('label', NoStyleGroupGiven)
 
     if text_style is None:
-        text_style = renpy.style.get_text_style(style, prefixed_style('label_text')) # @UndefinedVariable
+        text_style = renpy.style.get_text_style(style, style_group_style('label_text', NoStyleGroupGiven)) # @UndefinedVariable
 
     rv = renpy.display.layout.Window(None, style=style, **label_kwargs)
     text = renpy.text.text.Text(label, style=text_style, substitute=substitute, scope=scope, **text_kwargs)
@@ -1005,7 +996,7 @@ def _bar(*args, **properties):
                 style = value.get_style()[0]
 
             if isinstance(style, basestring):
-                style = prefixed_style(style)
+                style = style_group_style(style, NoStyleGroupGiven)
 
             properties["style"] = style
 
@@ -1037,14 +1028,12 @@ def _autobar(range, start, end, time, **properties): #@ReservedAssignment
 
 autobar = Wrapper(_autobar)
 transform = Wrapper(renpy.display.motion.Transform, one=True, style='transform')
+_viewport = Wrapper(renpy.display.layout.Viewport, one=True, replaces=True, style='viewport')
 
-_viewport = Wrapper(renpy.display.viewport.Viewport, one=True, replaces=True, style='viewport')
-_vpgrid = Wrapper(renpy.display.viewport.VPGrid, many=True, replaces=True, style='vpgrid')
-
-def viewport_common(vpfunc, scrollbars=None, **properties):
+def viewport(scrollbars=None, **properties):
 
     if scrollbars is None:
-        return vpfunc(**properties)
+        return _viewport(**properties)
 
     viewport_properties = { }
     side_properties = { }
@@ -1060,7 +1049,7 @@ def viewport_common(vpfunc, scrollbars=None, **properties):
     if scrollbars == "vertical":
         side("c r", **side_properties)
 
-        rv = vpfunc(**viewport_properties)
+        rv = _viewport(**viewport_properties)
         addable = stack.pop()
 
         vscrollbar(adjustment=rv.yadjustment, alt=alt + " vertical scrollbar")
@@ -1073,7 +1062,7 @@ def viewport_common(vpfunc, scrollbars=None, **properties):
     elif scrollbars == "horizontal":
         side("c b", **side_properties)
 
-        rv = vpfunc(**viewport_properties)
+        rv = _viewport(**viewport_properties)
         addable = stack.pop()
 
         scrollbar(adjustment=rv.xadjustment, alt=alt + " horizontal scrollbar")
@@ -1087,7 +1076,7 @@ def viewport_common(vpfunc, scrollbars=None, **properties):
 
         side("c r b", **side_properties)
 
-        rv = vpfunc(**viewport_properties)
+        rv = _viewport(**viewport_properties)
         addable = stack.pop()
 
         vscrollbar(adjustment=rv.yadjustment, alt=alt + " vertical scrollbar")
@@ -1097,12 +1086,6 @@ def viewport_common(vpfunc, scrollbars=None, **properties):
         stack.append(addable)
 
         return rv
-
-def viewport(**properties):
-    return viewport_common(_viewport, **properties)
-
-def vpgrid(**properties):
-    return viewport_common(_vpgrid, **properties)
 
 conditional = Wrapper(renpy.display.behavior.Conditional, one=True)
 timer = Wrapper(renpy.display.behavior.Timer, replaces=True)

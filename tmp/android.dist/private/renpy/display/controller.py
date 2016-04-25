@@ -61,20 +61,12 @@ def init():
     if not renpy.game.preferences.pad_enabled:
         return
 
-    try:
-        pygame_sdl2.controller.init()
-        load_mappings()
-    except:
-        renpy.display.log.exception()
+    pygame_sdl2.controller.init()
+    load_mappings()
 
     for i in range(pygame_sdl2.controller.get_count()):
-
-        try:
-            c = Controller(i)
-            renpy.exports.write_log("controller: %r %r %r" % (c.get_guid_string(), c.get_name(), c.is_controller()))
-        except:
-            renpy.display.log.exception()
-
+        c = Controller(i)
+        renpy.exports.write_log("controller: %r %r %r" % (c.get_guid_string(), c.get_name(), c.is_controller()))
 
 # A map from controller index to controller object.
 controllers = { }
@@ -112,17 +104,8 @@ def make_event(name):
         { "eventnames" : names, "controller" : name, "up" : False })
 
 
-def exists():
-    """
-    Returns true if a controller exists, and False otherwise.
-    """
-
-    if controllers:
-        return True
-    else:
-        return False
-
 def quit(index): # @ReservedAssignment
+
     """
     Quits the controller at index.
     """
@@ -130,9 +113,6 @@ def quit(index): # @ReservedAssignment
     if index in controllers:
         controllers[index].quit()
         del controllers[index]
-
-        renpy.exports.restart_interaction()
-
 
 def start(index):
     """
@@ -142,8 +122,6 @@ def start(index):
     quit(index)
     controllers[index] = c = Controller(index)
     c.init()
-
-    renpy.exports.restart_interaction()
 
 def event(ev):
     """

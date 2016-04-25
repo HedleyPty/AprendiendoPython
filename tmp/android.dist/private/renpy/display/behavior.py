@@ -601,13 +601,6 @@ class SayBehavior(renpy.display.layout.Null):
 ##############################################################################
 # Button
 
-KEY_EVENTS = (
-    pygame.KEYDOWN,
-    pygame.KEYUP,
-    pygame.TEXTEDITING,
-    pygame.TEXTINPUT
-    )
-
 class Button(renpy.display.layout.Window):
 
     keymap = { }
@@ -780,7 +773,7 @@ class Button(renpy.display.layout.Window):
 
         # If we have a child, try passing the event to it. (For keyboard
         # events, this only happens if we're focused.)
-        if (not (ev.type in KEY_EVENTS)) or self.style.key_events:
+        if self.is_focused() or not (ev.type == pygame.KEYDOWN or ev.type == pygame.KEYUP):
             rv = super(Button, self).event(ev, x, y, st)
             if rv is not None:
                 return rv
@@ -913,58 +906,6 @@ class HoveredProxy(object):
             return self.b()
 
 
-# The currently editable input value.
-current_input_value = None
-
-# Is the current input value active?
-input_value_active = False
-
-# The default input value to use if the currently editable value doesn't
-# exist.
-default_input_value = None
-
-# A list of input values that exist.
-input_values = [ ]
-
-# A list of inputs that exist in the current interaction.
-inputs = [ ]
-
-
-def input_pre_per_interact():
-    global input_values
-    global inputs
-    global default_value
-
-    input_values = [ ]
-    inputs = [ ]
-    default_value = None
-
-def input_post_per_interact():
-
-    global current_input_value
-    global input_value_active
-
-    for i in input_values:
-        if i is current_input_value:
-            break
-
-    else:
-
-        current_input_value = default_input_value
-
-        input_value_active = True
-
-    for i in inputs:
-
-        editable = (i.value is current_input_value) and input_value_active and i.value.editable
-
-        content = i.value.get_text()
-
-        if (i.editable != editable) or (content != i.content):
-            i.update_text(content, editable)
-            i.caret_pos = len(content)
-
-
 class Input(renpy.text.text.Text): #@UndefinedVariable
     """
     This is a Displayable that takes text as input.
@@ -978,7 +919,6 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
     pixel_width = None
     default = u""
     edit_text = u""
-    value = None
 
     def __init__(self,
                  default="",
@@ -993,15 +933,9 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
                  replaces=None,
                  editable=True,
                  pixel_width=None,
-                 value=None,
                  **properties):
 
         super(Input, self).__init__("", style=style, replaces=replaces, substitute=False, **properties)
-
-        if value:
-            self.value = value
-            changed = value.set_text
-            default = value.get_text()
 
         self.default = unicode(default)
         self.content = self.default
@@ -1127,18 +1061,6 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
     def disable(self):
         self.update_text(self.content, False)
 
-    def per_interact(self):
-
-        global default_input_value
-
-        if self.value is not None:
-
-            inputs.append(self)
-            input_values.append(self.value)
-
-            if self.value.default and (default_input_value is None):
-                default_input_value = self.value
-
     def event(self, ev, x, y, st):
 
         self.old_caret_pos = self.caret_pos
@@ -1166,9 +1088,6 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
 
             if self.edit_text:
                 content = content[0:self.caret_pos] + self.edit_text + self.content[self.caret_pos:]
-
-            if self.value:
-                return self.value.enter()
 
             if not self.changed:
                 return content

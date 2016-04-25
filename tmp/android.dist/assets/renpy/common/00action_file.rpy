@@ -112,11 +112,6 @@ init -1500 python:
     if persistent._file_folder is None:
         persistent._file_folder = 0
 
-    if persistent._file_page_name is None:
-        persistent._file_page_name = { }
-
-    config.file_page_names = [ ]
-
     def __slotname(name, page=None):
 
         if page is None:
@@ -541,76 +536,6 @@ init -1500 python:
         else:
             return page
 
-    @renpy.pure
-    class FilePageNameInputValue(InputValue, DictEquality):
-        """
-        :doc: input_value
-        """
-
-        def __init__(self, pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"), page=None, default=False):
-
-            self.pattern = pattern
-            self.auto = auto
-            self.quick = quick
-
-            self._page = page
-
-            self.default = default
-
-        def get_page(self):
-            if self._page is not None:
-                return self._page
-            else:
-                return persistent._file_page
-
-        @property
-        def editable(self):
-            page = self.get_page()
-
-            if page == "auto":
-                return False
-            elif page == "quick":
-                return False
-
-            return True
-
-        def get_text(self):
-            page = self.get_page()
-
-            if page == "auto":
-                return self.auto
-            elif page == "quick":
-                return self.quick
-            else:
-
-                page = int(page)
-                default = self.pattern.format(page)
-                rv = persistent._file_page_name.get(page, default)
-
-                if not rv.strip():
-
-                    current, active = renpy.get_editable_input_value()
-
-                    if not ((current is self) and active):
-                        rv = default
-
-                return rv
-
-        def set_text(self, s):
-
-            page = self.get_page()
-
-            if page == "auto" or page =="quick":
-                return
-
-            page = int(page)
-            persistent._file_page_name[page] = s
-
-        def enter(self):
-            renpy.run(self.Disable())
-            raise renpy.IgnoreEvent()
-
-
     def FileSlotName(slot, slots_per_page, auto="a", quick="q", format="%s%d"):
         """
          :doc: file_action_function
@@ -832,14 +757,10 @@ init -1500 python:
 
 init 1050 python hide:
 
-    if config.has_quicksave:
-        config.file_page_names.append("quick")
-    if config.has_autosave:
-        config.file_page_names.append("auto")
+    if not config.has_quicksave and persistent._file_page == "quick":
+        persistent._file_page = "1"
 
-    if persistent._file_page not in config.file_page_names:
-        try:
-            int(persistent._file_page)
-        except:
-            persistent._file_page = "1"
+    if not config.has_autosave and persistent._file_page == "auto":
+        persistent._file_page = "1"
+
 

@@ -2468,7 +2468,6 @@ class Interface(object):
         @param suppress_underlay: This suppresses the display of the underlay.
         """
 
-        suppress_overlay = suppress_overlay or renpy.store.suppress_overlay
 
         # Store the various parameters.
         self.suppress_overlay = suppress_overlay
@@ -2689,9 +2688,7 @@ class Interface(object):
         renpy.display.video.early_interact()
 
         # Call per-interaction code for all widgets.
-        renpy.display.behavior.input_pre_per_interact()
         root_widget.visit_all(lambda i : i.per_interact())
-        renpy.display.behavior.input_post_per_interact()
 
         # Now, update various things regarding scenes and transitions,
         # so we are ready for a new interaction or a restart.
