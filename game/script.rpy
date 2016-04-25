@@ -1,7 +1,9 @@
 init python:
     import re
     import os
-    
+    tipJar="https://www.paypal.me/HedleyQuintana"
+    enlaces=False
+    info=False
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
     def cambiarMusica(m):
@@ -38,7 +40,7 @@ image canvas=Image('images/Canvas.png')
 image white ="#ffffff"
 define h = Character('Hedley', color="#c8ffc8")
 define consola = Character('Consola de Python', color="#00cc00")
-$tipJar="https://www.paypal.me/HedleyQuintana"
+
 
 # The game starts here.
 # - El juego comienza aquí.
@@ -103,6 +105,9 @@ label inicio_:
     h "Más adelante tendremos acceso a una herramienta de Ren'py que nos va a ayudar a comprender mucho mejor los conceptos aquiridos en este tutorial"
     hide renpy_logo 
     hide text
+    $info = True
+    h "En la esquina superior derecha, veras un botón que muestra u oculta una serie de enlaces útiles"
+    h "Estos enlaces son la página de la Wikipedia de Python, la página oficial de Python, la página de Ren'py y mi jarrón de propinas de PayPal por si quieres cooperar conmigo"
     h "Vamos a empezar..."
     #hide text
     jump chp1

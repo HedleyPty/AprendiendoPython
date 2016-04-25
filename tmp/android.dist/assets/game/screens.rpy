@@ -568,4 +568,16 @@ screen _music():
             textbutton _("Cambiar la musica") action Function(cambiarMusica, musica)
         else:
             textbutton _("Reiniciar la musica") action Play('music', musica)
-        
+    if info:
+        vbox:
+            xalign .95
+            yalign .05
+            if not enlaces:
+                textbutton _("Mostrar enlaces útiles") action SetVariable("enlaces", True)
+            else:
+                textbutton _("Ocultar enlaces útiles") action SetVariable("enlaces", False)
+                text '{color=#000}{a=https://es.wikipedia.org/wiki/Python}Página de la Wikipedia de Python{/a}{/color}'
+                text '{color=#000}{a=http://python.org}Página oficial de Python{/a}{/color}'
+                text "{color=#000}{a=[tipJar]}Página oficial de Ren'py{/a}{/color}"
+                text '{color=#000}{a=[tipJar]}Jarrón de propinas de PayPal{/a}{/color}'
+                

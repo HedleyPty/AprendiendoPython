@@ -1,16 +1,16 @@
-Mon Apr 25 14:49:08 2016
+Mon Apr 25 15:30:57 2016
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.9.1168
  
 
-Bootstrap to the start of init.init took 0.12s
+Bootstrap to the start of init.init took 0.11s
 Early init took 0.02s
 Loader init took 0.02s
-Loading error handling took 0.18s
-Loading script took 3.58s
+Loading error handling took 0.17s
+Loading script took 3.54s
 Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.22s
+Running init code took 0.18s
 Loading analysis data took 0.00s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
@@ -21,11 +21,11 @@ Making clean stores took 0.00s
 DPI scale factor: 1.000000
 Creating interface object took 0.04s
 Cleaning stores took 0.00s
-Init translation took 0.00s
+Init translation took 0.01s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.06s
-Prepare screens took 0.11s
+Save screen analysis took 0.05s
+Prepare screens took 0.10s
 Save pyanalysis. took 0.06s
 Save bytecode. took 0.05s

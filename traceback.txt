@@ -1,26 +1,57 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1622, in <module>
-    ejempl = p.volar()
-  File "game/script.rpy", line 28, in volar
-    return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal a pesar de pesar "+self.peso
-TypeError: cannot concatenate 'str' and 'int' objects
+  File "game/script.rpy", line 93, in script
+    h "Saludos a todos, me llamo Hedley!"
+  File "renpy/common/00action_data.rpy", line 50, in get_selected
+    return getattr(self.object, self.field) == self.value
+TypeError: getattr(): attribute name must be string
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/hedley/script.rpyc", line 1616, in script
-  File "/home/hedley/Documents/renpy/renpy/ast.py", line 806, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/hedley/Documents/renpy/renpy/python.py", line 1577, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 1622, in <module>
-    ejempl = p.volar()
-  File "game/script.rpy", line 28, in volar
-    return "El ave de la especie " + self.especie+" surca los cielos como ningún otro animal a pesar de pesar "+self.peso
-TypeError: cannot concatenate 'str' and 'int' objects
+  File "game/script.rpy", line 93, in script
+    h "Saludos a todos, me llamo Hedley!"
+  File "C:\Users\hequin\Documents\renpy\renpy\ast.py", line 604, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "C:\Users\hequin\Documents\renpy\renpy\exports.py", line 1122, in say
+    who(what, interact=interact)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 841, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 690, in do_display
+    **display_args)
+  File "C:\Users\hequin\Documents\renpy\renpy\character.py", line 493, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\hequin\Documents\renpy\renpy\ui.py", line 277, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2425, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2691, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 396, in visit_all
+    d.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 396, in visit_all
+    d.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 396, in visit_all
+    d.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\screen.py", line 390, in visit_all
+    self.child.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 396, in visit_all
+    d.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 396, in visit_all
+    d.visit_all(callback)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 398, in visit_all
+    callback(self)
+  File "C:\Users\hequin\Documents\renpy\renpy\display\core.py", line 2691, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 725, in per_interact
+    if is_selected(self.action):
+  File "C:\Users\hequin\Documents\renpy\renpy\display\behavior.py", line 347, in is_selected
+    return clicked.get_selected()
+  File "renpy/common/00action_data.rpy", line 50, in get_selected
+    return getattr(self.object, self.field) == self.value
+TypeError: getattr(): attribute name must be string
 
-Linux-3.19.0-32-generic-x86_64-with-debian-jessie-sid
-Ren'Py 6.99.10.1227
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.9.1168
 Programar con Python 0.0

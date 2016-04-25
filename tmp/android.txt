@@ -258,12 +258,12 @@ release:
      [aapt] Generating resource IDs...
      [echo] ----------
      [echo] Handling BuildConfig class...
-[buildconfig] BuildConfig class missing: Generating new BuildConfig class.
+[buildconfig] No need to generate new BuildConfig.
 
 -pre-compile:
 
 -compile:
-    [javac] Compiling 6 source files to C:\Users\hequin\Documents\renpy\rapt\bin\classes
+    [javac] Compiling 5 source files to C:\Users\hequin\Documents\renpy\rapt\bin\classes
     [javac] warning: [options] source value 1.5 is obsolete and will be removed in a future release
     [javac] warning: [options] target value 1.5 is obsolete and will be removed in a future release
     [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
@@ -295,9 +295,11 @@ release:
    [crunch] Crunched 1 PNG files to update cache
 
 -package-resources:
+     [aapt] Found Deleted Target File
      [aapt] Creating full resource package...
 
 -package:
+[apkbuilder] Found Deleted Target File
 [apkbuilder] Creating AprendiendoPythonparahispanohablantes-1.0-release-unsigned.apk for release...
 
 -post-package:
@@ -320,7 +322,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 28 seconds
+Total time: 23 seconds
 
 
 
