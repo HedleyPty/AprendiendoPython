@@ -1,31 +1,31 @@
-Mon Apr 25 15:30:57 2016
-Windows-7-6.1.7601-SP1
-Ren'Py 6.99.9.1168
+Thu Apr 28 19:05:00 2016
+Linux-4.4.0-21-generic-x86_64-with-debian-stretch-sid
+Ren'Py 6.99.10.1227
  
 
-Bootstrap to the start of init.init took 0.11s
+Bootstrap to the start of init.init took 0.26s
 Early init took 0.02s
-Loader init took 0.02s
-Loading error handling took 0.17s
-Loading script took 3.54s
-Loading persistent took 0.01s
+Loader init took 0.01s
+Loading error handling took 0.32s
+Loading script took 5.67s
+Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.18s
+Running init code took 0.26s
 Loading analysis data took 0.00s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\hequin\\AppData\\Roaming/RenPy/backups\\AprendiendoPython':
-Dump and make backups. took 0.08s
+Backing up script files to '/home/hedley/.renpy/backups/AprendiendoPython':
+Dump and make backups. took 0.13s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 DPI scale factor: 1.000000
-Creating interface object took 0.04s
+Creating interface object took 0.08s
 Cleaning stores took 0.00s
 Init translation took 0.01s
 Build styles took 0.00s
 Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.05s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.06s
+Analyze screens took 0.05s
+Save screen analysis took 0.11s
+Prepare screens took 0.18s
+Save pyanalysis. took 0.08s
 Save bytecode. took 0.05s

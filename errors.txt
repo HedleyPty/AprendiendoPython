@@ -2,8 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 571: u'show' is not a keyword argument or valid child for the screen statement.
-    show text "Hello" at topright
-        ^
+File "game/script.rpy", line 1673: expected statement.
+    counter=0
+           ^
 
-Ren'Py Version: Ren'Py 6.99.9.1168
+File "game/script.rpy", line 1677: expected statement.
+    counter=1
+           ^
+
+File "game/script.rpy", line 1666: invalid syntax
+    menus=[['import car.py', 'import car', 'car.py'],['carro=car.Vehiculo()', 'carro=Vehiculo()','carro=Vehiculo('sedan', 'azul')']]
+                                                                                                                       ^
+    
+
+Ren'Py Version: Ren'Py 6.99.10.1227

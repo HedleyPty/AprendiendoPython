@@ -1659,7 +1659,43 @@ label class4:
     h "Y bualá tenemos el mismo resultado al ejecutar ejemplo2.py"
     h "La idea de usar subdirectorios, sirve para organizar las partes dentro del proyecto"
     h "¿Recuerdan que hable de las piezas de un sistema?"
-    h "Podemos emular las relaciones entre las piezas del sistema mediante clases o separando las funciones en diversos scripts"
+    h "Podemos emular las relaciones entre las piezas del sistema mediante clases o separando las funciones en diversos scripts" 
+    h "Podemos usar clases o archivos script"
+    python:
+        respuesta=["import car", "carro=car.vehiculo()"]
+        menus=[['import car.py', 'import car', 'car.py'],['carro=car.Vehiculo()', 'carro=Vehiculo()',"carro=Vehiculo('sedan', 'azul')"]]
+        preguntas=["\nImporte el script car.py en el modulo carretera.py", "Ahora cree una instancia de carro tipo sedan de color azul\n--script carrera.py abajo------\nimport car"]
+        pr= "Dado contenido del contenido del script car.py\n--script car.py abajo------\nclass Vehiculo:\n\ \ \ \ def __init__(self, color='azul',tipo='sedan'):\n\ \ \ \ \ \ \ \ self.color=color\n\ \ \ \ \ \ \ \ self.tipo=tipo"
+        counter=2000
+        resp=""
+label class4_q:
+    if counter>100:
+        $counter=0
+    else:
+        if resp==respuesta[counter]:
+            if counter == 0:
+                $ counter=1
+            else:
+                jump class5
+        else:
+            h "Eso no es correcto."
+    $ encabezado=pr+preguntas[counter]
+    $ menu1=menus[counter][0]
+    $ menu2=menus[counter][1]
+    $ menu3=menus[counter][2]
+    menu:
+        h "[encabezado]"
+        "[menu1]":
+            $resp=menu1
+            jump class4_q
+        "[menu2]":
+            $resp=menu2
+            jump class4_q
+        "[menu3]":
+            $resp=menu3
+            jump class4_q
+label class5:
+    h "Hemos finalizado esta historia..."
     return
     
 return
