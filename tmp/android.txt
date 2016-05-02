@@ -1,13 +1,314 @@
 
-I'm compiling a short test program, to see if you have a working JDK on your
-system.
+Updating source code.
+
+Updating build files.
+Resolved location of library project to: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library
+Updated and renamed default.properties to project.properties
+Updated local.properties
+Added file ./build.xml
+Updated file ./proguard-project.txt
+It seems that there are sub-projects. If you want to update them
+please use the --subprojects parameter.
 
 
 
 
+Creating assets directory.
 
-The JDK is present and working. Good!
+Packaging internal data.
 
-Apache ANT has already been unpacked.
+I'm using Ant to build the package.
+Buildfile: /home/hedley/Documents/renpy/rapt/build.xml
 
-I'm downloading the Android SDK. This might take a while.
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 25.1.3
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
+
+-setup:
+     [echo] Project Name: AprendiendoPythonparahispanohablantes-1.0
+  [gettype] Project Type: Application
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 23.0.3
+     [echo] Resolving Build Target for AprendiendoPythonparahispanohablantes-1.0...
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
+     [echo] ----------
+     [echo] Creating output directories if needed...
+     [echo] ----------
+     [echo] Resolving Dependencies for AprendiendoPythonparahispanohablantes-1.0...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+     [echo] ----------
+     [echo] Building Libraries with 'release'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 25.1.3
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
+
+-setup:
+     [echo] Project Name: library
+  [gettype] Project Type: Android Library
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 23.0.3
+     [echo] Resolving Build Target for library...
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
+     [echo] ----------
+     [echo] Creating output directories if needed...
+     [echo] ----------
+     [echo] Resolving Dependencies for library...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] No changes in the AndroidManifest files.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] No changed resources. R.java and Manifest.java untouched.
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] No need to generate new BuildConfig.
+
+-pre-compile:
+
+-compile:
+     [echo] Creating library output jar file...
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/res
+   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] 
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/build.prop
+
+-release-sign:
+
+-post-build:
+
+release:
+
+nodeps:
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 25.1.3
+ [checkenv] Installed at /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1
+
+-setup:
+     [echo] Project Name: downloader_library
+  [gettype] Project Type: Android Library
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 23.0.3
+     [echo] Resolving Build Target for downloader_library...
+[gettarget] Project Target:   Android 5.1.1
+[gettarget] API level:        22
+     [echo] ----------
+     [echo] Creating output directories if needed...
+     [echo] ----------
+     [echo] Resolving Dependencies for downloader_library...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] No changes in the AndroidManifest files.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] No changed resources. R.java and Manifest.java untouched.
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] No need to generate new BuildConfig.
+
+-pre-compile:
+
+-compile:
+     [echo] Creating library output jar file...
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/res
+   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] 
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/build.prop
+
+-release-sign:
+
+-post-build:
+
+release:
+
+-code-gen:
+[mergemanifest] Found modified input file
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] Found 1 AIDL files.
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Found modified input file
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] No need to generate new BuildConfig.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 4 source files to /home/hedley/Documents/renpy/rapt/bin/classes
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+      [dex] input: /home/hedley/Documents/renpy/rapt/bin/classes
+      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
+      [dex] input: /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes.jar
+      [dex] input: /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
+      [dex] Using Pre-Dexed classes-91e17425bd537c4fe8c05f95bb7d463e.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_apk_expansion/downloader_library/bin/classes.jar
+      [dex] Using Pre-Dexed classes-0e133226f2805fffb891897319ad5bc1.jar <- /home/hedley/Documents/renpy/rapt/android-sdk-r24.4.1/extras/google/play_licensing/library/bin/classes.jar
+      [dex] Using Pre-Dexed amazon-iap-2.0.1-1db423591b5895549a83931d9fb8aa15.jar <- /home/hedley/Documents/renpy/rapt/libs/amazon-iap-2.0.1.jar
+      [dex] Found modified input file
+      [dex] Converting compiled files and external libraries into /home/hedley/Documents/renpy/rapt/bin/classes.dex...
+       [dx] Merged dex #1 (76 defs/90.2KiB)
+       [dx] Merged dex #2 (90 defs/79.8KiB)
+       [dx] Merged dex #3 (25 defs/35.5KiB)
+       [dx] Merged dex #4 (47 defs/87.9KiB)
+       [dx] Result is 238 defs/345.3KiB. Took 7.5s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
+   [crunch] To destination dir: /home/hedley/Documents/renpy/rapt/bin/res
+   [crunch] Processing image to cache: /home/hedley/Documents/renpy/rapt/res/drawable/icon.png => /home/hedley/Documents/renpy/rapt/bin/res/drawable/icon.png
+   [crunch]   (processed image to cache entry /home/hedley/Documents/renpy/rapt/bin/res/drawable/icon.png: 96% size of source)
+   [crunch] Crunched 1 PNG files to update cache
+
+-package-resources:
+     [aapt] Found modified input file
+     [aapt] Creating full resource package...
+
+-package:
+[apkbuilder] Found modified input file
+[apkbuilder] Creating AprendiendoPythonparahispanohablantes-1.0-release-unsigned.apk for release...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+
+-release-sign:
+     [echo] Signing final apk...
+ [zipalign] Running zip align on final apk...
+     [echo] Release Package: /home/hedley/Documents/renpy/rapt/bin/AprendiendoPythonparahispanohablantes-1.0-release.apk
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
+[propertyfile] Updating property file: /home/hedley/Documents/renpy/rapt/bin/build.prop
+
+-post-build:
+
+release:
+
+BUILD SUCCESSFUL
+Total time: 1 minute 37 seconds
+
+
+
+
+The build seems to have succeeded.
