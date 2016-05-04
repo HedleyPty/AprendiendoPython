@@ -269,7 +269,7 @@ release:
        [dx] Merged dex #2 (90 defs/79.8KiB)
        [dx] Merged dex #3 (25 defs/35.5KiB)
        [dx] Merged dex #4 (47 defs/87.9KiB)
-       [dx] Result is 238 defs/345.3KiB. Took 7.5s
+       [dx] Result is 238 defs/345.3KiB. Took 3.1s
 
 -crunch:
    [crunch] Crunching PNG Files in source dir: /home/hedley/Documents/renpy/rapt/res
@@ -306,7 +306,7 @@ release:
 release:
 
 BUILD SUCCESSFUL
-Total time: 1 minute 37 seconds
+Total time: 46 seconds
 
 
 
