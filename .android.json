@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"target_version": 14, "orientation": "sensorLandscape", "include_pil": false, "expansion": false, "icon_name": "Aprendiendo Python ESP", "include_sqlite": false, "google_play_salt": null, "google_play_key": null, "layout": null, "name": "Aprendiendo Python para hispanohablantes", "package": "com.hedleypanama", "source": false, "version": "1.0", "permissions": ["VIBRATE", "INTERNET"], "store": "all", "numeric_version": "100"}
+=======
+{"target_version": 8, "name": "Aprendiendo Python para hispanohablantes", "package": "com.hedleypanama", "orientation": "sensorLandscape", "include_pil": false, "expansion": false, "source": false, "icon_name": "Aprendiendo Python ESP", "version": "1.0", "layout": null, "permissions": ["VIBRATE", "INTERNET"], "include_sqlite": false, "store": "none", "numeric_version": "1"}
+>>>>>>> 6a24b75670fa2aacc4b2a97041238a80875ecf77

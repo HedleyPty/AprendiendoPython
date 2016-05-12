@@ -3,6 +3,8 @@ init python:
     import os
     tipJar="https://www.paypal.me/HedleyQuintana"
     enlaces=False
+    now_playing="Poofy Reel"
+    musica="Poofy Reel.mp3"
     info=False
     subtitle = Position(xpos=0.5, xanchor='center', ypos=0.60,
                    yanchor='top')
