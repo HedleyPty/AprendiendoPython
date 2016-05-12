@@ -5,7 +5,7 @@
 #MacOS and Linux
 ###Ejecute el archivo *Programar_con_Python.sh* dentro de la carpeta *Programar_con_Python-1.0-all*
 #Android
-###Baje el archivo *AprendiendoPythonparahispanohablantes-1.0-release.apk* e instale el programa mediante **sideload**
+###Baje el programa de la página en !(Google Store)[https://play.google.com/store/apps/details?id=com.hedleypanama]
  
 #Advertencia
 
