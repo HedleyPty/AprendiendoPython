@@ -470,6 +470,12 @@ label n7:
     $ respuesta=""
     hide text
     hide python_logo 
+    if renpy.android:
+        jump q10
+    else:
+        $ error=None
+        $ var=""
+        jump q10a
 label q10:
     $cont="Cree la variable segun las instrucciones"
     if respuesta:
@@ -477,14 +483,41 @@ label q10:
             h "CORRECTO!"
             jump n8
         h "Opa! eso no es correcto"
-    if renpy.android:
-        show text "{color=#000}Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg{/color}" at truecenter
-        $ respuesta=renpy.input("")
-        hide text
-    else:
         $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg")
     jump q10
-    
+label q10a:
+    if error:
+        Hedley "[error]"
+        error=None
+    menu:
+        consola "#Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\n[var]"
+        "peso_Varon":
+            if var =="peso_Varon = 70":
+                jump n8
+            elif var =="peso_Varon ":
+                $ error = "Ya agregaste eso a la definición de la variable"
+            else:
+                $ var = "peso_Varon "
+                jump q10a
+        "=":
+            if var =="peso_Varon = 70":
+                jump n8
+            elif var == "peso_Varon ":
+                $ var = var+"="
+            elif var == "peso_Varon = "
+                $ error = "Ya agregaste eso a la definición de la variable"
+            else:
+                $ error ="Eso no es correcto"
+            jump q10a
+        "70":
+            if var =="peso_Varon = 70":
+                jump n8
+            elif var == "peso_Varon = ":
+                var += "70"
+                consola "#Felicidades, has creado una variable\n[var]"
+            else:
+                $ error ="Eso no es correcto"
+            jump q10a
 label n8:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     show python_logo at truecenter
@@ -1245,6 +1278,7 @@ label n24:
     consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es cierta{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n0"
     consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es falsa{/color}\na=1\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n1"
     #Calendario chino
+    
     h "Vamos a hacer algo divertido con lo aprendido hasta ahora"
     h "Voy a crear una lista de objetos (todos tipo int) llama {color=#ff0}lista_Anos{/color} en Ren'py"
     $ lista_Anos = [1978,1985,1966]
