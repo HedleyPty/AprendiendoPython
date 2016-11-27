@@ -470,12 +470,6 @@ label n7:
     $ respuesta=""
     hide text
     hide python_logo 
-    if renpy.android:
-        jump q10
-    else:
-        $ error=None
-        $ var=""
-        jump q10a
 label q10:
     $cont="Cree la variable segun las instrucciones"
     if respuesta:
@@ -483,41 +477,43 @@ label q10:
             h "CORRECTO!"
             jump n8
         h "Opa! eso no es correcto"
+    if renpy.android:
+        $instruccion="Nombre la variable"
+        jump q10Android
+    else:
         $ respuesta=renpy.input("Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg")
     jump q10
-label q10a:
-    if error:
-        Hedley "[error]"
-        error=None
+label q10Android:
     menu:
-        consola "#Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\n[var]"
-        "peso_Varon":
-            if var =="peso_Varon = 70":
-                jump n8
-            elif var =="peso_Varon ":
-                $ error = "Ya agregaste eso a la definición de la variable"
-            else:
-                $ var = "peso_Varon "
-                jump q10a
-        "=":
-            if var =="peso_Varon = 70":
-                jump n8
-            elif var == "peso_Varon ":
-                $ var = var+"="
-            elif var == "peso_Varon = "
-                $ error = "Ya agregaste eso a la definición de la variable"
-            else:
-                $ error ="Eso no es correcto"
-            jump q10a
-        "70":
-            if var =="peso_Varon = 70":
-                jump n8
-            elif var == "peso_Varon = ":
-                var += "70"
-                consola "#Felicidades, has creado una variable\n[var]"
-            else:
-                $ error ="Eso no es correcto"
-            jump q10a
+        "#Vamos a crear una variable tipo entero llamada peso_Varon la cual representa el peso de un varón de 70 kg\n#Adiciona cada uno de los elementos que forman la variable\n#[instruccion]\n[respuesta]"
+        "peso Varon" if  respuesta=="":
+            h "Eso no es correcto"
+            jump q10Android
+        'peso_Varon' if  respuesta=="":
+            $ respuesta="peso_Varon"
+            $ instruccion="Adiciona el signo de asignacion"
+            jump q10Android
+        "=" if respuesta=="peso_Varon":
+            $ respuesta += " = "
+           
+            jump q10Android
+        "==" if respuesta=="peso_Varon":
+            h "Ese no es un signo de asignacion"
+            jump q10Android
+            h "Es un signo de asignacion, pero en este contexto no es correcto"
+        "+=" if respuesta=="peso_Varon":
+            jump q10Android
+        "70" if respuesta=="peso_Varon = ":
+            $ respuesta += "70"
+            jump q10Android
+        "70 Kg" if respuesta=="peso_Varon = ":
+            h "No tiene sentido asignar unidades en el valor de una variable numerica"
+            jump q10Android
+        "70_Kg"if respuesta=="peso_Varon = ":
+            h "No tiene sentido asignar unidades en el valor de una variable numerica"
+            jump q10Android
+        "Has terminado, pulsa aqui para proseguir" if respuesta=="peso_Varon = 70":
+            jump n8
 label n8:
     show text "{size=40}{color=#000}Capítulo tres\n\n\nLas variables{/color}{/size}" at top
     show python_logo at truecenter
@@ -1278,7 +1274,6 @@ label n24:
     consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es cierta{/color}\na=2\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n0"
     consola "{color=#f0f}#Veamos un ejemplo de un ejemplo {color=#ff0}if es falso {/color}, pero condición del {color=#ff0}elif{/color} es falsa{/color}\na=1\nif a > 2:\n\ \ \ \ x=3\nelif a==2:\n\ \ \ \ x=0\nelse:\n\ \ \ \ x=1\nx\n1"
     #Calendario chino
-    
     h "Vamos a hacer algo divertido con lo aprendido hasta ahora"
     h "Voy a crear una lista de objetos (todos tipo int) llama {color=#ff0}lista_Anos{/color} en Ren'py"
     $ lista_Anos = [1978,1985,1966]
@@ -1286,6 +1281,8 @@ label n24:
     h "El valor de la variable {color=#ff0}lista_Anos{/color} se ha cargado a Ren'py y su valor es [lista_Anos]"
     $ bad_data=False
     hide text
+
+        
     hide python_logo
 label q23:
     $ lista_Anos = [1978,1985,1966]
@@ -1299,12 +1296,12 @@ label q23:
         h "Te recomiendo leer acerca de las expresiones regulares en la {a=https://es.wikipedia.org/wiki/Expresi\%C3\%B3n_regular}wikipedia{/a}"
         h "Cada vez que te equivoques regresarás a ver estos diálogos nuevamente\n:)"
     if renpy.android:
-        show text "{color=#000}¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo" at truecenter
-        $ nac = renpy.input("")
-        hide text
+        $ INPUT_LABEL_DEFAULT = "¿Cuál es el año de tu fecha de nacimiento?\nIngresa un dato incorrecto y aprenderás algo nuevo"
+        call screen input_softkeyboard
+        $ nac=input_value
     else:
         python:
-            nac = renpy.input("¿Cuál es tu fecha de nacimiento? -Ingresa las 4 del año de tu nacimiento\nIngresa un dato incorrecto y aprenderás algo nuevo")
+            nac = renpy.input("¿Cuál es el año de tu fecha de nacimiento?\nIngresa un dato incorrecto y aprenderás algo nuevo")
     $nac=nac.strip()
     python:
         if re.search("((19[5-9]|20[01])\d)",nac):
@@ -1525,13 +1522,21 @@ label funciones2:
 label funq2:
     if bad_data:
         h "[error]"
-    if renpy.android:
+    if not renpy.android:
         show text "{color=#000}Dame un número y te calcularé el factorial de ese número\nNo escribas un número mayor de 100"
         $ nac = renpy.input("")
         hide text
     else:
-        $ nac = renpy.input("Dame un número y te calcularé el factorial de ese número\nNo escribas un número mayor de 100")
-        
+        menu:
+            "Elige un numero y yo calculare el factorial de ese numero"
+            "2":
+                $nac =2
+            "3":
+                $ nac =3
+            "14":
+                $ nac =14
+            "30":
+                $ nac =30
     $ nac=nac.strip()
 
     if re.search("\d*",nac):
@@ -1574,6 +1579,7 @@ label clases1:
     h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
     h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(self, atributo1, atributo2, atributo 3, ... atributo n):{/color}"
     consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(self, color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
+if not renpy.android:
     h "Veamos como inicializamos la clase pájaro"
     python:
         error=""
@@ -1584,24 +1590,24 @@ label clases1:
         "#Vamos a crear los atributos peso \nclass Pajaro:\n    def __init__(self,especie, ___, ____):\n        self.especie=especie\n        self.____=____\n        self.---=---\n\n\n\n",
         "#Vamos a crear los atributos vuelo con un valor predeterminado de True\n\nclass Pajaro:\n     def __init__(self,especie, peso, ____ = True):\n        self.especie=especie\n        self.peso=peso\n        self.____=____\n\n\n\n"]
         counter=100
-label class_q1:
-    if counter==100:
-        $ counter=0
-    else:
-        if respuesta ==  respuestas[counter]:
-            $ counter += 1
-            if counter == 5:
-                jump clases2
+    label class_q1:
+        if counter==100:
+            $ counter=0
         else:
-            h "Eso no es correcto"
-    $encabezado = preguntas[counter]
-    if renpy.android:
-        show text "{color=#000}[encabezado]" at top
-        $respuesta = renpy.input()
-        hide text
-    else:
-        $respuesta=renpy.input(encabezado )
-        jump class_q1
+            if respuesta ==  respuestas[counter]:
+                $ counter += 1
+                if counter == 5:
+                    jump clases2
+            else:
+                h "Eso no es correcto"
+        $encabezado = preguntas[counter]
+        if not renpy.android:
+            show text "{color=#000}[encabezado]" at top
+            $respuesta = renpy.input()
+            hide text
+        else:
+            $respuesta=renpy.input(encabezado )
+            jump class_q1
 label clases2:
     h "Para crear una instancia de una clase, debemos crear el nombre de la instancia, seguido del nombre de la clase, luego un par de paréntesis con los argumentos del método inicializador."
     consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(self,color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
@@ -1618,7 +1624,7 @@ label class_q2:
             jump class3
         else:
             h "Eso no es correcto!"
-    if renpy.android:
+    if not renpy.android:
         show text "{color=#000}#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo" at top
         $respuesta = renpy.input()
         hide text
@@ -1667,7 +1673,7 @@ label class_q3:
                 h "Ese valor no es válidos"
                 
     $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]
-    if renpy.android:
+    if not renpy.android:
         show text "{color=#000}[pregunta]" at truecenter
         $ respuesta = renpy.input()
         hide text

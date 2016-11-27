@@ -2,17 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1673: expected statement.
-    counter=0
-           ^
-
-File "game/script.rpy", line 1677: expected statement.
-    counter=1
-           ^
-
-File "game/script.rpy", line 1666: invalid syntax
-    menus=[['import car.py', 'import car', 'car.py'],['carro=car.Vehiculo()', 'carro=Vehiculo()','carro=Vehiculo('sedan', 'azul')']]
-                                                                                                                       ^
+File "game/softkeyboard/en.rpy", line 15: EOL while scanning string literal
+(Perhaps you left out a " at the end of the first line.)
+        INPUT_VALUE_DEFAULT = "
+                               ^
     
 
-Ren'Py Version: Ren'Py 6.99.10.1227
+Ren'Py Version: Ren'Py 6.99.11.1749

@@ -1,0 +1,162 @@
+﻿# ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+#
+#       english.rpy [English Soft Keyboard]
+#                                                                                                       Author   :  Andrea Rubenstein
+#                                                                                                       Created : 2011/10/14
+#                                                                                                       Updated: 2011/10/14
+# ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+##############################################################################
+#       Input field
+##############################################################################        
+init python:
+    INPUT_DEFAULT = "Vivian"
+    INPUT_MAX = 15
+    INPUT_MARGIN = 15
+    input_label = "Please input your name:"
+    input_value = INPUT_DEFAULT
+    
+    key_row = 5
+    key_col = 8
+    
+    input_caps = False
+    input_shift = False
+    softkey = {}
+    softkey["en"] = {}
+    softkey["en"]["lower"] = []
+    softkey["en"]["lower"].append(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","x","z"])
+    softkey["en"]["lower"].append(["à","á","â","ã","ä","å","æ","ç","è","é","ê","ë","ì","í","î","ï","ð","ñ","ò","ó","ô","õ","ö","ø","ù","ú","û","ü","ý","þ","ÿ"])
+    input_jp_lower = [
+        "あ","い","う","え","お",
+        "か","き","く","け","こ",
+        "さ","し","す","せ","そ",
+        "た","ち","つ","て","と",
+        "な","に","ぬ","ね","の",
+        "は","ひ","ふ","へ","ほ",
+        "ま","み","む","め","も",
+        "や",None,"ゆ",None,"よ",
+        "ら","り","る","れ","ろ",
+        "わ",None,"を",None,"ん"]
+        
+    softkey["en"]["upper"] = []
+    softkey["en"]["upper"].append(SwitchCaps(softkey["en"]["lower"][0],True))
+    softkey["en"]["upper"].append(SwitchCaps(softkey["en"]["lower"][1],True))
+    
+
+    input_alphabet = []
+    for column in softkey["en"]["upper"]:
+        input_alphabet.append(column)
+    
+    input_special = {}
+    input_special["backspace"] = "←"
+    input_special["space"] = "SPACE"
+    input_special["caps"] = "CAPS"
+    input_special["shift"] = "SHIFT"
+    
+    input_nav_buttons = {}
+    input_nav_buttons["confirm"] = "OK"
+    input_nav_buttons["default"] = "Default"
+    input_nav_buttons["clear"] = "Clear"
+        
+screen input_softkeyboard:        
+    #if input_caps or input_shift:
+    #   $ input_alphabet[0] = input_en_upper
+    #else:
+    #   $ input_alphabet[0] = input_en_lower
+        
+    frame:
+        xfill True
+        yfill True
+        style "input_softkeyboard"
+        vbox:
+            #area(xpos, ypos, width, height)
+            area (INPUT_MARGIN, INPUT_MARGIN, config.screen_width-(INPUT_MARGIN*3), config.screen_height-(INPUT_MARGIN*3))
+                    
+            use input_line
+            null height 5
+            use input_keyboard
+            
+init -2 python:
+    style.input_softkeyboard = Style("frame")
+    style.input_softkeyboard.background = "#dcebff"
+    
+screen input_line:
+    frame:
+        xfill True
+
+        vbox:
+            label input_label
+            xpos 10
+            null height 2
+            text input_value style "input_line"
+            null height 2
+        
+init -2 python:
+    style.create("input_line", "text")
+    style.input_line.size= 35
+    style.input_line.xanchor= -10
+    
+screen input_nav:
+    hbox:
+        xfill True
+        
+        null width 5
+        textbutton input_nav_buttons["default"] action SetVariable("input_value",INPUT_DEFAULT)  style "input_nav"
+        textbutton input_nav_buttons["clear"] action SetVariable("input_value","")  style "input_nav"
+        textbutton input_nav_buttons["confirm"] action Return(input_value) style "input_nav"
+        
+init -2 python:
+    style.input_nav = Style("button")
+    style.input_nav.size= 40
+    style.input_nav.xminimum = 235
+    style.input_nav.yminimum = 50
+    
+screen input_keyboard:        
+    frame:
+        xfill True
+        yfill True
+    
+        vbox:
+            use input_nav
+            null height 15
+            hbox:
+                null width 15
+            
+                use input_keys
+                    
+screen input_keys:
+    hbox:
+        xfill True
+        for column in input_alphabet:
+            grid key_row key_col:
+                spacing 10
+                for letter in column:
+                    if letter is not None:
+                        textbutton letter action [SetVariable("input_value", AddLetter(input_value,letter)),SetVariable("input_shift",False)] style "keyboard_button"
+                    else:
+                        null
+                for i in range(len(column),key_row*key_col):
+                    null
+
+        use input_special
+       
+init -2 python:
+    style.create("keyboard_button", "button")
+    style.keyboard_button.xminimum = 40
+    style.keyboard_button.yminimum = 40
+    style.keyboard_button_text.size= 22
+    
+screen input_special:
+    grid 1 key_col:
+        textbutton input_special["backspace"] action SetVariable("input_value",input_value[:-1]) style "keyboard_button_special"
+        textbutton input_special["space"] action SetVariable("input_value",input_value+" ") style "keyboard_button_special"
+        textbutton input_special["caps"] action ToggleVariable("input_caps") style "keyboard_button_special"
+        textbutton input_special["shift"] action SetVariable("input_shift", True) style "keyboard_button_special"
+        for i in range(4,key_col):
+            null
+        
+init -2 python:
+    style.keyboard_button_special = Style("keyboard_button")
+    style.keyboard_button_special.xminimum = 100
+    
+#EOF

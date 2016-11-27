@@ -1,0 +1,40 @@
+init -1000 python:
+    # 言語とフォントの定義
+    # Language & Font definitions
+    langs = [ "jp","en"]
+    ml_langs = {}
+    ml_langs["en"] = "{font=DejaVuSans.ttf}English{/font}"
+    ml_langs["jp"] = "{font=lang/jp/VL-PGothic-Regular.ttf}日本語{/font}"
+    
+    def ml_GetLangName(lang):
+        return ml_langs[lang]
+
+    def ml_ChangeLang(newLang):
+        persistent.lang = newLang
+        lang = newLang
+        
+init -3 python:
+    if persistent.lang is None:
+        persistent.lang = "en"
+        persistent.chose_lang = False    
+    lang = persistent.lang  
+    
+label language_picker:
+scene black
+
+menu:
+    "{font=DejaVuSans.ttf}English{/font}":
+        $ persistent.lang = "en"
+    "{font=lang/jp/VL-PGothic-Regular.ttf}日本語{/font}":
+        $ persistent.lang = "jp"
+
+$ renpy.utter_restart()
+
+label splashscreen:
+
+if not persistent.chose_lang:
+    $ persistent.chose_lang = True
+    jump language_picker
+return
+
+#EOF
