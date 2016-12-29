@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/softkeyboard/en.rpy", line 15: EOL while scanning string literal
-(Perhaps you left out a " at the end of the first line.)
-        INPUT_VALUE_DEFAULT = "
-                               ^
+File "game/options.rpy", line 13: invalid syntax
+    init -1 python hide:
+                  ^
     
 
-Ren'Py Version: Ren'Py 6.99.11.1749
+Ren'Py Version: Ren'Py 6.99.12.1.2012

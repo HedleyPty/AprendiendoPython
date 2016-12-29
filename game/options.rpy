@@ -7,14 +7,18 @@
 ## contienen código no activo. La marca '#' puede eliminarse si se quiere
 ## utilizar esa característica.
 
+init -70 python hide:
+    build.google_play_key="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoXXgq8WH1FJwM+5YqQob/Z5F4ZrHRWRZK0zEd4cfOiOAQ6j+xMoPhy79dK9O3hJuY2VpvI5qjcfOZPGY1vF9yoluLOdFiHiyZMbWtGm/II9pfpU6T4zxdE4eOHaZKWvWJzrSPZgFzaHMX4+4brztZ/p9WZIiYzlJ79Xt+2oQHLgeLURncJAS6eoAYevMK3V1WaBhpzk5B6xXsZJsNaiQ2u/yR+lJ1x4BL0oO4GuMUNiCqHp8Hdr3u3/kpOkBc0R5Gfkhusd++2lNgPz4NxodrOSK0oPQatPxBj1Ch74IdadnR0eh8XcjOx24gEeBYBmyeioaRr8ll7udT1kE/s5ivwIDAQAB"
+    build.google_play_salt=tuple(range(21,1,-1))
 init -1 python hide:
     #persistent.console=True
     ## Esta variable habilita las herramientas de desarrollo. Debe ser
     ## ajustada a False antes del lanzamiento del juego, así el usuario
     ## no puede hacer trampas usando las herramientas de desarrollo.
-
-    config.developer = True
-    #persistent.console
+    if not renpy.android:
+        config.developer = False
+    else:
+        config.developer = persistent.console
 
     ## Control de la anchura y altura de la pantalla.
 
