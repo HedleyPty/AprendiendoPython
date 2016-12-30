@@ -365,6 +365,7 @@ label python_:
             h "Las opciones del desarrollador de Ren'py nos permiten acceder a la consola de Python en Windows, Mac y en Linux."
             h "Las opciones del desarrollador no estan disponibles para Android"
             h "Debes installar este programa en una computadora de escritorio o una laptop"
+            h "Si quieres tener una consola python, puedes usar la que aparece en {a=https://python.org}la pägina oficial de python{/a}"
         elif not persistent.console:
             h "En este momento vamos a acceder a las opciones del desarrollador, las cuales nos van a permitir acceder a la consola de Python en Windows, Mac y en Linux."
             h "Estás a punto de abrir las opciones del desarrollador"
@@ -1579,7 +1580,6 @@ label clases1:
     h "Hay un método especual que sirve para definir atributos de una instancia de una clase\nEsto método se llama {color=#ff0}inicializador{/color}"
     h "El método {color=#ff0}inicializador{/color} se declara mediante la palabra reservadas {color=#ff0}def __init__(self, atributo1, atributo2, atributo 3, ... atributo n):{/color}"
     consola '{color=#f0f}#Por ejemplo una clase con método inicializador{/color}\nclass Perro:\n\ \ \ \ def __init_(self, color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "gua! gua!"'
-if not renpy.android:
     h "Veamos como inicializamos la clase pájaro"
     python:
         error=""
@@ -1597,17 +1597,50 @@ if not renpy.android:
             if respuesta ==  respuestas[counter]:
                 $ counter += 1
                 if counter == 5:
+                    "Felicidades has creado una clase!"
                     jump clases2
             else:
-                h "Eso no es correcto"
+                h "[error]"
         $encabezado = preguntas[counter]
         if not renpy.android:
             show text "{color=#000}[encabezado]" at top
             $respuesta = renpy.input()
             hide text
+            
         else:
-            $respuesta=renpy.input(encabezado )
-            jump class_q1
+            menu:
+                "[encabezado]"
+                "pajaro" if counter==0:
+                    $ error= "Las nombres de clases no suelen llamarse con minúsculas"
+                    $ respuesta =""
+                    jump class_q1
+                "Pajaro" if counter==0:
+                    h "eso es correcto"
+                    $ respuesta = "Pajaro"
+                "ave" if counter==0:
+                    $ error = "No se le ha indicado crear una clase con ese nombre"
+                    jump class_q1
+                "__begin__" if counter==1:
+                    $ error "no existe ningun método con ese nombre"
+                    jump class_q1
+                "especie" if counter > 1:
+                    $ error "el nombre de eese argumento es incorrecto"
+                    $ respuesta = "especie"
+                    jump class_q1
+                "peso" if counter > 1:
+                    $ error "el nombre de eese argumento es incorrecto"
+                    $ respuesta = "peso"
+                    jump class_q1
+                "vuelo" if counter > 1:
+                    $ respuesta = "vuelo"
+                    $ error "el nombre de eese argumento es incorrecto"
+                    jump class_q1
+                "__init__" if counter==1:
+                    $ respuesta = "__init__"
+                    jump class_q1
+                "__start__" if counter==1:
+                    $ error "no existe ningun método con ese nombre"
+                    jump class_q1    
 label clases2:
     h "Para crear una instancia de una clase, debemos crear el nombre de la instancia, seguido del nombre de la clase, luego un par de paréntesis con los argumentos del método inicializador."
     consola '{color=#f0f}#Vamos a crear la instancia de la clase perro llamada lassie de color negro y de raza Collie{/color}\nclass Perro:\n\ \ \ \ def __init_(self,color, raza):\n\ \ \ \ \ \ \ \ self.color = color\n\ \ \ \ \ \ \ \ self.raza = raza\n\ \ \ \ def ladrar():\n\ \ \ \ \ \ \ \ print "guau! guau!"\nlassie=Perro("negro", "Collie")'
@@ -1618,6 +1651,8 @@ label clases2:
     h "Vamos a ver como crear una clase"
     python:
         respuesta=""
+        if renpy.android:
+            counter=0
 label class_q2:
     if respuesta:
         if re.match(r'peng *= *Pajaro *\( *(especie *= *)?\"pingüino\" *, *(peso *= *)?6 *, *(vuelo *= *)?False *\)', respuesta):
@@ -1629,8 +1664,12 @@ label class_q2:
         $respuesta = renpy.input()
         hide text
     else:
-        $respuesta=renpy.input("#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo")
-    jump class_q2
+        $ preguntas=['#Como nombramos la clase?', 
+        'Como lo hacemos una instancia de la clase Pajaro\npeng',
+        'Que especie es el animal\npeng = Pajaro(?', 'cual es su peso?\nopeng', 'Puede volar?']
+        $ respuestas=['peng','pingüino','6', 'False']
+       "#Vamos a crear una instancia de la clase Pajaro llamada {color=#ff0}peng{/color}, de especie {color=#ff0}\"pingüino\"{/color}, con un peso de {color=#ff0}6{/color} kg incapaz de volar (es decir que el atributo de vuelo es {color=#ff0}False{/color})\n\nclass Pajaro:\n     def __init__(especie, peso, vuelo = True):\n        self.especie=especie\n        self.peso=peso\n        self.vuelo=vuelo/n[pregunta[counter]]"
+        jump class_q2
 label class3:
     h "Ahora vamos a ver los métodos"
     h "Vamos a ver la clase Pajaro del ejercicio anterior y vamos a crear el método volar"
@@ -1641,6 +1680,7 @@ label class3:
         vuela=""
         counter=1000
         pr = ["¿Qué especie es el ave?", "¿Cuántos kilogramos pesa?", "¿Puede volar?"]
+        clase="Pajaro("
 label class_q3:
     if counter==1000:
         $ counter=0
@@ -1674,11 +1714,15 @@ label class_q3:
                 
     $ pregunta = "Vamos a crear una clase Pajaro usando el entorno de Python en Ren'py\n" + pr[counter]
     if not renpy.android:
-        show text "{color=#000}[pregunta]" at truecenter
-        $ respuesta = renpy.input()
-        hide text
+        #show text "{color=#000}[pregunta]" at truecenter
+        menu:
+            "[pregunta]"
+            "pingüino" if counter==0:
+                $ respuesta='pingüino'
+                jump class_q3
+        #hide text
     else:
-        $ respuesta=renpy.input(pregunta)
+        
     jump class_q3
 label class4:
     h "Ahora vamos a hablar un poco de la palabra reservada {color=#ff0}import{/color}"
